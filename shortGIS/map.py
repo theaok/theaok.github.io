@@ -1,6 +1,7 @@
 '''
 bsb134: run linux, and run in terminal: /usr/local/anaconda/bin/spyder 
-talk about interface, change fonts, using regular console v ipython
+talk about interface, change fonts, just have code and interpreter and drop
+other windows; can just use Ipython, that's the trend
 '''
 
 '''
@@ -17,19 +18,16 @@ click windows search from windows icon at bottom left and find
 conda install -c conda-forge geopandas
 '''
 
-#need pysal! [should be in anaconda]
-#geopandas 0.3 also installs fine on apps.rutgers just may need 
-#--user option, and restart spyder and use console not ipython
-
+#geopandas 0.3 also installs fine on apps.rutgers just may need --user option
+import pip
 pip.main(['install', 'geopandas','--user'])
 pip.main(['install', 'pysal','--user']) 
 
-wd='path to project dir' #on win may need double like c:\\docs\\etc\\
-#bsb134: get path by creating sth on desktop, right click and properties:
+wd='path to project dir' #on win may need double backward like c:\\docs\\etc\\
+#bsb134: get path by creating folder, say 'lab2' on desktop, right click and properties:
 # like /crab/u12/facstaff/ao264/Desktop/lab2
 
 import os
-import urllib
 os.getcwd()
 os.makedirs(wd)
 os.chdir(wd)
@@ -44,6 +42,7 @@ import matplotlib.pyplot as plt
 
 import geopandas as gpd
 
+import urllib
 
 
 #LATER: WAS DOING SOME BASIC BASIC INTRO EXAMPLES BUT DIDNT FINISH, EITHER
@@ -114,7 +113,7 @@ import geopandas as gpd
 
 
 
-# #####merging
+# #####merging --get data from WORLD BANK API!
 # In [1]: world = gpd.read_file(gpd.datasets.get_path('naturalearth_lowres'))
 
 
@@ -142,10 +141,12 @@ njCounties.head()
 njCounties.dtypes
 njCounties.describe().round(2)
 njCounties[['COUNTY','POPDEN2010']]
+
 njCounties['POPDEN2010'].replace(450,450.9,inplace=True) #just an example
+
 njCounties[['COUNTY','POPDEN2010']]
-njCounties['POPDEN2010'].hist()
-njCounties['POPDEN2010'].hist()
+njCounties['POPDEN2010'].hist(bins=5)
+njCounties.boxplot(column='POPDEN2010',by='REGION'), plt.show()
 
 fig, ax = plt.subplots()
 ax.scatter(njCounties['POPDEN2010'],njCounties['POP2000'] )
@@ -187,14 +188,18 @@ zil1.rename(columns={'UPPER': 'COUNTY'}, inplace=True)
 
 
 #njCounties.dtypes
-#njC1=njCounties[['COUNTY','POP2010']] #guess messes up shp
+#njC1=njCounties[['COUNTY','POP2010']] #guess messes up shp, maybe bc missed shapes cols!
 
 njC1 = njCounties.merge(zil1, on='COUNTY')
 
 njC1.dtypes
 njC1[['COUNTY','Dec 2012']]
 
-njC2=njC1.drop(njC1.index[[19]]) #specify after commas obs to drop
+#njC2=njC1.drop(njC1.index[[19]]) #specify after commas obs to drop
+import numpy as np
+njC2 = njC1[np.isfinite(njC1['Dec 2012'])] #drop missing on Dec2012 (by keep obs
+#where val is finite)
+
 njC2[['COUNTY','Dec 2012']]
 
 njC2['Dec 2012']=njC2['Dec 2012']/1000
@@ -209,6 +214,7 @@ leg = ax.get_legend()
 #leg.set_bbox_to_anchor((0.3,1,0,0)) #top left
 #leg.set_bbox_to_anchor((0.3,0.2,0,0)) #bottom left
 leg.set_bbox_to_anchor((0.5,0.6,0,0)) #middle left
+ax.set_axis_bgcolor("lightslategray") #set bcground col
 #ax.set_axis_off() #kills axes
 ax.set_xticks([]) #kills xticks
 ax.set_yticks([]) #kills xticks
@@ -328,7 +334,7 @@ heatmap(pts, bins=50, smoothing=1.5) #MAYBE figure out what that means!
 #and legend--eg how many dots per square i guess
 
 
-### geocoding
+### geocoding--skip for now; best use qgis anyway bc can neatly chk with goog openlayers
 
 urllib.request.urlretrieve('https://sites.google.com/site/adamokuliczkozaryn/gis_int/apartments-for-rent.xls','apt.xls')
 apt=pd.read_excel('apt.xls')
@@ -387,7 +393,7 @@ from folium.plugins import MarkerCluster, HeatMap
 
 from geopy import geocoders  
 #g = geocoders.GoogleV3()
- g = geocoders.Nominatim() # goog bertter but limited queries per 24hrs
+g = geocoders.Nominatim() # goog bertter but limited queries per 24hrs
 
 
 
@@ -445,7 +451,7 @@ f.Map(location=place[1], tiles='Stamen Toner', zoom_start=16).save('m.html'); we
 ###adding markup by hand--easy! good for few u/a
 
 
-m = f.Map(location=g.geocode("401 cooper st camden nj")[1], zoom_start=14)
+m = f.Map(location=g.geocode("401 cooper st camden nj")[1], zoom_start=18)
 m.add_child(f.Marker(g.geocode("401 cooper st camden nj 08120")[1], popup='DPPA'))
 m.add_child(f.Marker(g.geocode("321 cooper st camden nj 08102" )[1], popup='bbb'))
 #m.add_child(f.CircleMarker(g.geocode("waterfront camden nj")[1], popup='waterfront'))
@@ -548,8 +554,19 @@ m.save('m.html'); webbrowser.open('m.html')
 #https://developers.google.com/maps/documentation/javascript/examples/layer-heatmap
 
 
-#############SKIP! for thematic just use  ~/teach/gis_int/shortGISworkshop/map.py BUT NOT IN THIS CLASS #######################
-###################################### just take my regular qgis class #################################
+
+
+#####################################################################################
+#SKIP THE REST; JUST OLD LOSE NOTES: LATER PROCESS THEM, REINCORPORATE ABOVE OR DROP#
+#SKIP THE REST; JUST OLD LOSE NOTES: LATER PROCESS THEM, REINCORPORATE ABOVE OR DROP#
+#SKIP THE REST; JUST OLD LOSE NOTES: LATER PROCESS THEM, REINCORPORATE ABOVE OR DROP#
+#SKIP THE REST; JUST OLD LOSE NOTES: LATER PROCESS THEM, REINCORPORATE ABOVE OR DROP#
+#SKIP THE REST; JUST OLD LOSE NOTES: LATER PROCESS THEM, REINCORPORATE ABOVE OR DROP#
+#####################################################################################
+
+
+
+
 
 #### thematic/choropleth maps
 
