@@ -1,0 +1,979 @@
+<b>QM2, 56:824:709</b>
+
+Spring 2017; Tues 6:00pm-8:40pm, BSB-134 
+
+<dl> professor: Adam Okulicz-Kozaryn
+<li> adam.okulicz.kozaryn@gmail.com 
+<li> office: 321 Cooper St, Room 302
+<li> office hours: Tue 4.30-5pm, and by appointment 
+</dl>
+
+<dl> assistant:  Curtis Williams
+<li> curtwill@scarletmail.rutgers.edu
+<li> office: 321 Cooper St, Room 210  (2 floor)
+<li> office hours: TBA, and by appointment
+</dl>
+
+
+<!-- LATER -- may merge these two -->
+<!-- <h3>Course Description</h3> -->
+
+<!-- This course provides a survey of the bivariate and multiple regression models estimated using Ordinary Least Squares (OLS), with an emphasis on using regression models to test social and economic hypotheses. This application focused course presents examples drawn from economics, political science, public policy and sociology, introduces the basic concepts and interpretation of regression models, and basic methods of inference. Topics are supported by computer-supported data analyses.  -->
+
+<h3>overview</h3>
+
+<!--  This is a course on empirical methods that are useful in the investigation of -->
+<!-- hypotheses in the social sciences and, for instance,  the analysis of -->
+<!-- public policies and programs. --> 
+This class is a detailed examination of regression models estimated
+using Ordinary Least Squares (OLS), with an emphasis on application in
+social science.
+
+Several special topics include: violations of OLS assumptions and the use
+of dummy variables. Throughout, examples are drawn from the literature
+so students can see the models and methods in action. This class uses
+some Stata: regression cannot be learnt in an applied way without some
+use of software.
+
+
+<h3>student learning objectives/outcomes</h3>
+<dl>
+  <li> understand principles  and mechanics of regression
+  <li> analyze the wealth of data now available using regression
+  <li> understand/interpret regression results 
+  <li> become familiar with stata
+</dl>
+
+<h3>course pre-requisites</h3>
+
+QM1 or the equivalent knowledge. In other words,
+you are expected to be familiar with basic descriptive and inferential
+statistics. You do not need any knowledge of regression. 
+<!-- If you wish to -->
+<!-- review probability and statistics before or during the class, I -->
+<!-- recommend <a href="https://www.openintro.org/stat/textbook.php">https://www.openintro.org/stat/textbook.php</a>. A solid -->
+<!-- foundation in basic mathematics and college algebra is essential, but you do not need to know -->
+<!-- calculus or matrix algebra. -->
+
+
+<h3>communication</h3>
+
+Everything is linked from online
+syllabus <a href="http://aok.mooo.com/qm2">http://aok.mooo.com/qm2</a>. Sakai
+is used for grading and as assignment dropbox only.  
+<!-- A preferred mode of communication is listserv-just email -->
+<!-- qm2_class@googlegroups.com and everyone in the class will get it -->
+<!-- including TA and myself.  -->
+
+<!-- <dl> -->
+<!-- <li> Students will learn the practice of data management (there will be some theory, too) -->
+<!-- <li> Students will learn how to conduct reproducible research  -->
+<!-- <li> Students will learn how to automate research by programming in Stata -->
+<!-- <li> Students will demonstrate mastery of the material by writing an empirical paper using learned -->
+<!--   data management techniques. You may cowrite papers (upto 3 people) but then the paper quality needs to by upto 3 times of a single-authored paper. -->
+<!-- </dl> -->
+
+<h3>textbooks</h3>
+
+<!-- have for each syllabus for books maybe articles too a py sript that -->
+<!-- would pull them up into a file and then just have input statement -->
+<!-- under books... -->
+
+
+<!-- NOW POSTPONE! PAUL WANTS OLD WAY; FINE: EASIER FOR ME!!  -->
+<!-- <dl> -->
+<!-- <li>Tufte's Data Analysis for Politics and Policy https://www.edwardtufte.com/tufte/dapp/ -->
+<!-- <li>Little Sage Green Book: Applied Regression: An Introduction, -->
+<!--   Edition 1,  Michael Lewis-Beck  -->
+<!--   <a href="https://www.abebooks.com/products/isbn/9780803914940/22614513874">https://www.abebooks.com/products/isbn/9780803914940/22614513874</a> -->
+<!-- <\!-- guess just use edution 1!! editioon 2 has been polluted wirt hstiupid -\-> -->
+<!-- <\!-- R as per this  https://us.sagepub.com/en-us/nam/node/61961/download-pdf -\-> -->
+<!-- <\!-- and ed1 is cheaper :) and 2nd edition is with the guys kid, bet they -\-> -->
+<!-- <\!-- messed it up! -\-> -->
+<!-- </dl> -->
+
+<b>note:</b> this book is nonsense! full of boilerplate and
+unnecessary stuff and way too many details; so don't read it too much
+and skim through; we still keep it as an official reference because
+PhD committee decided so
+<br><br>
+
+
+Damodar M. Gujarati and Dawn C. Porter, Basic Econometrics, 5th ed. New York:
+McGraw Hill Irwin, 2009.
+<a href="http://amzn.com/0073375772">http://amzn.com/0073375772</a>
+<br><br>
+
+TIP: buy used 4th edition online, same thing (I will also cross-list
+readings in this edition on syllabus): much cheaper, about 10\$ say on
+amazon <a href="http://amzn.com/0072478527">http://amzn.com/0072478527</a>.
+Do not buy older editions than 4.
+
+
+<h3>recommended course materials</h3>
+<dl>
+<li> <li>Little Sage Green Book: Applied Regression: An Introduction, 
+  Edition 1 (or 2),  Michael Lewis-Beck  
+  <a href="https://www.abebooks.com/products/isbn/9780803914940/22614513874">https://www.abebooks.com/products/isbn/9780803914940/22614513874</a> 
+
+<!-- <li> <a href="http://www.amazon.com/Guide-Econometrics-Peter-Kennedy/dp/026261183X">http://www.amazon.com/Guide-Econometrics-Peter-Kennedy/dp/026261183X</a>  -->
+
+<!-- <li> <a href="http://www.amazon.com/Econometric-Methods-Jack-Johnston/dp/0079131212">http://www.amazon.com/Econometric-Methods-Jack-Johnston/dp/0079131212</a> -->
+<!-- <li> <a href="http://www.amazon.com/Mostly-Harmless-Econometrics-Empiricists-ebook/dp/B00286CX4U/ref=sr_1_2?ie=UTF8&m=AG56TWVU5XWC2&s=digital-text&qid=1306424554&sr=1-2">http://www.amazon.com/Mostly-Harmless-Econometrics-Empiricists-ebook/dp/B00286CX4U/ref=sr_1_2?ie=UTF8&m=AG56TWVU5XWC2&s=digital-text&qid=1306424554&sr=1-2</a> -->
+
+<!-- <li> Mastering 'Metrics: The Path from Cause to Effect by Joshua D. Angrist <a href="http://amzn.com/0691152845">http://amzn.com/0691152845</a> -->
+<li>  Another Little Sage Green Book: Understanding Significance
+  Testing, Lawrence B. Mohr <a href="http://srmo.sagepub.com/view/understanding-significance-testing/SAGE.xml">http://srmo.sagepub.com/view/understanding-significance-testing/SAGE.xml</a>
+<li> in fact all Little Sage Green Books are great!
+<li> also, I will be posting many links on the website
+</dl>
+
+<!-- mc closkey -->
+<!-- http://www.amazon.com/The-Cult-Statistical-Significance-Economics -->
+
+<h3>software</h3>
+
+We will use Stata version 14 (Intercooled/IC or higher: SE or MP) do
+not use 'small' stata. Older versions (>10) are fine).
+Stata is in the classroom  and in the Robeson Computer Lab.<br><br>
+You can buy your own Stata 14 IC/Intercooled perpetual license for
+about $200 <a href="http://www.Stata.com/order/new/edu/gradplans/gp-direct.html">http://www.Stata.com/order/new/edu/gradplans/gp-direct.html</a><br><br>
+
+Stata is available at apps.rutgers [note there is also camden apps...]. First make sure you have it
+enabled: <a href="http://netid.rutgers.edu/">http://netid.rutgers.edu</a>, on the left, click ``service activation'', and activate ``apps cloud service''.
+Then connect to apps.rutgers. Go
+to <a href="https://apps.rutgers.edu">https://apps.rutgers.edu</a>. To
+copy files between your computer and apps just use something
+like <a href="https://www.google.com/drive">https://www.google.com/drive</a>
+or <a href="https://www.dropbox.com/">https://www.dropbox.com</a>
+<br><br>
+It is mainly clunky because of fixed screen size, but you can adjust
+geometry!!: i like netid:geom=1400x700 for my laptop (note: make sure
+you first logout out of old resolution and do and uncheck save it for
+later!!); also make webbrowser full screen!; let's do all that [https://rutgersit.rutgers.edu/top-4-myths-regarding-apps-rutgers-edu/]
+<br><br>
+Some people can download Stata for free (probably need to be employed
+at RU) from <a href="https://software.rutgers.edu/">https://software.rutgers.edu/</a>.
+
+<br><br> See <a href="https://stats.idre.ucla.edu/stata/webbooks/reg/">https://stats.idre.ucla.edu/stata/webbooks/reg/</a>  and <a href="http://dss.princeton.edu/training/Regression101.pdf">http://dss.princeton.edu/training/Regression101.pdf</a>
+
+
+<br><br>
+You may also use
+<!-- free R -->
+<!--  <a href="http://cran.r-project.org">http://cran.r-project.org</a>; -->
+<!-- or --> 
+free  Python <a href="http://www.python.org/">http://www.python.org/</a>,
+ but I will cover only Stata. 
+<br><br>
+
+
+<h3>calculator</h3>
+
+A hand calculator is a necessity. It does not have to be fancy, just
+have the most basic functions. Good choices are available for as little as \$10.
+
+<h3>requirements</h3>
+
+<u>problem sets:</u> The only sure way to learn the material presented in this course is to work on
+problems that reinforce the readings and lectures.  Late problem sets are not
+accepted except in case of documented emergency
+(e.g. hospitalization). Can co-author in groups of
+upto <b>2</b> people (group submits <b>separately written</b> problem sets!).<br>
+<!-- Problem sets are due -->
+<!-- by the midnight of the day preceding the class by email to the TA -->
+<!-- (if you handwrite your problem set -- you can scan it or just take a picture)<br><br> -->
+
+<u>tests:</u> There will be open-book, open-note midterm and final.  A
+calculator is a necessity, hopefully one with which you are
+familiar. Laptop computers are not permitted during the test, 
+nor any device that can send or receive text messages, email, etc.<br>
+
+<u>paper:</u> Use tools from the class to produce a paper
+<b><u>no  longer than 5 pages single-spaced</u></b> (in some cases,
+especially if you have already done some work on some topic and
+continue it in this class (which is recommened), you may have a more
+typical journal-article length, say 10-15 single spaced pages-that's
+fine, but please do contact me as early as possible about it-in most
+cases 5 page limit will apply). Can co-author in groups of
+upto <b>2</b> people (group submits one paper).
+<!-- Typically, this paper needs to -->
+<!-- engage civically (see civic engagement component section). It can a be -->
+<!-- purely academic paper (no civic engagement) but that raises the rigor -->
+<!-- bar higher. Such paper has to use multiple regression or use extremely -->
+<!-- sophisticated descriptive statistics. -->
+
+
+<h3>grading</h3>
+
+<!-- I guess fewer ps and add midterm; jargo had midterm! -->
+<!-- TODO consider maybe less focus on paper , this is initial class -->
+<dl>
+  <li>  problem sets   20  (5ps*4pts) (+1ps for extra credit)
+  <!-- <li> Midterm	       30 percent -->
+  <!-- <li> Quizzes         15 percent -->
+  <!-- <li> Attendance      10 percent -->
+  <li> midterm         25 
+  <li> final           25 
+  <li> presentation    10 
+  <li> empirical paper 20
+</dl>
+<!-- because we have a strict policy on problem set submission [no late ps accepted except documented emergency], it does not allow enough flexibility for random, external, etc events that affect all of us and are not emergencies. Hence, there will be one more problem set that is counted as extra credit, and is worth as much as one ps--it would make up for points you might have lost on other graded parts of the class. For instance, if you do not submit one problem set, this new extra credit problem set will make up for that. Effectively, what it means is that you may just forget about one problem set.  -->
+
+
+<!-- Given the nature of the material and the grading structure, the best way to do well in this course -->
+<!-- is to work steadily throughout the semester. -->
+
+
+
+<!-- LATER have sometjing like this -->
+<!-- Starting in Fall of 2008, certain plus and minus grades will be allowed for graduate -->
+<!-- courses. After computing the student semester average on a 100-point numeric scale, -->
+<!-- letter grades will be assigned as follows: -->
+
+
+<table BORDER=1 CELLPADDING=3 CELLSPACING=1 RULES=ROWS FRAME=HSIDES><tr><td>    
+min</td><td> max</td><td> grade</td><tr><td>
+90.0</td><td>100.0</td><td>A   </td><tr><td>
+85.0</td><td>89.9</td><td>B+   </td><tr><td>
+80.0</td><td>84.9</td><td>B    </td><tr><td>
+75.0</td><td>79.9</td><td>C+   </td><tr><td>
+70.0</td><td>74.9</td><td>C    </td><tr><td>
+0</td><td>69.9</td><td>F       </td></table>
+
+<!-- <h3>Course & Instructor Policies</h3> -->
+
+<!-- <h4>Attendance</h4> -->
+
+<!-- Attendance is mandatory.  The material covered in the -->
+<!-- lectures is essential to passing the course. You are responsible for all material covered in the -->
+<!-- lectures whether or not it is in the textbook. You are also responsible for all announcements -->
+<!-- made in class, whether or not you attend. There will be few quizzes, and if you miss -->
+<!-- them you will get 0 points. If you -->
+<!-- have to miss a class, due to illness or other unavoidable conflict, try to borrow a fellow student's -->
+<!-- notes. -->
+
+<!-- <h4>Academic Honesty Notice</h4> -->
+
+<!-- There can be absolutely no collaboration of any kind -->
+<!-- on examinations. This includes communication of any kind, sharing of books or -->
+<!-- notes, or sharing of calculators. Similarly, students must scrupulously avoid -->
+<!-- plagiarism on the final paper. The penalty I request in cases of academic -->
+<!-- dishonesty is a grade of zero (0) for the examination or assignment in question, -->
+<!-- although the final penalty is determined by the responsible university official. A -->
+<!-- grade of zero on an exam could lead to failing the course. In addition, the -->
+<!-- incident is reported to the Dean of Students for disposition and becomes a part of -->
+<!-- the student’s record. -->
+
+<!-- <h4>Lab Computers and Laptop Computers</h4> -->
+
+<!-- Laptop computers may be used in class, but only for class purposes. Class -->
+<!-- purposes include taking notes, working with Stata, and viewing lecture notes or research articles -->
+<!-- as they are discussed in class. You may not use laptop computers to text, IM, surf the web, -->
+<!-- answer emails, do assignments for other classes, or any other purpose. Such uses interfere with -->
+<!-- your learning and distract fellow students. Students who violate these -->
+<!-- rules will be prohibited from further laptop use. -->
+
+
+
+<hr />
+
+<h2> academic calendar</h2>
+tentative, most uptodate always on my website; i work on those materials continously and they will be changing slightly! <a href="http://scheduling.rutgers.edu/calendar.shtml">university calendar</a>;  <a href="http://helpx.adobe.com/acrobat/kb/print-multiple-pages-per-sheet.html">you want to print several slides on one sheet, say 6</a>;  <a href="http://www.tomsguide.com/us/pictures-story/469-PDF-reader-editor-compress-splice-freeware.html">or just annotate electronic copy</a><br>
+[*] means bonus (extra/not required)<br>
+[!] means background information (review if/as needed, you should know it)<br>
+<!-- NC No Class<br> -->
+<!-- Q Quant<br> -->
+<!-- NQ Non-Quant<br> -->
+
+
+<br>
+<!-- <h4>1/27<a name="c1">class 1 introduction and course overview</a></h4> -->
+
+<h4>1/23 introduction and  overview</h4>
+
+<dl>Why is Regression Necessary? Overview of the class material and policies. Introduction to Stata and dofiles. Philosophy of
+  reproducible research. We will have a look at various data sources
+  if time permits. 
+  <li> ps0: submit dofile into sakai's dropbox by 6pm next week that will load some  data from online and produce some descriptive stats [ungraded]
+  <li> how's stata? do we need labs? say 5.30-6 or perhaps flip part
+  of class or stay 30 longer?
+  <!-- <li> review stata basics as necessary: <a href="adv_reg/stataIntroHMDC.pdf">stataIntroHMDC.pdf</a>  <a href="adv_reg/files.zip">files.zip</a>  -->
+  <li> <a href="adv_reg/c1_intro.pdf">c1_intro.pdf</a> 
+  <li> <a href="adv_reg/c1_intro.do">c1_intro.do</a> 
+  <li> <a href="adv_reg/replication.pdf">replication.pdf</a> 
+  <li>[*] Interesting articles from the Economist: 
+<!-- <a href="http://www.economist.com/node/15557443">http://www.economist.com/node/15557443</a> <br>  everything in one pdf file:  -->
+<a href="https://www.emc.com/collateral/analyst-reports/ar-the-economist-data-data-everywhere.pdf">https://www.emc.com/collateral/analyst-reports/ar-the-economist-data-data-everywhere.pdf</a> 
+  <li>[!] do you have basics covered ?  review as necessary: Jargowsky and Yang, descriptive and inferential statistics <a href="http://aok.mooo.com/inf_des/descriptive4.pdf">descriptive4.pdf</a>
+</dl>
+
+<b>how to put data online?</b><small>
+
+<dl>
+<li> go to <a href="drive.google.com">drive.google.com</a>
+<li> first upload the file, then right-click on it and select
+ "Share...", go to "Advanced" at the bottom-right of the window and then click
+ ``Change...'' and  check "On - Public on the Web"  and hit ``Save'' button and ``Done'' button
+<li> then right-click the file again and ``Get shareable link'',  and paste
+  link  into dofile; it should look like
+  <a href="https://drive.google.com/open?id=0B5Y56f52-YHrMEpQX2ZwVDV0QVE">https://drive.google.com/open?id=0B5Y56f52-YHrMEpQX2ZwVDV0QVE</a>
+ and then
+  copy the FILE_ID from it, ie everything that follows ``id='' 
+<li> and then paste that FILE_ID into
+  <a href="https://docs.google.com/uc?id=FILE_ID&export=download"></a>
+so it would become <a href="https://docs.google.com/uc?id=0B5Y56f52-YHrMEpQX2ZwVDV0QVE&export=download">https://docs.google.com/uc?id=0B5Y56f52-YHrMEpQX2ZwVDV0QVE&export=download</a>
+<li> in this example it's a .dta file so to load it, you'd say:<br> 
+use  "https://docs.google.com/uc?id=0B5Y56f52-YHrMEpQX2ZwVDV0QVE\&export=download"
+</dl>
+
+
+
+
+<!-- <h3>class 2-5 data management</h3> -->
+
+
+<!-- <font color="red"><br><br><b>>>>TO BE REORGANIZED FROM HERE>>></b><br></font> -->
+
+
+<h4>1/30  bivariate regression (stata lab:5.30) <small><a href="http://rcit.rutgers.edu/av-request/38255/43621bb7dc">vid</a></small></h4>
+<!-- We will talk about different data formats, conversion -->
+<!-- between them, and how they can be imported/exported to/from Stata.  We will also briefly  discuss -->
+<!-- text editors and introduce a -->
+<!-- simple software for data conversion: Stat-Transfer.  -->
+<dl>bivariate regression: theory and estimation; goodness of fit
+  <!-- <li> let's start by having a quick look at replication.pdf from last class -->
+  <li> <a href="adv_reg/ps1.pdf">ps1.pdf</a>
+  <li> <a href="adv_reg/c2_biv_reg.pdf">c2_biv_reg.pdf</a> 
+  <li> <a href="adv_reg/c2_biv_reg.do">c2_biv_reg.do</a> 
+  <li> gujarati (ed4 or 5) ch1-3
+  <li> [*] lewis-beck: applied regression: bivariate regression chapters
+</dl> 
+
+<!-- <li> !!!TODO post civEngPs1.pdf from generic here!!! -->
+<h4>2/6 bivariate regression (stata lab:5.30; finish 8.50) <small><a href="http://rcit.rutgers.edu/av-request/38256/6f41546ca0">vid</a></small></h4>
+<!-- We will talk about different data formats, conversion -->
+<!-- between them, and how they can be imported/exported to/from Stata.  We will also briefly  discuss -->
+<!-- text editors and introduce a -->
+<!-- simple software for data conversion: Stat-Transfer.  -->
+<dl>
+  <li> 5.30 stata lab: questions?; do stata ucla reg webbook
+  <li> <a href="adv_reg/biv2.pdf">biv2.pdf</a> 
+  <li> <a href="adv_reg/biv2.do">biv2.do</a> 
+  <li> bivariate regression: stat significance (inference, hypothesis testing)
+  <li> gujarati (ed4 or ed5) ch4-5
+  <li> flip the class, say 30min: work on ps1
+  <li> [*] mohr: understanding significance testing
+</dl> 
+
+<h4>2/13 advanced measurement and multiple regression (stata lab
+  5:30)  <small><a href="http://rcit.rutgers.edu/av-request/38257/dcab651e0d">vid</a></small></h4>
+<dl>
+  <li> <a href="adv_reg/ps2.pdf">ps2.pdf</a>
+  <!-- <li> <a href="ans2.do">ans2.do</a>   -->
+  <li> note: find your own data! ps3 posted soon asks you to use
+  your own data; it will take time to find data; contact me, ask questions!
+  <li> <a href="adv_reg/advMeaLogQua.pdf">advMeaLogQua.pdf</a>
+  <li> <a href="adv_reg/advMeaLogQua.do">advMeaLogQua.do</a>
+  <li> <a href="adv_reg/mreg.pdf">mreg.pdf</a> [stop before sec 'multiple'] 
+  <li> <a href="adv_reg/mreg.do">mreg.do</a>
+  <li> measurment: alternative functional forms (logs, reciprocals etc),polynomial specifications
+  <li> gujarati (ed4 or ed5) ch6-7 (polynomials, especially quadratics)
+  <!-- <li> Jargowsky, Omitted Variable Bias <a href="c4_ov.pdf">c4_ov.pdf</a> -->
+  <li>[*] lewis-beck: applied regression: multiple regression chapters
+  <li>[*]<a href="http://www.ats.ucla.edu/stat/stata/output/reg_output.htm">http://www.ats.ucla.edu/stat/stata/output/reg_output.htm</a>
+<li>[*]<a href="http://www.princeton.edu/~otorres/Regression101.pdf">http://www.princeton.edu/~otorres/Regression101.pdf</a>
+</dl>
+
+<h4>2/20 multiple regression (no stata lab) <small><a href="http://rcit.rutgers.edu/av-request/38258/ef0ff61fda">vid</a></small></h4>
+The K Variable Regression Model; LOVB<!-- ; Comparing Effects Across Subgroups -->
+
+<dl>
+  <!-- <li> ps3 due (Wed 11.59 PM) -->
+ <!-- TODO add to ps that actually test formulas like f-test chow test -->
+<!-- etc tec--more calculation by hand!! -->
+  <!-- <li> <a href="ans3.pdf">ans3.pdf</a>   -->
+  <!-- <li> <a href="adv_reg/ps4.pdf">ps4.pdf</a> <\!-- TODO have here stuff from ps6 !! -\-> -->
+  <li> start with mreg.pdf: ps1 comments slides at the beginning
+  <li> <a href="adv_reg/mreg.pdf">mreg.pdf</a> [start with sec
+  'multiple'] we only got till s.17: pick up there:regression plane
+  picture and assumption about no perfect correlation
+  <li> <a href="adv_reg/mreg.do">mreg.do</a>
+  <li> gujarati ed4  ch8-8.4 (skip F-tests); ed5  ch8-8.3 (skip F-tests); (ed4 or ed5): ch10 (multicollinearity); 13.1-13.3 (lovb)
+  <li> [*] <a href="adv_reg/ov2.pdf">ov2.pdf</a> lovb
+  <!-- <li> [*] Jargowsky, Using the F Statistic to Test Hypotheses <a href="adv_reg/f_summary.pdf">f_summary.pdf</a> -->
+  <li> a general intro to regression with stata, tests discussed <a href="http://www.ats.ucla.edu/stat/stata/webbooks/reg/chapter1/statareg1.htm">http://www.ats.ucla.edu/stat/stata/webbooks/reg/chapter1/statareg1.htm</a>
+  <li> [*] one-sided tests <a href="http://www.stata.com/support/faqs/stat/oneside.html">http://www.stata.com/support/faqs/stat/oneside.html</a>
+  <!-- <li> [*] chow tests <a href="http://www.stata.com/support/faqs/stat/chow.html">http://www.stata.com/support/faqs/stat/chow.html</a> -->
+<li> flip the class to work on ps2
+</dl>
+
+<h4>2/27 first-half summary (no stata lab) <small><a href="http://rcit.rutgers.edu/av-request/38335/5bcf3c9a5e">vid</a></small></h4>
+<dl>   
+  <li> <a href="adv_reg/ps3.pdf">ps3.pdf</a>
+  <li> a review class...<b>bring your questions!</b>--i'm all
+  yours--even the whole class! eg revisit logs, quadratics 
+  <!-- <li> <a href="adv_reg/civEngPs1.pdf">civEngPs1.pdf</a> -->
+  <li> <a href="adv_reg/midtermPractice.pdf">midtermPractice.pdf</a>
+  <li> <a href="adv_reg/final_project.pdf">final_project.pdf</a> [if time]
+</dl>
+<!-- !!TODO!!:  add diff in diff and give bunch of references!! in res des slides these should be some schematic -->
+
+
+<!-- FIXME -->
+
+
+<!-- <h4>Applications and Review for Midterm</h4> -->
+<!-- <dl> -->
+<!--   <li> Jeanne Brooks-Gunn, Greg J. Duncan, Pamela Kato Klebanov and Naomi Sealand.  1993. "Do Neighborhoods Influence Child and Adolescent Development," American Journal of Sociology, 99: 353-395. -->
+<!--   <li> Alan B. Krueger, “How Computers Have Changed the Wage Structure: Evidence from Microdata, 1984-1989,” Quarterly Journal of Economics 108: 33-60. -->
+<!-- </dl> -->
+
+<!-- <h4>Midterm</h4> -->
+<!-- <dl> -->
+<!--   <li>  -->
+<!--   <li>  -->
+<!--   <li> -->
+<!-- </dl> -->
+
+<!-- <h4>Review of Midterm, Multicollinearity</h4> -->
+<!-- <dl> -->
+<!--   <li> Gujarati and Porter, Basic Econometrics, Chapter 10 -->
+<!--   <li> (Optional Topic) The OLS Model in Matrix Notation -->
+<!--   <li> Jargowsky, “Matrix Notation and OLS” -->
+<!--   <li> Gujarati and Porter, Basic Econometrics, Appendices B and C -->
+<!-- </dl> -->
+
+<h4>3/6 open book open note midterm, bring calculator!</h4>
+
+<a href="adv_reg/midterm.pdf">midterm.pdf</a>
+
+<hr> spring break; <b>AND 3/20 no class either!!</b> <hr>
+
+<!-- <hr> -->
+<hr />
+
+
+<h2>applied part of the class: regressions  using data and community development/civic engagement</h2>
+
+<h4> 3/27 dummies (indicator or binary variables), interactions  
+<small><a href="http://rcit.rutgers.edu/av-request/38763/464f1f7404">vid</a></small>
+</h4>
+<dl>
+  <li> <a href="adv_reg/ps4.pdf">ps4.pdf</a>
+  <li> <a href="adv_reg/dummiesInteractions.pdf">dummiesInteractions.pdf</a>
+  <li> <a href="adv_reg/dummiesInteractions.do">dummiesInteractions.do</a>
+  <li> gujarati (ed4 or ed5): ch9
+  <!-- <li>[*] interactions in stata <a href="http://www.ats.ucla.edu/stat/stata/library/hetreg.htm">http://www.ats.ucla.edu/stat/stata/library/hetreg.htm</a> -->
+  <!-- <li>[*] postgr3 - interactions in stata <a href="http://www.ats.ucla.edu/stat/stata/ado/analysis/postgr3.htm">http://www.ats.ucla.edu/stat/stata/ado/analysis/postgr3.htm"</a> -->
+  <li>
+  [*]<a href="http://www.ats.ucla.edu/stat/stata/webbooks/reg/chapter3/statareg3.htm">http://www.ats.ucla.edu/stat/stata/webbooks/reg/chapter3/statareg3.htm</a>
+  <li>[*] more about interactions in stata <a href="http://www.ats.ucla.edu/stat/stata/webbooks/reg/chapter6/statareg6.htm">http://www.ats.ucla.edu/stat/stata/webbooks/reg/chapter6/statareg6.htm</a>
+</dl>
+
+
+<h4> 4/3 replication, replication: material practice and applied
+  regression  <small><a href="http://rcit.rutgers.edu/av-request/38863/c727021990">vid</a></small> </h4> 
+
+<!-- TODO make this 
+				 into  generic folder -->
+We will talk about writing an empirical paper, and focus on using
+				 regression. 
+
+ We'll have a look at regression tables in some of my papers, discuss models, run code, and focus on interpretation and robustness/sensitivity.
+
+We'll see  exporting results from
+				 stata; discuss reporting  of results
+				 sequentially aka model elaboration
+				 using outreg2 and perhaps estout and esttab.
+
+<!-- TODO post paper  and possibly other stuff from generic teaching -->
+<dl>
+  <li>  <a href="adv_reg/ps5.pdf">ps5.pdf</a>
+  <li> how's interactions? need to revisit? maybe interpretation, s16
+  and s20
+  <li> <a href="adv_reg/replication.pdf">replication.pdf</a>  [same as
+  in first class; just remember: ditch excel and code everything]
+  <li> <a href="adv_reg/final_project.pdf">final_project.pdf</a>
+  <!-- <li> <a href="adv_reg/c7_presentation.pdf">c7_presentation.pdf</a> -->
+  <!-- (note the actual presentation is only section "city -->
+  <!-- dissatisfaction"; other sections are a supplementary material) -->
+  <li> <a href="http://andrewgelman.com/2009/07/30/advice_on_writi/">http://andrewgelman.com/2009/07/30/advice_on_writi</a>
+  <li> <a href="http://gking.harvard.edu/files/replication.pdf">http://gking.harvard.edu/files/replication.pdf</a> 
+  <li>  <a href= "http://gking.harvard.edu/files/abs/paperspub-abs.shtml">http://gking.harvard.edu/files/abs/paperspub-abs.shtml </a> 
+  <li><a href="http://scholar.harvard.edu/files/mankiw/files/my_rules_of_thumb.pdf">http://scholar.harvard.edu/files/mankiw/files/my_rules_of_thumb.pdf</a> 
+  <!--TODO <li> * simple exporting results <a href="export_results.do">export_results.do</a> -->
+ <!-- LATER add code -->
+ <!--  ask them to read and run code! -->
+<!-- TODO have slides that talk about interpretation and practical things -->
+<!-- like robistness checks, sensitivity anal; measuremntet etc etc -->
+<li> <a href="adv_reg/c7_rep.do">c7_rep.do</a>
+   <!-- LATER: pull up from other classes -->
+
+<li> <a href="https://drive.google.com/file/d/0B06htr9jYWh6eVA3RTM4YmNzV00/view?usp=sharing">replicateLsCar.zip</a>
+ <li>
+ [*] <a href="https://sites.google.com/site/adamokuliczkozaryn/pre/AdamOK%20LG%20Happiness%20and%20Work%20Hours%20Well-Being%20and%20Public%20Policy%20Conference%20Hamilton%20slides-2%20open%20office%20format%20%282%29.pdf?attredirects=0&d=1">presentation:
+ happiness and working hours</a>
+ \;\;   <a href="https://sites.google.com/site/adamokuliczkozaryn/pubs/aokLead.pdf">paper:
+ happiness and working hours</a> [If time: a short presentation of my research]
+ <li> [*] examples of replication materials <a href="http://myweb.uiowa.edu/fboehmke/methods.html">http://myweb.uiowa.edu/fboehmke/methods.html</a> 
+<!-- <li> [*] <a href="https://sites.google.com/site/adamokuliczkozaryn/pubs/hea_spr.pdf">hea_spr.pdf</a> -->
+</dl>
+
+<h4><b></b> 4/10 violations <small><a href="http://rcit.rutgers.edu/av-request/38952/be6ca0fc67">vid</a></small></h4> 
+<!-- TODO!!! discuss endogeneity and -->
+ <!-- learn myself at the same time about it and ideall write econ paper!!! -->
+<!-- !!!!!TODO need ps8 testing violations of assumptions-jargo type! with lots - -->
+<!-- 				-of calculations!! -->
+ heteroskedasticity,  model diagnostics, and endogeneity
+<dl>
+  <li>  <a href="adv_reg/ps6.pdf">ps6.pdf</a>
+  <li> <a href="adv_reg/c6_viol.pdf">c6_viol.pdf</a>
+  <li> <a href="adv_reg/c6_viol.do">c6_viol.do</a>
+  <li> gujarati (ed4 or ed5) 10 (collinearity again), 11, 13 [no 12:
+  dropping autocorrelation!]
+  <li> endogeneity, IMPORTANT! <a href="http://people.bu.edu/tsimcoe/code/Endog-PDW.pdf">Endog-PDW.pdf</a>
+  <li>[*] model diagnostics in stata <a href="http://stata-journal.com/sjpdf.html?articlenum=gr0009">http://stata-journal.com/sjpdf.html?articlenum=gr0009</a>
+  <li>[*] model diagnostics in stata <a href="http://www.ats.ucla.edu/stat/stata/webbooks/reg/chapter2/statareg2.htm">http://www.ats.ucla.edu/stat/stata/webbooks/reg/chapter2/statareg2.htm</a>
+</dl>
+
+
+<h4><b></b> 4/17 continue with last class <small><a href="http://rcit.rutgers.edu/av-request/38998/24b68d18f6">vid</a></small></h4> 
+
+start with presentations as per ps5; then pick up with slide 34 from
+last class
+
+<dl>
+<li> if time: flip some of the class to work on ps6
+</dl>
+
+
+<!-- maybe extra topic like factor anal or something -->
+
+
+<!-- <h4>[*] class 8, Graphics</h4> -->
+<!-- <dl> -->
+<!--   <li> ans to last 2 questions in quizz 2 <a href="q2.pdf">q2.pdf</a> -->
+<!--   <li> <a href="c8_gph.pdf">c8_gph.pdf</a> -->
+<!--   <li> <a href="http://stathelp.iq.harvard.edu/mediawiki/index.php?title=Stata_gph">http://stathelp.iq.harvard.edu/mediawiki/index.php?title=Stata_gph</a> -->
+<!-- </dl> -->
+
+
+<!-- <h4>Qualitative Response Models: Logit and Probit</h4> -->
+<!-- <dl> -->
+<!--   <li> Gujarati and Porter, Basic Econometrics, Chapters 15 -->
+<!--   <li> (Optional Topic) Non-Linear Regression Models -->
+<!--   <li> Gujarati and Porter, Basic Econometrics, Chapters 14 -->
+<!-- </dl> -->
+
+<!-- <h4>Simultaneous Equations and the Identification Problem</h4> -->
+<!-- <dl> -->
+<!--   <li> Gujarati and Porter, Basic Econometrics, Chapters 18-20 -->
+<!-- </dl> -->
+
+
+
+<!-- <h4>Panel Data Regression Models and Instrumental Variables</h4> -->
+<!-- <dl> -->
+<!--   <li> Gujarati and Porter, Basic Econometrics, Chapter 16 -->
+<!--   <li> Stata Manual, xtreg, pp. 446-447. -->
+<!--   <li> -->
+<!-- </dl> -->
+
+<!-- <\!-- TODO do from "harmless" -\-> -->
+<!-- <h4>Instrumental Variables</h4> -->
+<!-- <dl> -->
+<!--   <li> Jargowsky, Instrumental Variables. -->
+<!--   <li> Model Specification Issues -->
+<!--   <li> Gujarati and Porter, Basic Econometrics, Chapter 13 -->
+<!--   <li> Path Analysis -- Duane F. Alwin and Robert M. Hauser. “The Decomposition of Effects in Path Analysis,” American Sociological Review 40: 37-47 (February 1975). -->
+<!-- </dl> -->
+
+
+<!-- !!!THESE LAST TWO CLASSES REORGANIZE AND MERGE TOEGTEHR STUFF -->
+
+
+<h4>4/24<b></b> wrap up and review for  final <small><a href="http://rcit.rutgers.edu/av-request/39148/2cf9636e52">vid</a></small></h4> 
+
+revise old under-explored topics; 
+  <!--TODO: see if can recycle some of that for ps6!! <li> <a href="adv_reg/ps8.pdf">ps8.pdf</a> | <a href="adv_reg/ps8ans.doc">ps8ans.doc</a>  -->
+<dl>more discussion on:
+<li> interactions (and in general): think about it, what does it mean,
+  what is the  bottom line, eg why is there a synergy between 2 vars;
+  so not just mechanistic interpretation: unit increase in x produces
+  ? change in y; but tell me what does it really mean; and related:
+  talk briefly about practical significance or effect sizes; see reg
+  in <a href="https://sites.google.com/site/adamokuliczkozaryn/pubs/ee_ls.pdf">ee_ls.pdf</a>
+<li> definitely revisit interactions, they did not go great :( run and
+  discuss examples from <a href="https://www3.nd.edu/~rwilliam/stats2/l51.pdf">https://www3.nd.edu/~rwilliam/stats2/l51.pdf</a>
+<li> multinomial vars and picking right base case (default, typical)
+<li> LOVB: technically speaking always; practically speaking try to
+  avoid; have another look at slides that discussed it
+<li>a look at my presentation at Hamilton again: idea, data, main var,
+  elaborating/sequential models, interpretation, conclusion
+</dl>
+
+<dl>
+  <li>  go over section "respond to comments on final project draft" of <a href="https://sites.google.com/site/adamokuliczkozaryn/res_met/final_project.pdf">final_project.pdf</a>
+  <li> <a href="adv_reg/rev.pdf">rev.pdf</a> 
+
+  <!-- <li> <a href="adv_reg/c9_will_panel.pdf">c9_will_panel.pdf</a> -->
+
+  <li><a href="adv_reg/final_practice.pdf">final_practice.pdf</a> AND <a href="adv_reg/final_practice_ans.pdf">final_practice_ans.pdf</a>
+  <li><a href="adv_reg/Study Guide for the Exam in Methods 2015.pdf">oldStudyGuide-onlyRegressionsPart.pdf [again, forget about
+  f-tests, and autocorrelation]</a>
+  <li> <a href="adv_reg/final_review_s10.pdf">final_review_s10.pdf</a>
+  AND <a href="adv_reg/final_review_s10_answers.pdf">final_review_s10_answers.pdf</a>  eg p1
+  <li> if time: go through my replication files from earlier that we
+  didn't go through 
+</dl>
+
+
+<h3>5/1 15min  student presentations and continue with
+  wrap-up/summary <small><a href=" http://rcit.rutgers.edu/av-request/39226/d5a0099bcf">vid</a></small></h3>
+
+<dl>
+  <li> continue with <a href="adv_reg/rev.pdf">rev.pdf</a> 
+</dl>
+
+general comments: for 15 min presentation probably do not need too
+much of an outline; do not be shy, publish your research; use
+pictures, use maps, tell a story, do not overwhelm user, present most
+important key results, not everything!! be interesting; but have well
+thought regression results!! this is regression class: need
+regression results
+
+
+<h3>5/7 final paper due</h3>
+ (by 6pm in Sakai's dropbox)
+
+<h3>5/8 final</h3>
+<dl>
+  <li> Open note, open book, no laptop computers
+  <li> Bring a calculator
+</dl>
+
+
+<h3>marketing: take in fall my data management and paul jargowsky's
+  categorical and limited dependent variables: both excellent classes!</h3>
+
+
+<!-- <hr /> -->
+<!-- <hr /> -->
+<!-- <h4>moving from stata to R</h4> -->
+<!-- use gui:<br> -->
+<!-- http://sciviews.org/_rgui/<br><br> -->
+
+<!-- r for stata users:<br> -->
+<!-- http://books.google.com/books?id=X762wgTSJEYC&pg=PA30&lpg=PA30&dq=R+gui+stata&source=bl&ots=-mXGz656js&sig=_tOpqbgcTX3_1gq4wAkKDyugukA&hl=en&ei=sIM4Td-wKYucgQe6maivCA&sa=X&oi=book_result&ct=result&resnum=3&ved=0CCYQ6AEwAg#v=onepage&q=R%20gui%20stata&f=false<br><br> -->
+
+<!-- a really nice reference in adition to ats.ucla<br> -->
+<!-- http://www.statmethods.net/<br><br> -->
+
+<!-- translated code<br> -->
+<!-- http://www.stata.com/capabilities/session.html<br><br> -->
+<!-- http://rwiki.sciviews.org/doku.php?id=guides:demos:stata_demo_with_r<br><br> -->
+
+<!-- <hr /> -->
+<!-- <h3>The material that follows is standard text recommended by the University</h3> -->
+
+<!-- <h4>Student Conduct & Discipline</h4> -->
+
+<!-- The University of Texas System and The University of Texas at Dallas have rules and regulations for the orderly and -->
+<!-- efficient conduct of their business. It is the responsibility of each student and each student organization to be -->
+<!-- knowledgeable about the rules and regulations which govern student conduct and activities. General information on -->
+<!-- student conduct and discipline is contained in the UTD publication, A to Z Guide, which is provided to all registered -->
+<!-- students each academic year. -->
+<!-- <br><br> -->
+<!-- The University of Texas at Dallas administers student discipline within the procedures of recognized and established -->
+<!-- due process. Procedures are defined and described in the Rules and Regulations, Board of Regents, The University of -->
+<!-- Texas System, Part 1, Chapter VI, Section 3, and in Title V, Rules on Student Services and Activities of the university's -->
+<!-- Handbook of Operating Procedures. Copies of these rules and regulations are available to students in the Office of the -->
+<!-- <br><br> -->
+<!-- Dean of Students, where staff members are available to assist students in interpreting the rules and regulations (SU -->
+<!-- 1.602, 972/883-6391). -->
+<!-- <br><br> -->
+<!-- A student at the university neither loses the rights nor escapes the responsibilities of citizenship. He or she is expected -->
+<!-- to obey federal, state, and local laws as well as the Regents' Rules, university regulations, and administrative rules. -->
+<!-- Students are subject to discipline for violating the standards of conduct whether such conduct takes place on or off -->
+<!-- campus, or whether civil or criminal penalties are also imposed for such conduct. -->
+
+<!-- <h4>Academic Integrity</h4> -->
+
+<!-- The faculty expects from its students a high level of responsibility and academic honesty. Because the value of an -->
+<!-- academic degree depends upon the absolute integrity of the work done by the student for that degree, it is imperative -->
+<!-- that a student demonstrate a high standard of individual honor in his or her scholastic work. -->
+<!-- <br><br> -->
+<!-- Scholastic dishonesty includes, but is not limited to, statements, acts or omissions related to applications for enrollment -->
+<!-- or the award of a degree, and/or the submission as one's own work or material that is not one's own. As a general rule, -->
+<!-- scholastic dishonesty involves one of the following acts: cheating, plagiarism, collusion and/or falsifying academic -->
+<!-- records. Students suspected of academic dishonesty are subject to disciplinary proceedings. -->
+<!-- <br><br> -->
+<!-- Plagiarism, especially from the web, from portions of papers for other classes, and from any other source is -->
+<!-- unacceptable and will be dealt with under the university's policy on plagiarism (see general catalog for details). This -->
+<!-- course will use the resources of turnitin.com, which searches the web for possible plagiarism and is over 90% effective. -->
+
+<!-- <h4>Withdrawal from Class</h4> -->
+
+<!-- The administration of this institution has set deadlines for withdrawal of any college-level courses. These dates and -->
+<!-- times are published in that semester's course catalog. Administration procedures must be followed. It is the student's -->
+<!-- responsibility to handle withdrawal requirements from any class. In other words, I cannot drop or withdraw any -->
+<!-- student. You must do the proper paperwork to ensure that you will not receive a final grade of "F" in a course if you -->
+<!-- choose not to attend the class once you are enrolled. -->
+
+<!-- <h4>Student Grievance Procedures</h4> -->
+
+<!-- Procedures for student grievances are found in Title V, Rules on Student Services and Activities, of the university's -->
+<!-- Handbook of Operating Procedures. -->
+<!-- <br><br> -->
+<!-- In attempting to resolve any student grievance regarding grades, evaluations, or other fulfillments of academic -->
+<!-- responsibility, it is the obligation of the student first to make a serious effort to resolve the matter with the instructor, -->
+<!-- supervisor, administrator, or committee with whom the grievance originates (hereafter called "the respondent"). -->
+<!-- Individual faculty members retain primary responsibility for assigning grades and evaluations. If the matter cannot be -->
+<!-- resolved at that level, the grievance must be submitted in writing to the respondent with a copy of the respondent's -->
+<!-- School Dean. If the matter is not resolved by the written response provided by the respondent, the student may submit -->
+<!-- a written appeal to the School Dean. If the grievance is not resolved by the School Dean's decision, the student may -->
+<!-- make a written appeal to the Dean of Graduate or Undergraduate Education, and the deal will appoint and convene an -->
+<!-- Academic Appeals Panel. The decision of the Academic Appeals Panel is final. The results of the academic appeals -->
+<!-- process will be distributed to all involved parties. -->
+<!-- <br><br> -->
+<!-- Copies of these rules and regulations are available to students in the Office of the Dean of Students, where staff -->
+<!-- members are available to assist students in interpreting the rules and regulations. -->
+
+<!-- <h4>Incomplete Grade Policy</h4> -->
+
+<!-- As per university policy, incomplete grades will be granted only for work unavoidably missed at the semester's end and -->
+<!-- only if 70\% of the course work has been completed. An incomplete grade must be resolved within eight (8) weeks -->
+<!-- from the first day of the subsequent long semester. If the required work to complete the course and to remove the -->
+<!-- incomplete grade is not submitted by the specified deadline, the incomplete grade is changed automatically to a grade -->
+<!-- of F. -->
+
+<!-- <h4>Disability Services</h4> -->
+
+<!-- The goal of Disability Services is to provide students with disabilities educational opportunities equal to those of their -->
+<!-- non-disabled peers. Disability Services is located in room 1.610 in the Student Union. Office hours are Monday and -->
+<!-- Thursday, 8:30 a.m. to 6:30 p.m.; Tuesday and Wednesday, 8:30 a.m. to 7:30 p.m.; and Friday, 8:30 a.m. to 5:30 p.m. -->
+<!-- <br><br> -->
+<!-- The contact information for the Office of Disability Services is: -->
+
+<!-- The University of Texas at Dallas, SU 22 -->
+<!-- PO Box 830688 -->
+<!-- Richardson, Texas 75083-0688 -->
+<!-- (972) 883-2098 (voice or TTY) -->
+<!-- <br><br> -->
+<!-- Essentially, the law requires that colleges and universities make those reasonable adjustments necessary to eliminate -->
+<!-- discrimination on the basis of disability. For example, it may be necessary to remove classroom prohibitions against -->
+<!-- tape recorders or animals (in the case of dog guides) for students who are blind. Occasionally an assignment -->
+<!-- requirement may be substituted (for example, a research paper versus an oral presentation for a student who is hearing -->
+<!-- impaired). Classes enrolled students with mobility impairments may have to be rescheduled in accessible facilities. -->
+<!-- The college or university may need to provide special services such as registration, note-taking, or mobility assistance. -->
+<!-- <br><br> -->
+<!-- It is the student's responsibility to notify his or her professors of the need for such an accommodation. Disability -->
+<!-- Services provides students with letters to present to faculty members to verify that the student has a disability and needs -->
+<!-- accommodations. Individuals requiring special accommodation should contact the professor after class or during office -->
+<!-- hours. -->
+
+<!-- <h4>Religious Holy Days</h4> -->
+
+<!-- The University of Texas at Dallas will excuse a student from class or other required activities for the travel to and -->
+<!-- observance of a religious holy day for a religion whose places of worship are exempt from property tax under Section -->
+<!-- 11.20, Tax Code, Texas Code Annotated. -->
+<!-- <br><br> -->
+<!-- The student is encouraged to notify the instructor or activity sponsor as soon as possible regarding the absence, -->
+<!-- preferably in advance of the assignment. The student, so excused, will be allowed to take the exam or complete the -->
+<!-- assignment within a reasonable time after the absence: a period equal to the length of the absence, up to a maximum of -->
+<!-- one week. A student who notifies the instructor and completes any missed exam or assignment may not be penalized -->
+<!-- for the absence. A student who fails to complete the exam or assignment within the prescribed period may receive a -->
+<!-- failing grade for that exam or assignment. -->
+<!-- <br><br> -->
+<!-- If a student or an instructor disagrees about the nature of the absence [i.e., for the purpose of observing a religious holy -->
+<!-- day] or if there is similar disagreement about whether the student has been given a reasonable time to complete any -->
+<!-- missed assignments or examinations, either the student or the instructor may request a ruling from the chief executive -->
+<!-- officer of the institution, or his or her designee. The chief executive officer or designee must take into account the -->
+<!-- legislative intent of TEC 51.911(b), and the student and instructor will abide by the decision of the chief executive -->
+<!-- officer or designee. -->
+
+<!-- <hr /> -->
+<!-- <hr /> -->
+<!-- <h2>extra information</h2> -->
+<!-- <h3><a name="npp">notepad++</a></h3> -->
+
+
+<!-- A decent text editor is an important tool for data analyst. You can use it to write/edit your statistical code (Do NOT write/edit code in MS Word !), but also to look at your data if data are in text format (e.g. .dat .txt .csv .tab . raw ). Statistical software usually comes with text editor. For instance, Stata has a built-in do-file editor. But these built-in text editors are poor as compared to stand-alone text editors. Using stand-alone text editor is more efficient: -->
+<!-- You can define your own syntax highlighting (or use predefined) -->
+<!-- You can manipulate your code using regular expressions -->
+<!-- You can use many advanced features such as autocompletion, multi-view, bookmarks, macros, etc. -->
+<!-- There are many text-editors out there. If you use windows, you have Notepad preinstalled, but Notepad is a really poor software like most Microsoft products. There is a good review of text editors for Stata (it is also useful if you use other software): http://fmwww.bc.edu/repec/bocode/t/textEditors.html -->
+<!-- I experimented with many text editors. If you use Windows, a good choice is Notepad++: http://notepad-plus.sourceforge.net/uk/site.htm. -->
+<!-- If you use Stata, you can actually run it from within Notepad++: -->
+<!-- http://web.mit.edu/randallL/www/STATA.html and/or http://econweb.umd.edu/~kranker/code/notepad_to_stata.php -->
+
+<!-- If you want really advanced (with really big learning curve) text editor, a good choice is Emacs: -->
+<!-- http://www.gnu.org/software/emacs. You should also then get Emacs Speaks Statistics: -->
+<!-- http://ess.r-project.org/ Another powerful text editor is Vim. -->
+
+<!-- Spending time on learning text editor is a well-invested time. If you use windows, a really good -->
+<!-- choice is notepad++  -->
+
+<!-- You will see below that integrating npp with other software takes a little hacking around... -->
+
+
+<!-- <h3>notepad++ links</h3> -->
+
+<!-- <dl> -->
+<!-- <li>wiki !<a href="http://sourceforge.net/apps/mediawiki/notepad-plus/index.php?title=Category:Keywords">http://sourceforge.net/apps/mediawiki/notepad-plus/index.php?title=Category:Keywords</a> -->
+<!-- <li>user guides <a href="http://sourceforge.net/apps/mediawiki/notepad-plus/index.php?title=NP%2B%2B_Guides">http://sourceforge.net/apps/mediawiki/notepad-plus/index.php?title=NP%2B%2B_Guides</a> -->
+<!-- <li> regular expressions <a href="http://sourceforge.net/apps/mediawiki/notepad-plus/index.php?title=Regular_Expressions">http://sourceforge.net/apps/mediawiki/notepad-plus/index.php?title=Regular_Expressions</a> -->
+<!-- <li> npp video tutorials <a href="http://www.google.com/search?q=notepad%2B%2B+tutorials&hl=en&prmd=ivns&source=univ&tbs=vid:1&tbo=u&ei=GpNdTY2EH4i5tgex2625Cw&sa=X&oi=video_result_group&ct=title&resnum=1&ved=0CC4QqwQwAA">http://www.google.com/search?q=notepad%2B%2B+tutorials&hl=en&prmd=ivns&source=univ&tbs=vid:1&tbo=u&ei=GpNdTY2EH4i5tgex2625Cw&sa=X&oi=video_result_group&ct=title&resnum=1&ved=0CC4QqwQwAA</a> -->
+<!-- </dl> -->
+
+<!-- <h3>integrating npp with stata (and others stats, e.g. sas)</h3> -->
+<!-- <dl> -->
+<!-- <li> general <a href="http://code.google.com/p/notepad-stats-integration/">http://code.google.com/p/notepad-stats-integration/</a> -->
+<!-- <li> specifics (same page) <a href="http://code.google.com/p/notepad-stats-integration/wiki/Instructions">http://code.google.com/p/notepad-stats-integration/wiki/Instructions</a> -->
+<!-- </dl> -->
+
+<!-- <h3><a name="rr">integrating npp with r</a></h3> -->
+<!-- <dl> -->
+<!-- <li> <a href="http://sourceforge.net/projects/npptor/">http://sourceforge.net/projects/npptor/</a> -->
+<!-- <li> <a href="http://jekyll.math.byuh.edu/other/howto/notepadpp/using.shtml">http://jekyll.math.byuh.edu/other/howto/notepadpp/using.shtml</a> -->
+<!-- <li> <a href="http://www.stat.tamu.edu/~aredd/files/RwithNP++.txt">http://www.stat.tamu.edu/~aredd/files/RwithNP++.txt</a> -->
+<!-- <li> < a href="http://yihui.name/en/2010/08/auto-completion-in-notepad-for-r-script/">http://yihui.name/en/2010/08/auto-completion-in-notepad-for-r-script/</a> -->
+<!-- </dl> -->
+
+<!-- <h3>integrating npp with latex (miktex on windows)</h3> -->
+<!-- <dl> -->
+<!-- <li> <a href=" http://nimal.info/blog/2010/latex-on-windows-with-miktex-and-notepad/">http://nimal.info/blog/2010/latex-on-windows-with-miktex-and-notepad/</a> -->
+<!-- <li> <a href="http://www.phy.syr.edu/~salgado/software/latex/miktex_setup/">http://nimal.info/blog/2010/latex-on-windows-with-miktex-and-notepad/</a> -->
+<!-- </dl> -->
+
+<!-- <h3><a name="npp_git">integrating npp with git</a></h3> -->
+<!-- <dl> (at the lab you cannot install into Program Files; install for instance into C:\) -->
+<!-- <li> first install git (get any of the full installers)<a href="http://code.google.com/p/msysgit/downloads/list">http://code.google.com/p/msysgit/downloads/list</a> -->
+<!-- <li> then get tortoise git (a really nice gui for git) (get 32bit version) <a href="http://code.google.com/p/tortoisegit/downloads/list">http://code.google.com/p/tortoisegit/downloads/list</a> -->
+<!-- <li> and finally get this plugin <a href="NPPGit.dll">NPPGit.dll</a> and put it into "C:\Program Files\Notepad++\plugins\"(i got it from here <a href="http://forum.lowyat.net/topic/1358320">http://forum.lowyat.net/topic/1358320</a>) -->
+<!-- <li> you cannot do it at the lab, so just first install npp into say C:\ from -->
+<!--   here <a href="http://notepad-plus-plus.org/release/5.8.7">http://notepad-plus-plus.org/release/5.8.7</a>; -->
+<!--   and then stick the plugin into "C:\Program Files\Notepad++\plugins\"; then remembere to run npp -->
+<!--   from there -->
+<!-- </dl> -->
+
+<hr />
+
+<h4>rules</h4>
+
+<u>Attendance</u>
+ Attendance is  recommended.  Be advised that you are
+responsible for any material covered in the class, whether or not it was in the readings or
+lecture notes. You are also responsible for any announcements made in class. For most
+students, attendance is simply essential to learning the material. If you do need to miss a
+class, be sure to consult with a fellow student to learn what transpired.<br><br> 
+
+<u>Incompletes:</u> Generally speaking, the material in this course is best learned as a single unit. I
+will grant incompletes only in cases where a substantial change in life circumstances occurs that
+is beyond the control of the student, and only with appropriate
+documentation.<br><br> 
+
+<u>Study Groups.</u> You are encouraged to form a regular study group. Many students over the years
+have found the study groups to be very helpful. Study groups are permitted and encouraged to
+work on the problem sets together. However, each individual student should write up his or her
+own answer to hand in, based on his or her own understanding of the material. Do not hand in a
+copy of another person’s problem set, even a member of your own group. Writing up your own
+answer helps you to internalize the group discussions and is a crucial step in the learning process.<br><br>
+
+<!-- say who you worked with or say worked alone ! -->
+
+<u>Academic Integrity.</u> I am very serious about this. Make no
+mistake--I may appear accommodating and  informal--but I am extremely
+strict about academic integrity.   Violations of academic integrity include cheating on tests or handing in
+assignments that do not reflect your own work and/or the work of a study group in which you
+actively participated. Handing in your own work that was performed not
+for this class (e.g. other class, any other project) is cheating,
+too. I have a policy of zero tolerance for cheating. Violations will be referred
+to the appropriate university authorities. <br><br>
+For more information see <a href="http://fas.camden.rutgers.edu/student-experience/academic-integrity-policy/">http://fas.camden.rutgers.edu/student-experience/academic-integrity-policy</a><br><br>
+
+<u>Accommodating Students with Disabilities.</u>
+
+Any student with a disability affecting performance in the class
+should contact the disability office ASAP: <a href="http://learn.camden.rutgers.edu/disability/disabilities.html">http://learn.camden.rutgers.edu/disability/disabilities.html</a>
+
+<hr />
+
+<h3>civic engagement component</h3>
+<!-- We meet every second week, during the weeks that we do not meet I will -->
+<!-- assign material that reinforces what we have covered in the -->
+<!-- class. Please use actively the listserv to discuss it-if there is not -->
+<!-- much discussion, I will help by posting discussion topics/questions. -->
+
+<h4>typical civic engagement</h4>
+
+Universities and social science should serve society. This idea will
+be enforced in this class through graded civic engagement. You will
+have to engage with local community. <br><br>
+
+The idea is that you engage civically using data. There are several
+ways to do it. Ideally, you will partner with a local organization,
+obtain data from them  and present results to them. You may also use
+government data, say from census bureau, and present relevant
+information to locals. A local organization can be Rutgers research
+institute such as WRI, CURE, LEAP or any other organization such as
+school or soup kitchen or CamConnect-Rutgers Office of civic engagement will help
+ you contact them. The key idea is partnership:  you will use tools 
+ from this class to produce output useful to local community. This 
+is similar to taking a role of an apprentice at a local organization
+or serving as a consultant.		     
+<br><br>
+Details will follow in specific assignments. Using
+real world data poses challenges, which is a part of
+exercise. Presenting your findings to stakeholders outside of a class
+is also challenging. At the same time, it is fairly easy to contribute
+locally by using simple tools learned in this class. For instance,
+simple comparison of means between two schools in Camden can be
+revealing and helpful locally.
+<br><br>
+
+An obvious way would be to use data at your workplace or at a
+workplace of someone you know. However, you need to make sure that it
+serves society in some way. For instance, it would be straightforward
+if you work at a hospital or school or fire department; but it would
+be difficult if you work at Starbucks.
+<br><br>
+
+There will be two or three civic engagement ps and paper has a civic
+engagement part: you will probably need
+to spend estimated 30-50 hours total this semester on these
+assignments outside of the class.
+<br><br>
+Not all of your paper need to engage civically! A part if fine.
+
+
+<h4>atypical civic engagement</h4>
+
+Successful completion of atypical civic engagement will take estimated at
+least double of the typical civic engagement time.
+
+<br><br>
+
+An apparently straightforward solution is to engage with
+international academic community by producing research, but this is a
+good idea only if you can produce an innovative research, which is
+almost impossible at this stage. To do this successfully, you'd need
+to be very sophisticated at academic research. It is easier to
+contribute locally (traditional civic engagement) than internationally.<br><br>
+
+Somewhat easier would be engagement at regional or State level-for
+instance, you may evaluate some policy in NJ as compared to NY, or
+produce descriptive statistics of a region that would be useful
+regionally (e.g. my South Jersey WRI presentation). Again,
+this type of engagement typically requires substantial research
+experience typically found at late stage of PhD program.
+
+<!-- <br><br> -->
+<!-- Another atypical way to meet civic engagement requirement is to help me -->
+<!-- organize and catalog civic engagement datasets-you will be tasked -->
+<!-- with finding useful datasets, and producing a detailed description of -->
+<!-- them (metadata), researching those datasets and applying appropriate -->
+<!-- tags. <br><br> -->
+
+There may also be some other atypical ways-let me know your ideas.
