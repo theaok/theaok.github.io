@@ -1,0 +1,531 @@
+<b>GIS for public sector (and sociology/criminology) / urban mapping,
+  56:834:608:01; 50:975:487:40; 56:202:10</b>
+  [current syllabus at http://aok.mooo.com/gis]<br>
+
+Spring 2018; Thu 6:00-8:40pm, BSB 336 
+
+<dl> instructor
+<li> Adam Okulicz-Kozaryn adam.okulicz.kozaryn@gmail.com 
+<li> office: 321 Cooper St, room 302;  office hours: Thu 4.30-5.15, and by appointment
+</dl>
+
+<!-- <dl> assistant: none! -->
+<!-- <li> Aimen  Butt akb116@scarletmail.rutgers.edu -->
+<!-- <li> office: 321 Cooper St, Room 210  (2 floor); office hours: Tue 9-10am, and by appointment  <\!-- Wed 5-6 PM, and by appointment -\-> -->
+<!-- </dl> -->
+
+
+<h3>prerequisites</h3>
+
+You need to be comfortable using a computer. This class is mostly
+about using (GIS) software.
+
+<h3>course description</h3>
+
+This is an introductory GIS (Geographic Information Systems)
+course. GIS is a broad subject.
+This class is very applied with many 
+tutorials and examples using modern GIS software: QGIS. 
+You will be able to produce maps, put interesting information in
+visually appealing way on the maps,  and conduct
+basic research using geographical data in any discipline that uses
+such data: e.g.: public policy and administration, sociology,
+criminology, and public health/epidemiology. In fact, GIS is useful
+in all fields, because no matter what you study it <u>always</u>
+takes place somewhere and place matters.  
+
+
+<h3>course objectives</h3>
+<dl>
+<li>manage data: import and export vector and raster layers in
+  various formats
+<li>manipulate data: merge, dissolve, produce centroids, etc 
+<li>create professional maps to present data
+<li>perform basic geographic analysis, such as correlation is space 
+</dl>
+
+
+
+<h3>required books</h3>
+
+none
+
+<h3>software</h3>
+
+<h4>QGIS</h4> <!-- free download (best option: user friendly) -->
+We will use free QGIS >=2.0, ideally latest one 2.18 'Las Palmas'
+(<a href="http://www.qgis.org/">http://www.qgis.org/</a>). You can
+download it for free for any operating system.  
+
+<!-- <h4>apps.rutgers (not apps.camden.rutgers.edu) (somewhat clunky; good -->
+<!--   for computing enthusiasts)</h4> -->
+<!-- See general instructions at <a href="https://oirt.rutgers.edu/software/remotexserver/">https://oirt.rutgers.edu/software/remotexserver/</a> -->
+<!-- QGIS is also at apps.rutgers. First make sure you have it -->
+<!-- enabled: <a href="http://netid.rutgers.edu/">http://netid.rutgers.edu</a>, on the left, click ``service activation'', and activate ``apps cloud service''. -->
+<!-- Then connect to apps.rutgers. Go -->
+<!-- to <a href="https://apps.rutgers.edu">https://apps.rutgers.edu</a>. To -->
+<!--   copy files  install <a href="http://winscp.net">http://winscp.net</a>, run it -->
+<!--   and connect to: Host name: "apps.rutgers.edu"; User name: "your -->
+<!--   Rutgers NetID"; Password: "your Rutgers password" -->
+
+<h4>GeoDa</h4>
+<!-- A great advantage of QGIS is that it communicates well with Python. We -->
+<!-- will cover Python in the second part of class, but -->
+<!--  usage of Python  is not necessary for successful completion of this class. -->
+<!-- Python is free  <a href="http://www.python.org/">http://www.python.org/</a> --> We'll
+also use GeoDA for spatial statistics later in the course, which is also free and cross-platform <a href="http://geodacenter.asu.edu/">http://geodacenter.asu.edu/</a>
+<br><br>
+
+
+<h3>grading</h3>
+
+<dl>
+<li> problem sets (incl presentation/s)  5x20
+<!-- <li>problem sets        60% (6ps x 10%) <\!-- MAYBE each ps incl 1% for 5min presentation -\->  -->
+<!-- <li>presentations (2x10)  20%  -->
+</dl>
+
+<table BORDER=1 CELLPADDING=3 CELLSPACING=1 RULES=ROWS FRAME=HSIDES><tr><td>    
+min</td><td> max</td><td> grade</td><td> point</tr><tr><td>
+90.0</td><td>100.0</td><td>A</td><td>4.00</tr><tr><td>
+85.0</td><td>89.9</td><td>B+</td><td>3.33</tr><tr><td>
+80.0</td><td>84.9</td><td>B</td><td>3.00</tr><tr><td>
+75.0</td><td>79.9</td><td>C+</td><td>2.33</tr><tr><td>
+70.0</td><td>74.9</td><td>C</td><td>2.00</tr><tr><td>
+0</td><td>69.9</td><td>F</td><td>0.00</tr></table>
+
+<hr />
+
+
+<h2> academic calendar</h2>
+tentative, most uptodate always on the class website: I work on those
+materials continuously and they will be changing slightly! <br>
+
+you may also want to see <a href="http://scheduling.rutgers.edu/calendar.shtml">university calendar</a><br>
+
+<a href="http://helpx.adobe.com/acrobat/kb/print-multiple-pages-per-sheet.html">you want to print several slides on one sheet, say 6</a><br>
+
+<a href="http://www.tomsguide.com/us/pictures-story/469-PDF-reader-editor-compress-splice-freeware.html">or just annotate electronic copy</a><br>
+
+[*] means bonus (extra/not required)<br>
+<!-- [!] means background information (review if/as needed, you should know it)<br> -->
+
+<!-- http://kb2.adobe.com/cps/332/332720.html#main_Print multiple -->
+
+<hr />
+<h3>dive into mapping</h3>
+
+<h4>1/18 introduction to course</h4> 
+<dl>
+<!-- THIS PS FORCES THEM TO USE SOFYTWARE AND PRODUCE FIRST MAP -->
+<li><a href="ps1.pdf">ps1.pdf</a>
+<li><a href="intro.pdf">intro.pdf</a>&nbsp; 
+We will go over the syllabus, briefly discuss GIS, and have a
+quick introduction to QGIS, and load data, and produce our first map!
+<li><a href="q1.pdf">q1.pdf</a>&nbsp;   We'll fire up QGIS and load some data. And produce a first simple map.
+</dl>
+
+<!-- <li> !!!TODO post civEngPs1.pdf from generic here -->
+<!-- Introduction to Quantum GIS (QGIS)   -->
+<!--     QGIS features   -->
+<!--     Menu and toolbars   -->
+<!--     Map navigation   -->
+<!--     Plugin management   -->
+
+<h4> <font color="red"> >>>note: the following will be updated>>> </font>  </h4>
+
+<h4>9/15 data</h4> <!-- !!do very basic join of csv in this class and assign it for ps ! -->
+<dl>
+<li><a href="ps2.pdf">ps2.pdf</a>
+<li><a href="data.pdf">data.pdf</a>&nbsp;
+We'll discuss a concept of "data". We  will talk about  popular formats of GIS data: SHP, DBF, KML, etc; and key
+variables - coordinates, attributes, etc.
+<li><a href="q2.pdf">q2.pdf</a>&nbsp;We'll cover essential features of QGIS. I'll introduce thematic maps.
+<!-- just basically copy this http://maps.cga.harvard.edu/qgis/ into slides  -->
+<li><a href="data_sources.csv">data_sources.csv</a>&nbsp;
+a database of data sources-will be updated continuously
+</dl>
+
+<h4>9/22 QGIS</h4>
+<dl>
+<li><a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/pretty.pdf">pretty.pdf</a>&nbsp;How to produce a pretty map.
+<li><a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/pyPlugins.pdf">pyPlugins.pdf</a>&nbsp;
+Python plugins: basic descriptive statistics, especially histogram
+  with "Statist" and all google maps goodies in QGIS  with "open
+  layers". 
+<li>We will continue with looking at data_sources.csv.
+<li>[*] flip the class: We will flip a substantial portion of the class to work one-on-one.
+</dl>
+<!-- TODO!! add more stuff here; guess more practice: composer, selecting, -->
+<!-- sorting, etc etc guess especially composer and workflow... -->
+
+<h4>9/29 data 2</h4>
+<dl>
+<li><a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/ps3.pdf">ps3.pdf</a><br>  
+<li> <a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/data.pdf">data.pdf</a>
+  [feb4: I have updated data.pdf slides with more advanced topics]
+</dl>
+
+<h4>10/6 wrapping up basics</h4>
+<dl>
+<li><a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/thematic.pdf">thematic.pdf</a>&nbsp;
+    Advanced thematic mapping: <b>start</b>with section: 'ps2 comments'
+<li>[*] flip the class: We will flip a substantial portion of the class to work one-on-one.
+</dl>
+
+<hr />
+<h3>doing more advanced mapping</h3>
+
+Now that you have a basic understanding of QGIS, we will do few more
+advanced things; you do not have to master all of them, but only some
+
+<h4>10/13 advanced QGIS 1</h4>
+<dl>
+<!-- <li><a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/projections.pdf">projections.pdf</a>  -->
+<li><a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/ps4.pdf">ps4.pdf</a> 
+<li><a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/adv_q1.pdf">adv_q1.pdf</a>&nbsp;more advanced QGIS: geocoding, basic sql, and spatial join<br>
+</dl>
+
+<!-- We will cover some necessary GIS theory. -->
+<!-- Rasters -->
+
+<!--     Raster layer structure and formats -->
+<!--     Querying raster values -->
+<!--     Styling -->
+
+
+
+<!-- We will produce some thematic maps of happiness across European provinces. -->
+<!-- assign my gesis papers -->
+
+<!--  http://maps.cga.harvard.edu/qgis/wkshop/basemap.php -->
+
+
+    <!-- Introduction to the various software -->
+    <!-- Basic vector analyses: dissolve, merge, overlay, attribute management, etc. -->
+    <!-- Correction of topological errors and vector generalization -->
+    <!-- Geomorphology analisi: digital terrain modules, contour, slope, aspect, shaded maps -->
+    <!-- Interpolation: IDW, RST, Krieging, etc. -->
+    <!-- Raster and vector buffers, distance analyses, least cost paths -->
+    <!-- Reclassification of rasters, map algebra -->
+    <!-- Zonal statistics -->
+    <!-- Intervisibility (line of sight) analysis -->
+    <!-- Hydrological analyses: basin outline, etc. -->
+    <!-- 3D visualization -->
+    <!-- Multicriteria analyses: priority and risk maps -->
+    <!-- Unsupervised, automatic land use classification, feature extraction -->
+    <!-- Land use change -->
+    <!-- Modelling through graphical interface and command line; batch processing for automatic processing -->
+
+
+
+<!-- maybve cover deleting fields from table and some more table operations -->
+<h4>10/20 advanced QGIS 2</h4>
+<dl>
+<li><a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/pretty.pdf">pretty.pdf</a>&nbsp; Revisiting mapping principles.<br>
+
+<li><a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/adv_q2.pdf">adv_q2.pdf</a>&nbsp;
+<!-- We will focus on Python plugins -->
+<li>flip the class: we'll work on ps4
+</dl>
+ <!-- LATER show how to do ctroids  and merge  them-some nonoveralpping - -geograpjies e.g.  congressional districts and counties etc -->
+<!-- LATER -->
+<!-- http://michaelminn.com/linux/mmqgis/ -->
+<!-- runing qgis with python -->
+<!-- http://www.qgisworkshop.org/html/workshop/python_in_qgis_tutorial2.html -->
+
+
+<h4>10/27 advanced QGIS 3 and qgis wrap-up</h4>
+<!-- TODO!! add new qgis3 advanced things here! -->
+
+<dl>
+<li><a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/qis_end.pdf">qis_end.pdf</a>&nbsp; 
+We will summarize what we have done so far.  Go over key and
+under-utilized and under-understood things. Also a good time to ask questions.
+<li><a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/rulesTipsTricksEthics.pdf">rulesTipsTricksEthics.pdf</a>
+<li><a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/final_project.pdf">final_project.pdf</a><br>
+</dl>
+
+<hr />
+bonus (the following topics are not required) ...but, it will help immensely if you use at least *some* of them for
+the final project; otherwise you will have to use tools from the first
+half of the class in great quantity *and* quality 
+to achieve full credit on the final project
+<hr />
+
+<h4>11/3 online mapping with Google; <u>make sure you have Google
+    account</u> <a href="https://accounts.google.com/signup">https://accounts.google.com/signup</a></h4>
+<dl>
+<li><a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/ps5.pdf">ps5.pdf</a>
+<li>let's quickly skim through final_project.pdf that we did not  manage to look at last time
+<li><a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/onlineMappingFusionTables.pdf">onlineMappingFusionTables.pdf</a><br> 
+</dl>
+
+<h4>11/10 class taught by professor Jargowsky</h4>
+Tentative topic: presenting maps effectively
+
+
+<h4>11/17  geoda1: basics <!-- <u>make sure you have -->
+    <!-- Geoda installed</u> <a href="https://geodacenter.asu.edu/software/downloads">https://geodacenter.asu.edu/software/downloads</a> -->  </h4>
+
+<dl>
+<li><a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/ps6.pdf">ps6.pdf</a>
+<li><a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/geoda.pdf">geoda.pdf</a>&nbsp;Visualization and creating spatial weights in GeoDa.
+<li>flip about 30min
+</dl>
+<!-- https://geodacenter.asu.edu/og_tutorials --> 
+<!-- https://geodacenter.asu.edu/og_tutorials --> 
+<!-- http://moodle.geodapress.com/course/view.php?id=6 --> 
+<!-- https://geodacenter.asu.edu/learning/tutorials --> 
+<!-- https://geodacenter.asu.edu/sdata --> 
+
+<h4>11/22 <b>TUE (Thanksgiving schedule!)</b> flip the class, practice</h4>
+
+<h4>12/1 geoda2</h4> 
+<dl>
+<li>note: next week last chance to present something extra for extra
+  credit (email me first)
+<li>continue with slides from geoda1: start with slide "the first law
+  of geography" skim through rest and then start properly with "spatial weights" 
+<li>focus on spatial statistics: Moran's I and LISA.
+<li>if we have time start with next class 
+<li>flip about 15min 
+</dl>
+<!-- <h3>dive into Python</h3> -->
+
+<!-- <h4>**/** Python 1</h4> -->
+
+
+<!-- <\!-- LATER for now njust run it off apps-rutgers -\-> -->
+<!-- <\!-- <a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/setup.txt">setup.txt</a>&nbsp; -\-> -->
+<!-- <\!-- How to set up Python-if you plan on using your own computer, install Python AND necessary modules before the first class.<br> -\-> -->
+
+<!-- <a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/replication.pdf">replication.pdf</a>&nbsp; Why we need Python? The replication principle.<br> -->
+<!-- <a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/py_bas.pdf">py_bas.pdf</a>&nbsp;&nbsp;&nbsp;<a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/py_bas.py">py_bas.py</a>&nbsp; -->
+<!-- Why Python? Introduction to Python data types and basic functions (adapted from Google University Class)<br>  -->
+
+<!-- <a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/py_workflow.pdf">py_workflow.pdf</a>&nbsp; -->
+<!--    making python less scary <br> -->
+<!-- <a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/googlemaps.py">googlemaps.py</a>&nbsp;  step-by-step introduction to doing GIS -->
+<!--    using Python-we'll learn by doing geocoding  -->
+
+<!-- <h4>**/** Python 2</h4> -->
+<!-- <a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/final_project.pdf">final_project.pdf</a><br> -->
+<!-- <a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/py1.pdf">py1.pdf</a>&nbsp; -->
+<!-- A quick introduction to matplotlib basemap<br> -->
+<!-- <a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/matplotlib_basemap.py">matplotlib_basemap.py</a>&nbsp; -->
+<!-- Basic maping using matplotlib basemap<br> -->
+<!-- <a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/my_ex1.zip">my_ex1.zip</a>&nbsp; -->
+<!-- data for in-class  exercise -->
+
+
+<!-- <h4>**/** Python 3</h4> -->
+
+<!-- we're going back to Python 1: I have redone it...we'll cover basics again:<br> -->
+<!-- py_workflow.pdf<br> -->
+<!-- py_bas.py<br> -->
+<!-- googlemaps.py<br> -->
+<!-- matplotlib_basemap.py -->
+
+<!-- <h4>**/** Python 4</h4> -->
+<!-- <\!-- TODO email them asking to get goog api kjey berore the class  -\-> -->
+<!-- <\!-- TODO email Robyn childh studies list of Philyy bars..  -\-> -->
+
+<!-- ps5: same as ps4: second draft of the final project; it needs to -->
+<!--  clearly expand/improve over ps4  <br> -->
+<!-- yet one more look at merging from  matplotlib_basemap.py (we'll go over the email from the listserv) <br> -->
+<!-- added map with more options in matplotlib_basemap.py:  #### breweries in the US<br> -->
+<!-- <a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/goog_places_api.py">goog_places_api.py</a>&nbsp; -->
+<!-- getting GIS information from Google Places API -->
+
+<!-- <h4>**/** Examples: using census data in Qgis AND Python 5</h4> -->
+<!-- <a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/examples.py">examples.py</a>&nbsp; -->
+<!-- <\!-- more mapping with matplotlib basemap- -\-> -->
+<!-- <\!-- some examples from my research (health, well being from BRFSS) -\-> -->
+<!-- <\!-- TODO make maps and des stats as i work on my papers in python -\-> -->
+<!-- <br> -->
+<!-- <\!-- maybe, guess should do it...: -\-> -->
+<!-- <\!-- more about data management: importing excel, etc -\-> <\!-- ~/teach/py/py_dat_man.py -\-> -->
+<!-- <br> -->
+
+
+<!-- !!!!!!!!! -->
+<!-- review those cga newsletters in stuff and gueess add from there here -->
+<!-- and here may better talk about my maps and research, revisit -->
+<!-- pretty.pdf, final_project.pdf reulesTipsTrickEthics; and underutilized -->
+<!-- tools!! especially underutilized toiols i think from qgis! -->
+
+
+
+<h3>12/8 final student presentations (15min); wrap-up/revision; flip the class</h3>
+
+<dl>
+<li> presentations at the end of the class
+<li><a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/wrapUpRevision.pdf">wrapUpRevision.pdf</a> revisit under-discussed and under-utilized tools/aspects 
+<li> if we have time, and if needed: may look at final.pdf and
+  final_project.pdf and  pretty.pdf again, or flip the class
+<!-- <li>much of the class flipped: working on final project in-class -->
+</dl>
+
+<h3>final project due: Mon 12/12 10am</h3>
+<dl>
+<li> I am happy to comment on drafts of presentations and papers. Again,
+most of your presentation and paper must be maps (this is a GIS
+class), but also try to engage civically and do something useful for
+common people: see "civic engagement" under "requirements" at the beginning of the syllabus.
+<!-- <a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/presentation.pdf">presentation.pdf</a><br>  -->
+<li><a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/final.pdf">final.pdf</a>
+<li><a href="https://sites.google.com/site/adamokuliczkozaryn/gis_int/final_project.pdf">final_project.pdf</a>
+</dl>
+
+
+<!-- <hr /> -->
+<!-- <h3>other topics</h3> -->
+
+
+<!-- <hr /> -->
+
+<hr />
+
+<h3>rules</h3>
+
+<u>attendance</u>
+ Attendance is strongly recommended.<!-- entirely optional. However, --> You are
+responsible for everything covered, including lecture, discussions,
+ announcements etc. Attendance is usually essential to learning. If you miss a
+class, consult with a fellow student to learn what transpired.<br><br> 
+
+<u>incompletes:</u> Like late problem sets, only allowed in documented
+emergencies (e.g. hospitalization).
+<br><br> 
+
+<u>study groups.</u> Many students over the years
+have found the study groups to be very helpful. Study groups are permitted and encouraged to
+work on the problem sets together. However, each individual student must write up his or her
+own answer to hand in, based on his or her own understanding of the material. Do not hand in a
+copy of another person's problem set, even a member of your own group. Writing up your own
+answer helps you to internalize the group discussions and is a crucial
+step in the learning process. Also, if worked in group, spell out
+group members' names next to your name. You can work on problem sets
+and on the paper in a group of upto <b><u>2 people</u></b>. So your group
+would hand in one paper, but each group member would hand in her own
+problem set that must differ from others.<br><br>
+
+<!-- say who you worked with or say worked alone ! -->
+
+<u>academic integrity.</u> I am very serious about this. Make no
+mistake--I may appear accommodating and informal--but I am extremely
+strict about academic integrity.   Violations of academic integrity include cheating on tests or handing in
+assignments that do not reflect your own work and/or the work of a study group in which you
+actively participated. Handing in your own work that was performed not
+for this class (e.g. other class, any other project) is cheating,
+too. I have a policy of zero tolerance for cheating. Violations will be referred
+to the appropriate university authorities. 
+For more information see <a href="http://fas.camden.rutgers.edu/student-experience/academic-integrity-policy/">http://fas.camden.rutgers.edu/student-experience/academic-integrity-policy</a><br><br>
+
+<u>accommodating students with disabilities.</u>
+Any student with a disability affecting performance in the class
+should contact the disability office ASAP: <a href="http://learn.camden.rutgers.edu/disability/disabilities.html">http://learn.camden.rutgers.edu/disability/disabilities.html</a>
+
+<hr />
+
+<h3>description/objectives in terms of "universal competencies" (naspaa) </h3><!-- naspa boilerplate as per that spreadsheet that patrice came up with -->
+
+
+This class is about management and analysis of geographic data. Students produce maps and interpret them--not only technical correctness is emphasized, but also use of GIS for problem solving and decision making. 
+In this class students learn by example. Most, if not all, examples/tutorials/exercises that I provide are about public service. For instance, we use data about education, income inequality and public health indicators. As a part of mapping process, we discuss what these maps mean for  public service/policy.
+Maps are about communicating data. An exciting feature of maps is that they can be easily/intuitively understood by everyone if they are produced properly. There is least one class devoted to principles of communication using maps: simplicity/clarity, insight/discovery, relevance/usefulness, etc
+The role of (geographic) data in   management/leadership is increasing. Students not only produce maps, but also interpret them, which usually informs decision making. Also,  at least one class is devoted to data sources--I want to show students that no matter what research question or management task they are dealing with, there will be almost always plenty of (geographic) data that can be used.
+Mapping is an excellent tool to contribute to policy process. It is emphasized in this class that mapping can be used at least in several ways--e.g., description of a situation, monitoring of a progress/process, inference of a relationship. 
+
+<hr />
+<h3>civic engagement component (opportunity for extra credit!)</h3>
+<!-- We meet every second week, during the weeks that we do not meet I will -->
+<!-- assign material that reinforces what we have covered in the -->
+<!-- class. Please use actively the listserv to discuss it-if there is not -->
+<!-- much discussion, I will help by posting discussion topics/questions. -->
+
+Start early. Start thinking about how you want to engage civically
+today.
+
+<h4>typical civic engagement</h4>
+
+Universities and social science should serve society. <!-- This idea will -->
+<!-- be enforced in this class through graded civic engagement (in form of some of -->
+<!-- the later ps). --> 
+You are encouraged have to engage with local community. <br><br>
+
+The idea is that you engage civically using research methods. There are several
+ways to do it. Ideally, you will partner with a local organization,
+obtain data from them, do some analysis, and present results to them. You may also use government data, say from census bureau, and present relevant
+information to locals. A local organization can be Rutgers research
+institute such as WRI, CURE, LEAP or any other organization such as
+school or soup kitchen or CamConnect. Rutgers Office of civic
+engagement may be able to help
+ you contact them. The key idea is partnership:  you will use tools 
+ from this class to produce output useful to local community. This 
+is similar to taking a role of an apprentice at a local organization
+or serving as a consultant.		     
+<br><br>
+Using
+real world data poses challenges, which is a part of
+exercise. Presenting your findings to stakeholders outside of a class
+is also challenging. At the same time, it is fairly easy to contribute
+locally by using simple tools learned in this class. For instance,
+simple comparison of means between two schools in Camden can be
+revealing and helpful locally.
+<br><br>
+
+An obvious way would be to use data at your workplace or at a
+workplace of someone you know. However, you need to make sure that it
+serves society in some way. For instance, it would be straightforward
+if you work at a hospital or school or fire department; but it would
+be difficult if you work at Starbucks.
+<br><br>
+
+<!-- There will be two or three civic engagement ps and paper has a civic -->
+<!-- engagement part: you will probably need -->
+<!-- to spend estimated 20-40 hours total this semester on these -->
+<!-- assignments outside of the class. -->
+<!-- <br><br> -->
+<!-- Not all of your paper need to engage civically! A part if fine. -->
+
+
+<h4>atypical civic engagement--CONTACT ME FIRST if you consider this!</h4>
+
+Successful completion of atypical civic engagement will take estimated at
+least double of the typical civic engagement time.
+
+<br><br>
+
+<!-- An apparently straightforward solution is to engage with -->
+<!-- international academic community by producing research, but this is a -->
+<!-- good idea only if you can produce an innovative research, which is -->
+<!-- almost impossible at this stage. To do this successfully, you'd need -->
+<!-- to be very sophisticated at academic research. It is easier to -->
+<!-- contribute locally (traditional civic engagement) than internationally.<br><br> -->
+
+You could try to engage at regional or State level-for
+instance, you may evaluate some policy in NJ as compared to NY, or
+produce descriptive statistics of a region that would be useful
+regionally (e.g. my South Jersey WRI paper
+<a href="http://dept.camden.rutgers.edu/rand-institute/files/changes-across-the-region.pdf">http://dept.camden.rutgers.edu/rand-institute/files/changes-across-the-region.pdf</a>
+<!-- presentation <a href="http://wrand.rutgers.edu/files/Adam-Okulicz-Kozaryn-Changes-Across-the-Region.pdf">http://wrand.rutgers.edu/files/Adam-Okulicz-Kozaryn-Changes-Across-the-Region.pdf</a>).  -->
+Such type of engagement typically requires substantial research
+experience typically found at late stage of PhD program.
+
+<!-- <br><br> -->
+<!-- Another atypical way to engage civically is to help me -->
+<!-- organize and catalog civic engagement datasets-you will be tasked -->
+<!-- with finding useful datasets, and producing a detailed description of -->
+<!-- them (metadata), researching those datasets and applying appropriate -->
+<!-- tags. <br><br> -->
+
+There may also be some other atypical ways-let me know your ideas.
+
+<h4>other ideas</h4>
+
+If you are an IPSD student try to do something with your domestic
+internship that you started in Fall<br><br>
+<!-- try to conatct camconnect and see if you can do any work for them -->
+<!-- http://www.camconnect.org/ -->
