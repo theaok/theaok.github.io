@@ -47,7 +47,12 @@ ls                            /*list what we got*/
 
 /*you can load data from url*/
 use https://sites.google.com/site/adamokuliczkozaryn/adv_reg/states.dta  ,clear
-    
+
+
+//IMPORTANT!! typically have to destring data!! they appear as red in spreadsheet once you say edit:
+destring *, replace
+//note: if destring didnt work, get rid of speciach chars like  %$# in excel
+
 save states.dta, replace
 outsheet using states.csv, replace comma nolabel
   
