@@ -60,7 +60,7 @@ tw(scatter div mar, mlabel(state))(lfit div mar)
 
 
 
-//----------------------------ps1-----------------------------------------
+//----------------------------exercise 0-----------------------------------------
 
 input Y  X   
 1 17
@@ -81,14 +81,13 @@ l
 tw(scatter Y X)(lfit Y X), title("Lecture 3: Graph 2") subtitle("Y vs X and linear prediction: yhat") name(graph2, replace)
 tw(scatter Y X)(lfitci Y X), title("Lecture 3: Graph 3") subtitle("Y vs X and linear prediction with CIs: yhat") name(graph3, replace)
 
-//----------------------------ENDps1-----------------------------------------
 
 //------------- exercise 1
 
 
 //--------------------------wages--------------------------------------------
 
-use http://people.hmdc.harvard.edu/~akozaryn/myweb/wages, clear
+use "https://sites.google.com/site/adamokuliczkozaryn/adv_reg/wages.dta", clear
 corr wage educ
 loc rho `r(rho)'
 sum wage
@@ -108,7 +107,8 @@ reg wage educ
 
 //--------------------------measurment------------------------------------------
 
-use http://people.hmdc.harvard.edu/~akozaryn/myweb/wages, clear
+use "https://sites.google.com/site/adamokuliczkozaryn/adv_reg/wages.dta", clear
+
 
 *// lin-lin
 regress wage educ
