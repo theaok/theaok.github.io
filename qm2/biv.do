@@ -78,8 +78,8 @@ predict yhat
 predict r, resid
 l
 
-tw(scatter Y X)(lfit Y X), title("Lecture 3: Graph 2") subtitle("Y vs X and linear prediction: yhat") name(graph2, replace)
-tw(scatter Y X)(lfitci Y X), title("Lecture 3: Graph 3") subtitle("Y vs X and linear prediction with CIs: yhat") name(graph3, replace)
+tw(scatter Y X)(lfit Y X), title("Lecture's Graph") subtitle("Y vs X and linear prediction: yhat") name(graph2, replace)
+tw(scatter Y X)(lfitci Y X), title("Lecture's Graph") subtitle("Y vs X and linear prediction with CIs: yhat") name(graph3, replace)
 
 
 //------------- exercise 1
