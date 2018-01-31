@@ -70,13 +70,15 @@ input Y  X
 9 2
 end
 
-sum Y
-scatter Y X, yline(`r(mean)') ti(TSS) name(graph1, replace)
-reg Y X
 
+reg Y X
 predict yhat
 predict r, resid
 l
+
+
+sum Y
+scatter Y X, yline(`r(mean)') ti(TSS) name(graph1, replace)
 
 tw(scatter Y X)(lfit Y X), title("Lecture's Graph") subtitle("Y vs X and linear prediction: yhat") name(graph2, replace)
 tw(scatter Y X)(lfitci Y X), title("Lecture's Graph") subtitle("Y vs X and linear prediction with CIs: yhat") name(graph3, replace)
