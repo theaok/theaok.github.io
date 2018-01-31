@@ -1,8 +1,8 @@
 TODO: add way more! important and confusing topic!
 
 //--------------------------measurment------------------------------------------
+use "https://sites.google.com/site/adamokuliczkozaryn/adv_reg/wages.dta", clear
 
-use http://people.hmdc.harvard.edu/~akozaryn/myweb/wages, clear
 
 *// lin-lin
 regress wage educ

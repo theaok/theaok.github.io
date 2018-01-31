@@ -5,7 +5,7 @@ version 10
 //------------------cps---------------------------
 
 *//On average, men earn higher than women.  Why?
-use http://people.hmdc.harvard.edu/~akozaryn/myweb/wages.dta, clear
+use "https://sites.google.com/site/adamokuliczkozaryn/adv_reg/wages.dta", clear
 
 
 graph bar (mean) wage, over(female)
@@ -30,7 +30,7 @@ table female married, c(mean wage) row col f(%7.2f)
 
 
 //------------------trivariate-----------------------
-use http://people.hmdc.harvard.edu/~akozaryn/myweb/wages.dta, clear
+use "https://sites.google.com/site/adamokuliczkozaryn/adv_reg/wages.dta", clear
 
 sum wage educ exp
 corr wage educ exp
@@ -111,14 +111,8 @@ net install probtabl
 help regress
 
 
-//----the following is bonus;F-tests are not necessary anymore!-----------------
-//----the following is bonus;F-tests are not necessary anymore!-----------------
-//----the following is bonus;F-tests are not necessary anymore!-----------------
-//----the following is bonus;F-tests are not necessary anymore!-----------------
-
-
 //----------------------------F-----------------------------------------
-use http://people.hmdc.harvard.edu/~akozaryn/myweb/wages.dta, clear
+use "https://sites.google.com/site/adamokuliczkozaryn/adv_reg/wages.dta", clear
 
 reg wage educ exp
 
@@ -221,7 +215,7 @@ di 10.65527^2
 
 
 //-----------------bonus: wages-----------------------------------
-use http://people.hmdc.harvard.edu/~akozaryn/myweb/wages.dta, clear
+use "https://sites.google.com/site/adamokuliczkozaryn/adv_reg/wages.dta", clear
 
 
 
