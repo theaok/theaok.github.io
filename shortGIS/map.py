@@ -402,7 +402,27 @@ import pandas as pd
 
 import json
 
+##spatial join
+'''
+https://www.youtube.com/watch?v=O1dNEt3P7Sw
+13.20 geopandas.sjoin
 
+
+this has pretty good overview of simplifying polygons and then doing the join,
+but guess may use other librabires stratrs around min40
+https://www.youtube.com/watch?v=qvHXRuGPHl0
+'''
+
+## https://github.com/ellisonbg/ipyleaflet library for leaflet TODO looks promiisng
+
+#### others 
+
+theres also geoplot
+'''
+plotly makes interactive ones like goog maps where can pop up fratures, towards
+the end of this
+https://www.youtube.com/watch?v=hA39KSTb3dY
+'''
 ##################
 # FOLIUM LEAFLET #
 ##################
@@ -410,6 +430,11 @@ import json
 '''
 saves maps as html using popular leaflet/openstreetmap engine; can print them
 out then to pdf or paper, or just embed html on your website
+'''
+
+'''
+some nice colors :)
+https://www.youtube.com/watch?v=Yd5oEIBFQ_E
 '''
 
 ####examples from https://pypi.python.org/pypi/folium ; new syntax from https://media.readthedocs.org/pdf/folium/latest/folium.pdf
