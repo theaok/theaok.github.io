@@ -15,7 +15,7 @@ reg wage fem exp
 
 ** ordinal
 
-use http://www.ats.ucla.edu/stat/stata/notes/hsb2,clear
+use https://stats.idre.ucla.edu/stat/data/hsb2.dta,clear
 d
 
 
