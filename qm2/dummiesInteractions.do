@@ -26,6 +26,7 @@ ta race
 codebook race
 ta race,gen(R)
 d R*
+ta R1 race, mi //check! important
 
 reg math R1-R3
 reg math R1
