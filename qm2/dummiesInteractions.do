@@ -1,3 +1,10 @@
+/* IMPORTANT AND POERHAPS NONINTUITIVE: how to create dummies and interactions
+
+https://www.google.com/search?q=stata+dummies&ie=utf-8&oe=utf-8
+https://www.google.com/search?q=stata+interactions&ie=utf-8&oe=utf-8
+https://www.google.com/search?q=stata+recode&ie=utf-8&oe=utf-8
+*/
+
 version 14
 //use http://people.hmdc.harvard.edu/~akozaryn/myweb/wages, clear
 use https://sites.google.com/site/adamokuliczkozaryn/adv_reg/wages, clear
