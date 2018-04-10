@@ -2,8 +2,8 @@ clear
 set more off
 version 10
 
-cap mkdir c:\files
-sysdir set PLUS c:\files
+cap mkdir  ~/files //c:\files
+sysdir set PLUS  ~/files //c:\files
 findit modeldiag
 net   from http://fmwww.bc.edu/RePEc/bocode/m
 net install modeldiag
