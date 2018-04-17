@@ -30,7 +30,7 @@ reg math female
 reg math race
 
 ta race
-codebook race
+codebook race //important to see how it is coded!
 ta race,gen(R)
 d R*
 ta R1 race, mi //check! important
