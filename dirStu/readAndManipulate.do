@@ -24,14 +24,19 @@ just alwasys have soem form of this if you install any user written command!
 and always install them straight, not through findit but through net install,
 ssc install or other
 */
+
 sysdir  
 help sysdir
+
+//SKIP at our lab (for library only):
+/* workaround for installing user-written commands */
 mkdir ~/Desktop/junk/
 adopath + ~/Desktop/junk/
 adopath - ~/Desktop/junk/
 /* this one is more "invasive", remember to set it back...   */
 //sysdir set PLUS ~/Desktop/junk/  
 //sysdir set PLUS ~/ado/plus
+
 
 findit outreg2
 net install outreg2,from(http://repec.org/bocode/o/)
@@ -91,24 +96,6 @@ use https://sites.google.com/site/adamokuliczkozaryn/datman-1/gss.dta, clear
 insheet using https://sites.google.com/site/adamokuliczkozaryn/datman-1/gss.csv, clear
 
 //and you can load from excel--use gui to generate code: file-import-excel
-
-
-//SKIP at our lab (for library only):
-/***************************************************/
-/* workaround for installing user-written commands */
-/***************************************************/ 
-
-sysdir  
-help sysdir
-
-mkdir ~/Desktop/junk/
-adopath + ~/Desktop/junk/
-adopath - ~/Desktop/junk/
-
-/* this one is more "invasive", remember to set it back...   */
-//sysdir set PLUS ~/Desktop/junk/  
-//sysdir set PLUS ~/ado/plus
-
 
 
 /***********/
