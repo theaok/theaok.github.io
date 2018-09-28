@@ -77,19 +77,6 @@ webuse autosize
 merge 1:1 make using http://www.stata-press.com/data/r14/autoexpense
 list
 
-//1:1 merge, requiring there to be only matches
-// (The merge command intentionally causes an error message.)
-webuse autosize, clear
-merge 1:1 make using http://www.stata-press.com/data/r14/autoexpense, assert(match)
-tab _merge
-list
-
-//1:1 merge, keeping only matches and squelching the _merge variable
-//don't do it--we don't know what really happened
-webuse autosize, clear
-merge 1:1 make using http://www.stata-press.com/data/r14/autoexpense, keep(match) nogen
-list
-
 
 * m:1
 
@@ -141,6 +128,8 @@ append using gss1.dta
 //--------------------------
 
 /*Reshape*/
+help reshape //very useful example, scroll down to it!
+
 use https://sites.google.com/site/adamokuliczkozaryn/datman-1/gss.dta, clear    
 keep inc
 ren inc inc1
