@@ -130,10 +130,10 @@ l
 
 
 /*Append*/  
-use gss.dta, clear
+use https://sites.google.com/site/adamokuliczkozaryn/datman-1/gss.dta, clear    
 keep in 1/5
 save gss1.dta, replace/* (using)*/
-use gss.dta, clear
+use https://sites.google.com/site/adamokuliczkozaryn/datman-1/gss.dta, clear    
 keep in 6/10
 append using gss1.dta
 
