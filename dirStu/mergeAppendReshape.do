@@ -141,7 +141,7 @@ append using gss1.dta
 //--------------------------
 
 /*Reshape*/
-use gss.dta, clear
+use https://sites.google.com/site/adamokuliczkozaryn/datman-1/gss.dta, clear    
 keep inc
 ren inc inc1
 gen inc2=2*inc1
