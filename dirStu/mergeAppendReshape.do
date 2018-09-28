@@ -55,12 +55,10 @@ l
 
 *our favorite gss data (from slide)
 use https://sites.google.com/site/adamokuliczkozaryn/datman-1/gss.dta, clear    
-
-use gss.dta, clear
 gen id= _n
 keep id region
 save gss1.dta, replace /* (using)*/
-use gss.dta, clear
+use https://sites.google.com/site/adamokuliczkozaryn/datman-1/gss.dta, clear    
 gen id= _n
 keep id inc /* (master)*/
 merge 1:1 id using gss1.dta /* combine with (using)*/
