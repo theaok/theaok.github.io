@@ -187,55 +187,56 @@ replace youMar=0 if marital!=1 | (age > 39 & age <.)
 ta youMar marital, mi
 ta youMar age, mi
 
-/* Egen */
+/* SKIP EGEN */
+/* /\* Egen *\/ */
 
-use gss, clear
-egen avg_inc=mean(inc)
-sum avg_inc
-sum inc
-gen dev_inc=inc-avg_inc
-l inc avg_inc dev_inc in 1/10, nola
+/* use gss, clear */
+/* egen avg_inc=mean(inc) */
+/* sum avg_inc */
+/* sum inc */
+/* gen dev_inc=inc-avg_inc */
+/* l inc avg_inc dev_inc in 1/10, nola */
 
-bys marital: egen avgm_inc=mean(inc)
-
-
-l  *inc* *mar*  if marital==4 | marital==2
-
-sort marital
-l  *inc* *mar* , nola sepby(marital) //note that avg_inc is constant, but avggm_inc varies by marital
-//and note that . is dropped when calculating egen stats as in marital==4
-//there are 3obs: 15, .i, 9, and mean is 12
-
-//http://www.stata.com/support/faqs/data-management/create-variable-recording/
-clear
-input    family     person       sex 
-         1          1          1  
-         1          2          1  
-         1          3          1  
-         2          1          0  
-         2          2          0  
-         2          3          0  
-         3          1          0  
-         3          2          0  
-         3          3          0  
-         3          4          1  
-         3          5          1  
-         3          6          1  
-end
-l, sepby(family)
-
-egen anyfem = max(sex), by(family)  //creates a constant (within varlist) containing the maximum value of exp.
-egen allfem = min(sex), by(family)  //creates a constant (within varlist) containing the minimum value of exp.
-
-l, sepby(family)
+/* bys marital: egen avgm_inc=mean(inc) */
 
 
-//http://www.psychstatistics.com/2011/05/30/things-i-love-about-stata-egen-mean/
-webuse pig, clear
-list in 1/15, clean
-egen grandweight=mean(weight)
-bys id: egen groupweight=mean(weight)
-list in 1/15, clean
+/* l  *inc* *mar*  if marital==4 | marital==2 */
+
+/* sort marital */
+/* l  *inc* *mar* , nola sepby(marital) //note that avg_inc is constant, but avggm_inc varies by marital */
+/* //and note that . is dropped when calculating egen stats as in marital==4 */
+/* //there are 3obs: 15, .i, 9, and mean is 12 */
+
+/* //http://www.stata.com/support/faqs/data-management/create-variable-recording/ */
+/* clear */
+/* input    family     person       sex  */
+/*          1          1          1   */
+/*          1          2          1   */
+/*          1          3          1   */
+/*          2          1          0   */
+/*          2          2          0   */
+/*          2          3          0   */
+/*          3          1          0   */
+/*          3          2          0   */
+/*          3          3          0   */
+/*          3          4          1   */
+/*          3          5          1   */
+/*          3          6          1   */
+/* end */
+/* l, sepby(family) */
+
+/* egen anyfem = max(sex), by(family)  //creates a constant (within varlist) containing the maximum value of exp. */
+/* egen allfem = min(sex), by(family)  //creates a constant (within varlist) containing the minimum value of exp. */
+
+/* l, sepby(family) */
+
+
+/* //http://www.psychstatistics.com/2011/05/30/things-i-love-about-stata-egen-mean/ */
+/* webuse pig, clear */
+/* list in 1/15, clean */
+/* egen grandweight=mean(weight) */
+/* bys id: egen groupweight=mean(weight) */
+/* list in 1/15, clean */
 
 
 
@@ -361,7 +362,7 @@ gen total= _N
 l
 
 gen previous_id=id[_n-1]
-bys marital: gen count_marital_group= _N
+/* bys marital: gen count_marital_group= _N */
 
 l id total previous  count_marital_group marital, sepby(marital)
 
@@ -370,17 +371,17 @@ l id total previous  count_marital_group marital, sepby(marital)
 use gss.dta, clear
 gen id= _n
 
-bys marital: gen count_marital_group=_n
-bys marital: egen count_id=count(id)
+/* bys marital: gen count_marital_group=_n */
+/* bys marital: egen count_id=count(id) */
 
-l id marital count*, sepby(marital)
+/* l id marital count*, sepby(marital) */
 
 
-bys marital: egen maMeIn=mean(inc)
-la var maMeIn "marital mean income"
+/* bys marital: egen maMeIn=mean(inc) */
+/* la var maMeIn "marital mean income" */
 
-bys marital: egen maMeEd=mean(edu)
-la var maMeEd "marital mean educatoin"
+/* bys marital: egen maMeEd=mean(edu) */
+/* la var maMeEd "marital mean educatoin" */
 //bys marital: l maMe* 
 ta maMeIn marital
 ta maMeEd marital
@@ -392,8 +393,8 @@ l
 //and now do counts for marital
 use gss.dta, clear
 
-bys marital: egen marCou=count(marital)
-l mar* , sepby(marital)
+/* bys marital: egen marCou=count(marital) */
+/* l mar* , sepby(marital) */
 
 gen id= _n
 collapse (count) id, by(marital)
@@ -452,9 +453,9 @@ replace divsep=1 if marital==3|marital==4
 replace divsep=0 if marital<3 |marital==5
 use gss.dta, clear
 recode marital (1 2 5=0) (3 4=1), gen(divsep)
-egen avg_inc=mean(inc)
+/* egen avg_inc=mean(inc) */
 gen dev_inc=inc-avg_inc
-bys region: egen mean_income=mean(inc)
+/* bys region: egen mean_income=mean(inc) */
 tostring inc, gen(inc_str)
 destring inc_str, gen(inc_num)
 encode region, gen(region_numeric)
