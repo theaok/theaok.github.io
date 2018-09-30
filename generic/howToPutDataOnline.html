@@ -1,0 +1,28 @@
+<h3>google drive (upto 25mb)</h3>
+<dl>
+<li> go to <a href="https://drive.google.com">https://drive.google.com</a>
+
+<li> first upload the file, then right-click on it and select
+ "Share...", go to "Advanced" at the bottom-right of the window and then click
+ ``Change...'' and  check "On - Public on the Web"  and hit ``Save'' button and ``Done'' button
+<li> then right-click the file again and ``Get shareable link'',  and paste
+  link  into dofile; it should look like
+  \url{https://drive.google.com/open?id=0B5Y56f52-YHrMEpQX2ZwVDV0QVE} and then
+  copy the FILE\_ID from it, ie everything that follows ``id='' 
+<li> and then paste that FILE\_ID into
+  \url{https://docs.google.com/uc?id=FILE_ID&export=download} 
+<li> so it would become \url{https://docs.google.com/uc?id=0B5Y56f52-YHrMEpQX2ZwVDV0QVE&export=download}
+<li> in this example it's a .dta file so to load it, you'd say\\
+\ss{use  "https://docs.google.com/uc?id=0B5Y56f52-YHrMEpQX2ZwVDV0QVE\&export=download"}
+\end{itemize}
+
+</dl>
+
+
+\textbf{other ideas:}  
+may try RU website 
+\url{https://oit-nb.rutgers.edu/service/publishing-world-wide-web}\\
+and many  of theirs:\\
+\url{http://www.cloudwards.net/top-10-secure-dropbox-alternatives/}\\
+\url{http://www.lifehack.org/articles/technology/running-out-room-dropbox-here-are-11-dropbox-alternatives-that-offer-way-more-free-cloud-storage.html}\\
+\url{http://beebom.com/2015/03/best-dropbox-alternatives-for-cloud-storage}
