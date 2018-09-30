@@ -1,3 +1,10 @@
+note! if you have anything private like address, name, dob, ssn, etc: do not upload anywhere! First, generate some new id, like 1,2,3 and keep the full dataset secure in your own place, then deidentify: drop all sensitive info and upload this deidentified file (later if needed can merge it back to your initial file on id)<br><br>
+
+<!-- in general for the sake of time saving please try to keep it under -->
+<!-- 100mb (and definitely 1gb), if bigger just drop some variables or take -->
+<!-- random sample. -->
+note: if dataset is bigger than 25mb, just take a random sample, say in stata "sample 10" to get 10perc random sample; also: zipping reduces file about 3x (and stata can unzip, just google 'stata unzipfile'
+
 <h3>google drive (upto 25mb)</h3>
 
 <!-- OLD by straso -->
@@ -22,32 +29,47 @@
 
 <dl>
 <li> go to <a href="https://drive.google.com">https://drive.google.com</a>
-
-
-
-
-
 <li> first upload the file, then right-click on it and select
  "Share...", go to "Advanced" at the bottom-right of the window and then click
  ``Change...'' and  check "On - Public on the Web"  and hit ``Save'' button and ``Done'' button
 <li> then right-click the file again and ``Get shareable link'',  and paste
   link  into dofile; it should look like
-  \url{https://drive.google.com/open?id=0B5Y56f52-YHrMEpQX2ZwVDV0QVE} and then
-  copy the FILE\_ID from it, ie everything that follows ``id='' 
+  <a href="https://drive.google.com/open?id=0B5Y56f52-YHrMEpQX2ZwVDV0QVE">https://drive.google.com/open?id=0B5Y56f52-YHrMEpQX2ZwVDV0QVE</a> and then
+  copy the FILE_ID from it, ie everything that follows ``id='' 
 <li> and then paste that FILE\_ID into
-  \url{https://docs.google.com/uc?id=FILE_ID&export=download} 
-<li> so it would become \url{https://docs.google.com/uc?id=0B5Y56f52-YHrMEpQX2ZwVDV0QVE&export=download}
-<li> in this example it's a .dta file so to load it, you'd say\\
-\ss{use  "https://docs.google.com/uc?id=0B5Y56f52-YHrMEpQX2ZwVDV0QVE\&export=download"}
-\end{itemize}
-
+  "https://docs.google.com/uc?id=FILE_ID&export=download" 
+<li> so it would become <a href="https://docs.google.com/uc?id=0B5Y56f52-YHrMEpQX2ZwVDV0QVE&export=download">https://docs.google.com/uc?id=0B5Y56f52-YHrMEpQX2ZwVDV0QVE&export=download</a>
+<li> in this example it's a .dta file so to load it, you'd say:</br> 
+ use  "https://docs.google.com/uc?id=0B5Y56f52-YHrMEpQX2ZwVDV0QVE\&export=download"
 </dl>
 
+<!-- if file bigger than 25mb in google drive: -->
+<!-- skipping virus scan doesnt work -->
+<!-- https://www.marstranslation.com/blog/how-to-skip-google-drive-virus-scan-warning-about-large-files -->
+<!-- would have to sign up for api etc -->
+<!-- https://developers.google.com/drive/api/v2/reference/files/get -->
 
-\textbf{other ideas:}  
-may try RU website 
-\url{https://oit-nb.rutgers.edu/service/publishing-world-wide-web}\\
-and many  of theirs:\\
-\url{http://www.cloudwards.net/top-10-secure-dropbox-alternatives/}\\
-\url{http://www.lifehack.org/articles/technology/running-out-room-dropbox-here-are-11-dropbox-alternatives-that-offer-way-more-free-cloud-storage.html}\\
-\url{http://beebom.com/2015/03/best-dropbox-alternatives-for-cloud-storage}
+
+
+<!-- a quick and easy way without signup and  lasting 60 days is -->
+<!-- https://filebin.net once uploaded right click file and "copy link -->
+<!-- location" and use that -->
+<!-- or alternatively (more clunky): -->
+<!-- https://files.fm once uploaded, make sure to set time to 2months and -->
+<!-- save and then right click file "copy link location" and use that -->
+
+
+
+<!-- \textbf{other ideas:}   -->
+<!-- may try RU website  -->
+<!-- \url{https://oit-nb.rutgers.edu/service/publishing-world-wide-web}\\ -->
+<!-- and many  of theirs:\\ -->
+<!-- \url{http://www.cloudwards.net/top-10-secure-dropbox-alternatives/}\\ -->
+<!-- \url{http://www.lifehack.org/articles/technology/running-out-room-dropbox-here-are-11-dropbox-alternatives-that-offer-way-more-free-cloud-storage.html}\\ -->
+<!-- \url{http://beebom.com/2015/03/best-dropbox-alternatives-for-cloud-storage} -->
+
+<h3>github (<25mb)</h3>
+ <!-- !LATER: git ignore csv  -->
+can also upload files of upto 25mb to dropbox and then load from
+ there, and remember to load the 'raw' file!, eg:<be>
+insheet using https://github.com/sdegiorgis/test/raw/master/PhillyParcelsSubsample.csv
