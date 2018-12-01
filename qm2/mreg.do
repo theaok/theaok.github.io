@@ -242,3 +242,38 @@ http://www.stata.com/manuals13/rmarginsplot.pdf
 http://www.timberlake.co.uk/common/pdf/stata-uk-12-ugm/uk12_rising.pdf
 
 */
+
+//---DO IT!!! application: crime and mionrity-------------------------
+
+import excel using "https://docs.google.com/uc?id=1r4I3ff33QlSvHX7hniLQ4sD8NItymXq8&export=download", clear firstr
+
+gr matrix Crime Foreign Unempl College  Growth SNAP , half
+tw(scatter Crime Foreign)(lowess Crime Foreign)
+
+pwcorr   Crime Foreign Unempl College  Growth SNAP
+
+reg Crime Foreign //more foreigners more crime
+est sto a1
+reg Crime Foreign Unempl
+est sto a2
+reg Crime Foreign Unempl College, robust
+est sto a3
+reg Crime Foreign Unempl College Growth, robust
+est sto a4
+reg Crime Foreign Unempl College Growth SNAP, robust //not anymore!!
+est sto a5
+
+est tab a*, star   b(%9.3f) 
+hilo Crim Forei Muni
+hilo  Forei Crim Muni
+
+sum For if Crime>362
+sum For if Crime<362
+
+sum For if Crime>200
+sum For if Crime<200
+
+
+sum For if Crime>20
+sum For if Crime<20
+ 
