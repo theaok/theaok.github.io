@@ -1,0 +1,164 @@
+Reviewer #1: To the author(s)
+
+I remain concerned at several aspects of this paper.  Most importantly the conclusions drawn do not match the actual findings,
+
+>>>i have reread it to make sure it matches; i have made few changes;
+importantly, i fixed one glaring overstatement as suggested by this reviewer later 
+
+there are aspects of the happiness scale which need attention (unhappiness vs happiness)
+
+
+>>>it is a one dimensional continuum--more unhappiness means less happiness, or the other way round
+
+and there is a persistent failure to acknowledge the well established distinction in the literature between happiness and life satisfaction
+
+>>>i disagree: most literature treats them interchangeably; and pretty much all studies do it in my line of research (interdisciplinary, large scales surveys, and social/ecological focus)--as i argued in my last reply
+
+. This is a study of happiness, not life satisfaction and hence it is only covering one dimension of the more general notion of  subjective wellbeing.
+
+>>>if anything, strictly speaking, it is more life satisfaction than happiness actually, if you want to make distinctions
+
+My comments begin with the persistent problem of generalisation.
+
+In terms of the very loose generalisations, I won't trawl the whole text for examples because the abstract is sufficient to illustrate
+1.      Planners and social scientists are not members of the same group.
+2.      Should state 'USA General Social Survey'. There are many General Social Surveys in different countries.
+
+>>>separated the groups bit more; it says 'US' in the abstract; and 'American'  in the title, no one should be confused
+
+3.      One cannot use subjective wellbeing and happiness as synonyms.  Happiness is one possible (and least favoured) single measure of subjective wellbeing. I illustrate more below.
+
+>>>i disagree; i elaborate below
+
+4.      'Several hundred thousand' is far too vague, and so is 'unhappiness settles in'.  All that happens is that the odds  of 'unhappiness' tend to rise from 79k sized cities onwards (see below)
+
+>>>as argued in this paper, i sacrifice specificity to gain generalizability--this is the approach i took in this study; i agree that other studies should follow to narrow this range down for more specific cities--i said that in conclusion
+
+5.      I doubt whether most planners would regard 'Smart Growth' as making people 'happier'. Smart Growth is primarily driven by a desire to limit infrastructure costs, not to raise people's wellbeing. 
+
+>>>ok, i dropped smart growth--indeed, it is not central to my argument, and may lead to confusion
+
+The two concepts come from almost complete non overlapping literatures, one addresses the compact city, the other wellbeing.  That there is scope for considering their overlap, but that conversation has hardly begun.
+There are many other examples in the text of claims that need to be more precise and I would urge the writer to go through the text again rendering generalisations less sweeping and providing references or evidence where appropriate.
+
+>>>ok, fair enough--i gave it to my students to critique; and i went through it myself trying to be more objective and picky; i also added some references
+
+In other places the text is contradictory… E.g. page 3. "For 40 years nobody has answer[?] this question …..There were only indirect and imprecise answers."   You cannot have imprecise answers to questions that have not been asked!
+
+>>>the question has been asked by fischer: there were imprecise and indirect answers; the question still remain unanswered; it seems that this reviewer simply does not like my findings; i have added a footnote to the sentence quoted above to further clarify what i meant
+
+
+And then we learn later in the page that Veenhoven (1994) 'did not find much difference between places of different size'. In any case the authors claim is contradicted later on page 7  when they refer to Gurin et al's work (1960).
+Citing some work that does look at the relationship the author ought to include a comprehensive list of studies which address the question he is asking.  The author continues to fail to do this.  The literature is far more extensive than the author suggests unless of course the author is restricting the  argument to the USA alone.
+
+>>>this is a short journal article, and it is not possible to cover all the literature, and the reviewer does not suggest any other specific studies in addition those suggested last time; at the same time, i believe, i have addressed all major works especially in this line of research that i continue here; and yes the paper focuses on the US as made clear in title, abstract, etc
+
+References continue to be incomplete e.g. Lu et al, Weinhold. , Gurin et al etc.  Thios should not be happening after three reviews!
+
+>>>it's fixed now--i tend to focus on conceptual and overlook editorial
+
+Happiness vs life satisfaction. Correct terminology
+The author writes 'For simplicity terms happiness, life satisfaction and SWB are used interchangeably.'  P.3  This certainly simplifies but it is scientifically  indefensible. Happiness and life satisfaction are quite different measures of SWB.  As I mentioned in my earlier review the author appears to be saying that the only measure available in the survey used, happiness, is a suitable proxy for life satisfaction. That is simply not the case and his claim that Diener and Lucas supports such a substitution is incorrect.  For example….
+This difference has been well documented both in popular/grey literature
+http://www.patheos.com/blogs/blackwhiteandgray/2012/10/happiness-versus-life-satisfaction-whats-the-difference/
+When asked about the difference Diener in his blog clearly makes a distinction:
+http://internal.psychology.illinois.edu/~ediener/faq.html#LS
+
+Q: Are life satisfaction and happiness the same thing?
+A: Many researchers in the area of subjective well-being avoid the term "happiness" because it has several different meanings. For example, it can mean a joyful state, it can mean long-term positive feelings, or it can mean life satisfaction. Happiness sometimes is even used to refer to the things that cause one to feel good, as in "Happiness is a good family."
+Life satisfaction refers to a cognitive evaluation or judgment of one's life. Is my life overall going well? Has the entirety of my life been close to my ideal? If I could live my life over, would I choose essentially the same life or would I change much of it? People use information to make conscious judgments when they report "satisfaction," whereas moods and emotions occur as ongoing reactions to current events.
+Occasionally we use the term happy or happiness to refer to the affective components of SWB - a presence of positive affect and an absence of negative affect. A happy person then would be one who has a positive "affect balance" (much more positive affect than negative affect).
+
+>>>Diener himself uses them interchangeably (eg last ISQOL conference in Phoenix)--but this gets us nowhere as we cite different cases to support our points--but
+perhaps this clarifies: In laboratory settings using small samples with many measures, it is possible to differnetiate between the concepts, but it is not possible in large scale surveys as used here. I have added this explanation to first footnote that says that they will be used interchangeably.
+
+
+The author should reread the World Happiness Report 2015 p. 13 that I quote from here….
+"By the time of the first report there was already a clear distinction to be made among three main classes of subjective measures: life evaluations, positive emotional experiences (positive affect) and negative emotional experiences (negative affect); 
+
+>>>yes, i am talking here about the first one: life evaluations
+
+see Technical Box 1. The subsequently released OECD Guidelines on Measuring Subjective Well-being, 2 as foreshadowed in a case study in the first report, and more fully explained in the OECD chapter3 of World Happiness Report 2013, included both short and longer recommended modules of SWB questions."
+There is no need for me to go on; happiness and satisfaction with life are NOT the same thing and it is ingenuous and scientifically incorrect for the author to claim so.  He/she should just use the happiness measure they have and be honest about what it means, and not suggest to the reader that it means life satisfaction.
+
+>>>again, if anything, it is 'life satisfaction measure': it is about evaluating life as a whole; not momentary affect:
+"Taken all together, how would you say things are these days--would you say that you are very happy, pretty happy, or not happy?" 
+
+happiness questions are more about momentary afective feeling
+
+I've no further time to go through the many other remaining problems with this paper.  
+
+>>>well, again, it seems to me that this reviewer simply doesn't like my findings or perhaps my writing or exposition style; but complaints are rather emotional than scientific
+
+
+However I will turn to the author's response to the technical, statistical recommendations I made in my last review.
+Statistical analysis
+The results are shown in Fig 2 and 3 and Appendix B.  In no particular order here are my concerns
+1.      Missing values. The implications of these in the last few models need exploration for their effects.  Stata has routines for checking the bias introduced by missing values.
+
+>>>sure, ideally this should be done; however, i leave it for the future research--it would be time consuming, and none of the studies that i am familiar with on habppiness using gss (there were many!) does it; most importantly, there are no particular reasons to suspect that missingness does bias results in my direction 
+
+2.      Reverse Helmert contrasts.  The author should acknowledge my recommendation as an anonymous reference to use this method and he/she should also cite the text in which this method is clearly explained - for the benefit of others, namely  (Mitchell 2012) p. 187
+
+>>>i added now a thank you footnote and reference where i discuss contrasts
+
+
+3.      The author's results p. 24 show that it is Unhappiness that is most sensitive to city size, not happiness.  The distinction is important, especially in light of the following (unstated) debate with psychology (Diener and Emmons 1984, Huppert and Whittington 2003).
+
+>>>i tend to to think of them as one dimension (as most studies do), especially here with just one survey item--again, i am sacrificing specificity to gain generalizability; i am not denying that one can disassemble measures and meanigfully talk about happiness v life satisfaction and about negative v positive affect--but such discussion is meaningless here with GSS data! It remains for future research to attempt this with other datasets with more measures
+
+4.      The results in Table 4 suggest that cities 79k and bigger report higher odds of being 'not too happy' compared to the average of smaller places.  The term 'contrast' needs an explanation for readers.  What is most relevant to the author's argument is not the 79k threshold but the difference between the largest cities and the ones in the next category down.  The contrast given is only between the 0.6-8m and the AVERAGE of the rest.  This itself does not show that the biggest cities have an average level of unhappiness that is greater than those cities immediately below it in the size rankings.  To test that the author needs to use adjacent contrasts - which are described in the same source above.
+
+>>>yes, average of the rest--you yourself said that it was the best way to go about it  in your last review (and it is explained in text what it means)
+
+5.      The author is only able to say that the biggest city category does exhibit a significantly different odds of being 'not-too-happy' compared to the average of the rest - no more.  They can say nothing about 'satisfaction' from this, nor can they generalise to a wider meaning of 'SWB'.  Their results are only responses to the happiness question.
+
+>>>well, that would be a very technical and narrow interpretation that i tend to disagree with based on what i said earlier
+
+6.      They cannot say, as they do on page 25 that 'This study argues that it is the size of place that makes its residents unhappy'. 
+
+>>>this is actually a good catch! indeed, i overextend myself here and use too strong language; fixed now; thanks!
+
+They can only say that there is an apparent statistical association to that effect.  The issue of causation is quite separate and should be acknowledged.   In any case, there is no indication here of any 'mechanism' linking city size to unhappiness - other than to Wirth in effect.  The over-achiever argument is one, yes. But he doesn't need to refer to his/her friend when the 'frustrated over achiever' is already extant as a possible explanation in the literature!   See Human Capital and Economic Opportunity Global Working Group Working Paper Series Working Paper No. 2013-013 Carol Graham Milena Nikolova September, 2013
+7.       Contrary to their conclusion the authors have not demonstrated that there is 'a clear drop in happiness …when city size exceeds hundreds of thousands of people' p. 13.  What they have shown is that the odds of being  'not too happy' rise among those living in cities of 79k or more relative to the average of all those in settlements of smaller size. 
+
+>>>okay, fair enough rephrazed
+
+What is important to stress is that very large cities are associated with higher degrees of unhappiness.  There is no evidence that the odds of being 'pretty happy' or 'very happy' fall at the higher size range.   Given the evidence, the question now becomes, why does the incidence of unhappiness rise when cities get very big.  This is a fundamentally different question to one which asks about changes in happiness in general with city size. Therefore  it is certainly NOT true to conclude as the authors have that, "a clear drop in happiness happens when city size exceeds hundreds of thousands of people" [even if that vague
+size range was useful, which I'm claiming it is not].  All the authors have shown here is that rates of 'unhappiness' differ from average in cities 79k and over.   The authors subsequent discussion in the conclusion  needs to be tempered in light of their quite specific result.
+
+>>> yes, tempered a bit
+
+References
+Diener, E. & R. A. Emmons (1984) The independence of positive and negative affect. Journal of Personality and social psychology 47, 1105-1117.
+Huppert, F. A. & J. E. Whittington (2003) Evidence for the independence of positive and negative well-being: implications for quality of life assessment. British Journal of Health Psychology, 8, 107-122.
+Mitchell, M. N. 2012. Interpreting and visualizing regression models using Stata. College Station, Texas: A Stata Press Publication
+
+
+
+
+
+
+Reviewer #2: Dear Author, 
+
+A lot of work! But good work in my view. Now it is more transparent. This article is primarily about fact-finding: in the US average happiness is lower in bigger cities and the relation is linear (or smooth/monotonic) with one interesting exception. You do not present any plausible explanations for these finding, only some speculation. This is understandable and acceptable. Serious explanations would require a lot of additional work and probably some case-studies, about economic and demographic developments in specific cities.
+
+Just some minor points.
+1. Perhaps you can be more explicit about your 'mission': "just fact-finding and a little speculation".(Abstract and Introduction)
+
+>>>yes, great! done
+
+2. The specific finding(negative linear relation, with one interesting exception)should be explicitly and fully formulated in the abstract.
+
+>>>done
+
+3. Perhaps you can speculate a bit more about the exception in the otherwise smooth relation (the 'bump').
+
+>>>There is a brief speculation in discussion: 
+Perhaps,  such places already strip residents of their contact with nature that is plentiful in villages and open country. On the other hand, they are not big enough to provide residents with city amenities.
+
+3. Perhaps you should avoid the word 'Urbanization' in the heading of one section, because you do not really deal with urbanization.
+
+>>>great! i think "urbanism" is a better word; now it reads: "Urbanism: Happy or Unhappy?"
+
+
