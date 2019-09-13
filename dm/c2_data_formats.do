@@ -94,6 +94,9 @@ insheet using https://sites.google.com/site/adamokuliczkozaryn/datman-1/gss.csv,
 //and you can load from excel--use gui to generate code: file-import-excel
 
 
+
+//--------SKIP infix outfix, outfile, outdat, can play at home
+
 *** fixed format
 
 /* for fixed format use infix*/
@@ -101,7 +104,7 @@ insheet using https://sites.google.com/site/adamokuliczkozaryn/datman-1/gss.csv,
 infix v1 10-11  str v7 70-75 using https://sites.google.com/site/adamokuliczkozaryn/datman-1/gss.dat, clear /*here we just infix two variables*/
 edit 
 
-//--------SKIP outfix, outfile, outdat, can play at home
+
 
 *// outfix  for fixed format data
 findit outfix2
