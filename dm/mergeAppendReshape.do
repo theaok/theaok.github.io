@@ -136,6 +136,7 @@ l
 merge 1:m state using ppl
 l
 
+//OR could collapse multiple ppl per state to one state, take averages and merge 1:1
 
 /*Append*/  
 use gss.dta, clear
