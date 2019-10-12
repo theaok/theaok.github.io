@@ -1,7 +1,6 @@
-*** an example of local macro... more later in programming class
+*** an example of local macro... more later in programming class; run as one chunk!!! 
 local path "/some_drive/some_dir/"
 //locals are like objects in object oriented programming like Python
-
 display "`path'"
 
 
@@ -316,6 +315,7 @@ lookfor income
 sum `r(varlist)'
 
 
+//-----------------------------------SKIP------------------------------
 
 /*********************/
 /* labelling  using 'note' */
