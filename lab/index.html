@@ -7,23 +7,23 @@ body {
 </style>
 </head>
 <body>
-Welcome to computational social science lab!!<br><br>
+Welcome to <!-- computational social --> data science lab!!<br><br>
 <!-- better than "quant/linux" or "GIS" and for now and here keep it -->
 <!-- official and dont use spiffy terms like i have at the top of the  cdc.org -->
 
-The lab is meant for scientific computing, and especially <!-- general -->
-student/faculty collaboration in computational research, so called
-Computational Social Science (CSS) or Social Data Science
-(<a href="http://science.sciencemag.org/content/323/5915/721">http://science.sciencemag.org/content/323/5915/721</a>).
+The lab is meant for scientific computing (computational science), and especially <!-- general -->
+<!-- student/faculty --> collaboration in data science<!-- computational research --><!-- , so called -->
+<!-- Computational Social Science (CSS) or Social Data Science -->
+ (<a href="http://science.sciencemag.org/content/323/5915/721">http://science.sciencemag.org/content/323/5915/721</a>).
 It is also meant for workshops and small classes (eight terminals
 plus one for instructor).<br>
 
-As of 2018, these are some of the fastest, latest and greatest
+As of 2020, these are some of the fastest, latest and greatest
 computers (short of parallel computing) with 2K monitors for
 productive scientific computing ( <a href="http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745">http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745</a>),
 which in general means producing reproducible research by writing
 computer code and avoiding pointing-and-clicking.<br>
-<!-- <br><br> -->
+<br><br>
 
 Notably, the lab is open-source: it uses free community-developed
 software
@@ -38,15 +38,19 @@ key--ask any of the team members for help accessing the lab.<br>
 <h3>team</h3>
 The lab is a community effort of the following team:
 <dl>
-<li>  faculty lead: Adam Okulicz-Kozaryn
+<li>  lab director / faculty lead: Adam Okulicz-Kozaryn
   adam.okulicz.kozaryn@gmail.com
 <li>  student volunteers: <!-- Saul Morales sm1640@scarletmail.rutgers.edu, -->
-  Straso Jovanovski sj372@scarletmail.rutgers.edu     
+  <ul>
+    <li> Straso Jovanovski sj372@scarletmail.rutgers.edu     
+    <li> Shourjya Deb shourjyadb@gmail.com 
+  </ul>
 </dl>
 
 <a name="howto"><h3>howto use it? (interface)</h3></a>
-Right-click on desktop and pick the program (or go to help about
-this lab). 
+Left-click on the "start" button at bottom-left or right-click anywhere on desktop and pick the program (note! can just hit on keyboard first underlined letter to run the program) 
+<!-- (or go to help about -->
+<!-- this lab) -->. 
  Or just hit F12 <!--  (or  "Run" under bottom-left monitor icon --> and type name of
 program to run: available software is listed below. 
 To toggle between windows press Alt-Tab<!-- , or click on the icon in bottom panel -->.<!-- , which also has file manager on -->
@@ -55,47 +59,58 @@ To toggle between windows press Alt-Tab<!-- , or click on the icon in bottom pan
 <!-- point-and-click windows manager. To operate on files (move, copy, -->
 <!-- etc): just use bash in terminal: -->
 <!-- <a href="http://tldp.org/LDP/abs/html/basic.html">http://tldp.org/LDP/abs/html/basic.html</a>. -->
-To mimic two monitors, there are two desktops: desktop 1 (default) is
-accessed by pressing F1, and desktop 2 is accessed by pressing F2<!-- ; you -->
+To mimic two monitors, there are two desktops. Desktop 1 (default): hit F1, and desktop 2: hit F2.<!-- ; you -->
 <!-- can also switch between them <\!-- also toggle between them using mouse -- -->
 <!-- 			  -- scroll on desktop, or -\-> by clicking  -->
 <!-- desktop icons at the bottom panel on the left. --><br><br>
 
 The main computer (named "father") with terminal at the head of the table is connected to the TV. You can also connect your laptop to TV using extra HDMI cable. And there is a remote to turn the TV on. <br>
 
+<h4>teaching in the lab</h4>
+
+All displays can be shown and controlled on the main display (at the head of the table): run as root /home/lab/displays.sh and don't forget to kill it after instruction with /home/lab/displaysKill.sh
+
 <!-- Note: arrows and del don't work, but they all work on numeric pad (on -->
 <!-- the right) -->
 
 <h3>software</h3>
+
+<dl> <b>generic</b>
+  <li> <u>r</u>un (same as F12)
+  <li> <u>t</u>erminal (bash shell:  run there linux tools such as sed, awk, and pipe etc)
+  <li> <u>h</u>elp (this page)
+</dl>
+  
 <dl> <b>data science</b> 
 <!-- <li> emacs (run in lxterminal) -->
 <!-- <li> git (run in lxterminal) -->
-<li> python-spyder 
-<li> rstudio <!-- rstudio seems super heavy like spyder -->
-<li> qgis
-<li> pycharm-community (python)
-<li> stata
+<li> <u>p</u>ython-spyder 
+<li> <u>r</u>studio <!-- rstudio seems super heavy like spyder -->
+<li> <u>q</u>gis
+<!-- <li> pycharm-community (python) -->
+<li> <u>s</u>tata
 <!-- <li> GeoDa  TODO yes!; just use pysal -->
-<li> linux tools: sed, awk, cut, etc (run in lxterminal)
+<!-- <li> linux tools: sed, awk, cut, etc (run in lxterminal) -->
 <!-- <li> latex yeah but GUI are heavy and none; and best use online -->
 <!--   sharelatex/overleaf anyway -->
 </dl>
 
 <dl> <b>utilities</b>
-<li> file manager: thunar, pcmanfm
-<li> meld
-<li> latex-gummi 
-<li> firefox
-<li> ooffice 
+<li> <u>f</u>ile manager (to browse files like on win or mac)<!-- : thunar, pcmanfm -->
+<li> <u>f</u>irefox
+<li> <u>l</u>atex-gummi 
+<li> <u>m</u>eld
+<li> <u>t</u>ext editor-leafpad
+<li> <u>o</u>office 
 <!-- <li> lxterminal -->
-<li> xournal (pdf viewer/editor)
+<li> <u>p</u>df-editor
 </dl>
 
 
-<h3>machines</h3>
+<h3>monitors</h3>
 
-Note that the 4 machines in the back have wider monitors and so are best
-suited for data science.
+Note that the 4 terminals in the back have wide monitors and are best
+suited for data science: can have easily code and interpreter side by side (say dofile editor and stata). And don't forget about two virtual screens using F1 and F2. 
 
 <h3>saving/disks</h3>
 
@@ -110,18 +125,15 @@ team member and we will give you a user name and password and assign
 private space on hard drive.
 
 <h3>printing</h3>
-Printer is located to the left of the lab, next to the restroom. Just go
-to http://172.24.35.17/print/index.php and upload your pdf
-(libreoffice can save as pdf), you'll need a password, email
-team member for a password. <!-- Please save the trees and -->
+Printer is located to the left of the lab, next to the restroom. You can print from oofice, pdf-viewer or data scinece software.
+<!-- Just go -->
+<!-- to http://172.24.35.17/print/index.php and upload your pdf -->
+<!-- (libreoffice can save as pdf), you'll need a password, email -->
+<!-- team member for a password. --> <!-- Please save the trees and -->
 <!-- do 2-sided print :)OB -->
 
 <h3>data science library</h3>
-To rent books ask Adam.
-<dl> <b>Ed Tufte books</b>
-</dl>
-<dl> <b>Others, to be added</b>
-</dl>
+To rent books ask lab director, Adam.
   <dl> <b>O'Reilly books</b>
     <li>2013data_science_salary_surv
     <li>Beautiful_Code
@@ -158,6 +170,12 @@ To rent books ask Adam.
     <li>think_stats
 </dl>
 
+<dl> <b>Ed Tufte books, to be added</b>
+</dl>
+<dl> <b>Others, to be added</b>
+</dl>
+
+  
 <h3>remote access and file transfer</h3>
 You can access the lab remotely via ssh from RU network, email team member
 for user name and passwd and go to:<br>
@@ -186,7 +204,7 @@ start say Stata (unless I have already started a notebook for you), then type in
 <code>reg mpg price</code><br>
 and hit Run button at the top :)<br><br>
 Note that you can also upload files from the initial Jupter screen
-(just make sure you hit upload button)
+(just make sure you hit upload button).
 
 <a name="rstudio"><h3>rstudio</h3></a>
 rstudio is at
