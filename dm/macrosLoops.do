@@ -37,8 +37,9 @@ loc dir "c:\files" //TODO: adjust to the lab
 cap mkdir   `dir'
 cd  `dir'
 ls `dir'
+ 
+use https://sites.google.com/site/adamokuliczkozaryn/datman-1/gss.dta, clear
 
-use http://people.hmdc.harvard.edu/~akozaryn/myweb/gss.dta, clear
 d
 sum
 
@@ -128,7 +129,8 @@ di " some more math"
 display `i'^`i'
 }
 
-use http://people.hmdc.harvard.edu/~akozaryn/myweb/gss.dta, clear
+use https://sites.google.com/site/adamokuliczkozaryn/datman-1/gss.dta, clear
+
 codebook marital
 levelsof marital, loc(marital)
 di "`marital'"
@@ -191,7 +193,7 @@ gen hadInc`month'`year'=(inc`month'`year'>0) if inc`month'`year'<.
 d
 
 
-use http://people.hmdc.harvard.edu/~akozaryn/myweb/gss.dta, clear
+use https://sites.google.com/site/adamokuliczkozaryn/datman-1/gss.dta, clear
 codebook marital
 levelsof marital, loc(m)
 di "`m'"
@@ -253,7 +255,8 @@ sum `r(varlist)'
          }
          
 */
-use http://people.hmdc.harvard.edu/~akozaryn/myweb/gss.dta, clear
+
+use https://sites.google.com/site/adamokuliczkozaryn/datman-1/gss.dta, clear
 d         
 sum
 
@@ -274,8 +277,7 @@ sum
 /**************************/
 /* more examples          */
 /**************************/
-
-use http://people.hmdc.harvard.edu/~akozaryn/myweb/gss.dta, clear
+use https://sites.google.com/site/adamokuliczkozaryn/datman-1/gss.dta, clear
        
 forvalues m = 1/5 {
        qui sum inc if  marital == `m' &  sex== 1
