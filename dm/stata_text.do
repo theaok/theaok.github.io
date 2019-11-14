@@ -162,7 +162,7 @@ l
 //https://stats.idre.ucla.edu/stata/faq/how-can-i-extract-a-portion-of-a-string-variable-using-regular-expressions/
 
 
-//--- a more complicated example, rather cumbersome...
+//--- a more complicated example, rather cumbersome...can skim/zip through, but without going into the convoluted detail!
 //from http://www.unc.edu/home/danb/data_programming/stata/code/regex.html
 clear
 input str40 company_name 
@@ -350,7 +350,8 @@ outsheet using "/home/ben/SG.2011/ex.csv", replace comma
 //
 //http://www.ncsl.org/research/labor-and-employment/collective-bargaining-legislation-database.aspx
 
-import excel using ../upload/2011to2016NCSL.xlsx, sheet(2016) clear
+import excel using /home/aok/misc/html/theaok.github.io/dm/2011to2016NCSL.xlsx, sheet(2016) clear
+//../upload/2011to2016NCSL.xlsx, sheet(2016) clear
 
 set more off
 
@@ -404,7 +405,7 @@ drop if status==""
 
 //if html were organized with tables then can use http://www.convertcsv.com/html-table-to-csv.htm
 
-
+//-------------------------SKIP, doesnt work, LATER fix it-----------------
 
 //-------------------------------text analysis:goodreads example: finding words--------------------------------
 
@@ -424,7 +425,7 @@ drop if status==""
 //list stringvar if strops(stringvar, " INC ") | substr(stringvar, 1, 4) == "INC " | substr(stringvar, -4, 4) == " INC"
 //https://www.statalist.org/forums/forum/general-stata-discussion/general/1296929-how-to-find-particular-word-in-string-in-stata
 
- 
+findit egenmore
 
 loc str "Wisteria and Whitford Allgood get kidnapped in the middle of the night and they soon discover that they are a witch and a wizard. The New Order does not allow witches and wizards to exist, Wisteria and Whitford, or Wisty and Whit, are sentenced to death. They soon learn that they have to save the world from the evil New Order. I thought that this was the best book that i have ever read in my life! The only flaw for  it would be how the switches the paragraphs from character to character. It left a little confused in some parts of the story. I would recommend this book to people who like Harry Potter and wizardry or people who just need something, just give it a try."
 
