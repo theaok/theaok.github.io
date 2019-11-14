@@ -350,7 +350,7 @@ outsheet using "/home/ben/SG.2011/ex.csv", replace comma
 //
 //http://www.ncsl.org/research/labor-and-employment/collective-bargaining-legislation-database.aspx
 
-import excel using /home/aok/misc/html/theaok.github.io/dm/2011to2016NCSL.xlsx, sheet(2016) clear
+import excel using https://theaok.github.io/dm/2011to2016NCSL.xlsx, sheet(2016) clear
 //../upload/2011to2016NCSL.xlsx, sheet(2016) clear
 
 set more off
