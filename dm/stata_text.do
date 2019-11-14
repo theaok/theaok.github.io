@@ -8,36 +8,43 @@
 help string functions
 //there is also... help math functions, like round, abs, logit....
   
-abbrev(str,n)	returns str abbreviated to n characters
-char(n)	        returns character with ASCII code n
-indexnot(str1,str2)	returns position in str1 of first character of str1 not in str2 or 0 if all characters in str1 are in str2
-itrim(str)	returns str without consecutive spaces
-length(str)	returns number of characters in str
-lower(str)	returns str without lowercase letters only
-ltrim(str)	removes leading spaces
-plural(n,str1[, str2])	returns plural form based on count n; str1 is word to be modified; str2 is optional modification
-proper(str)	capitalizes all letters not preceded by letters
-real(str)	converts str to numeric or missing
-regexm(str,re)	evaluates whether str matches regular expression re
-regexr(str1, re, str2)	replaces the first substring of str1 that matches reg. exp. re with str2
-regexs(n)	 
-reverse(str)	returs str reversed
-rtrim(str)	drops trailing spaces
-soundex(str)	returns soundex code for str
-soundex_nara(str)	returns US Census soundex code for str
-string(n)	converts number n to string
-string(n,fmt)	converts number n to string with format fmt
-strmatch(str1,str2)	testes whether str1 matches pattern str2
-strpos(str1,str2)	returns position of str2 in str1
-strtoname(str[,p])	translates str into stata name (replaces characters not allowed by Stata)
-substr(str,n1,n2)	extracts characters n1 through n2 from str
-trim(str)	removes both leading and trailing spaces
-upper(str)	converts all letters to uppercase
-word(str,n)	returns nth word from str (if n<0 starts counting from right)
+//abbrev(str,n)	returns str abbreviated to n characters
+//char(n)	        returns character with ASCII code n
+//indexnot(str1,str2)	returns position in str1 of first character of str1 not in str2 or 0 if all characters in str1 are in str2
+//itrim(str)	returns str without consecutive spaces
+//length(str)	returns number of characters in str
+//lower(str)	returns str without lowercase letters only
+//ltrim(str)	removes leading spaces
+//plural(n,str1[, str2])	returns plural form based on count n; str1 is word to be modified; str2 is optional modification
+//proper(str)	capitalizes all letters not preceded by letters
+//real(str)	converts str to numeric or missing
+//regexm(str,re)	evaluates whether str matches regular expression re
+//regexr(str1, re, str2)	replaces the first substring of str1 that matches reg. exp. re with str2
+//regexs(n)	 
+//reverse(str)	returs str reversed
+//rtrim(str)	drops trailing spaces
+//soundex(str)	returns soundex code for str
+//soundex_nara(str)	returns US Census soundex code for str
+//string(n)	converts number n to string
+//string(n,fmt)	converts number n to string with format fmt
+//strmatch(str1,str2)	testes whether str1 matches pattern str2
+//strpos(str1,str2)	returns position of str2 in str1
+//strtoname(str[,p])	translates str into stata name (replaces characters not allowed by Stata)
+//substr(str,n1,n2)	extracts characters n1 through n2 from str
+*very useful!! eg:
+di substr("Camden County",1,6)
+di substr("Camden County",-6,.)
+
+
+//trim(str)	removes both leading and trailing spaces
+//upper(str)	converts all letters to uppercase
+//word(str,n)	returns nth word from str (if n<0 starts counting from right)
+di word("adam is best at stata",2)
 wordcount(str)	returns number of words in str or number of spaces minus 1
+di wordcount("adam is best at stata")
 
 //---
-help split
+help split //very handy!!
 webuse splitxmpl,clear
 l
 //parse by " " (space) 
@@ -67,9 +74,10 @@ l
 
 
 //egenmore:  sieve() seems useful for cleaning weird chars
+/*
 https://www.statalist.org/forums/forum/general-stata-discussion/general/1354264-special-characters-in-string-vars
 https://www.statalist.org/forums/forum/general-stata-discussion/general/1368547-removing-numeric-characters-in-a-string-variable
-
+*/
 /***********************/
 /* regular expressions */
 /***********************/
@@ -81,7 +89,7 @@ almost the same as POSIX.2
 // + one or more
 // ? zero or one
 
-// a-z range of char; can be 0-9 or 5-8 or B-D etc
+// a-z range of char; can be 0-9 or 5-8 or B-D etc; put in set []; see below 
 // . any char
 
 // \ escape
