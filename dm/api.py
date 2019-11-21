@@ -90,6 +90,7 @@ wb.search('gdp.*capita.*const').iloc[:,:2] #iloc[:,:2] returns relevant columns
 dat = wb.download(indicator='NY.GDP.PCAP.KD', country=['US', 'CA', 'MX'], start=2005, end=2008)
 dat
 
+''' as of 2019 breaks :(
 wb.search('cell.*%').iloc[:,:2]
 ind = ['NY.GDP.PCAP.KD', 'IT.MOB.COV.ZS']
 dat = wb.download(indicator=ind, country='all', start=2011, end=2011).dropna()
@@ -100,6 +101,7 @@ import numpy as np
 import statsmodels.formula.api as smf
 mod = smf.ols("cellphone ~ np.log(gdp)", dat).fit()
 print(mod.summary())
+'''
 
 wb.search('gov.*debt').iloc[:,:2]
 dat = wb.download(indicator='GC.DOD.TOTL.GD.ZS', country=['AUS', 'DEU', 'FRA','USA'], start=1995, end=2011).dropna()
