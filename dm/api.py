@@ -116,6 +116,10 @@ dat.values[0]
 
 dat.to_csv('mycsv.csv')
 
+#for colab
+from google.colab import files
+files.download('mycsv.csv') 
+
 
 
 ## oecd
@@ -148,6 +152,9 @@ data.to_csv('mycsv.csv')
 
 inflation = web.DataReader(["CPIAUCSL", "CPILFESL"], "fred", start, end)
 inflation.head()
+
+
+#---------------------------------SKIP THE REST-------------------------------------------
 
 ###geocoding (turning address into coordinates (latitude, longitude)) 
 
