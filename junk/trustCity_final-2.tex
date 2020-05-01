@@ -1,0 +1,920 @@
+%to have line numbers
+%\RequirePackage{lineno}
+\documentclass[10pt, letterpaper]{article}      
+\usepackage[margin=.1cm,font=small,labelfont=bf]{caption}[2007/03/09]
+%\usepackage{endnotes}
+%\let\footnote=\endnote
+\usepackage{setspace}
+\usepackage{longtable}                        
+\usepackage{anysize}                          
+\usepackage{natbib}                           
+%\bibpunct{(}{)}{,}{a}{,}{,}                   
+\bibpunct{(}{)}{,}{a}{}{,}                   
+\usepackage{amsmath}
+\usepackage[% draft,
+pdftex]{graphicx} %draft is a way to exclude figures                
+\usepackage{epstopdf}
+\usepackage{hyperref}                             % For creating hyperlinks in cross references
+
+
+% \usepackage[margins]{trackchanges}
+
+% \note[editor]{The note}
+% \annote[editor]{Text to annotate}{The note}
+%    \add[editor]{Text to add}
+% \remove[editor]{Text to remove}
+% \change[editor]{Text to remove}{Text to add}
+
+%TODO make it more standard before submission: \marginsize{2cm}{2cm}{1cm}{1cm}
+\marginsize{1cm}{1cm}{.5cm}{.5cm}%{left}{right}{top}{bottom}   
+					          % Helps LaTeX put figures where YOU want
+ \renewcommand{\topfraction}{1}	                  % 90% of page top can be a float
+ \renewcommand{\bottomfraction}{1}	          % 90% of page bottom can be a float
+ \renewcommand{\textfraction}{0.0}	          % only 10% of page must to be text
+
+ \usepackage{float}                               %latex will not complain to include float after float
+
+\usepackage[table]{xcolor}                        %for table shading
+\definecolor{gray90}{gray}{0.90}
+\definecolor{orange}{RGB}{255,128,0}
+
+\renewcommand\arraystretch{.9}                    %for spacing of arrays like tabular
+
+%-------------------- my commands -----------------------------------------
+\newenvironment{ig}[1]{
+\begin{center}
+ %\includegraphics[height=5.0in]{#1} 
+ \includegraphics[height=3.3in]{#1} 
+\end{center}}
+
+ \newcommand{\cc}[1]{
+\hspace{-.13in}$\bullet$\marginpar{\begin{spacing}{.6}\begin{footnotesize}\color{blue}{#1}\end{footnotesize}\end{spacing}}
+\hspace{-.13in} }
+
+%-------------------- END my commands -----------------------------------------
+
+
+
+%-------------------- extra options -----------------------------------------
+
+%%%%%%%%%%%%%
+% footnotes %
+%%%%%%%%%%%%%
+
+%\long\def\symbolfootnote[#1]#2{\begingroup% %these can be used to make footnote  nonnumeric asterick, dagger etc
+%\def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup}	%see: http://help-csli.stanford.edu/tex/latex-footnotes.shtml
+
+%%%%%%%%%%%
+% spacing %
+%%%%%%%%%%%
+
+% \abovecaptionskip: space above caption
+% \belowcaptionskip: space below caption
+%\oddsidemargin 0cm
+%\evensidemargin 0cm
+
+%%%%%%%%%
+% style %
+%%%%%%%%%
+
+%\pagestyle{myheadings}         % Option to put page headers
+                               % Needed \documentclass[a4paper,twoside]{article}
+%\markboth{{\small\it Politics and Life Satisfaction }}
+%{{\small\it A} }
+
+%\headsep 1.5cm
+% \pagestyle{empty}			% no page numbers
+% \parindent  15.mm			% indent paragraph by this much
+% \parskip     2.mm			% space between paragraphs
+% \mathindent 20.mm			% indent math equations by this much
+
+%%%%%%%%%%%%%%%%%%
+% extra packages %
+%%%%%%%%%%%%%%%%%%
+
+\usepackage{datetime}
+
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,backgrounds}
+
+
+%\usepackage{color}					% For creating coloured text and background
+%\usepackage{float}
+\usepackage{subfig}                                     % for combined figures
+
+\renewcommand{\ss}[1]{{\colorbox{blue}{\bf \color{white}{#1}}}}
+\newcommand{\ee}[1]{\endnote{\vspace{-.10in}\begin{spacing}{1.0}{\normalsize #1}\end{spacing}\vspace{.20in}}}
+\newcommand{\emd}[1]{\ExecuteMetaData[/tmp/tex]{#1}} % grab numbers  from stata
+
+%TODO before submitting comment this out to get 'regular fornt'
+\usepackage{sectsty}
+\allsectionsfont{\normalfont\sffamily}
+\usepackage{sectsty}
+\allsectionsfont{\normalfont\sffamily}
+\renewcommand\familydefault{\sfdefault}
+
+% \usepackage[margins]{trackchanges}
+% \usepackage{rotating}
+% \usepackage{catchfilebetweentags}
+%-------------------- END extra options -----------------------------------------
+\date{Draft: {}\today}
+\title{  % remember to have Vistula University!!
+  Urban Misanthropy: Do Cities Promote a Dislike of Humankind?
+}
+\author{
+% ANONYMOUS
+%   \hfill I thank XXX.  All mistakes are mine.} \\
+%}
+}
+
+\begin{document}
+
+%%\setpagewiselinenumbers
+%\modulolinenumbers[1]
+%\linenumbers
+
+\bibliographystyle{/home/aok/papers/root/tex/ecta}
+\maketitle
+\vspace{-.4in}
+\begin{center}
+
+\end{center}
+
+
+\begin{abstract}
+\noindent 
+We use pooled US General Social Survey (GSS, 1972-2016) to study 
+the relationship between urbanism and misanthropy (a dislike of humankind). We use three operationalizations of urbanicity and an extensive set of control variables. 
+Human evolutionary history (small group living),  psychological theory
+(homophily or ingroup preference) and classical sociological urban theory  
+suggest that misanthropy should be observed in the most dense and
+heterogeneous places like large cities. Our results mostly agree: overall, over
+the past four decades, misanthropy is lowest in smallest settlements (but not in
+ the countryside), and the effect size of urbanicity is about half of that of
+ income.
+ %
+ It is only the very largest cities that are
+robustly more misanthropic than smaller places.
+ %
+Yet, the rural
+advantage has now disappeared--since the early 1990s till late 2000s, misanthropy has
+increased fastest in smallest places ($<10k$). We interpret this finding as an
+indication that smallest places have been left behind--most resources and
+amenities are increasingly urban.  The analysis is solely for the
+US, and the results should not be generalized--especially in  developing
+countries results may differ.
+\end{abstract}
+\vspace{.15in} 
+\noindent{\sc keywords:  city, urbanism, trust, misanthropy}%, social capital
+%\vspace{-.25in} 
+
+\begin{spacing}{1.4} %TODO MAYBE before submission can make it like 2.0
+\rowcolors{1}{white}{gray90}
+\vspace{.5in}
+%  instead \ExecuteMetaData[../out/tex]{ginipov} do \emd{ginipov}
+
+\noindent ``The more I learn about people, the more I like my dog.'' Mark
+Twain\footnote{Interestingly, \citet{cooper2018animals} claims that misanthtropy is indeed justified in the light of how humans % treat and
+  compare with other animals.}\\
+
+\noindent ``To look at the
+ cross-section of any plan of a big city is to look at something like the
+ section of a fibrous tumor.'' Frank Lloyd Wright\\
+
+% This study tests a simple hypothesis: Do Cities Promote a Dislike of Humankind?% the more people, the more dislike for them
+%  % Such relationship
+%  Such idea might have struck many as not very relevant or
+% non-existent, especially amid current pro-urbanism. But the current covid19 pandemic requires us to reasses past thinking.
+
+% Urbanization has deeply affected many aspects of social, political, and economic life \citep{kleniewski2010cities}. 
+Before industrialization took off, in the early 1800s, only several percent of the world population lived in cities; by 1900, however, the proportion more than
+doubled to 13 percent as people moved to be near factories and industrial sites
+\citep{davis55}. In 1950, a third of the world population inhabited in cities,
+and by 2050 it is estimated that it will increase to about two thirds
+(\url{https://esa.un.org/unpd/wup}).
+% In terms of absolute population increase, urbanization is even more dramatic: In 1890, only .2 billion of the world 
+% population lived in cities, by 1950 .7 billion, in 2000 almost 3 billion, and by 2050 it is estimated that over 6 billion people will be living in
+% cities (\url{https://esa.un.org/unpd/wup}).
+% As urbanization 
+% rampantly adds tens of millions of people to cities every year,% , at an increasing rate,
+%  city living has an enormous effect on the human condition.
+ It is often overlooked  that city living is a very recent development in
+ hundreds of thousands years history of human species--city living is not
+ natural for human species.\footnote{By not natural we mean that humans have not
+   evolved to live in cities, especially not at such large population size,
+   density, and heterogeneity. We elaborate later.}
+
+ 
+ \citet[][p.1009]{amin06} summarizes urban discontent:
+  ``for the vast majority of people, cities are polluted,
+  unhealthy, tiring, overwhelming, confusing, alienating.''
+  \citet[][p.140]{thrift05} proposes that urban misanthropy is natural: ``misanthropy
+ is a natural condition of cities, one which cannot be avoided and will not go away.''
+%
+% The question we are asking is about the overall effect of urbanicity on human condition.
+Yet an up to date empirical test is missing--% in this paper, 
+we explore quantitatively this novel area--can urbanization lead to misanthropy, a dislike for humankind?
+ 
+
+  
+\section*{Urban Misanthropy}
+
+``Here is the great city: here have you nothing to seek and everything to lose''--Nietzsche\\
+
+Misanthropy stems from the Greek words \textit{misos}, ``dislike or hate,'' and
+\textit{anthropos}, ``humans.''  Misanthropy refers to the lack of faith in others and the dislike of people in general.
+%
+Misanthropy is a critical judgement on human life  caused by failings that are ``ubiquitous, pronounced, and entrenched'' \citep[p. 7]{cooper2018animals}. A misanthrope could consider his fellow men ``wicked and evil,'' ``devilish,'' ``obscene,'' ``putrescent,'' ``packages of rotten tripe'' \citep[p. 7]{cooper2018animals}.
+
+Socrates defines misanthropy in such terms: misanthropy develops when one puts complete trust in somebody, thinking the person to be absolutely true, sound, and reliable, only to later discover that the person is deceitful, untrustworthy, and fake. And when this happens to someone often... they end up... hating everyone. \citep[cited in][]{melgar13}.
+
+ American intellectuals almost
+ universally expressed ambivalence or animosity toward city life, some even
+ describing the city as ``a cancer on the body of the state''
+ \citep[][p. 235]{white77}. \citet{white77} is a wonderful summary of this
+ intellectual history. Interestingly, many of the urban critics lived and wrote
+ in cities,\footnote{We thank anonymous reviewer for this point.
+{% Arguably
+ %   some of our anti-urbanism is due to cities we live in.
+   Franklin was not
+   anti-urban like Thoreau or Jefferson, but he did note problems assiociated
+   with urbanness \citep[e.g., p32]{white77}.} %and see lesewhere as per index %on frankiln
+ } e.g., Socrates in Athens, Franklin in Boston and Philadelphia,
+ Wright in Chicago, and authors of this paper live in Philadelphia and New York City.
+
+% For a long time social scientists have tried to understand how urbanization
+% affects human beings.
+ % --it is our contribution to connect with the illuminating classical studies  
+% amid recent pro-urbanism.
+.% , supplementing it with more current literature where possible.
+% \footnote{Notably recent \citet{thrift05}.}
+% The most current empirical studies about misanthropy are several decades ago, and so mostly are related empirical studies about negative side of urbanism--this is another contribution of this study--we not only connect with classic tehory, but also with older empirical studies that have been largely forgotten and disontinued and we update them with new data (up to 2016 and going
+% back to 1972).
+
+% The underlying question driving our research is, 
+How can cities produce misanthropy? There are at least several pathways or mechanisms. The most % sharp and
+critical and illuminating observations are classics--we start building our argument by laying out classic
+theoretical background.
+
+% \footnote{these are dated but classic theories still best most illuminating research in the field}
+ Early sociologists proposed that urbanization created malaise due to the core
+ characteristics of cities: increased population size created anonymity and
+ impersonality, density created sensory overload and withdrawal from social
+ life, and heterogeneity led to anomie and deviance (see \citet{park84,
+   simmel03, tonnies57} and \citet{wirth38}), and also led to lower trust and wellbeing \cite{putnam07,aok_brfss_segregation15,herbst14,postmes02,vogt07,smelser99}.
+%
+According to classical urban sociological literature, there are three defining
+characteristics of urbanicity: size, density, and heterogeneity \citep{wirth38}. 
+Throughout virtually all of our evolutionary history, humans have lived in small low density homogenous groups. As hunters gatherers humans lived in small bands of 50 to 80 people, later in simple horticultural society in groups of 100 to 150 people, and in more advanced society these groups reached five to six thousand people \citep{maryanski92}. Hence, unlike other species like ants and bees, living in heterogenous, dense, and large settlements (city living) is simply unnatural to human beings. {Human nature is unlike that of bees: by one estimate we're 90\% chimp and only 10\% bee \citep{haidt12B}.} 
+
+Some research indicates that density and/or crowding have negative consequences
+such as increased stress, depression, and aggresion. But evidence is mixed,
+and discussion is postponed to the appendix.
+ There is, however, remarkably consistent evidence that crime, traffic
+ congestion, and incidence of infectious diseases do increase with population size % and the relationship is strong and consistent
+\citep{bettencourt10,bettencourt10b,bettencourt07}.
+ While in principle cities probably do not have to have these problems, they do.
+
+In terms of heterogeneity,  humans have ingroup preference or homophily, and
+accordingly, lack preference or dislike heterogeneity
+\citep{smith14,mcpherson01,bleidorn16,putnam07}, which is a key defining feature
+of cities \citep{wirth38}.
+
+How else can cities cause misanthropy? It is well-known that city life causes cognitive overload, stress, and coping \citep{simmel03, milgram70,lederbogen11}. An overloaded system can suppress stimuli resulting in blase attitude
+\citep{simmel03}---city life can cause withdrawal, impersonality, alienation, superficiality, transitiveness, and shallowness \citep{wirth38}. Similarly, city life intensifies cunning and calculated behavior \citep{tonnies57}, estrangement, antagonism, disorder, vice, and crime
+\citep{milgram70,park15,park84,bettencourt10b}, which can lead to aggressive
+responses when interacting with others. Urbanism negatively influences the quality of nearly all social relationships \cite{wilson85}.
+
+All of the above suggests that an urbanite becomes more distant from or hostile toward other human beings. 
+Urban life is being ``lonely in the midst of a million'' (Twain), ``lonesome together''
+(Thoreau), alienated \citep{wirth38,nettler1957measure}, ``awash in a sea of strangers''
+\citep[Merry cited in][p. 99]{wilson85} in a ``mosaic of little worlds which touch, but do not interpenetrate'' \citep[][p. 40]{park84}.
+ Urbanites also in some ways tend to be ill-mannered and unreliable \citep[e.g.,][]{aokCityBook15,aok-sizeFetish17}. As a result, urban misanthropy may emerge.
+
+ Thus, we hypothesize that \underline{urbanicity increases misanthropy.}
+ 
+Urbanicity-misanthropy association  is a novel area of research and we know little so far.
+There have been only two studies that have related in any quantitative way
+urbanism and misanthropy. Importantly, the first study doesn't concern itself
+with the relationship. \citet{smith97} only lists a simple bivariate correlation
+among dozens of other bivariate correlations in a General Social Survey
+technical report. {The report is published in a journal, but it is an exact
+  carbon copy of a ``GSS Topical Report No. 29'' that is mostly a listing of
+  correlations with annotations.} Hence, the only one study focusing on
+urbanicity-misanthropy relationship is \citet{wilson85}. {\citet{wilson85} is 35
+  years old (actually unavilable online) and cited only six times as of
+  2020.}% \footnote{It is actually unavilable online, neither as hardcopy at our university libraries, and we were only able to read it through an interlibrary loan.}
+This is a major reason
+for and contribution of our study--ours is the second study focusing on this topic. Such gap in the literature is rare.
+
+\citet{wilson85} uses now dated 1972-1980 GSS dataset, controls for only a
+handful of variables, and does not show trends over time.  Arguably, like other
+contemporary social scientists \citet[e.g.,][]{veenhoven94,meyer13,fischer82}., \citeauthor{wilson85} has at
+least a slight urban bias--he seems to under-emphasize and discount urban
+problems. Likewise, \citet{wilson85} takes a different perspective--narrow
+sociological--than ours, which is broader and interdisciplinary.
+
+%MAYBE MOVE SOMEWHERE, maybe not
+While the literature on urbanicity-misanthropy is almost non-existent, there is
+somewhat related literature.%  that can be useful in building up the association btween the
+% two.
+ We will now dvelve briefly into these other literatures that may help to shed some more light.
+Steve Pile in his colorful writings about cities often inovkes notions of ``vampires'' and ``werewolves''
+% and 
+% does not refer specifically to
+% misanthropy, he hints at it by saying that cities are like vampires, doing the
+% blood-work and urban social realm may turn urbanites into  werewolves
+\cite{pile05,pile05B,pile99}. Clearly, both folklore characters indicate (at
+least in some ways) a dislike of humankind,  a misanthropy. Steve Pile observes that cities are haunted by their past, full of its ghosts. In that sense misanthropy may arise not just due to current density and overload, but also due to city's past. %still %steve pile is in general positive about cities 
+Old cities carry melancholia \citep{pile05B}. Densest and largest cities
+tend to be old. Melancholy can arguably translate into misanthropy. %animals
+                                %and mianthropy by cooper on p6 talkes about
+                                %schopenhaure and how melancholy transates into misanthropy.
+
+Nietzsche, one of the greatest observers of human condition, was a misanthrope himself,
+at least in some ways \citep[e.g.,][]{avramenko2004zarathustra}.
+% sure he loved humans but also hated them especially the masses in the city
+% and accordingly he has left the more
+% densly populated areas for the solitude in the mountains.
+Arguably his disappointments with Wagner and Salome have contributed, but it is
+also reasonable to argue that city life contributed as well. And importanly he
+does make a clear argument against the city, and especially its most crowded
+area, a marketplace, and makes a clear overall impression of dislike of a
+humankind in his vivid description \citep[e.g.,``The Flies in the Market-Place''][]{nietzsche05}.
+
+Last but not least, while there seem to be a clear misanthropic side to cities,
+many try to avoid it and discount it and point in the other direction. This may
+explain why there is virtually no research on urbanicity-misanthropy link. It is well put by Nigel Thrift, there is ``a more deep-seated sense of
+misanthropy which urban commentators have been loath to acknowledge, a sense of misanthropy which is
+too often treated as though it were a dirty secret'' \citep[p. 134]{thrift05}: 
+\begin{quote}
+  \textit{The misanthropic city}\\
+  Cities bring people and things together in manifold combinations. Indeed, that is probably the most basic
+definition of a city that is possible. But it is not the case that these combinations sit comfortably with one
+another. Indeed, they often sit very uncomfortably together. Many key urban experiences are the result of
+juxtapositions which are, in some sense, dysfunctional, which jar and scrape and rend. What do surveys
+show contemporary urban dwellers are most concerned by in cities? Why crime, noisy neighbours, a whole
+raft of intrusions by unwelcome others. There is, in other words, a \textbf{misanthropic} thread that runs through
+the modern city, a distrust and avoidance of precisely the others that many writers feel we ought to be
+welcoming in a world increasingly premised on the mixing which the city first
+brought into existence. \citep[p. 140 (``misanthropy'' bolded by us]{thrift05}
+\end{quote}
+
+\section*{Urban Triumph}
+
+There is urban triumph--announces the bestselling ``Triumph of the City: How Our Greatest
+   Invention Makes Us Richer, Smarter, Greener, Healthier, and Happier''
+   \citep{glaeser11}. While \citet{glaeser11} is remarkably misguided
+   \citep{aokCityBook15,peck16}, there are obviously many bright sides to city
+   life: freedom, productivity, research and innovation, economic growth, wages, and multiple efficiencies related to
+density in transportation, public goods provision, and lower per capita pollution \cite{tonnies57,osullivan09,meyer13,rosenthal02,bettencourt10}.
+ Also note that diversity can have a highly positive impact on  economic
+performance  \citep[e.g.,][]{rodriguez2019does}, which in turn has positive
+effect on other outcomes. 
+In general, there is no doubt that cities are economic engines of today's economy.
+%
+
+% The problem is onsidedness, prourbanism, particularly in the urban studies literature where some argue that always the more people, the better in terms of just about any metric
+%  \citep[e.g.,][]{glaeser11}. 
+
+ It is also instructive to observe how academic thinking about cities has swung in
+ pro-urban direction.
+%
+ The classical sociological urban theory \citep{wirth38,milgram70,park15,park84,simmel03,tonnies57} gave way to
+  sub-cultural theory \citep{fischer75,fischer95,wilson85, palisi83}. Debate about
+  optimal size of city \citep{richardson72,singell74,alonso60,alonso71,elgin75,capello00} gave way to the-bigger-the-better thinking \citep{glaeser11}.
+  % and glorification of urbanization
+%  
+There is also now a pro-urban attidude among many people, as exemplified by Millenial rediscovey of city \cite{aok-swbGenYcity18}.% \footnote{We may only speculate why the anti-urbanism of 19th and first half of 20th
+% century was replaced by current pro-urbanism--perhaps move away from industrial
+% economy that polluted cities to knowledge economy that puts premium on density
+% of human capital and recent urban renewal push. More discussion is beyond the
+% scopf of this study and we refer the reader to the cited literature especially
+% white white glaeser and my book.}
+
+\section*{Method} 
+
+\subsection*{Data}
+
+All variables come from the US General Social Survey (GSS;
+\url{http://gss.norc.org}). The GSS is a cross-sectional, nationally
+representative survey, administered annually since 1972 until 1994 when it
+became biennial. The unit of analysis is an individual and data are collected in
+face-to-face, in-person interviews \citep{davis07}. The full dataset contains
+about 60 thousand observations pooled over 1972-2016. % , but the actual sample size
+% depends on the model used.
+% will vary depending on the variables used and missing data (as evident in Tables 1, 2 and 3).
+All variables were recoded in such a way that a higher value means more. 
+
+As explained in the next subsetion, the dependent variable, misanthropy, is continuous. Hence, we simply use ordinary least squares (OLS) to analyze the relationship between misanthropy and urbanicity.
+\footnote{We do not see any need to use categorical or limited dependent variable modeling techniques. We do not have panel data. Multilevel techniques are not useful either as GSS is only representative of large census regions, and we do not have the restricted GSS data with finer geographical information.} 
+
+\subsection*{Misanthropy}
+
+We measure misanthropy, the dislike of humankind, by a three item  Rosenberg's  misanthropy index \citep{rosenberg56}, based on respondents' answers to three questions \citep{smith97}:\\
+
+\indent\textsc{trust}. ``Generally speaking, would you say that most people can be trusted or that you can't be too
+careful in dealing with people?''  $1=$``cannot trust,'' $2=$     ``depends,'' $3=$   ``can trust.''\\
+\indent\textsc{fair}. ``Do you think most people would try to take advantage of you if they got a chance, or
+would they try to be fair?'' $1=$``take advantage,'' $2=$       ``depends,'' $3=$          ``fair.'' \\
+\indent\textsc{helpful}. ``Would you say that most of the time people try to be helpful, or that they are mostly just
+looking out for themselves?'' $1=$``lookout for self,'' $2=$       ``depends,'' $3=$        ``helpful.''\\ 
+
+Rosenberg defines misanthropy as general uneasiness nd apprehensivness toward or
+dislike of personally unknown others \cite{rosenberg56}.
+
+Using these questions, we utilized factor analysis with varimax rotation to produce an index, and we reversed it so that it measures misanthropy. Cronbach's alpha is .67. Note that the distributions of these, as well as the descriptive statistics for all other variables, are in supplementary material.
+
+This measurement encompasses ``faith in people,'' ``attitudes towards human nature,'' and an ``individual's view of humanity.'' Although, much controversy about the assessment of misanthropy exists in the literature, the Rosenberg scale has become the standard measure for self-reported misanthropy and was designed to assess one's degree of confidence in the trustworthiness, goodness, honesty, generosity and brotherliness of people in general \citep{rosenberg56}. The Rosenberg Misanthropy Scale has been a cornerstone on the GSS since 1972, and studies have shown that the measurement is not contaminated by social desirability bias \citep{ray81}. 
+The Rosenberg Misanthropy scale is not only mainstream, but also the most popular and widely cited measurement. Some authors, e.g.,  
+\citet{wuensch2002misanthropy} have used other scales, but their approaches are disjoint from the mainstream literature, and there is not much discussion of the concept or measurement that they used in their research.  
+
+As per the survey questions, strictly speaking, it is not the dislike of ``all
+people,'' but of ``most people''  that we are measuring. \citet{wilson85}
+suggests it is dislike of strangers, specifically. Likewise, recently
+\citet{delhey11} have argued that ``most people'' predominantly connotes
+out-groups. {Also, note that this relates to homophily/ingroup theory---dislike of outgroup typically means relative preference of ingroup.} %Therefore, the data must be undertaken with caution.
+%
+
+
+ 
+\subsection*{Urbanism}
+
+One technical problem with \citet{wilson85} is that he assumed that the urbanicity measures were continuous, but they are not. We use the same measures from the General Social Survey (GSS): \textsc{srcbelt}, which is at best ordinal, and \textsc{xnorcsiz} which is clearly not even at the ordinal level of measurement.{\citet{wilson85}
+explicitly states that xnorcsiz is an ordinal variable. We disagree: one cannot really say whether a suburb is larger than an unincorporated large area and smaller than an area of 50 thousand
+people.}
+
+%The main explanatory variable is \textit{urbanism} or  size of a place. 
+The size of a place is defined in three ways to show that the
+results are robust to the definition. First, it is measured using deciles of population size
+(\textsc{size}). Deciles are used to investigate if there are any nonlinear
+effects on misanthropy.
+
+Then, two other variables are used to measure urbanism under their original GSS names: \textsc{xnorcsiz} and \textsc{srcbelt}. Both variables categorize places into metropolitan areas, big cities, suburbs, and  unincorporated areas. The advantage of \textsc{size} is that it allows us to calculate a misanthropy 
+ gradient by exact size of settlement. \textsc{Xnorcsiz} and \textsc{srcbelt} take into account the fact that populations cluster at different densities (e.g., suburbs are less dense than cities). The GSS does not provide a density variable. 
+
+The \textsc{SRC beltcode} measurement is arguably the best fitting to illustrate the
+urban vs. rural divide: the divide is between metropolitan areas vs. smaller areas
+\citep{hansonCityJournalautumn15}, and \textsc{SRC beltcode} identifies the MSAs
+(metropolitan statistical areas). The GSS codebook descriptions follow: 
+
+\textsc{Size}. This code is the population to the nearest 1,000 of the smallest civil
+division listed by the U.S. Census (city, town, other incorporated
+area over 1,000 in population, township, division, etc.) which
+encompasses the segment. If a segment falls into more than one
+locality, the following rules apply in determining the locality for
+which the rounded population figure is coded.
+If the predominance of the listings for any segment are in one of the
+localities, the rounded population of that locality is coded.
+If the listings are distributed equally over localities in the
+segment, and the localities are all cities, towns, or villages, the
+rounded population of the larger city or town is coded. The same is
+true if the localities are all rural townships or divisions.
+If the listings are distributed equally over localities in the segment
+and the localities include a town or village and a rural township or
+division, the rounded population of the town or village is coded.
+
+\textsc{Xnorcsiz}. Expanded N.O.R.C. size code. 
+a. A suburb is defined as any incorporated area or unincorporated area
+of 1,000+ (or listed as such in the U.S. Census PC (1)-A books) within
+the boundaries of an SMSA but not within the limits of a central city
+of the SMSA. Some SMSAs have more than one central city, e.g.,
+Minneapolis-St. Paul. In these cases, both cities are coded as central
+cities.
+b. If such an instance were to arise, a city of 50,000 or over which is
+not part of an SMSA would be coded '7'.
+c. Unincorporated areas of over 2,499 are treated as incorporated areas
+of the same size. Unincorporated areas under 1,000 are not listed by
+the Census and are treated here as part of the next larger civil
+division, usually the township.
+
+\textsc{Srcbelt}. SRC beltcode. The SRC belt code (a coding system originally devised to describe
+rings around a metropolitan area and to categorize places by size
+and type simultaneously) first appeared in an article written by
+Bernard Laserwitz (American Sociological Review, v. 25, no. 2, 1960),
+and has been used subsequently in several SRC surveys.
+Its use was discontinued in 1971 because of difficulties particularly
+evident in the operationalization of "adjacent and outlying areas."
+For this study, however, we have revised the SRC belt code for users
+who might find such a variable useful. The new SRC belt code utilizes
+"name of place" information contained in the sampling units
+of the NORC Field Department.
+
+
+\subsection*{Controls}
+
+In the choice of the control variables we follow \citet{welch07} and especially
+\citet{smith97}.
+The higher the social standing, the more favorable view of others, thus we control
+for income, education, and race. Social class literature suggests that individuals' social class should be assessed by using both objective (e.g., income and education) and subjective indicators \citep[e.g.,][]{kraus09}.\footnote{We thank an anonymous reviewer for this important point. Subjective class correlates with education and income moderately at about .4 (either continuous or polychoric). On one hand, subjective class and urbanicity are likely to be confounded. On the other hand, it turns out that correlations of urbanicity measures and subjective class are very small, below .1 (either continuous or polychoric). The social class item in the GSS reads: ``If you were asked to use one of four names for your social class, which would you say you belong in: the lower class, the working class, the middle class, or the upper class?'' and is coded from 1 (lower) to 4 (upper). We will just treat it as a control variable and enter it as a continuous variable without using a set of dummies.} Thus, a control for people's perceived social class will be included as well. 
+
+Negative experiences are likely to increase misanthropy, therefore we control for fear of crime (there is no good measure for actual victimization in the GSS). Crime is important because the larger the place, the more crime \citep{bettencourt10b}, and the more crime, the more misanthropy \citep{wilson85}. We also control for unemployment, self-reported health and age. Since divorce is a predictor of misanthropy, we control for it and other marital statuses as well.  Misanthropy should be higher among cultural groups and minorities that have been discriminated against, so we also control for race, being born in the United States, and religious denomination. Religious belief should reduce misanthropy. Misanthropy should be lower among older people, though some studies find a curvilinear relationship, therefore we control for age and age$^2$. Studies also show that men tend to be more misanthropic, so we control for gender. Recent movers should be more misanthropic. We do not have a good control for recent moving, but we use a proxy for international moving by controlling for being born in the US. Also, misanthropy should be higher in the South, therefore we included a region ``South'' dummy variable.
+
+In addition, we control for subjective wellbeing and health---the goal is to alleviate possible problem of spuriousness. It may be not the size of a place that causes higher misanthropy but it may be lack of success, unhappiness, or poor health that makes a person both move to a city and dislike other people. Concurrently, liberals and immigrants are more likely to live in cities and both groups are less satisfied with their lives \citep{aok11a,aokJap14} and potentially more misanthropic. Thus, we control for political ideology and immigration status.
+
+
+%maybe move somewhere
+We would like to highlight that there is a strong need to properly control for quality of life in cities and rural areas.  A key measure is income, which is controlled for. We even control directly for Subjective Wellbeing (SWB). And we include fear of crime, one of the most imoportant confounders--crime increases misanthopy and tends to be higher in cities.
+% Another related
+% measure that we do not have is cost of living, which should be negatively
+% related to quality of life, and positively related to urbanicity. Future reseach
+% should control for it.
+%%%%%and that one would actually make rural areas have higher qol!
+
+
+Data were pooled over many years, and hence we include year dummies. 
+
+\section*{Results}
+
+Table \ref{regA} shows the regression results. We use three measures of
+urbanicity, and each urbanicity measure is entered as a set of dummy variables to
+explore nonlinearities and the base case is the smallest place in the case of
+\textsc{size} and \textsc{srcbelt} and the second smallest category on \textsc{xnorcsiz}:
+ ``$<$2.5k, but not countryside.'' Coefficients of interest are those on the
+ largest  places such as the second largest category ``192-618k'', and especially the largest ones ``618k-'' in table
+\ref{regA}, and corresponding the very largest and second largest places in tables
+\ref{regB} and \ref{regC}.
+
+The first three columns in each table (a1, b1, c1)  report basic results without any control variables. For all three
+urbanicity measures, the largest increase in misanthropy occurs in the largest
+place. In the case of \textsc{size} and \textsc{srcbelt}, the second largest effects
+tend to be on the second largest place. \textsc{xnorcsiz} is more uneven and the
+second largest place does not have the second largest effect. Interestingly, in
+the case of \textsc{xnorcsiz}, in addition to largest cities,  the countryside (variable ``country'') is quite
+misanthropic, perhaps countrymen are not used to swarms of people or perhaps they are countrymen because they dislike people. 
+
+The second columns (a2, b2, c2) in the tables add controls following \citet{welch07} and \citet{smith97}--notably we control for objective and subjective social class. An interesting result on the \textsc{xnorcsiz} variable is misanthropic suburbs, ``places of nowhere,'' thus confirming \citet{kunstler12}'s critique of suburbs.
+What is worth noting is that, in general, in more elaborate specifications, we find that the larger the place, the more misanthropy. 
+
+The addition of marital status in model 3 attenuates the effect slightly. Political ideology, subjective wellbeing (SWB) and health controls were postponed
+till model 4 because there are many missing observations.\footnote{these are some of he les simportant cortols missing from smith and
+wilson (check!) and more of a robustness check--these controls are not
+essential, if anything they oversaturate the model, but they are a useful
+robustness check; in addition there are many observations missing on
+them--another reason to add them as last, because they cut the available sample size
+} The addition of these controls in model 4 attenuates the slopes considerably by about a third or half. The ``192-618k'' size decile is similar in magnitude to smaller places--they are all  more misanthropic than the base case, which in this case is places smaller than 2k. And ``618k-'' is markedly larger, about twice as large as ``192-618k''--as is the case with SWB--it is the very largest places that differ from smaller places \citep{aokCityBook15}. 
+
+
+The final most elaborate specifications also show no significant misanthropy difference for the 2nd largest places--these results contradict earlier results where the second largest places were the second most misanthropic. Therefore results for the second largest places should be interpreted with care, and while the fullest specifications are the least biased in terms of omitted variables, the sample size is less than half of the more basic models due to missing observations on additional variables. Furthermore, the most elaborate specifications are rather over-saturated models with too many controls and the collinearity.. Hence, lower statistical significance and smaller effect sizes are somewhat expected. 
+
+According to the well laid out argument in \citet{wilson85},  the most complete
+quantitative treatment of the urbanicity-misanthropy nexus to date, there
+are two key variables of interest: crime and race. Like Wilson, for lack of a
+better variable, we are using fear of crime as a proxy in our analysis
+(\textsc{afraid to walk at night in neighborhood}), which is thought to increase
+misanthropy and correlate with urbanicity. Therefore, the inclusion of this
+variable should attenuate heavily the urbanicity-misanthropy relationship, and
+it does in model a4a. \citet{wilson85} also argues that urban misanthropy is
+more common among  whites than minorities. Inclusion of \textsc{white household} dummy 
+ (without \textsc{afraid to walk at night in neighborhood}) in a4b has a similar effect to \textsc{afraid to walk at night in neighborhood}. 
+ Finally in model a4c both variables are entered together, and the urbanicity effect is heavily attenuated and barely significant. Results for the other two measures of urbanicity shown in tables \ref{regB} and \ref{regC} are similar. One difference is that in table \ref{regB}, the smallest areas (``countryside'') are slightly more misanthropic than the base case, ``smaller than 2.5k but not countryside.''
+
+In the most elaborate models, a4c and b4c  (but not c4c), the largest places remain misanthropic, yet the magnitude is not greater than that for mid-sized places, suburbs, and even the countryside. Hence, the smallest places, housing hundreds or a couple of thousand people, but not more than about
+10 thousand people or the countryside, are the most liking of humankind. As observed in model c4c, it is still the very largest places that are markedly different from other places. Importantly, as argued here, \textsc{srcbelt} is the variable that measures best the urban-rural divide. 
+
+Political ideology, marital status, health, SWB, and notably race and fear of crime explain away much of the city disadvantage, but not all of it. Hence, the
+conclusion is that similar to studies examining SWB in urban areas \citep{aok_brfss_city_cize16}, it is cities, themselves, their core characteristics, and not city problems that are related to misanthropy. 
+
+Indeed, even if the results were insignificant, they would be still worth reporting--many would think that there is less misanthropy in cities--clearly
+we are in the midst of a pro-urbanism period, where it is fashionable to argue about city benefits \citep[e.g.,][]{glaeser11}. However, the results show that there is no such benefit with respect to misanthropy--cities are at least slightly more misanthropic than other places.
+
+Why did several midsize categories score relatively high on misanthropy? We do not have an explanation for this phenomenon. Perhaps, following \citet{aok-ls_fisher16}'s rationale, such places strip people of the naturalness found in the smallest places, and yet do not provide amenities and the benefits found in the largest places.
+
+Note that the effect sizes are considerable--all tables report beta coefficients
+and the effect size of the largest place is about as large as half of the effect
+of income. It is important to note again that city living has an enormous effect size due to the urbanization scale--each year cities
+grow by tens of millions of people. To summarize, we find support for our initial hypothesis that urbanicity is related to increased misanthropy. 
+
+\begin{table}[H]\centering
+\caption{OLS regressions  of misanthropy. Beta (fully standardized) coefficients
+  reported. All models include year dummies. Size deciles (base: $<$2k).} \label{regA}
+\begin{scriptsize} \begin{tabular}{p{1.8in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45 in}}\hline
+\input{regA.tex}
+\hline  *** p$<$0.01, ** p$<$0.05, * p$<$0.1; robust std err
+\end{tabular}\end{scriptsize}\end{table}
+
+\begin{table}[H]\centering
+\caption{OLS regressions  of misanthropy. Beta (fully standardized) coefficients
+  reported. All models include year dummies.  Xnorcsiz (base: $<$2.5k, but not country).} \label{regB}
+\begin{scriptsize} \begin{tabular}{p{1.8in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45 in}}\hline
+\input{regB.tex}
+\hline  *** p$<$0.01, ** p$<$0.05, * p$<$0.1; robust std err
+\end{tabular}\end{scriptsize}\end{table}
+
+\begin{table}[H]\centering
+\caption{OLS regressions  of misanthropy. Beta (fully standardized) coefficients
+  reported. All models include year dummies. Srcbelt (base: small rur).} \label{regC}
+\begin{scriptsize} \begin{tabular}{p{1.8in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45 in}}\hline
+\input{regC.tex}
+\hline  *** p$<$0.01, ** p$<$0.05, * p$<$0.1; robust std err
+\end{tabular}\end{scriptsize}\end{table}
+
+
+
+\subsection*{A look over time}
+
+Next, we complement our analysis by exploring the relationship between misanthropy and urbanicity over time. The advantage of the GSS is that it allows us to compare a span of over four decades. Figure \ref{tim} shows misanthropy by size of place over time. Overall, misanthropy remained highest in large cities until recently. Yet, around 2000, the trends have changed--misanthropy for largest cities ($>$250k) started to decline, and it started to increase steeply for the smallest places ($<$10k). Over the four decades, misanthropy has been increasing steadily for medium sized places. Hence, the overall urban misanthropy we observed is due to earlier time periods. 
+%
+These patterns are similar when controlling for predictors of
+misanthropy. Predicted values are plotted in figure \ref{timPre}, based on the regression from column a3a from table \ref{regDbyHand} in the appendix. There is a convergence in misanthropy across urbanicity over time, with smallest places increasing their level of misanthropy most.  
+% Indeed, if anything, the predicted values graphed show even greater increase in misanthropy and greater convergence for all areas than the raw values in figure \ref{tim}. 
+ 
+
+\begin{figure}[H]
+  \includegraphics[width=3in]{timINK.pdf}\centering
+\caption{Misanthropy by size of population over time. Smoothened with moving
+  average filter using 3 lagged, current, and 3 forward terms.}\label{tim}%collapsed categories of \textsc{xnorcsiz}.
+\end{figure}
+
+
+
+\begin{figure}[H]
+  \includegraphics[width=3in]{timPreINK.pdf}\centering
+\caption{Misanthropy by size of population over time. Predicted values from regression from column a3a
+from table \ref{regDbyHand} in appendix. 95\% CI shown.}\label{timPre}%collapsed categories of \textsc{xnorcsiz}.
+\end{figure}
+
+
+
+\section*{Conclusion and Discussion}
+
+\noindent "Real misanthropes are not found in solitude, but in the world; since
+it is experience of life, and not philosophy, which produces real hatred of
+mankind." Giacomo Leopardi\\
+
+\noindent "Whenever I tell people I'm a misanthrope they react as though that's a bad thing, the idiots. I live in London, for God's sake. Have you walked down Oxford Street recently? Misanthropy's the only thing that gets you through it. It's not a personality flaw, it's a skill." Charlie Brooker\footnote{This echoes Simmel's blase attitude--in order to survive in a city, one must withdraw; see also \citet{milgram70} and \citet{lederbogen11}.}\\
+
+City living has an enormous effect on humanity--the world is urbanizing at
+astonishing pace--each year cities add tens of millions of people. Arguably
+the biggest divide is urban-rural, and it is important to investigate its
+multiple dimensions. In this article, we have focused on a novel area,
+urbanicity-misanthropy nexus.\footnote{For a long time social scientists have
+  tried to understand how urbanization affects human beings. Yet the most sharp
+  and critical observations were published decades ago--it is our contribution
+  to connect with the illuminating classical studies amid current
+  pro-urbanism. We offer the first up to date quantitative test based  on classic theoretical background. % The two quantitative empirical studies about urbanism-misanthropy are several decades ago, and so mostly are related empirical studies about negative side of urbanism--this is another contribution of this study--we not only connect with classic tehory, but also with older empirical studies that have been largely forgotten and disontinued and we update them with new data (up to 2016 and going back to 1972).
+}   
+ 
+Our evolutionary history (small group living),  psychological theory (homophily or ingroup preference), and classical urban sociological theory, all 
+suggest that human dislike for other humans should be observed in most dense and
+heterogeneous places like cities. Our results mostly agree: misanthropy is
+lowest in smallest settlements (but not in the countryside), and the effect size
+of urbanicity is about half of that of income.
+%
+There are two important caveats. The urban misanthropy thesis holds up robustly for
+the large cities only (larger than several hundred thousand people). The second
+caveat is that level of misanthropy in smaller areas has just now reached about
+the same level as in large cities.  
+% 
+% Overall, our results contradict recent pro-urbanism arguments on the advantages of city living, although recently, smaller areas have become much more misanthropic than in the past.
+%
+As a sidenote, our results are  similar to research examining subjective wellbeing (SWB) in cities--rural folks have also
+always been at an advantage when it comes to SWB (at least since the US GSS
+started collecting data in 1972), but very recently this advantage has disappeared \citep{aok-swbGenYcity18}. We interpret this as evidence of a rural-urban divide and the fact that rural areas have been left behind \citep[e.g.,][]{fullerNYT17monD, hansonCityJournalautumn15}.
+
+As compared to the most complete study to date on the relationship between
+misanthropy and urbanicity, \citet{wilson85}, we use more data, control variables, and levels of size variables without forcing untenable assumption of interval/ratio scale and linear effects. Our results do not necessarily contradict, but rather extend \citet{wilson85}: there is misanthropy in the largest places for everyone (we find more robust evidence than \citet{wilson85}; and concurrently confirm the finding by \citet{fischer81} of a relatively strong relationship between community size and distrust). In addition, we also find that there is especially misanthropy for whites, and that rural misanthropy is on the rise.
+
+As in any correlational study, we cannot claim causality. There are, however, reasons to believe that urbanism causes misanthropy. Size, density, and
+heterogeneity are theoretically linked to many negative emotions
+\citep{wirth38}, and make general dislike for humankind, misanthropy,
+likely. Homophily and evolutionary arguments discussed earlier also point in the same direction. 
+Furthermore, there is neurological evidence that city living is unhealthy to the human brain \citep{lederbogen11} and experimental evidence that city living causes lower trust \citep{milgram70}.
+
+Reverse causality would not make sense: misanthropy or hatred of people, should not lead someone to live in places, like cities, unless one perhaps wants to harm them in some way, clearly these cases are rare.\footnote{Another potential reason for a misanthrope, or any non-conformist type, to live in a city is anonymity.} This rationale should also exclude self-selection---if anything the opposite of misanthrope, people who love to be among many people, would choose to move to cities. This can also perhaps explain the result that while misanthropy is high in largest
+cities, it is also high in the smallest places of all: the
+countryside. {Arguably many people tired of urban crowds move to the
+  countryside---the authors know personally many such people. It also happens among generally city-loving Millennials  \citep[e.g.,][]{deweyWP17nov23}.}
+
+Can the relationship between urbanicity and misanthropy be spurious? Cities have
+many problems: notably urban poverty and urban crime--these problems could
+intensify misanthropy. In other words, if it were not for urban problems, then
+urbanicity would not cause misanthropy. There are many urban problems, and we
+cannot control for all of them, but we controlled for the key urban problem
+leading to misanthropy: fear of crime. We also controlled for personal
+income. But what about an ideal city, without problems and with all the amenities.
+
+If there is a city with very low crime and very low levels of inequality and
+lots of parks, public spaces etc--is this still likely to have high levels of
+misanthropy? Probably. Because it is city itself, its core characteristics, size,
+density and heterogeneity that contribute to misanthropy. All large cities have high population by deinition, moderate-high or
+high density (as compared to smaller places), and are also relatively heterogenous as compared to smaller places, and these core
+characteristics are the likely drivers of misanthropy as explained throughout. 
+%
+%guess move to future research
+Still, this  would require a test--for the future research (we do not have such data) it would be useful to
+control for all these things--parks, public spaces, etc.% and ideally to look at
+% specific places (GSS doesn't specify actual places). 
+
+The magnitude of the effect of urbanicity is important to consider. There is
+evidence of a large magnitude effect on trusting behavior. In one experiment,
+trust differed several-fold between city and town, strikingly a larger
+difference than across gender--the trust benefit of being female over male is smaller than the benefit of town over city \citep{milgram70}. While we do not find a very strong effect of urbanicity on misanthropy, we do find a substantial effect--about half of the income effect in our analysis.\footnote{One explanation is that people's trust is low in cities mostly because there are simply too many people, not necessarily because they dislike people.} Thus, we contradict \citet{wilson85}, who argued that there's only a small effect.% \footnote{As previously discussed, one problem with \citet{wilson85} is that, unlike our study, he assumed that the urbanicity measures were continuous when in fact they are not, especially the xnorcsiz measure which is not continuous nor ordinal.}
+
+Why are cities becoming less misanthropic and smaller places more misanthropic?
+We don't intrepret it as cities are improving their condition--
+misanthropy level is not declining in cities, but the convergence is due to
+increasing misanthropy in smaller areas--hence we intrepret it as smaller places
+left behind \cite{aokCityBook15}.
+%
+One possible explanation is that rural folks are being discriminated by the
+urban elite. It is usually overlooked that arguably one of the biggest current
+social divides is urban-rural divide \citep{hansonCityJournalautumn15,hansonCJ17winter17}. There is
+ clearly a rural resentment\footnote{And clearly this resentment could lead to increasing rural misanthropy, which we observe in this study. Although, the rural resentment may be more against cities or urbanites, rather than people in general. We thank an anonymous reviewer for these points.} as rural folks feel that they are being governed by an urbanized elite. More research is needed to better understand this phenomenon.
+
+\citet{smith97} argued that the more subordinate a group is, and the more isolated the members of the group are, the greater the misanthropy; and that urbanicity has no direct impact on negativism.  %p12,13
+We disagree: while cities have never been subordinate, but always dominating \citep[e.g.,][]{aok-sizeFetish17},\footnote{In some specific cases this is not
+   true--there are always exceptions to any social scientific rule. For instance, after the urban white flight and before the recent urban renaissance, at least in some ways, suburbs were dominating \citep[e.g.,][]{adams14}.} there are multiple theoretical reasons to believe that cities in fact do increase negativism--for a recent review see \citet{aokCityBook15}. 
+   
+Hence, our conclusions are congruent to those of \citet{schilke15} with respect to trust---misanthropy can be higher in dominating places. Yet, at the same
+ time, rural America has clearly increasingly become subordinated, and this is perhaps another reason why misanthropy is growing there.\footnote{We speculate that the main reason is that rural areas have been left behind \citep{hansonCityJournalautumn15,hansonCJ17winter17,fullerNYT17monD}--being left behind is not necessarily the same as being subordinated.}  
+
+\section*{Takeaway for Practice}
+%MAYBE move earlier
+TODO see other recent papers in cities for this section
+
+We hope that this novel approach and analysis to the study of cities will spark
+more interest and perhaps start a new line of research into the dark side of
+urbanism. We aimed to be thought-provoking but also balanced.
+
+% Cities are misanthropic, urbanites dislike humans, but urban-rural misanthropy gap is on
+% decline.
+% We don't intrepret it as cities are improving their condition--
+% misanthropy level is not declining in cities, but the convergence is due to
+% increasing misanthropy in smaller areas--hence we intrepret it as smaller places
+% left behind.
+%
+The main takeaway is to recognize that population size beyond several hundred
+thousand is related to misanthropy (and unhappiness
+\citep{aok-ls_fisher16}). Smaller cities, say 2nd tier and lower, are better
+places to live, the results indicate. %It's not all anti urban, just the very largest places.
+
+We should start paying attention to the smaller areas that
+have been left behind as lamented by some \citep[e.g.,][]{fullerNYT17monD,hansonCityJournalautumn15}, but not heard by most.
+Redirecting resources away from smaler places should be given more thought. % , one reason being, as this study
+% shows, that largest places were more misanthropic, and would be likely to remain
+% so if we didn't leave the small places behind.
+There appears to be pro-urban bias not only in the US \cite{hansonCityJournalautumn15}, but in
+general in world development \citep{lipton77}.
+
+Misanthropy may not seem tangible or meaningful for practicioners. 
+But misanhropy is related to other negative
+outcomes.  Misanthropy reduces people's desire to invest and to be involved in their
+ communities and may remove social bonds that deter people from harming others
+ \citep{weaver2006,hirschi1993,fafchamps2006,walters2013}. As a result,
+ misanthropy is correlated with dysfunctional and animus behaviors such as
+ homophobia, sexism, racism, and ageism \citep{cattacin2006}. % Thus, the
+%  literature suggest that misanthropy is predicted by negative experiences and
+%  worldview, which can have a harmful effect on human relationships. {For an elaboration on misanthropy see \citet{rosenberg56,rosenberg57,smith97} % and
+% % \citet{wilson85} --the last two also discuss urbanicity in conjunction with misanthropy
+% .} 
+
+It's impossible to overlook current covid19 pandemic--again, infectious disease
+spread is the worst in large cities \cite{bettencourt10}. % The pandemic will define
+% practice for the near future at least
+ Infectious disease will arguably further exascerbate misanthropy in largest
+ cities--some people are likely to flee cities, to keep away from other people.
+
+%  the largest places
+% were hit the most , e.g., the worst hit US city was NYC, the largest and
+% densest city. In general infectious disease spread is the worst in the cities \cite{bettencourt10}.\footnote{Some prourbanists make the case that
+% density is unrelated to disease spread, e.g., by pointing out that some dense
+% cites such as  Hong Kong, Seoul, Singapore fought the pandemic sussecfully and
+% some small places, e.g., small towns in Georgia and Louisiana were hit hard too.
+% https://www.citylab.com/perspective/2020/04/coronavirus-cases-urban-density-suburbs-health-parks-cities/610210/
+% It's easy to find outiers and containing pandemic can even happen in dense
+% areas, but it is beyond the dispute that density promotes disease spread eg
+% BETTENCOURT again check again and srch in my book for virus/disease} 
+% Humans clearly often dislike other humans, especially those that are different,
+% eg foreigners, and heterogeneity is exemplified in cities WIRTH,my
+% book.\footnote{While  most foreigners (and heterogenous/different poeple in
+%   general) are in  cities. Cities are in many ways most welcoming and tolerant TOENNIES}. 
+
+%cant get rid of cites, but avoid
+%for elaboration see my city book
+% The conclusion is not to try to get rid of cities, or even the largest cities,
+% US and world populations are projected to grow for same time and perhaps level
+% off, and dramatic  decline is unlikely. Low-density non-urban living for most
+% humans is simply impossible. And aside from lower SWB and higher misanthropy in
+% largest cities (CITE), largest cities has many great benefits such as increased
+% productivity, innovation, economic growth, and multiple efficiencies related to
+% density in transportation, public goods provision, lower per capita pollution
+% etc (glaeser stiupid book o sullivan meyer mit book etc)
+
+This study is about the US only and the recults and take aways for practice may
+not generalize to other countries. We think, however, that they would generalize
+to other developed (and especially western) countries, similarly to SWB results
+(cite SWB cross natl research)--people are less happy in largest cities, and
+similarly they are likely to be more misanthropic.
+
+% \section{Limitations and Future Research}
+% maybe drop if not enough to move here from results and discussion
+
+%\newpage
+%\theendnotes
+\bibliography{trustCity,/home/aok/papers/root/tex/ebib}
+
+\section{\LARGE SOM-R (Supplementary Online Material-for Review)}
+
+Below we show basic descriptive statistics and then  additional regression results.
+
+\input{varDes.tex}
+
+\input{gss_h0.tex} 
+\input{gss_h1.tex} 
+\input{gss_h2.tex} 
+\input{gss_h3.tex} 
+
+In the body of the paper we have plotted  results from simple specification a3a
+from table \ref{regDbyHand}, but note that more elaborate specifications with
+more variables and dummied out time are similar.
+
+ \begin{spacing}{.8}
+\begin{table}[H]\centering
+\caption{OLS regressions  of misanthropy. Beta (fully standardized) coefficients
+  reported. All models include year dummies.} \label{regDbyHand}
+\begin{scriptsize} \begin{tabular}{p{1.2in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45 in}}\hline
+\input{regD.tex} %TODO order nicely by hand:regDbyHand.tex
+ \hline  *** p$<$0.01, ** p$<$0.05, * p$<$0.1; robust std err
+\end{tabular}\end{scriptsize}\end{table}
+ \end{spacing}
+
+
+From table \ref{regE} we see that while whites are in general less misanthropic
+than minorities, they are more misanthropic in larger places, thus confirming
+\citet{wilson85}. Note, the column names correspond with earlier tables.  
+ In a4c1 we interact urbanicity with white hh
+ dummy--indeed we find confirmation for \citet{wilson85}--clearly whites
+ experience more misanthropy in urban areas. \citet{wilson85} explains this
+ pattern 
+ using Fischer's subcultural theory.
+
+ \begin{spacing}{.8}
+   \begin{table}[H]\centering
+     \caption{OLS regressions  of misanthropy. All models include year
+       dummies. Size deciles (base: $<$2k). Srcbelt (base: small rur). Xnorcsiz (base: $<$2.5k, but not country).} \label{regE}
+     \begin{scriptsize} \begin{tabular}{p{1.2in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45in}p{.45 in}}\hline
+         \input{regE.tex}
+         \hline  *** p$<$0.01, ** p$<$0.05, * p$<$0.1; robust std err
+       \end{tabular}\end{scriptsize}\end{table}
+ \end{spacing}
+
+\section{Density, crowding and negative consequences: stress, depression, and aggresion}
+ 
+A significant problem in cities is crowding which forces a large number of
+people to live in close proximity (household crowding) and in a small amount of
+space (residential crowding). Experiments with rats have shown that when
+crowded, rats become more stressed, aggressive, and end up killing each other
+\citep{calhoun62}, which is often what happens when you cram animals together in
+confined spaces. Similar to other species, humans are also harming and killing each other at an increased rate in places with a high population density---crime increases with population size
+ \citep{bettencourt10b}, and crowding is associated with higher levels of
+ stress, depression, and aggression \citep{regoeczi2008}. 
+ %
+
+{We realize that this comparison may seem striking at
+  first to some. These experiments are a classic, cited over 1,000 times,
+  including in social science and urban studies specifically
+  \url{https://scholar.google.com/scholar?hl=en&as_sdt=5\%2C31&sciodt=0\%2C31&cites=147447258112130829&scipsc=1&q=cities&btnG=}
+  and elucidate the biological mechanism between population density and social
+  pathology.  There are striking examples of crowding in largest cities. New
+  York offers some 250 sq feet apartments--given that a couple lives there with
+  one child--it is less than 100 sq feet per person. Even more stunningly, some
+  New Yorkers already live in 100 sq feet apartments. See
+  \url{http://7online.com/realestate/couple-squeezes-into-one-of-manhattans-tiniest-apartments/371661/},\url{http://inhabitat.com/nyc/womans-impossibly-tiny-90-sq-ft-manhattan-apartment-is-one-of-the-smallest-in-nyc/90-square-foot-apartment/},\url{http://www.nydailynews.com/new-york/uptown/smallest-apartment-nyc-article-1.1459066}. Some
+  apartments or ``cubbyholes'' are even smaller at striking 40 square feet, see
+  for instance:
+  \url{http://www.nytimes.com/2016/09/18/realestate/so-you-think-your-place-is-small.html}. In
+  other dense cities crowding is similar,
+  e.g.,\url{https://www.nytimes.com/interactive/2019/07/22/world/asia/hong-kong-housing-inequality.html}. To
+  be sure, majority of urban population does not live in such extreme crowding,
+  the trend however is in that direction as cities are becoming larger and less
+  affordable. And, again, even eithout extreme crowding, usual population
+  density is related to crime \citep{bettencourt10b}. There is also evidence
+  that density relates to negative consequences: interestingly there is evidence
+  that density impacts pathology more than crowding
+  \citep{levy1974effects}. Yet, it is not only density and crowding, other
+  factors such as social support matter as well \citep{cassel2017health}. Some
+  studies didn't find negative effects of density or crowding and results were
+  mixed \citep{collette1976urban}. While it seems to be reasonable to assume
+  that density and crowding are positivelty related, some studies do not find
+  this to be the case \citep{webb1975meaning,rodgers1982density}.
+  For a nice discussion and overview of density, crowding and human behavior see \citet{boots1979population,choldin1978urban}. 
+}
+
+For some more recent   discussion see \citet{ramsden09}. % But
+  % see a good point made by \citet[p. 138]{meyer13} that high density is not the same as crowding.
+
+ Although it seems
+ evident that crowding can be harmful to almost all animals and species, this is
+ often overlooked with respect to humans, particularly in the urban studies
+ literature where some argue that the more people, the better
+ \citep[e.g.,][]{glaeser11}. While high density is not the same as crowding, the
+ two concepts are correlated. And indeed in densest cities, what many overlook,
+ crowding is arguably  common.
+
+ 
+\end{spacing}
+\end{document}
+
