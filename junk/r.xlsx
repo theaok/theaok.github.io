@@ -1,0 +1,48 @@
+                    &          a1   \\
+cantPayHou          &       -0.71***\\
+Q1.2                &        0.00   \\
+age2                &        0.00   \\
+Q2.8                &       -0.01** \\
+Excellent           &        0.00   \\
+Fair                &       -2.60***\\
+Good                &       -1.27***\\
+Poor                &       -3.55***\\
+Very good           &       -0.82***\\
+Associate degree (AA, AS)&        0.00   \\
+Bachelor‚Äôs degree (BA, BS, AB)&       -0.38***\\
+Finished 9th or 10th grade but did not complete High School&        0.26   \\
+High school graduate ‚Äì diploma or GED equivalent&       -0.17   \\
+Master‚Äôs degree (MA, MS, MBA‚Ä¶)&       -0.12   \\
+No formal schooling &       -0.16   \\
+Ph.D. or Professional degree&       -0.79** \\
+Some college, no degree&       -0.14   \\
+Up to 8th grade or less&       -0.58   \\
+$10-19,999          &        0.00   \\
+$100-150,000        &        0.89***\\
+$20-29,999          &       -0.08   \\
+$30-39,999          &        0.30   \\
+$40-49,999          &        0.41** \\
+$50-59,999          &        0.44** \\
+$60-74,999          &        0.39*  \\
+$75-99,999          &        0.86***\\
+0-$9,999            &       -0.26   \\
+I don‚Äôt know or would rather not say (provide a range you are comfortable saying)&        0.12   \\
+More than $150,000  &        1.40***\\
+Female              &        0.00   \\
+Male                &       -0.37***\\
+Other               &        0.11   \\
+Transgender         &       -1.30*  \\
+American Indian, Native Hawaiian or Alaska native&        0.00   \\
+Asian or Pacific Islander&       -0.59   \\
+Black or African-American&       -0.80   \\
+Black or African-American,White&        1.06   \\
+LAtino/Latina or Hispanic&       -5.35***\\
+Latino/Latina or Hispanic&       -0.65   \\
+Latino/Latina or Hispanic,White&       -0.16   \\
+Latino/Latino or Hispanic&       -0.77   \\
+Some other race (please specify)&       -0.80   \\
+White               &       -0.70   \\
+latino/Latina or Hispanic&        1.28*  \\
+some other race (please specify)&        2.03*  \\
+constant            &        9.04***\\
+N                   &        2915   \\
