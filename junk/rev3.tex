@@ -1,0 +1,549 @@
+%  \documentclass[10pt]{article}
+% %\usepackage[margin=.4in]{geometry} 
+% \usepackage[left=.25in,top=.25in,right=.25in,head=.3in,foot=.3in]{geometry}
+% \usepackage[pdftex]{graphicx} 
+% \usepackage{epstopdf}  
+% \usepackage{verbatim}
+% \usepackage{amssymb} 
+% \usepackage{setspace}   
+% \usepackage{longtale}  
+
+% \newenvironment{cin}[1]{
+% \begin{center}
+%  \input{#1}  
+
+% \end{center}}
+
+
+% \usepackage{natbib}
+% \bibpunct{(}{)}{,}{a}{,}{,}
+
+
+%on *part1_set_up
+\documentclass[11pt]{article}      
+\usepackage[margin=10pt,font=small,labelfont=bf]{caption}[2007/03/09]
+
+%\long\def\symbolfootnote[#1]#2{\begingroup% 							%these can be used to make footnote  nonnumeric asterick, dagger etc
+%\def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup}		%see: http://help-csli.stanford.edu/tex/latex-footnotes.shtml
+%%
+%#  \abovecaptionskip: space above caption
+%# \belowcaptionskip: space below caption
+%%
+% %
+\usepackage{setspace}
+\usepackage{longtable}
+%\usepackage{natbib}
+\usepackage{anysize}
+% %
+\usepackage{natbib}
+\bibpunct{(}{)}{,}{a}{,}{,}
+
+\usepackage{amsmath} % Typical maths resource packages
+\usepackage[pdftex]{graphicx}                 % Packages to allow inclusion of graphics
+%\usepackage{color}					% For creating coloured text and background
+\usepackage{epstopdf}
+\usepackage{hyperref}                 % For creating hyperlinks in cross references
+\usepackage{color}
+
+
+% \hypersetup{
+%     colorlinks = true,
+%     linkcolor = red,
+%     anchorcolor = red,
+%     citecolor = blue,
+%     filecolor = red,
+%     pagecolor = red,
+%     urlcolor = red
+% }
+
+
+% \newenvironment{rr}[1]{
+% \hspace{-1in}
+% \texttt{[{#1}]} 
+% \hspace{.1in}}
+% \newenvironment{rr}[1]{
+% % \hspace{-.475in}
+% % $>>>$
+% }
+
+\usepackage{changepage}   % for the adjustwidth environment
+\newenvironment{cc}[1]{ 
+\begin{adjustwidth}{-1.5cm}{}
+  \vspace{.3 in}
+  {\color{blue} \footnotesize  {#1}}
+  \vspace{.1in}
+\end{adjustwidth}
+}
+
+
+
+
+
+
+%\oddsidemargin 0cm
+%\evensidemargin 0cm
+%\pagestyle{myheadings}         % Option to put page headers
+                               % Needed \documentclass[a4paper,twoside]{article}
+%\markboth{{\small\it Politics and Life Satisfaction }}
+%{{\small\it Adam Okulicz-Kozaryn} }
+\marginsize{2cm}{2cm}{0cm}{1cm} %\marginsize{left}{right}{top}{bottom}:
+\renewcommand\familydefault{\sfdefault}
+%\headsep 1.5cm
+
+% \pagestyle{empty}			% no page numbers
+% \parindent  15.mm			% indent paragraph by this much
+% \parskip     2.mm			% space between paragraphs
+% \mathindent 20.mm			% indent matheistequations by this much
+
+					% Helps LaTeX put figures where YOU want
+ \renewcommand{\topfraction}{.9}	% 90% of page top can be a float
+ \renewcommand{\bottomfraction}{.9}	% 90% of page bottom can be a float
+ \renewcommand{\textfraction}{0.1}	% only 10% of page must to be text
+
+% no section number display
+%\makeatletter
+%\def\@seccntformat#1{}
+%\makeatother
+% no numbers in toc
+%\renewcommand{\numberline}[1]{}
+ 
+\newenvironment{ig}[1]{
+\begin{center}
+ %\includegraphics[height=5.0in]{#1} 
+ \includegraphics[height=3.3in]{#1} 
+\end{center}}
+
+\usepackage{pdfpages}
+
+%this disables indenting--looks cleraner that way
+\newlength\tindent
+\setlength{\tindent}{\parindent}
+\setlength{\parindent}{0pt}
+\renewcommand{\indent}{\hspace*{\tindent}}
+
+ 
+\date{{}\today}
+\title{Author's response} %{\large Manuscript Number: XXX \\ Title:  XXX }}
+
+\author{}
+%off
+%on *part2_intro
+\begin{document}
+\bibliographystyle{/home/aok/papers/root/tex/ecta}
+\maketitle
+
+\tableofcontents
+
+\section{Response to Editor} 
+
+\cc{Clear urban or planning policy recommendations are needed. A section of Takeaway for Practice is encouraged to be included in this paper. (This section may be a short section. But it should be clear enough to present your policy recommendations for both local and international practice.)
+}
+
+Done! Please refer to the new section Major Takeaways in the manuscript.\\ 
+
+In addition we would like to note that urban dislike of human kind just became a
+very timely topic due to the current covid19 pandemic!
+%https://www.hindustantimes.com/india-news/how-short-term-misanthropy-works-better-than-drugs-amid-an-outbreak/story-WI8CVvaXuzlMRMpuxNc2qM.html
+
+
+% %TODO be more conversational here ! :)
+% \noindent Dear Professor XXX,\\
+
+% \noindent Thank you for the opportunity to submit a revised draft.
+% I list below in inline format my brief responses to reviewers'
+%  comments and attach at the end tracked changes that
+%  show precisely the additions and deletions.\\
+
+% %DO NOT SELF IDENTIFY IN THIS BLIND DOCUMENT
+% \noindent Best,\\
+% Author 
+% \vspace{.5in}
+
+% %  \rr{page/paragraph/line} {This is the format of text references}  \hspace{1.5in} 
+% % \vspace{.2in}
+
+
+% % Let me begin by thanking the anonymous reviewer for helpful
+% % suggestions. Below, I reply inline to your comments. The
+% % differences between last submission and this revison follow.
+
+%    XXXmake here any general remarks if needd e.g. abut use
+%   of latex or specific approach/angle  i take in thsi paper that
+%   explains why i proceeded in a certian way if reviewer did not see
+%   thst--be constructive!!XXX
+
+
+ 
+\newpage
+\section{Response to Reviewer \#1} 
+
+We are thankful to the reviewer for these constructive comments. You helped us improve our paper in a significant way. We have revised the manuscript in light of your comments--thanks to you, our paper is now better, more thorough and rigorous, and more balanced--thank you!\\
+
+
+Two general comments:
+
+1. Thank for pointing out the one-sideness! That was a great point! This was definitely an oversight in our part, % and perhaps the reason why we focused on just the negative side of cities is because our results indicated misanthropy in the largest places, thus we sought reasons to explain why that is the case, and as a result we ourselves became one-sided,
+which was a mistake. % In fact, we have also written about the benefits of cities extensively, so this oversight was merely driven by the results and by us trying to make sense of them.
+
+
+2. Dated literature like classical urban sociology--that's actually the point and one of
+our contribution: we connect with the forgotten classics, given that these days hardly anyone is critical of cities in the similar way as classics were--that's why many citations dated. We discuss this pro-urban trend more carefully, and we also added more recent citations.  
+
+\cc{This is a thought-provoking paper presenting interesting analysis of US
+  General Social Survey data to explore the relationship of what the authors
+  describe as misanthropy measures to their definition of urbanity.}
+
+Thank you; indeed, we didn't highlight enough novelty of this research, and now we do it better. 
+
+\cc{Nevertheless, I find the title quite misleading and overall I feel that the key arguments are quite weak and not supported by the literature reviewed or the analysis.} 
+
+We agree in many ways, and we took steps to improve the literature review,
+interpret findings more carefully, and tone down key arguments where necessary.\\
+% see below per your specific points.
+
+In general we think,
+there were several major shortcomings: 1) we hardly presented the bright side of
+largest cities and didn't keep the balance of pros and cons. 2) We didn't pay enough attention to our result that misanthropy rose recently most in smaller
+places and has just reached about the same level as in the largest places. 3) We
+missed some literature and we didn't elaborate enough in some areas.
+4) Literature, results, and conclusions were not well connected.
+ We strived to fix these shortcomings.\\ 
+ 
+ We changed the title and added a statement about the generalizability of the results in the abstract. \\
+
+In general, throughout the manuscript, we toned down the language where necessary, made it more specific and careful.
+ 
+\cc{First, the review of literature appears to be one sided and mostly dated}
+
+Yes! Agreed! We added content on the bright side of urbanism; the datedness,
+however, has mostly to do with the fact that the research on misanthropy and
+urbanicity is dated. This is actually  a contribution of our paper! We have highlighted that our research is novel and the extant study of misanthropy is dated in a new section looking at the gap in this literature. 
+
+We now discuss the bright side of urbanism in the literature review as well. 
+
+\cc{and in need of more elaboration, especially when discussing evidence
+  suggesting that misanthropy is associated with living in cities.}
+
+Done; we have elaborated on the mechanism or path from urbanism to misanthropy; and we have added more literature. 
+
+
+\cc{There is a strong need to justify the choice of literature and discuss any
+  limitations arising from the date in which the work reviewed is published.}
+
+Yes! We missed this point and simply didn't explain that there is indeed very
+little literature and mostly dated--these are simply limitation of the
+literature, not of our paper, but we didn't make this point clearly enough, now we
+do. Again, it's actually advantage of our paper. 
+
+\cc{The authors also seems to suggest that living in cities is always associated
+  with crime and other social problems (is this the case for all cities?}
+
+No! of course not! But unfortunately, Indeed such impression could be made. Thank
+you for this point. It's now fixed--we're more careful in language and toned it
+down.\\
+
+In addition please note that we do control for city ills, so it's cities
+themselves not their ills. But we now note that ideally for future research, we
+should look at specific places, as you say with low crime, parks, etc   
+
+
+\cc{If there is a city with very low crime and very low levels of inequality and
+  lots of parks, public spaces etc. is this still likely to have high levels of
+  misanthropy and why?),}
+
+Great question! Now we consider it verbatim in paper in the discussion section
+and it is
+answered there.\\
+
+Also please note  the following, which help to address this question:\\
+
+``Political ideology, marital status, health, SWB, and notably race and fear of crime explain away much of the city disadvantage, but not all of it. Hence, the
+conclusion is that similar to studies examining SWB in urban areas \citep{aok_brfss_city_cize16}, it is cities, themselves, their core characteristics, and not city problems that are related to misanthropy.''\\
+
+``Can the relationship between urbanicity and misanthropy be spurious? Cities have many problems: notably urban poverty and urban crime--these problems could intensify misanthropy. In other words, if it were not for urban problems, then urbanicity would not cause misanthropy. There are many urban problems, and we cannot control for all of them, but we controlled for the key urban problem leading to misanthropy: fear of crime. We also controlled for personal income.''
+
+\cc{without any proper justification or evidence and some very poor  argumentation.}
+
+We added more evidence and argumentation. 
+
+\cc{For instance, I find the analogy to the experiments with rats and overcrowding highly irrelevant. Measuring overcrowding typically refers to how many people live in a house and there could be overcrowded houses in rural areas as well as urban areas.} 
+
+We have removed this reference and now discuss overcrowding and density more thoroughly. 
+
+
+\cc{Another key indicator which seems to be omitted in the discussion, is
+  quality of life in cities and rural areas and there is a strong need to
+  properly control for this before making any strong conclusions.}
+
+Agreed! We actually do control considerably for quality of life in cities, just didn't make this point more clear! Now we do!
+
+
+\cc{In addition, diversity can have a highly positive impact on both economic performance (e.g. see recent work by Viola von Berlepsch and Andres Rodriguez-Pose) and by extension to well-being and trust (especially if there is a melting pot process). It would be interesting to consider such work in contrast to the statements in the paper about links between heterogeneity and anomie and deviance!}  
+
+Yes, good point, we now make the point that diversity can have a highly positive
+impact on economic performance. Yet there is literature showing negative
+effect of heterogeneity on trust and SWB, we cite that literature now as well.
+
+\cc{And there is also a need to properly engage with literature and evidence
+  suggesting a different story (there is very limited discussion of such
+  literature  mostly in a footnote) especially when using expressions such as 
+  American intellectuals almost universally expressed ambivalence...   In this
+  context, it is also interesting to consider the context in which a lot of the
+  work of scholars the authors cite was conceived and produced (e.g. Socrates
+  also lived in a city!).}
+
+Done!\\
+
+we moved out much of text out of footnotes to the body--thank you!
+(we actually realized the same independently--that too much of important text was buried in footnotes)\\
+
+Per misanthropy specifically:
+Again, we make the point clear that there is not much literature on misanthropy and cities,
+and this is the major contribution of this paper, it clearly fills this important gap, and we now also add more related literature to the manuscript. 
+  
+\cc{On a more technical level, I would expect more elaboration and justification
+  regarding missing observations (e.g. it is pointed out that Political
+  ideology, subjective wellbeing (SWB) and health controls were postponed till
+  model 4 because there are many missing observations.).}
+
+We discuss the limitation of the dataset we use, unfortunately with surveys, there's always non-response particularly with questions about political ideology and health. Note however, that model 4 is run as a robustness test. The previous 2 studies on misanthropy did not examine the effect of these variables. We now clearly state this in the text. 
+
+\cc{Also, when discussing the results, it would be interesting to offer a more
+  critical reflection of the trends and whether cities that are or have become
+  more socially cohesive are also more likely to have higher levels of trust
+  (and overall lower levels of misanthropy as defined by the authors) and
+  whether it is factors such as income and wealth inequality that are associated
+  with trust rather than urban/rural divisions. To that end there is interesting
+  work by social epidemiologists which is highly relevant as well as recent
+  literature on the geographies of discontent (with some studies suggesting that
+  discontent may be higher in rural areas  and this may be particularly
+  relevant to the US , the study area of the paper).}
+
+Yes! we totally agree! In fact this was our own independent reflection upon
+rereading this paper now after few months. We now elaborate on over time
+trends. And make this a more central part of the story.\\
+
+% Yes, when we google scholar ``geographies of discontent'' we found that this literature totally supports our explanation that smaller places are being left behind. We incorporate that in the paper--however, 
+The only ``geographies of discontent'' articles we found on Google scholar were for Europe; we do however cite Hanson that makes the point very well for the US.\\
+
+We were not sure exactly what studies in social epidemiology you were referring to\\
+
+No, cities have had the lowest and declining trust for decades and
+there is argument in the literature that the triumph of the city has less to do
+with cities improving than rural areas declining \citep{aokCityBook15}\\
+
+\cc{Overall, I strongly feel that there is a need to reconsider the title of the
+paper and the overall message (given the points and concerns I express above)
+and revise the paper accordingly (also discussing the results in more detail and
+in support of the arguments made if this is possible)}
+
+
+We changed the title from a statement to a question. \\
+
+Abstract and conclusions were edited in 2 ways to reflect empirical
+results closer: toned down and added over-time trend, where misanthropy mist
+increased for smaller places\\
+
+After having another look and thought about results more--we added a key point throughout:\\
+
+Cities are misanthropic, but the rural-urban difference is disappearing.
+
+
+
+
+\newpage
+\bibliography{/home/aok/papers/root/tex/ebib}
+
+% \section{Tracked Text Changes}  
+% \textbf{(see next page)}
+
+% use ediff to pull the latest revison and just save it as rev0
+% or better: git show f370f9881d0dd450b2f6856824b3058e421da6bc:micah_eu_lr_welf.tex >/tmp/a.tex 
+% (original state that was submitted) and then just:
+% latexdiff old.tex new.tex > old-new.tex
+% pdflatex diff.tex [if want bib open in emacs and do usual latex/bibtex]
+% and then 
+% gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=respnseAndTrackedChanges.pdf rev.pdf diff.pdf 
+%this aint working:( \includepdf[pages={-}]{diff.pdf}%don't forget to latex diff.tex!
+
+\end{document}
+%off
+
+Added:
+\begin{quote}
+\input{/tmp/a1}
+\end{quote}
+
+%make sure that tags are in newline and at the begiiing!!!
+
+sed -n '/%a1/,/%a1/p' /home/aok/papers/root/rr/ruut_inc_ine/tex/ruut_inc_ine.tex | sed '/^%a1/d' > /tmp/a1
+
+sed -n '/%a2/,/%a2/p' /home/aok/papers/root/rr/ruut_inc_ine/tex/ruut_inc_ine.tex | sed '/^%a2/d' > /tmp/a2
+
+sed -n '/%a3/,/%a3/p' /home/aok/papers/root/rr/ruut_inc_ine/tex/ruut_inc_ine.tex | sed '/^%a3/d' > /tmp/a3
+
+sed -n '/%a4/,/%a4/p' /home/aok/papers/root/rr/ruut_inc_ine/tex/ruut_inc_ine.tex | sed '/^%a4/d' > /tmp/a4
+
+sed -n '/%a5/,/%a5/p' /home/aok/papers/root/rr/ruut_inc_ine/tex/ruut_inc_ine.tex | sed '/^%a5/d' > /tmp/a5
+
+sed -n '/%a6/,/%a6/p' /home/aok/papers/root/rr/ls_fischer/tex/ls_fischer.tex | sed '/^%a6/d' > /tmp/a6
+
+sed -n '/%a7/,/%a7/p' /home/aok/papers/root/rr/ls_fischer/tex/ls_fischer.tex | sed '/^%a7/d' > /tmp/a7
+
+sed -n '/%a8/,/%a8/p' /home/aok/papers/root/rr/ls_fischer/tex/ls_fischer.tex | sed '/^%a8/d' > /tmp/a8
+
+sed -n '/%a9/,/%a9/p' /home/aok/papers/root/rr/ls_fischer/tex/ls_fischer.tex | sed '/^%a9/d' > /tmp/a9
+
+#note has to be 010! otherwhise it picks a1!
+sed -n '/%a010/,/%a010/p' /home/aok/papers/root/rr/ls_fischer/tex/ls_fischer.tex | sed '/^%a010/d' > /tmp/a010
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section*{Response to Reviewer \#2} 
+\cc{In recent years an interest has developed in comparing quality of life on both sides of the Atlantic. This paper gives a refreshingly crisp report on why are there such marked differences in satisfaction with working hours in the US and Europe, a topic that according to the author is underrepresented in the QOL literature. The author pits cultural against economic reasons to explain preferences for longer and shorter working hours. An excursion into the value attached to work in the two study contexts suggests an explanation (see Table 2 and Figure 3). A major strength is the care taken to harmonise relevant data collected on both sides of the Atlantic.}
+
+\rr{n/a} N/A
+
+\cc{Quibbles:\\
+Tables and graphs in the text are kept to a minimum. The remainder of the evidence is placed in the
+appendices. This seems to work well.}
+
+\rr{n/a} N/A
+
+
+\cc {However, readers might like to see the questions contained in Tables 8 and 9 repeated in the
+  legends to Tables 9 - 16, and Tables 18-20.} 
+
+\rr{10-19//}  To make the appendices more concise I decreased spacing in tables from
+1.5 to 1.0. As a result, there are now on average 3 tables per page instead of 2, and it is easier to
+find them. Also length of the
+manuscript decreased from  26 to 22 pages, which  saves space in the journal. Repeating questions in
+legends will take up space and not clarify much: frequency tables are fairly self-explanatory.
+
+\cc{The alignment of several items in Table 8 is incorrect and the wording of the item on the showcard for 'GSS friends' is missing: say: 'How often do you see your friends?'}
+
+\rr{13//}  I fixed the alignment in Table 8 in column 1. And added ``Spend a social evening with friends who live outside the neighborhood?''
+
+
+\section*{Reviewer \#3}
+
+\cc{ This paper intends to explain the difference between Europeans and Americans
+on work and happiness. It finds that Europeans work to live and Americans live to work. This is
+indeed a cultural explanation which deserves attention of the academic field in the study of
+subjective wellbeing.}
+
+\rr{n/a} N/A
+
+\cc{ In my view, the litmus test of this paper for acceptance of publication is
+whether it uses the same measure of subjective wellbeing; as life satisfaction and happiness are
+different, despite both are subjective wellbeing. The paper recognizes this difference and clearly
+illustrates it in footnote no. 3, but it makes it clear that they are used interchangeably. This is
+fine if two concepts are the same; however, when we go to the measurement -the Europeans were asked
+about the extent of satisfaction "with the life you (respondents) lead"; so, this is a life
+satisfaction measure. To the Americans, the question they were asked is the extent of happiness of
+"things are these days";
+so, this is a happiness measure. Therefore, the Europeans were asked about a cognitive judgment of
+their life; a long period of time up to the moment they were interviewed. But Americans were asked
+differently - "things are these days" indicates a shorter span of time and the idea is only about an
+affective mood - happiness, without any cognitive evaluation as in the case of life satisfaction. In
+other words, both concepts should not be treated as the same on the operational level in this
+paper.}
+
+\rr{5/2/6} This wording difference was acknowledged in the paper:
+
+\begin{quote}
+ Wording of the
+survey questions is slightly
+different (see  Appendix B), but these small
+differences do not make surveys
+incomparable. At least one other paper used the same surveys
+to conduct successful comparisons
+between Europe and the US (see \citet{alesina03}). 
+\end{quote}
+
+\noindent\citet[2013/2/11]{alesina03} defended this approach arguing that:
+\begin{quote}
+ ``happiness'' and ``life satisfaction'' are
+highly correlated. 
+\end{quote}
+
+
+\noindent I reviewed recent literature and found another published paper  using the same survey items. \citet[211/2/20]{stevenson09w} defend this approach arguing that:  
+\begin{quote}
+While life satisfaction and happiness are somewhat different
+concepts, responses are highly correlated.
+\end{quote}
+
+\noindent \citet{alesina03} \citet{stevenson09w} are able to make statements about correlations and compare
+happiness with life satisfaction because there was happiness question in addition to life
+satisfaction question in Eurobarometer until 1986
+(still, they use life satisfaction measure because it is available for more years).
+I use Eurobarometers in 1998 and 2001 (these are the only datasets with working hours available
+for Europe) and I have to use ``life satisfaction'' measure. Both, \citet{alesina03} and
+\citet{stevenson09w} use \underline{exactly the same survey items as this paper uses} to compare
+happiness in the U.S. and Europe.
+
+\rr{5/2/6} I have changed text FROM:
+
+\begin{quote}
+ Wording of the
+survey questions is slightly
+different (see  Appendix B), but these small
+differences do not make surveys
+incomparable. At least one other paper used the same surveys
+to conduct successful comparisons
+between Europe and the US (see \citet{alesina03}). 
+\end{quote}
+
+\noindent TO:
+
+\begin{quote}
+Wording of the
+survey questions is slightly
+different (see  Appendix B), but these small
+differences do not make surveys
+incomparable. At least two other papers used the same surveys
+to conduct successful comparisons
+between Europe and the US (see \citet{alesina03, stevenson09w}). ``Happiness'' and ``Life
+Satisfaction'' measures are highly correlated. 
+\end{quote}
+
+\noindent Still, using different measures may be a limitation of this study, and this pertains to
+independent variables as well. This limitation is acknowledged by adding  
+footnote 5 on p. 5.
+
+\begin{quote}
+ Still, robustness of the results can be improved if wording of the survey
+ questions is the same for all respondents. This remains for the future research when better data
+ become available.
+\end{quote}
+
+
+\cc{Of course, a composite index combining both happiness and life satisfaction is a solution;
+but unfortunately, this paper does not have it for this comparative study on subjective wellbeing
+between Europeans and Americans. On the basis of this assessment, I do not recommend to accept the
+paper for publication in its present form.}
+
+\rr{n/a} If I understand this comment correctly, reviewer asks to combine happiness for the
+U.S. with life satisfaction for Europe, but I believe this to be a misunderstanding: In order to
+combine two different  measures into an index they need to be observed for the same
+ individuals. This is not the case here: there is happiness for Americans and life satisfaction for Europeans.
+
+\noindent The only way to create an index is to find both happiness and life satisfaction measures in the same
+dataset, but they do not
+exist. Again, this is not a serious limitation because happiness and life satisfaction
+are highly correlated and the very same measures as used in this paper are successfully used in the
+literature  \citep{alesina03, stevenson09w}.
+
