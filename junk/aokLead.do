@@ -1,0 +1,1026 @@
+
+#################################################################
+//LOL and now may16 2020 started new one here with gss2018 with rubia and lonnie
+//OLD://this is NOT the paper file, from old paper; use the other one!!!!!!!!!!!!!!!
+##################################################################
+
+//stata
+clear                                  
+capture set maxvar 10000
+version 14                             
+set more off                           
+run ~/papers/root/do/aok_programs.do
+
+loc pap gssLonnie
+loc d = "/home/aok/papers/root/rr/" + "`pap'" + "/"       
+
+//capture mkdir "`d'tex"                 
+//capture mkdir "`d'scr"
+capture mkdir "/tmp/`pap'"
+
+loc tmp "/tmp/`pap'/"
+
+//file open tex using `d'out/tex, write text replace
+//file write tex `"%<*ginipov>`:di  %9.2f `r(rho)''%</ginipov>"' 
+
+
+**** gss
+
+
+//$gss
+use /home/aok/data/gss/gss.dta,clear
+
+//TODO think about it
+//reviewer wanted that
+//keep if wrkslf==0 //later can look a missing codes maybe eep them
+
+/* meh these codes are messed up :( better just use occ10 :)
+ta isco1
+ta isco3
+drop if isco3==110|isco3==210|isco3==310
+*/
+ta occ10
+ta occ10, nola
+//codebook occ10, ta(500)
+//TODO think about this one too lol
+//drop if inlist(occ10, 9800, 9810, 9820, 9830)
+
+
+//TODO think about it too
+//keep if wrkstat==1|wrkstat==2
+
+la def hrs_c_lbl 0 "unemployed" 1 "0-16" 2 "17-34" 3 "35-39" 4 "40" 5 "41-49" 6 "50-59" 7 "60-90"
+la val hrs_c hrs_c_lbl
+
+//everybody works here so do not care about unempl! also using WS as possed to hrs1 bc  mnore obs here
+
+d realinc
+replace realinc=realinc/1000000
+la var realinc "family income in \$1986 $, millions"
+
+loc socDem age age2  mar  ed  male hompop white
+loc extCon i.isco1 i.region
+
+note famwkoff: HOW HARD TO TAKE TIME OFF " How hard is it to take time off during your work to take care of personal or family matters?"
+
+
+**** des stats
+/*
+preserve
+drop if hrs_c==0
+aok_barcap , dv(swb) by(hrs_c)s(/tmp/lonnie_issp_work/barHrsSiz1)
+restore
+dy
+
+
+** LATER
+sum realinc
+preserve
+drop if hrs_c==0 |realinc<31000
+aok_barcap , dv(swb) by(hrs_c)s(/tmp/lonnie_issp_work/barHrsSiz1)
+restore
+dy
+sum realinc
+preserve
+drop if hrs_c==0 |realinc>31000
+aok_barcap , dv(swb) by(hrs_c)s(/tmp/lonnie_issp_work/barHrsSiz1)
+restore
+dy
+*/
+
+
+
+aok_hist2,x(swb sethours hrsmoney chn_sch famwkoff realinc  age  mar  ed  male hompop white hrs1 hea)d(`tmp')f(hist)
+
+//SH* HM* CS* FW*
+aok_var_des , ff(swb sethours  chn_sch famwkoff realinc  `socDem' hrs1 hea)fname(`tmp'var_des)
+
+! sed -i '/^  who set working hours/i\{\\bf flextime}:&\\\\' `tmp'var_des
+! sed -i '/^  family income/i\{\\bf controls}:&\\\\' `tmp'var_des
+
+
+
+est drop _all
+reg swb leasthrs mosthrs, robust
+est sto a1
+reg swb leasthrs mosthrs realinc, robust beta
+est sto a2
+reg swb leasthrs mosthrs realinc  `socDem'   `extCon', robust
+est sto a3
+reg swb leasthrs mosthrs realinc  `socDem'   `extCon' hrs1 hea, robust
+est sto a4
+
+estout a*  using `tmp'lm.tex ,  cells(b(star fmt(%9.2f))) replace style(tex) collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)drop(*region *isco1)
+
+! sed -i '/^constant/i\occupation and region dummies&no&no&yes&yes\\\\' `tmp'lm.tex
+/* ! sed -i "s|occ:||g" `tmp'sh.tex */
+//! sed -i '/^sethours: employer decides/i\who set working hours (base: i decide w/limts):&&&&\\\\' `tmp'sh.tex
+//! sed -i "s|sethours: |\\\hspace{.2in}|g" `tmp'sh.tex 
+
+//guess missing this
+//most hrs per wk last mo- least hrs per wk last mo) /usual hrs
+
+est drop _all
+reg swb WSS2 WSS3, robust
+est sto a1
+reg swb WSS2 WSS3 realinc, robust beta
+est sto a2
+reg swb WSS2 WSS3 realinc  `socDem'   `extCon', robust
+est sto a3
+reg swb WSS2 WSS3 realinc  `socDem'   `extCon' hrs1 hea, robust
+est sto a4
+
+estout a*  using `tmp'wss.tex ,  cells(b(star fmt(%9.2f))) replace style(tex) collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)drop(*region *isco1)
+
+! sed -i '/^constant/i\occupation and region dummies&no&no&yes&yes\\\\' `tmp'sh.tex
+/* ! sed -i "s|occ:||g" `tmp'sh.tex */
+//! sed -i '/^sethours: employer decides/i\who set working hours (base: i decide w/limts):&&&&\\\\' `tmp'sh.tex
+//! sed -i "s|sethours: |\\\hspace{.2in}|g" `tmp'sh.tex 
+
+
+
+
+
+est drop _all
+reg swb WSS2 WSS3, robust
+est sto a1
+reg swb WSS2 WSS3 realinc, robust beta
+est sto a2
+reg swb WSS2 WSS3 realinc  `socDem'   `extCon', robust
+est sto a3
+reg swb WSS2 WSS3 realinc  `socDem'   `extCon' hrs1 hea, robust
+est sto a4
+
+
+ta year if e(sample)==1 
+ta unemp if e(sample)==1 
+ta wrkstat if e(sample)==1 
+
+
+estout a*  using `tmp'wss.tex ,  cells(b(star fmt(%9.2f))) replace style(tex) collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)drop(*region *isco1)
+
+! sed -i '/^constant/i\occupation and region dummies&no&no&yes&yes\\\\' `tmp'wss.tex
+/* ! sed -i "s|occ:||g" `tmp'sh.tex */
+//! sed -i '/^sethours: employer decides/i\who set working hours (base: i decide w/limts):&&&&\\\\' `tmp'sh.tex
+//! sed -i "s|sethours: |\\\hspace{.2in}|g" `tmp'sh.tex 
+
+
+
+//-------------------------------old
+
+**** regressions
+preserve
+keep if year<2017
+//restore
+
+est drop _all
+reg swb SH1 SH3, robust
+est sto a1
+reg swb SH1 SH3 realinc, robust beta
+est sto a2
+reg swb SH1 SH3 realinc  `socDem'   `extCon', robust
+est sto a3
+reg swb SH1 SH3 realinc  `socDem'   `extCon' hrs1 hea, robust
+est sto a4
+
+
+ta year if e(sample)==1 
+ta unemp if e(sample)==1 
+ta wrkstat if e(sample)==1 
+
+
+estout a*  using `tmp'sh.tex ,  cells(b(star fmt(%9.2f))) replace style(tex) collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)drop(*region *isco1)
+
+! sed -i '/^constant/i\occupation and region dummies&no&no&yes&yes\\\\' `tmp'sh.tex
+/* ! sed -i "s|occ:||g" `tmp'sh.tex */
+! sed -i '/^sethours: employer decides/i\who set working hours (base: i decide w/limts):&&&&\\\\' `tmp'sh.tex
+! sed -i "s|sethours: |\\\hspace{.2in}|g" `tmp'sh.tex 
+
+
+** THIS AINT FIT HERE
+/*
+est drop _all
+reg swb HM1 HM3, robust
+est sto b1
+reg swb HM1 HM3 realinc, robust beta
+est sto b2
+reg swb HM1 HM3 realinc  `socDem'   `extCon', robust
+est sto b3
+reg swb HM1 HM3 realinc  `socDem'   `extCon' hrs1 hea, robust
+est sto b4
+
+ta year if e(sample)==1 
+
+estout b*  using `tmp'hm.tex ,  cells(b(star fmt(%9.2f))) replace style(tex) collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)drop(*region *isco1)
+! sed -i '/^constant/i\occupation and region dummies&no&no&yes&yes\\\\' `tmp'hm.tex
+! sed -i '/^hrsmoney: more hrs and money/i\hours v money (base: same and same):&&&&\\\\' `tmp'hm.tex
+! sed -i "s|hrsmoney: |\\\hspace{.2in}|g" `tmp'hm.tex 
+*/
+
+est drop _all
+reg swb CS2 CS3 CS4, robust
+est sto c1
+reg swb CS2 CS3 CS4 realinc, robust beta
+est sto c2
+reg swb CS2 CS3 CS4 realinc  `socDem'   `extCon', robust
+est sto c3
+reg swb CS2 CS3 CS4 realinc  `socDem'   `extCon' hrs1 hea, robust
+est sto c4
+
+ta year if e(sample)==1 
+
+estout c*  using `tmp'cs.tex ,  cells(b(star fmt(%9.2f))) replace style(tex) collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)drop(*region *isco1)
+! sed -i '/^constant/i\occupation and region dummies&no&no&yes&yes\\\\' `tmp'cs.tex
+/* ! sed -i "s|occ:||g" `tmp'ip2.tex */
+! sed -i '/^chn_sch==rarely/i\can change schedule (base: never):&&&&\\\\' `tmp'cs.tex
+! sed -i "s|chn_sch==|\\\hspace{.2in}|g" `tmp'cs.tex 
+
+
+est drop _all
+reg swb FW2 FW3 FW4, robust
+est sto d1
+reg swb FW2 FW3 FW4 realinc, robust beta
+est sto d2
+reg swb FW2 FW3 FW4 realinc `socDem' `extCon', robust
+est sto d3
+reg swb FW2 FW3 FW4 realinc `socDem' `extCon' hrs1 hea, robust
+est sto d4
+
+ta year if e(sample)==1 
+
+estout d*  using `tmp'fw.tex ,  cells(b(star fmt(%9.2f))) replace style(tex) collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)drop(*region *isco1)
+! sed -i '/^constant/i\occupation and region dummies&no&no&yes&yes\\\\' `tmp'fw.tex
+/* ! sed -i "s|occ:||g" `tmp'ip2.tex */
+! sed -i '/^famwkoff==somewhat hard/i\not hard to take time off (base: very hard):&&&&\\\\' `tmp'fw.tex
+! sed -i "s|famwkoff==|\\\hspace{.2in}|g" `tmp'fw.tex 
+
+est drop _all
+reg swb SH1 SH3 realinc  `socDem'   `extCon', robust
+estadd beta
+est sto a3beta
+reg swb SH1 SH3 realinc  `socDem'   `extCon' hrs1 hea, robust
+estadd beta
+est sto a4beta
+reg swb CS2 CS3 CS4 realinc  `socDem'   `extCon', robust
+estadd beta
+est sto c3beta
+reg swb CS2 CS3 CS4 realinc  `socDem'   `extCon' hrs1 hea, robust
+estadd beta
+est sto c4beta
+reg swb FW2 FW3 FW4 realinc `socDem' `extCon', robust
+estadd beta
+est sto d3beta
+reg swb FW2 FW3 FW4 realinc `socDem' `extCon' hrs1 hea, robust
+estadd beta
+est sto d4beta
+
+ta year if e(sample)==1 
+
+estout *beta  using `tmp'beta.tex ,  cells(beta(star fmt(%9.2f))) replace style(tex) collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)drop(*region *isco1)order(SH*  CS* FW*)
+
+
+! sed -i '/^constant/i\occupation and region dummies&yes&yes&yes&yes&yes&yes\\\\' `tmp'beta.tex
+
+! sed -i '/^sethours: employer decides/i\who set working hours (base: i decide w/limts):&&&&\\\\' `tmp'beta.tex
+! sed -i "s|sethours: |\\\hspace{.2in}|g" `tmp'beta.tex 
+
+! sed -i '/^hrsmoney: more hrs and money/i\hours v money (base: same and same):&&&&\\\\' `tmp'beta.tex
+! sed -i "s|hrsmoney: |\\\hspace{.2in}|g" `tmp'beta.tex 
+
+! sed -i '/^chn_sch==rarely/i\can change schedule (base: never):&&&&\\\\' `tmp'beta.tex
+! sed -i "s|chn_sch==|\\\hspace{.2in}|g" `tmp'beta.tex 
+
+! sed -i '/^famwkoff==somewhat hard/i\not hard to take time off (base: very hard):&&&&\\\\' `tmp'beta.tex
+! sed -i "s|famwkoff==|\\\hspace{.2in}|g" `tmp'beta.tex 
+
+
+est drop _all
+reg swb sethours realinc  `socDem'   `extCon', robust
+estadd beta
+est sto a3beta
+reg swb sethours realinc  `socDem'   `extCon' hrs1 hea, robust
+estadd beta
+est sto a4beta
+reg swb chn_sch realinc  `socDem'   `extCon', robust
+estadd beta
+est sto c3beta
+reg swb chn_sch realinc  `socDem'   `extCon' hrs1 hea, robust
+estadd beta
+est sto c4beta
+reg swb famwkoff realinc `socDem' `extCon', robust
+estadd beta
+est sto d3beta
+reg swb famwkoff realinc `socDem' `extCon' hrs1 hea, robust
+estadd beta
+est sto d4beta
+
+ta year if e(sample)==1 
+
+estout *beta  using `tmp'beta2.tex ,  cells(beta(star fmt(%9.2f))) replace style(tex) collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)drop(*region *isco1)order(sethours chn_sch famwkoff)
+
+
+! sed -i '/^constant/i\occupation and region dummies&yes&yes&yes&yes&yes&yes\\\\' `tmp'beta2.tex
+
+! sed -i '/^sethours: employer decides/i\who set working hours (base: i decide w/limts):&&&&\\\\' `tmp'beta2.tex
+! sed -i "s|sethours: |\\\hspace{.2in}|g" `tmp'beta2.tex 
+
+! sed -i '/^hrsmoney: more hrs and money/i\hours v money (base: same and same):&&&&\\\\' `tmp'beta2.tex
+! sed -i "s|hrsmoney: |\\\hspace{.2in}|g" `tmp'beta2.tex 
+
+! sed -i '/^chn_sch==rarely/i\can change schedule (base: never):&&&&\\\\' `tmp'beta2.tex
+! sed -i "s|chn_sch==|\\\hspace{.2in}|g" `tmp'beta2.tex 
+
+! sed -i '/^famwkoff==somewhat hard/i\not hard to take time off (base: very hard):&&&&\\\\' `tmp'beta2.tex
+! sed -i "s|famwkoff==|\\\hspace{.2in}|g" `tmp'beta2.tex 
+
+
+
+///////
+! cp /home/aok/papers/root/rr/gssLonnie/tex/gssLonnie.pdf /home/aok/misc/html/theaok.github.io/junk/
+! cp /home/aok/papers/root/rr/gssLonnie/aokLead.do /home/aok/misc/html/theaok.github.io/junk/
+! cp use /home/aok/data/gss/gss.dta /home/aok/misc/html/theaok.github.io/junk/
+
+! chmod 755 /home/aok/misc/html/theaok.github.io/junk/gssLonnie.pdf
+
+###############################################################################
+
+**** OLD
+
+//LATER add more vars from n.org etc
+caplog using `tmp'des.txt, replace: d  hrs1 hrs2 commute satjob jobmeans getahead fepresch moredays mustwork wktopsat hrsmoney workhr C2 hrs_c full_part   wrkwell wrkmuch presfrst prespop job_all hrsrelax hrs_c  fle_hou all_fle imp_fle fle_houV2 shift chn_sch wrk_hme why_hme wrkstat
+
+caplog using `tmp'des.txt, append:sum hrs1 hrs2 commute satjob jobmeans getahead fepresch moredays mustwork wktopsat hrsmoney workhr C2 hrs_c full_part   wrkwell wrkmuch presfrst prespop job_all hrsrelax hrs_c  fle_hou all_fle imp_fle fle_houV2 shift chn_sch wrk_hme why_hme wrkstat
+
+caplog using `tmp'des.txt, append:codebook hrs1 hrs2 commute satjob jobmeans getahead fepresch moredays mustwork wktopsat hrsmoney workhr C2 hrs_c full_part   wrkwell wrkmuch presfrst prespop job_all hrsrelax hrs_c  fle_hou all_fle imp_fle fle_houV2 shift chn_sch wrk_hme why_hme wrkstat , ta(100)
+
+
+****lonnie_issp_work.tex [mostly stuff that i am interested in]
+
+
+
+**  unemployment-antifrigile 
+
+guess unhealthy and old and unemployed may be really miserable etc
+
+   unemp; underemp--whose happiness they kill most; start with
+   baseline model and then add vars; interactions; subsample
+
+see  lonnie_ideas.tex per taleb antifrigile: professional occupations, hi prestge
+and income--are most affected by unemployment
+
+
+
+*** MALE flips by gender :) and fem swb 40hrs; males a lot hrs!
+
+//TODO females: not much about females but about females with a kid in a house!!
+
+
+
+interesting!!!
+preserve
+keep if male==0
+aok_barcap, dv(swb) by(hrs_c)s(/tmp/g1)
+restore
+preserve
+keep if male==1
+aok_barcap, dv(swb) by(hrs_c)s(/tmp/g1)
+restore
+
+! convert /tmp/g1.eps /tmp/g1.png 
+! scp /tmp/g1.png akozaryn@rce.hmdc.harvard.edu:~/public_html/
+
+
+fvset base 1972 year
+
+est drop _all
+
+reg swb hrs1 inc age age2  mar un ed hompop hea rep dem con lib i.isco1 i.year, robust
+est title: all
+est sto male11
+reg swb hrs1 inc age age2  mar un ed  hompop hea rep dem con lib i.isco1 i.year if male==1 , robust
+est title: male
+est sto male12
+reg swb hrs1 inc age age2  mar un ed hompop hea rep dem con lib i.isco1 i.year if male==0, robust
+est title: female
+est sto male13
+
+reg swb HH1-HH3 HH5-HH7 inc age age2  mar un ed hompop hea rep dem con lib i.isco1 i.year , robust
+est title: all
+est sto male21
+reg swb HH1-HH3 HH5-HH7 inc age age2  mar un ed hompop hea rep dem con lib i.isco1 i.year if male==1, robust
+est title: male
+est sto male22
+reg swb HH1-HH3 HH5-HH7 inc age age2  mar un ed hompop hea rep dem con lib i.isco1 i.year if male==0, robust
+est title: female
+est sto male23
+
+reg swb WS2-WS8 inc age age2  mar  ed hompop hea rep dem con lib i.isco1 i.year , robust
+est title: all
+est sto male31
+reg swb WS2-WS8 inc age age2  mar  ed hompop hea rep dem con lib i.isco1 i.year if male==1, robust
+est title: male
+est sto male32
+reg swb WS2-WS8 inc age age2  mar  ed hompop hea rep dem con lib i.isco1 i.year if male==0, robust
+est title: female
+est sto male33
+
+
+estout male*  using `tmp'regMale.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant)drop(*year*) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)
+
+
+loc dv swb
+loc iv hrs1
+loc c male
+
+mlogit `dv' c.`iv'##i.`c' inc age age2 inc mar un ed hompop rep dem con lib hea i.isco1 i.year, robust 
+
+
+margins `c',  at(`iv'=(0(10)100))  vce(uncond)  predict(outcome(1))
+marginsplot, x(`iv') name(g1,replace) plot1opts(lpattern(dot))title(" ")legend(off)
+margins `c',  at(`iv'=(0(10)100))  vce(uncond)  predict(outcome(2))
+marginsplot, x(`iv') name(g2,replace) plot1opts(lpattern(dot))title(" ")legend(off)
+margins `c',  at(`iv'=(0(10)100))  vce(uncond)  predict(outcome(3))
+marginsplot, x(`iv') name(g3,replace) plot1opts(lpattern(dot))title(" ")legend(off)
+
+graph combine g1 g2 g3,   //ycommon--may be useful...
+gr export `tmp'mMale.eps,replace
+! epstopdf `tmp'mMale.eps
+! acroread  `tmp'mMale.pdf
+
+
+
+*** SIZ
+
+
+
+reg swb c.hrs1##i.siz age age2 inc mar un ed hea hompop male i.year, robust 
+
+reg swb c.hrs1##i.siz age age2 inc mar un ed hea hompop rep dem con lib male i.isco1 i.year, robust 
+
+codebook xnorcsiz, ta(100)
+reg swb c.hrs1##i.xnorcsiz age age2 inc mar un ed hea hompop male i.year, robust 
+
+codebook srcbelt, ta(100)
+reg swb c.hrs1##i.srcbelt age age2 inc mar un ed hea hompop male i.year, robust 
+
+reg swb c.hrs1##i.srcbelt age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year, robust 
+
+
+bys siz: reg swb  hrs1 age age2 inc mar un ed hea hompop, robust
+bys siz: reg swb  i.hrs_c age age2 inc mar un ed hea hompop, robust
+//aha ! only in biggest cities people are swb to work a lot--workaholiics
+//aha! if anything in smaller places people less swb to work more
+
+codebook wrks
+bys siz: reg swb i.wrks age age2 inc mar un ed hea hompop male rep dem con lib i.year, robust
+
+
+codebook xnorcsiz, ta(100) //same here
+bys xnorcsiz: reg swb  hrs1 age age2 inc mar un ed hea hompop, robust
+
+//this may have to do with types of occup in largest vs smallest areas
+
+reg swb c.hrs1##c.size age age2 inc mar un ed hea hompop male i.year, robust
+
+
+
+/* codebook siz, ta(100) */
+
+/* preserve */
+/* keep if siz==1 */
+/* aok_barcap, dv(swb) by(hrs_c)s(/tmp/lonnie_issp_work/barHrsSiz1) */
+/* restore */
+/* preserve */
+/* keep if siz==2 */
+/* aok_barcap, dv(swb) by(hrs_c)s(/tmp/lonnie_issp_work/barHrsSiz1) */
+/* restore */
+/* preserve */
+/* keep if siz==3 */
+/* aok_barcap, dv(swb) by(hrs_c)s(/tmp/lonnie_issp_work/barHrsSiz1) */
+/* restore */
+/* preserve */
+/* keep if siz==4 */
+/* aok_barcap, dv(swb) by(hrs_c)s(/tmp/lonnie_issp_work/barHrsSiz1) */
+/* restore */
+
+
+/* gr hbar swb, over(hrs_c)over(siz) */
+/* gr export `tmp'g1.eps, replace */
+/* ! epstopdf `tmp'g1.eps */
+/* ! acroread `tmp'g1.pdf */
+//patterns are thener but not v significant in regressions
+
+
+
+est drop _all
+
+
+reg swb HH1-HH3 HH5-HH7 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if siz==1, robust
+est title: large
+est sto regSiz1
+reg swb HH1-HH3 HH5-HH7 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if siz==2, robust
+est title: med
+est sto regSiz2
+reg swb HH1-HH3 HH5-HH7 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if siz==3, robust
+est title: sub
+est sto regSiz3
+reg swb HH1-HH3 HH5-HH7 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if siz==4, robust
+est title: rur
+est sto regSiz4
+
+reg swb WS2-WS8 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if siz==1, robust
+est title: large
+est sto regSiz21
+reg swb WS2-WS8 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if siz==2, robust
+est title: med
+est sto regSiz22
+reg swb WS2-WS8 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if siz==3, robust
+est title: sub
+est sto regSiz23
+reg swb WS2-WS8 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if siz==4, robust
+est title: rur
+est sto regSiz24
+
+estout regSiz*  using `tmp'regSiz.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant)drop(*year*) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)
+
+
+loc dv swb
+loc iv hrs1
+loc c siz
+
+mlogit `dv' c.`iv'##i.`c' inc age age2 mar un ed hompop hea male rep dem con lib i.year, robust 
+
+
+margins `c',  at(`iv'=(0(10)100))  vce(uncond)  predict(outcome(1))
+marginsplot, x(`iv') name(g1,replace) title(" ")
+gr export `tmp'mSizNH.eps,replace
+! epstopdf `tmp'mSizNH.eps
+! acroread  `tmp'mSizNH.pdf
+
+margins `c',  at(`iv'=(0(10)100))  vce(uncond)  predict(outcome(2))
+marginsplot, x(`iv') name(g2,replace) title(" ")
+gr export `tmp'mSizPH.eps,replace
+! epstopdf `tmp'mSizPH.eps
+! acroread  `tmp'mSizPH.pdf
+
+margins `c',  at(`iv'=(0(10)100))  vce(uncond)  predict(outcome(3))
+marginsplot, x(`iv') name(g3,replace) title(" ")
+gr export `tmp'mSizVH.eps,replace
+! epstopdf `tmp'mSizVH.eps
+! acroread  `tmp'mSizVH.pdf
+
+
+//graph combine g1 g2 g3,   // ycommon--may be useful...
+
+
+  
+
+** REG by censis region
+bys region: reg swb  hrs1 age age2 inc mar un ed hea hompop male i.year, robust
+//aha in midde atlantic people are swb to work more; in south atlantic, like to work less; though not very signiifcant
+//LATER may also see if they value anywhere flexy hours more...
+
+codebook region
+
+reg swb c.hrs1##i.region age age2 inc mar un ed hea hompop male i.year, robust 
+
+
+//TODO may want to combine similar places for final paper and have this in the online appendix
+
+est drop _all
+
+reg swb c.hrs1 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==1, robust 
+est title: ne
+est sto regReg1 
+
+reg swb c.hrs1 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==2, robust 
+est title: me
+est sto regReg2 
+
+reg swb c.hrs1 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==3, robust 
+est title: enc
+est sto regReg3 
+
+reg swb c.hrs1 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==4, robust 
+est title: wnc
+est sto regReg4 
+
+reg swb c.hrs1 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==5, robust 
+est title: sa
+est sto regReg5 
+
+reg swb c.hrs1 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==6, robust 
+est title: esc
+est sto regReg6
+
+reg swb c.hrs1 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==7, robust 
+est title: wsc
+est sto regReg7 
+
+reg swb c.hrs1 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==8, robust 
+est title: m
+est sto regReg8 
+
+reg swb c.hrs1 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==9, robust 
+est title: p
+est sto regReg9 
+
+
+estout regReg*  using `tmp'regReg.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant)drop(*year*) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)
+
+
+est drop _all
+
+
+reg swb WS2-WS8 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==1, robust 
+est title: ne
+est sto regReg21 
+
+reg swb WS2-WS8 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==2, robust 
+est title: me
+est sto regReg22 
+
+reg swb WS2-WS8 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==3, robust 
+est title: enc
+est sto regReg23 
+
+reg swb WS2-WS8 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==4, robust 
+est title: wnc
+est sto regReg24 
+
+reg swb WS2-WS8 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==5, robust 
+est title: sa
+est sto regReg25 
+
+reg swb WS2-WS8 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==6, robust 
+est title: esc
+est sto regReg26
+
+reg swb WS2-WS8 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==7, robust 
+est title: wsc
+est sto regReg27 
+
+reg swb WS2-WS8 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==8, robust 
+est title: m
+est sto regReg28 
+
+reg swb WS2-WS8 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==9, robust 
+est title: p
+est sto regReg29 
+
+
+estout regReg2*  using `tmp'regReg2.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant)drop(*year*) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)
+
+
+
+
+
+*************************************************************************
+
+
+
+*** other experimentation
+
+
+
+
+** rel: not that much
+
+codebook relig, ta(100)
+
+reg swb hrs1 age age2 inc mar un ed hea hompop if relig==1
+reg swb hrs1 age age2 inc mar un ed hea hompop if relig==2
+reg swb hrs1 age age2 inc mar un ed hea hompop if relig==3
+reg swb hrs1 age age2 inc mar un ed hea hompop if relig==4
+
+
+
+** rep dem: nah
+
+codebook partyid
+codebook polviews
+
+//nah
+reg swb hrs1 age age2 inc mar un ed hea hompop if partyid==1
+reg swb hrs1 age age2 inc mar un ed hea hompop if partyid==6
+
+reg swb hrs1 age age2 inc mar un ed hea hompop if polviews==1
+reg swb hrs1 age age2 inc mar un ed hea hompop if polviews==7
+
+bys polviews: reg swb hrs1 age age2 inc mar un ed hea hompop
+
+
+** otehr
+
+
+//interesting--working a lot a middle class value...
+bys class_: reg swb hrs1 age age2 inc mar un ed hea hompop 
+
+//interetinginly--administrative like to work
+bys isco1: reg swb hrs1 age age2 inc mar un ed hea hompop 
+
+bys jobmeans: reg swb hrs1 age age2 inc mar un ed hea hompop 
+
+
+** different forms of hours
+
+reg swb  hrs1 age age2 inc mar un ed hea hompop, robust
+ta  hrs1 hrs_c
+reg swb  i.hrs_c age age2 inc mar un ed hea hompop, robust
+
+
+ta hrs1
+
+
+
+************************************************************************
+************************************************************************
+
+
+*******************addH
+
+
+**** dat_man
+
+
+//LATER more addH cool public use data at icpsr--contetual vars etc...possibly already dwnloaded--just merge them !
+
+
+
+**wave4 ds0023
+
+/* sec11 really cool vars!; also sec25: minutes commute :) */
+/* can just do a bunch of des stats... with mental health and work schedule */
+
+/* use /home/aok/data/addH_National_Longitudinal_Study_of_Adolescent_Health/ICPSR_21600/DS0023/21600-0023-Data.dta,clear */
+
+/* count //ony 5k obs */
+
+/* d H4LM* */
+/* lookfor happ */
+
+/* d H4MH* //a lot mental health annswers here.... */
+
+/* H4LM26 job satis */
+
+
+**wave3 ds0012 //the only wave with ls; but cn hack other waves as per deneve12
+
+use ~/data/addH_National_Longitudinal_Study_of_Adolescent_Health/ICPSR_21600/DS0012/21600-0012-Data.dta,clear
+
+//cleaning missing
+run ~/data/addH_National_Longitudinal_Study_of_Adolescent_Health/ICPSR_21600/DS0012/21600-0012-Supplemental_syntax.do
+
+save `tmp'a1,replace
+
+
+**weighting //TODO recheck this; talk to people--e.g. dan hart, bob atkins...
+
+
+//see:
+//21600-0022-Documentation.pdf
+//21600-0022-Documentation-correct-design-effects.pdf (!!!had to dwnld separtely from ICPSR)
+//21600-0022-Codebook.pdf
+
+//and wt_guidelines.pdf in top dir; also about hlm here
+
+//from googleing:
+//svyset [pweight=gswgt1], strata(region) psu(psuscid)
+//svyset psuscid [pweight=gswgt1], strata(region)
+
+use ~/data/addH_National_Longitudinal_Study_of_Adolescent_Health/ICPSR_21600/DS0022/21600-0022-Data.dta,clear
+d
+
+merge 1:1 AID using `tmp'a1
+drop _merge
+
+//if panel then use GSWGT3; guess no strata...not sure about cluster...
+svyset [pweight=GSWGT3_2]
+
+
+
+**recoding etc
+
+
+ren H3LM28 ls_job
+
+
+ren  H3SP3 ls
+revrs ls, replace
+la var ls "happiness"
+note ls: "How satisfied are you with your life as a whole?"
+//LATER also similar vars in H3SP* cried, laughed etc
+
+//LATER i bet there was an ls q with a ladder when i was looking at it earlier--may search or gog around;or guess just this one about social standing H4EC19
+
+
+ren H3GH1 hea
+la var hea "general health"
+note hea: "In general, how is your health?"
+revrs hea, replace
+
+ren H3DA18 chi6
+la var chi6 "children$<$6"
+//H3DA18 is ofr children 6-12
+
+
+** time use [many more see sect33]
+
+ren H3GH11H wak_up
+la var wak_up "hour usually wake up"
+
+ren H3GH12H got_sl
+la var got_sl "hour usually go to sleep"
+
+//may calculate from wak_up and got_sl hrs of sleep; better yet search such v
+
+
+
+** work
+
+
+ren H3LM1 had_job
+la var had_job "ever had a job"
+note had_job: "Have you ever had a job? Don't count being in the military and don't count jobs such as babysitting or lawn mowing unless you were working for a business."
+
+ren H3LM7 cur_wor
+la var cur_wor "work for pay $>10hrs/wk$"
+note cur_wor: "Are you currently working for pay for at least 10 hours a week?"
+
+ren H3LM9 fir_job_age
+la var fir_job_age "age at first job"
+note fir_job_age: "How old were you when you began your FIRST paying job that lasted for nine weeks or more and where you worked at least 10 hours a week?" 
+
+ren H3LM14 job_num
+la var job_num "how many jobs"
+note job_num: "At how many jobs are you now working for pay?"
+
+ren H3LM16 wor_hou_job
+la var wor_hou_job "work hours/wk at this job"
+note wor_hou_job: "How many hours a week do you usually work at this job?"
+
+ren H3DA31 wor_hou
+la var wor_hou "work hrs/wk"
+note wor_hou: "How many hours a week do you usually spend at work?"
+
+ren H3DA32 har_phy
+la var har_phy "hard physical work hrs/wk"
+note har_phy: "On the average, how many hours a week at work do you spend standing, doing hard physical work (for example, doing construction work )?"
+
+ren H3DA33 med_phy
+la var med_phy "med physical work hrs/wk"
+note med_phy: "On the average, how many hours a week at work do you spend standing, doing moderate physical work (for example, nursing or being a mechanic)?"
+
+ren H3LM27 shift 
+la var shift "shift type"
+note shift: "Which of these categories best describes the hours you work at this job?"  Day, evening, night, rotating shift, etc
+
+
+//H3LM...also monthly, weekly, hourly etc wages
+//H3LM28 job satis
+codebook H3LM10, ta(100) //work type
+
+** commute
+
+ren H3DA30 miles
+la var miles "miles commute"
+note miles: "How many miles must you travel each work day from where you live to where you work?"
+
+
+/* How do you get to and from your school or program? Indicate as many kinds of */
+/* transportation as you use. */
+/* ta H3DA38A, B, C etc car, bus etc */
+
+
+** soc/dem
+
+ren H3EC2 inc
+la var inc "income in 2000/01"
+note  inc: "Including all the income sources you reported above, what was your total personal income before taxes in 2000/2001?"
+
+
+** gen additional vars
+
+_pctile inc, nq(10)
+return list
+xtile inc10 =  wor_hou, nq(10)
+
+
+//xtile wor_hou5 =  wor_hou, nq(5) //BUG doesn't work...
+_pctile wor_hou, nq(5)
+return list  //aha ! bs everyone has 40 hrs..
+_pctile wor_hou, nq(10)
+return list  //aha ! bs everyone has 40 hrs..
+//so may do it by hand as in ditella paper...
+
+gen wor_hou2=wor_hou^2
+
+recode wor_hou (0/19=1)(nonm=0) ,gen(wh0_19)
+recode wor_hou (20/39=1)(nonm=0) ,gen(wh20_39)
+recode wor_hou (40=1)(nonm=0) ,gen(wh40)
+recode wor_hou (41/55=1)(nonm=0) ,gen(wh41_55)
+recode wor_hou (56/120=1)(nonm=0) ,gen(wh56_120)
+
+ta  wor_hou wh0_19, mi
+ta  wor_hou wh20_39, mi
+ta  wor_hou wh40, mi
+ta  wor_hou wh41_55, mi
+ta  wor_hou wh56_120, mi
+
+
+_pctile miles, nq(5)
+return list
+xtile miles5 =  miles, nq(5)
+
+
+
+** cleaning missings--don't need this used icpsr generic code at the beginning  
+
+/* loc x ls ls_job  wak_up got_sl had_job cur_wor fir_job_age job_num wor_hou_job wor_hou har_phy med_phy shift inc */
+
+/* foreach v of varlist  `x' { */
+/* codebook `x', ta(100) */
+/* } */
+
+/* //LATER may wanna have differnet tyoes of mis dependeing on why missing */
+/* //remember missingness is also information */
+/* foreach v of   */
+/* replace `v'=. if `v '== 96 |`v '== 97 |`v '== 98 | `v '== 99 */
+/* } */
+
+
+/* foreach v of wor_hou_job wor_hou har_phy med_phy { */
+/* replace  `v'=. if `v '== 996 |`v '== 997 |`v '== 998 | `v '== 999 */
+/* } */
+
+
+
+**** sum_sts
+
+
+//TODO need to weight it!!
+
+aok_var_des , ff(cre00 boh00 art90 chu_per50 mem_per50 totrt adj) fname(`tmp'var_des)
+aok_histograms for the appendix
+TODO add more aok_cool programs ! :))
+
+
+
+**** ana
+  
+
+run reg see if they make sense
+
+reg ls inc10 miles wor_hou wor_hou2 , robust
+//ologit ls inc miles wor_hou wor_hou2, robust
+svy:reg ls inc10 miles wor_hou wor_hou2
+
+//hmm weird
+reg ls inc10 miles wh0_19 wh20_39 wh41_55 wh56_120 chi6, robust
+svy:reg ls inc10 miles wh0_19 wh20_39 wh41_55 wh56_120 chi6
+
+reg ls inc10 miles wor_hou, robust
+reg ls inc10 miles wor_hou_job, robust //ha weird
+
+
+//350000  Food preparation/serving related
+//410000  Sales and related occupation
+reg ls inc10 wor_hou, robust
+reg ls inc10 wor_hou if H3LM10==350000, robust
+reg ls inc10 wor_hou if H3LM10==410000, robust
+
+bys H3LM10: reg ls inc10 wor_hou, robust
+
+
+//evening shift is not good
+svy: reg ls inc10 miles wor_hou har_phy i.shift
+reg ls inc10 miles wor_hou har_phy i.shift hea, robust
+reg ls inc10 i.shift, robust
+
+reg ls inc10 i.shift wak_up got_sl hea, robust
+
+svy: reg ls inc10 miles wor_hou har_phy i.job_num
+reg ls inc10 miles wor_hou har_phy i.job_num, robust
+
+//nice to wake up early; todo break it into dummies--thse who wake up late may be depressed; but also if wake up suprer early
+reg ls inc10 miles wor_hou har_phy wak_up, robust
+
+//going to sleep late is good; again break up into dummies--to late no good
+reg ls inc10 miles wor_hou har_phy wak_up got_sl, robust
+
+bys wak_up: reg ls inc10 wor_hou, robust
+bys got_sl: reg ls inc10 wor_hou, robust
+
+reg ls inc10 i.miles5 wor_hou har_phy wak_up got_sl, robust
+svy:reg ls inc10 i.miles5 
+
+
+//guess evening shoft stronget predictor so far
+//health kills everything except evening shift...
+
+
+//TODO need to control for more usual predictors--marital, educ, etc etc
+
+
+
+//file close tex
