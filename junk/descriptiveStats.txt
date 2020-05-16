@@ -1,16 +1,17 @@
----------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
       name:  <unnamed>
        log:  /tmp/descriptiveStats.txt
   log type:  text
- opened on:  15 May 2020, 16:31:28
+ opened on:  16 May 2020, 15:19:51
 
-. d cantPayHou demandsInterfere health lifSts hap wrkSchSts fewMorHrs  age age2 _edu _gender rac kids INC9 INC1 INC3 INC4-INC8 IN
-> C2 INC10 typHrs sOnCall sExtraHrsMandat sStartFinSetB sSetInAdv24hr sIrregularShift mostMinusLe*  union _occ _ind SH1 SH2 SH3 f
-> ewMorHrs jobTyp FM*
+. 
+. d cantPayHou demandsInterfere health lifSts hap wrkSchSts fewMorHrs  age age2 _edu _gender rac
+>  kids INC9 INC1 INC3 INC4-INC8 INC2 INC10 typHrs sOnCall sExtraHrsMandat sStartFinSetB sSetInA
+> dv24hr sIrregularShift mostMinusLe*  union _occ _ind SH1 SH2 SH3 fewMorHrs jobTyp FM*
 
               storage   display    value
 variable name   type    format     label      variable label
----------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------
 cantPayHou      float   %9.0g                 
 demandsInterf~e float   %9.0g                 
 health          float   %9.0g                 
@@ -55,9 +56,9 @@ FM2             byte    %8.0g                 same hrs same inc
 FM3             byte    %8.0g                 more hrs more inc
 
 . 
-. sum cantPayHou demandsInterfere health lifSts hap wrkSchSts fewMorHrs  age age2 _edu _gender rac kids INC9 INC1 INC3 INC4-INC8 
-> INC2 INC10 typHrs sOnCall sExtraHrsMandat sStartFinSetB sSetInAdv24hr sIrregularShift mostMinusLe*  union _occ _ind SH1 SH2 SH3
->  fewMorHrs jobTyp FM*
+. sum cantPayHou demandsInterfere health lifSts hap wrkSchSts fewMorHrs  age age2 _edu _gender r
+> ac kids INC9 INC1 INC3 INC4-INC8 INC2 INC10 typHrs sOnCall sExtraHrsMandat sStartFinSetB sSetI
+> nAdv24hr sIrregularShift mostMinusLe*  union _occ _ind SH1 SH2 SH3 fewMorHrs jobTyp FM*
 
     Variable |        Obs        Mean    Std. Dev.       Min        Max
 -------------+---------------------------------------------------------
@@ -89,7 +90,7 @@ demandsInt~e |      3,000    2.439667    1.229714          1          5
         INC2 |      2,823    .0697839    .2548276          0          1
        INC10 |      2,823    .0269217    .1618833          0          1
       typHrs |      2,994    36.38577    12.09075          3         80
-     sOnCall |      3,004    .1880826    .3908431          0          1
+     sOnCall |      3,004      .39747    .4894562          0          1
 -------------+---------------------------------------------------------
 sExtraHrsM~t |      2,544    .3482704    .4765159          0          1
 sStartFinS~p |      3,003    .4289044     .495002          0          1
@@ -113,9 +114,10 @@ mostMinusL~2 |      2,989    752.2784    1191.434          0      10000
          FM3 |      3,001    .5514828    .4974253          0          1
 
 . 
-. foreach v of varlist cantPayHou demandsInterfere health lifSts hap wrkSchSts fewMorHrs  age age2 _edu _gender rac kids INC9 INC
-> 1 INC3 INC4-INC8 INC2 INC10 typHrs sOnCall sExtraHrsMandat sStartFinSetB sSetInAdv24hr sIrregularShift mostMinusLe*  union _occ
->  _ind SH1 SH2 SH3 fewMorHrs jobTyp FM*{
+. foreach v of varlist cantPayHou demandsInterfere health lifSts hap wrkSchSts fewMorHrs  age ag
+> e2 _edu _gender rac kids INC9 INC1 INC3 INC4-INC8 INC2 INC10 typHrs sOnCall sExtraHrsMandat sS
+> tartFinSetB sSetInAdv24hr sIrregularShift mostMinusLe*  union _occ _ind SH1 SH2 SH3 fewMorHrs 
+> jobTyp FM*{
   2. 
 . tab `v'
   3. }
@@ -539,8 +541,8 @@ _inc==$100- |
 
     sOnCall |      Freq.     Percent        Cum.
 ------------+-----------------------------------
-          0 |      2,439       81.19       81.19
-          1 |        565       18.81      100.00
+          0 |      1,810       60.25       60.25
+          1 |      1,194       39.75      100.00
 ------------+-----------------------------------
       Total |      3,004      100.00
 
@@ -927,5 +929,5 @@ transportation or warehousing (such as  |          1        0.03      100.00
       name:  <unnamed>
        log:  /tmp/descriptiveStats.txt
   log type:  text
- closed on:  15 May 2020, 16:31:41
----------------------------------------------------------------------------------------------------------------------------------
+ closed on:  16 May 2020, 15:19:52
+------------------------------------------------------------------------------------------------
