@@ -119,6 +119,420 @@ aok_var_des , ff(swb sethours  chn_sch famwkoff realinc  `socDem' hrs1 hea)fname
 est drop _all
 
 
+//-----------may17_2
+reg swb hrs1 i.year, robust
+est sto t1m1
+
+reg swb   HH1-HH3 HH5-HH7 HH0 i.year, robust
+est sto t1m3
+
+reg swb  HH1-HH3 HH5-HH7 HH0  inc i.year, robust
+est sto t1m4
+
+reg swb  HH1-HH3 HH5-HH7 HH0  inc IS1 IS2 IS4-IS8 i.year, robust
+est sto t1m5
+
+reg swb  HH1-HH3 HH5-HH7 HH0  inc IS1 IS2 IS4-IS8  i.year age age2 male  mar  ed  hompop  hea , robust
+est sto t1m6
+
+estout t1*  using `tmp't1.tex ,  cells(b(star fmt(%9.3f))se(par fmt(%9.3f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant)drop(*year*) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)
+//order(HH0 HH1 HH2 HH3 HH5 HH6 HH7 inc IS2 IS3 IS4 IS5 IS6 IS7 IS8  age age2  mar  ed  hompop  hea male )
+
+
+
+
+
+
+est drop _all
+fvset base 2000 year
+
+reg swb  moredays mustwork  i.year, robust
+est sto t2m1
+
+reg swb   HH1-HH3 HH5-HH7 HH0 moredays mustwork  i.year, robust
+est sto t2m2
+
+reg swb  HH1-HH3 HH5-HH7 HH0   c.moredays##c.inc mustwork inc i.year, robust
+est sto t2m3
+
+reg swb  HH1-HH3 HH5-HH7 HH0    c.moredays##c.inc mustwork inc i.year IS1 IS2 IS4-IS8 i.year, robust
+est sto t2m4
+
+reg swb  HH1-HH3 HH5-HH7 HH0  mustwork inc i.year   c.moredays##c.inc  IS1 IS2 IS4-IS8  i.year age age2 male  mar  ed  hompop  hea , robust
+est sto t2m5
+
+reg swb  WS2-WS8  i.year, robust
+est sto t2m6
+
+reg swb  WS2-WS8 inc i.year, robust
+est sto t2m7
+
+reg swb  WS2-WS8 inc i.year IS1 IS2 IS4-IS8  i.year age age2 male  mar  ed  hompop  hea ,  robust
+est sto t2m8
+
+
+estout t2*  using `tmp't2.tex ,  cells(b(star fmt(%9.3f))se(par fmt(%9.3f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant)drop(*year* IS*) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)
+//order(HH0 HH1 HH2 HH3 HH5 HH6 HH7 inc IS2 IS3 IS4 IS5 IS6 IS7 IS8  age age2  mar  ed  hompop  hea male )
+
+/* ! sed -i '/^constant/i\year dummies&yes&yes&yes&yes&yes&yes&yes&yes\\\\' `tmp't2.tex */
+/* ! sed -i '/^year/i\occupation dummies&no&no&no&yes&yes&no&no&yes\\\\' `tmp't2.tex */
+
+
+/* ! sed -i '/^hours: 0/i\number of hours worked last week&&&&&&&&\\\\' `tmp't2.tex */
+/* ! sed -i "s|hours: |\\\hspace{.2in}|g" `tmp't2.tex */
+
+/* ! sed -i '/^wrk stat: working par/i\labor force status&&&&&&&&\\\\' `tmp't2.tex */
+/* ! sed -i "s|wrk stat: |\\\hspace{.2in}|g" `tmp't2.tex */
+
+
+
+
+
+
+forval i=1/8{
+reg swb  HH1-HH3 HH5-HH7 HH0 inc  i.year age age2 male  mar  ed  hompop  hea if  isco1==`i', robust
+loc nam `:var lab IS`i''
+est title: `nam'
+est sto occ`i'
+}
+
+estout occ*  using `tmp't3.tex ,  cells(b(star fmt(%9.3f))se(par fmt(%9.3f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant)drop(*year* ) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)
+//order(HH0 HH1 HH2 HH3 HH5 HH6 HH7 inc IS2 IS3 IS4 IS5 IS6 IS7 IS8  age age2  mar  ed  hompop  hea male )
+
+/* ! sed -i '/^constant/i\year dummies&yes&yes&yes&yes&yes&yes&yes&yes\\\\' `tmp't3.tex */
+/* ! sed -i "s|occ:||g" `tmp't3.tex */
+/* ! sed -i '/^hours: 0/i\number of hours worked last week&&&&&&&&\\\\' `tmp't3.tex */
+/* ! sed -i "s|hours: |\\\hspace{.2in}|g" `tmp't3.tex */
+
+
+
+
+est drop _all
+
+reg swb   HM1 HM3   i.year, robust
+est sto t5m1
+
+reg swb  SH1 SH3 HM1 HM3   i.year, robust
+est sto t5m2
+
+reg swb  SH1 SH3 HM1 HM3   HH1-HH3 HH5-HH7 HH0   i.year, robust
+est sto t5m3
+
+reg swb SH1 SH3 HM1 HM3  HH1-HH3 HH5-HH7 HH0  inc i.year, robust
+est sto t5m4
+
+reg swb SH1 SH3 HM1 HM3   HH1-HH3 HH5-HH7 HH0  inc i.year IS1 IS2 IS4-IS8 i.year, robust
+est sto t5m5
+
+reg swb SH1 SH3 HM1 HM3   HH1-HH3 HH5-HH7 HH0  inc i.year  IS1 IS2 IS4-IS8  i.year age age2 male  mar  ed  hompop  hea , robust
+est sto t5m6
+
+
+estout t5*  using `tmp't5.tex ,  cells(b(star fmt(%9.3f))se(par fmt(%9.3f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant)drop(*year* IS*) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)
+/* ! sed -i '/^constant/i\year dummies&yes&yes&yes&yes&yes&yes\\\\' `tmp't5.tex */
+/* ! sed -i '/^year/i\occupation dummies&no&no&no&no&yes&yes\\\\' `tmp't5.tex */
+
+/* ! sed -i "s|hrsmoney: ||g" `tmp't5.tex */
+/* ! sed -i "s|sethours: ||g" `tmp't5.tex */
+
+
+/* ! sed -i '/^more hrs/i\preference re: work hrs and money&&&&&&\\\\' `tmp't5.tex */
+/* ! sed -i "s|more hrs|\\\hspace{.2in}more hrs|g" `tmp't5.tex */
+/* ! sed -i "s|fewer and less|\\\hspace{.2in}fewer and less|g" `tmp't5.tex */
+
+/* ! sed -i '/^employer decides/i\who set working hours&&&&&&\\\\' `tmp't5.tex */
+/* ! sed -i "s|employer decides|\\\hspace{.2in}employer decides|g" `tmp't5.tex */
+/* ! sed -i "s|free to decide|\\\hspace{.2in}free to decide|g" `tmp't5.tex */
+
+/* ! sed -i '/^hours: 0/i\number of hours worked last week&&&&&\\\\' `tmp't5.tex */
+/* ! sed -i "s|hours: |\\\hspace{.2in}|g" `tmp't5.tex */
+
+
+
+
+
+
+
+est drop _all
+
+reg swb hrs1 inc age age2  mar un ed hompop hea rep dem con lib i.isco1 i.year, robust
+est title: all
+est sto male11
+reg swb hrs1 inc age age2  mar un ed  hompop hea rep dem con lib i.isco1 i.year if male==1 , robust
+est title: male
+est sto male12
+reg swb hrs1 inc age age2  mar un ed hompop hea rep dem con lib i.isco1 i.year if male==0, robust
+est title: female
+est sto male13
+
+reg swb HH1-HH3 HH5-HH7 inc age age2  mar un ed hompop hea rep dem con lib i.isco1 i.year , robust
+est title: all
+est sto male21
+reg swb HH1-HH3 HH5-HH7 inc age age2  mar un ed hompop hea rep dem con lib i.isco1 i.year if male==1, robust
+est title: male
+est sto male22
+reg swb HH1-HH3 HH5-HH7 inc age age2  mar un ed hompop hea rep dem con lib i.isco1 i.year if male==0, robust
+est title: female
+est sto male23
+
+reg swb WS2-WS8 inc age age2  mar  ed hompop hea rep dem con lib i.isco1 i.year , robust
+est title: all
+est sto male31
+reg swb WS2-WS8 inc age age2  mar  ed hompop hea rep dem con lib i.isco1 i.year if male==1, robust
+est title: male
+est sto male32
+reg swb WS2-WS8 inc age age2  mar  ed hompop hea rep dem con lib i.isco1 i.year if male==0, robust
+est title: female
+est sto male33
+
+
+estout male*  using `tmp'regMale.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant)drop(*year*) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)
+
+
+loc dv swb
+loc iv hrs1
+loc c male
+
+mlogit `dv' c.`iv'##i.`c' inc age age2 inc mar un ed hompop rep dem con lib hea i.isco1 i.year, robust 
+
+
+margins `c',  at(`iv'=(0(10)100))  vce(uncond)  predict(outcome(1))
+marginsplot, x(`iv') name(g1,replace) plot1opts(lpattern(dot))title(" ")legend(off)
+margins `c',  at(`iv'=(0(10)100))  vce(uncond)  predict(outcome(2))
+marginsplot, x(`iv') name(g2,replace) plot1opts(lpattern(dot))title(" ")legend(off)
+margins `c',  at(`iv'=(0(10)100))  vce(uncond)  predict(outcome(3))
+marginsplot, x(`iv') name(g3,replace) plot1opts(lpattern(dot))title(" ")legend(off)
+
+graph combine g1 g2 g3,   //ycommon--may be useful...
+gr export `tmp'mMale.eps,replace
+! epstopdf `tmp'mMale.eps
+! acroread  `tmp'mMale.pdf
+
+
+
+*** SIZ
+
+
+
+reg swb c.hrs1##i.sizQ age age2 inc mar un ed hea hompop male i.year, robust 
+
+reg swb c.hrs1##i.sizQ age age2 inc mar un ed hea hompop rep dem con lib male i.isco1 i.year, robust 
+
+codebook xnorcsiz, ta(100)
+reg swb c.hrs1##i.xnorcsiz age age2 inc mar un ed hea hompop male i.year, robust 
+
+codebook srcbelt, ta(100)
+reg swb c.hrs1##i.srcbelt age age2 inc mar un ed hea hompop male i.year, robust 
+
+reg swb c.hrs1##i.srcbelt age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year, robust 
+
+
+bys siz: reg swb  hrs1 age age2 inc mar un ed hea hompop, robust
+bys siz: reg swb  i.hrs_c age age2 inc mar un ed hea hompop, robust
+//aha ! only in biggest cities people are swb to work a lot--workaholiics
+//aha! if anything in smaller places people less swb to work more
+
+codebook wrks
+bys siz: reg swb i.wrks age age2 inc mar un ed hea hompop male rep dem con lib i.year, robust
+
+
+codebook xnorcsiz, ta(100) //same here
+bys xnorcsiz: reg swb  hrs1 age age2 inc mar un ed hea hompop, robust
+
+//this may have to do with types of occup in largest vs smallest areas
+
+reg swb c.hrs1##c.size age age2 inc mar un ed hea hompop male i.year, robust
+
+
+
+/* codebook siz, ta(100) */
+
+/* preserve */
+/* keep if siz==1 */
+/* aok_barcap, dv(swb) by(hrs_c)s(/tmp/lonnie_issp_work/barHrsSiz1) */
+/* restore */
+/* preserve */
+/* keep if siz==2 */
+/* aok_barcap, dv(swb) by(hrs_c)s(/tmp/lonnie_issp_work/barHrsSiz1) */
+/* restore */
+/* preserve */
+/* keep if siz==3 */
+/* aok_barcap, dv(swb) by(hrs_c)s(/tmp/lonnie_issp_work/barHrsSiz1) */
+/* restore */
+/* preserve */
+/* keep if siz==4 */
+/* aok_barcap, dv(swb) by(hrs_c)s(/tmp/lonnie_issp_work/barHrsSiz1) */
+/* restore */
+
+
+/* gr hbar swb, over(hrs_c)over(siz) */
+/* gr export `tmp'g1.eps, replace */
+/* ! epstopdf `tmp'g1.eps */
+/* ! acroread `tmp'g1.pdf */
+//patterns are thener but not v significant in regressions
+
+
+
+est drop _all
+
+
+reg swb HH1-HH3 HH5-HH7 age age2 inc mar unemp ed hea hompop male rep dem con lib i.isco1 i.year  if sizQ==1, robust
+est sto regSizQ1
+reg swb HH1-HH3 HH5-HH7 age age2 inc mar unemp ed hea hompop male rep dem con lib i.isco1 i.year  if sizQ==2, robust
+est sto regSizQ2
+reg swb HH1-HH3 HH5-HH7 age age2 inc mar unemp ed hea hompop male rep dem con lib i.isco1 i.year  if sizQ==3, robust
+est sto regSizQ3
+reg swb HH1-HH3 HH5-HH7 age age2 inc mar unemp ed hea hompop male rep dem con lib i.isco1 i.year  if sizQ==4, robust
+est sto regSizQ4
+reg swb HH1-HH3 HH5-HH7 age age2 inc mar unemp ed hea hompop male rep dem con lib i.isco1 i.year  if sizQ==5, robust
+est sto regSizQ5
+
+
+reg swb WS2-WS8 age age2 inc mar unemp ed hea hompop male rep dem con lib i.isco1 i.year  if sizQ==1, robust
+est sto regSizQ21
+reg swb WS2-WS8 age age2 inc mar unemp ed hea hompop male rep dem con lib i.isco1 i.year  if sizQ==2, robust
+est sto regSizQ22
+reg swb WS2-WS8 age age2 inc mar unemp ed hea hompop male rep dem con lib i.isco1 i.year  if sizQ==3, robust
+est sto regSizQ23
+reg swb WS2-WS8 age age2 inc mar unemp ed hea hompop male rep dem con lib i.isco1 i.year  if sizQ==4, robust
+est sto regSizQ24
+reg swb WS2-WS8 age age2 inc mar unemp ed hea hompop male rep dem con lib i.isco1 i.year  if sizQ==5, robust
+est sto regSizQ25
+
+estout regSiz*  using `tmp'regSiz.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant)drop(*year*) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)
+
+
+/* loc dv swb */
+/* loc iv hrs1 */
+/* loc c siz */
+
+/* mlogit `dv' c.`iv'##i.`c' inc age age2 mar un ed hompop hea male rep dem con lib i.year, robust  */
+
+
+/* margins `c',  at(`iv'=(0(10)100))  vce(uncond)  predict(outcome(1)) */
+/* marginsplot, x(`iv') name(g1,replace) title(" ") */
+/* gr export `tmp'mSizNH.eps,replace */
+/* ! epstopdf `tmp'mSizNH.eps */
+/* ! acroread  `tmp'mSizNH.pdf */
+
+/* margins `c',  at(`iv'=(0(10)100))  vce(uncond)  predict(outcome(2)) */
+/* marginsplot, x(`iv') name(g2,replace) title(" ") */
+/* gr export `tmp'mSizPH.eps,replace */
+/* ! epstopdf `tmp'mSizPH.eps */
+/* ! acroread  `tmp'mSizPH.pdf */
+
+/* margins `c',  at(`iv'=(0(10)100))  vce(uncond)  predict(outcome(3)) */
+/* marginsplot, x(`iv') name(g3,replace) title(" ") */
+/* gr export `tmp'mSizVH.eps,replace */
+/* ! epstopdf `tmp'mSizVH.eps */
+/* ! acroread  `tmp'mSizVH.pdf */
+
+
+/* //graph combine g1 g2 g3,   // ycommon--may be useful... */
+
+
+  
+
+/* ** REG by censis region */
+/* bys region: reg swb  hrs1 age age2 inc mar un ed hea hompop male i.year, robust */
+/* //aha in midde atlantic people are swb to work more; in south atlantic, like to work less; though not very signiifcant */
+/* //LATER may also see if they value anywhere flexy hours more... */
+
+/* codebook region */
+
+/* reg swb c.hrs1##i.region age age2 inc mar un ed hea hompop male i.year, robust  */
+
+
+/* //TODO may want to combine similar places for final paper and have this in the online appendix */
+
+/* est drop _all */
+
+/* reg swb c.hrs1 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==1, robust  */
+/* est title: ne */
+/* est sto regReg1  */
+
+/* reg swb c.hrs1 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==2, robust  */
+/* est title: me */
+/* est sto regReg2  */
+
+/* reg swb c.hrs1 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==3, robust  */
+/* est title: enc */
+/* est sto regReg3  */
+
+/* reg swb c.hrs1 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==4, robust  */
+/* est title: wnc */
+/* est sto regReg4  */
+
+/* reg swb c.hrs1 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==5, robust  */
+/* est title: sa */
+/* est sto regReg5  */
+
+/* reg swb c.hrs1 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==6, robust  */
+/* est title: esc */
+/* est sto regReg6 */
+
+/* reg swb c.hrs1 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==7, robust  */
+/* est title: wsc */
+/* est sto regReg7  */
+
+/* reg swb c.hrs1 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==8, robust  */
+/* est title: m */
+/* est sto regReg8  */
+
+/* reg swb c.hrs1 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==9, robust  */
+/* est title: p */
+/* est sto regReg9  */
+
+
+/* estout regReg*  using `tmp'regReg.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant)drop(*year*) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) */
+
+
+/* est drop _all */
+
+
+/* reg swb WS2-WS8 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==1, robust  */
+/* est title: ne */
+/* est sto regReg21  */
+
+/* reg swb WS2-WS8 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==2, robust  */
+/* est title: me */
+/* est sto regReg22  */
+
+/* reg swb WS2-WS8 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==3, robust  */
+/* est title: enc */
+/* est sto regReg23  */
+
+/* reg swb WS2-WS8 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==4, robust  */
+/* est title: wnc */
+/* est sto regReg24  */
+
+/* reg swb WS2-WS8 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==5, robust  */
+/* est title: sa */
+/* est sto regReg25  */
+
+/* reg swb WS2-WS8 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==6, robust  */
+/* est title: esc */
+/* est sto regReg26 */
+
+/* reg swb WS2-WS8 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==7, robust  */
+/* est title: wsc */
+/* est sto regReg27  */
+
+/* reg swb WS2-WS8 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==8, robust  */
+/* est title: m */
+/* est sto regReg28  */
+
+/* reg swb WS2-WS8 age age2 inc mar un ed hea hompop male rep dem con lib i.isco1 i.year  if region==9, robust  */
+/* est title: p */
+/* est sto regReg29  */
+
+
+/* estout regReg2*  using `tmp'regReg2.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant)drop(*year*) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) */
+
+
+
+
+
 //------------may17
 
 
