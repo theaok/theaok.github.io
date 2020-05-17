@@ -1,6 +1,7 @@
-
 #################################################################
 //LOL and now may16 2020 started new one here with gss2018 with rubia and lonnie
+//and added in here from gssLonnie.do
+
 //OLD://this is NOT the paper file, from old paper; use the other one!!!!!!!!!!!!!!!
 ##################################################################
 
@@ -61,7 +62,7 @@ la var realinc "family income in \$1986 $, millions"
 loc socDem age age2  mar  ed  male hompop white
 loc extCon i.isco1 i.region
 
-note famwkoff: HOW HARD TO TAKE TIME OFF " How hard is it to take time off during your work to take care of personal or family matters?"
+
 
 
 **** des stats
@@ -89,7 +90,22 @@ dy
 */
 
 
+d swb hrs1 hrs2 hr sethrs sethours hrsmoney chn_sch paidhow  famwkoff usualhrs mosthrs leasthrs usualhrs mostUsual leastUsual advsched wrkshift timeoff union age age2  mar realinc  ed  male hompop white
 
+sum  swb hrs1 hrs2 hr sethrs sethours hrsmoney chn_sch paidhow  famwkoff usualhrs mosthrs leasthrs usualhrs mostUsual leastUsual advsched wrkshift timeoff union age age2  mar realinc  ed  male hompop white
+
+
+ta advsched,gen(AS)
+
+ta union sethrs   ,mi 
+ta union  advsched,mi
+ta union  wrkshift,mi
+
+//TODO add more work related etc
+corr mosthrs leasthrs usualhrs mostUsual leastUsual
+
+
+//TODO add here too
 aok_hist2,x(swb sethours hrsmoney chn_sch famwkoff realinc  age  mar  ed  male hompop white hrs1 hea)d(`tmp')f(hist)
 
 //SH* HM* CS* FW*
@@ -99,6 +115,116 @@ aok_var_des , ff(swb sethours  chn_sch famwkoff realinc  `socDem' hrs1 hea)fname
 ! sed -i '/^  family income/i\{\\bf controls}:&\\\\' `tmp'var_des
 
 
+//--------------------regressions----------------------
+est drop _all
+
+
+//------------may17
+
+
+est drop _all
+reg swb  leastUsual mostUsual, robust
+est sto a1
+reg swb  leastUsual mostUsual realinc, robust beta
+est sto a2
+reg swb  leastUsual mostUsual realinc  `socDem'   `extCon', robust
+est sto a3
+reg swb  leastUsual mostUsual realinc  `socDem'   `extCon' hrs1 hea, robust
+est sto a4
+
+reg swb  leastUsual mostUsual realinc  `socDem'   `extCon' hrs1 hea, beta
+
+reg swb  leastUsual mostUsual sethrs hr realinc  `socDem'   `extCon' hrs1 hea , robust
+est sto a5
+//reg swb  c.leastUsual##c.sethrs c.mostUsual##c.sethrs hr realinc  `socDem'   `extCon' hrs1 hea , robust
+//est sto a6
+
+estout a*  using `tmp'lm1.tex ,  cells(b(star fmt(%9.2f))) replace  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)drop(*region *isco1)
+//style: smcl tab fixed tex html   
+//by hand
+//! sed -i '/^constant/i\occupation and region dummies&no&no&yes&yes&yes&yes\\\\' `tmp'lm.tex
+//! scp /tmp/gssLonnie/lm.xlsx akozaryn@rce.hmdc.harvard.edu:~/ 
+
+est drop _all
+reg swb  mostLeastUsual, robust
+est sto b1
+reg swb  mostLeastUsual realinc, robust beta
+est sto b2
+reg swb  mostLeastUsual realinc  `socDem'   `extCon', robust
+est sto b3
+reg swb  mostLeastUsual realinc  `socDem'   `extCon' hrs1 hea, robust
+est sto b4
+
+reg swb  mostLeastUsual realinc  `socDem'   `extCon' hrs1 hea, beta
+
+reg swb  mostLeastUsual sethrs hr realinc  `socDem'   `extCon' hrs1 hea , robust
+est sto b5
+//reg swb  c.mostLeastUsual##c.sethrs hr realinc  `socDem'   `extCon' hrs1 hea , robust
+//est sto b6
+
+estout b*  using `tmp'mlu1.tex ,  cells(b(star fmt(%9.2f))) replace  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)drop(*region *isco1)
+//style: smcl tab fixed tex html   
+//by hand
+! sed -i '/^constant/i\occupation and region dummies&no&no&yes&yes&yes\\\\' `tmp'mlu1.tex
+//! scp /tmp/gssLonnie/mlu.xlsx akozaryn@rce.hmdc.harvard.edu:~/ 
+
+
+est drop _all
+reg swb AS2 AS3 AS4, robust
+est sto c1
+reg swb AS2 AS3 AS4 realinc, robust beta
+est sto c2
+reg swb AS2 AS3 AS4 realinc  `socDem'   `extCon', robust
+est sto c3
+reg swb AS2 AS3 AS4 realinc  `socDem'   `extCon' hrs1 hea, robust
+est sto c4
+
+reg swb AS2 AS3 AS4 realinc  `socDem'   `extCon' hrs1 hea, beta
+
+reg swb  AS2 AS3 AS4 sethrs hr realinc  `socDem'   `extCon' hrs1 hea , robust
+est sto c5
+//reg swb  c.advSch##c.sethrs hr realinc  `socDem'   `extCon' hrs1 hea , robust
+//est sto a6
+
+
+//ta swb if SH4==1 & e(sample)==1
+
+estout c*  using `tmp'as1.tex ,  cells(b(star fmt(%9.2f))) replace  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)drop(*region *isco1)
+! sed -i '/^constant/i\occupation and region dummies&no&no&yes&yes&yes\\\\' `tmp'as1.tex
+//! scp /tmp/gssLonnie/as.xlsx akozaryn@rce.hmdc.harvard.edu:~/ 
+
+
+
+est drop _all
+reg swb WS2 WS3, robust
+est sto d1
+ta swb if WS3==1 & e(sample)==1
+
+reg swb WS2 WS3 realinc, robust beta
+est sto d2
+reg swb WS2 WS3 realinc  `socDem'   `extCon', robust
+est sto d3
+reg swb WS2 WS3 realinc  `socDem'   `extCon' hrs1 hea, robust
+est sto d4
+
+reg swb WS2 WS3 realinc  `socDem'   `extCon' hrs1 hea, beta
+
+ta swb if WS3==1 & e(sample)==1
+
+
+reg swb  WS2 WS3 sethrs hr realinc  `socDem'   `extCon' hrs1 hea , robust
+est sto d5
+//reg swb  c.wrkshift##c.sethrs hr realinc  `socDem'   `extCon' hrs1 hea , robust
+//est sto d6
+
+
+
+estout d*  using `tmp'd1.tex ,  cells(b(star fmt(%9.2f))) replace  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)drop(*region *isco1)
+! sed -i '/^constant/i\occupation and region dummies&no&no&yes&yes&yes\\\\' `tmp'd1.tex
+
+
+
+//------------may16
 
 est drop _all
 reg swb leasthrs mosthrs, robust
@@ -167,6 +293,9 @@ estout a*  using `tmp'wss.tex ,  cells(b(star fmt(%9.2f))) replace style(tex) co
 
 
 //-------------------------------old
+//-------------------------------old
+//-------------------------------old
+
 
 **** regressions
 preserve
@@ -338,7 +467,7 @@ estout *beta  using `tmp'beta2.tex ,  cells(beta(star fmt(%9.2f))) replace style
 ///////
 ! cp /home/aok/papers/root/rr/gssLonnie/tex/gssLonnie.pdf /home/aok/misc/html/theaok.github.io/junk/
 ! cp /home/aok/papers/root/rr/gssLonnie/aokLead.do /home/aok/misc/html/theaok.github.io/junk/
-! cp use /home/aok/data/gss/gss.dta /home/aok/misc/html/theaok.github.io/junk/
+! cp  /home/aok/data/gss/gss.dta /home/aok/misc/html/theaok.github.io/junk/
 
 ! chmod 755 /home/aok/misc/html/theaok.github.io/junk/gssLonnie.pdf
 
