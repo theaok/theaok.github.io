@@ -139,7 +139,8 @@ est sto a5
 //reg swb  c.leastUsual##c.sethrs c.mostUsual##c.sethrs hr realinc  `socDem'   `extCon' hrs1 hea , robust
 //est sto a6
 
-estout a*  using `tmp'lm1.tex ,  cells(b(star fmt(%9.2f))) replace  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)drop(*region *isco1)
+
+estout a*  using `tmp'lm1.tex ,  cells(b(star fmt(%9.2f))) replace style(tex) collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)drop(*region *isco1)
 //style: smcl tab fixed tex html   
 //by hand
 //! sed -i '/^constant/i\occupation and region dummies&no&no&yes&yes&yes&yes\\\\' `tmp'lm.tex
@@ -162,7 +163,7 @@ est sto b5
 //reg swb  c.mostLeastUsual##c.sethrs hr realinc  `socDem'   `extCon' hrs1 hea , robust
 //est sto b6
 
-estout b*  using `tmp'mlu1.tex ,  cells(b(star fmt(%9.2f))) replace  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)drop(*region *isco1)
+estout b*  using `tmp'mlu1.tex ,  cells(b(star fmt(%9.2f))) replace style(tex) collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)drop(*region *isco1)
 //style: smcl tab fixed tex html   
 //by hand
 ! sed -i '/^constant/i\occupation and region dummies&no&no&yes&yes&yes\\\\' `tmp'mlu1.tex
@@ -189,7 +190,7 @@ est sto c5
 
 //ta swb if SH4==1 & e(sample)==1
 
-estout c*  using `tmp'as1.tex ,  cells(b(star fmt(%9.2f))) replace  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)drop(*region *isco1)
+estout c*  using `tmp'as1.tex ,  cells(b(star fmt(%9.2f))) replace style(tex) collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)drop(*region *isco1)
 ! sed -i '/^constant/i\occupation and region dummies&no&no&yes&yes&yes\\\\' `tmp'as1.tex
 //! scp /tmp/gssLonnie/as.xlsx akozaryn@rce.hmdc.harvard.edu:~/ 
 
@@ -219,7 +220,7 @@ est sto d5
 
 
 
-estout d*  using `tmp'd1.tex ,  cells(b(star fmt(%9.2f))) replace  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)drop(*region *isco1)
+estout d*  using `tmp'd1.tex ,  cells(b(star fmt(%9.2f))) replace style(tex) collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001)drop(*region *isco1)
 ! sed -i '/^constant/i\occupation and region dummies&no&no&yes&yes&yes\\\\' `tmp'd1.tex
 
 
@@ -290,6 +291,12 @@ estout a*  using `tmp'wss.tex ,  cells(b(star fmt(%9.2f))) replace style(tex) co
 //! sed -i '/^sethours: employer decides/i\who set working hours (base: i decide w/limts):&&&&\\\\' `tmp'sh.tex
 //! sed -i "s|sethours: |\\\hspace{.2in}|g" `tmp'sh.tex 
 
+
+! cp /home/aok/papers/root/rr/gssLonnie/tex/gssLonnie.pdf /home/aok/misc/html/theaok.github.io/junk/
+! cp /home/aok/papers/root/rr/gssLonnie/aokLead.do /home/aok/misc/html/theaok.github.io/junk/
+! cp  /home/aok/data/gss/gss.dta /home/aok/misc/html/theaok.github.io/junk/
+
+! chmod 755 /home/aok/misc/html/theaok.github.io/junk/gssLonnie.pdf
 
 
 //-------------------------------old
