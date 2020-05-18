@@ -50,14 +50,9 @@ ta occ10, nola
 //TODO think about it too
 //keep if wrkstat==1|wrkstat==2
 
-la def hrs_c_lbl 0 "unemployed" 1 "0-16" 2 "17-34" 3 "35-39" 4 "40" 5 "41-49" 6 "50-59" 7 "60-90"
-la val hrs_c hrs_c_lbl
 
 //everybody works here so do not care about unempl! also using WS as possed to hrs1 bc  mnore obs here
 
-d realinc
-replace realinc=realinc/1000000
-la var realinc "family income in \$1986 $, millions"
 
 loc socDem age age2  mar  ed  male hompop white
 loc extCon i.isco1 i.region
@@ -90,12 +85,12 @@ dy
 */
 
 
-d swb hrs1 hrs2 hr sethrs sethours hrsmoney chn_sch paidhow  famwkoff usualhrs mosthrs leasthrs usualhrs mostUsual leastUsual advsched wrkshift timeoff union age age2  mar realinc  ed  male hompop white
-
-sum  swb hrs1 hrs2 hr sethrs sethours hrsmoney chn_sch paidhow  famwkoff usualhrs mosthrs leasthrs usualhrs mostUsual leastUsual advsched wrkshift timeoff union age age2  mar realinc  ed  male hompop white
 
 
-ta advsched,gen(AS)
+//for tex
+d swb hrs1 hrs2 hr mustwork  moredays sethrs sethours hrsmoney hrsrelax chn_sch paidhow  famwkoff usualhrs mosthrs leasthrs  mostUsual leastUsual advsched wrkshift timeoff union age age2 mar realinc  ed  male hompop white  wrkstat waypaid secondwk wrksched wrkshift health mntlhlth stress usedup overwork
+
+sum swb hrs1 hrs2 hr mustwork  moredays sethrs sethours hrsmoney hrsrelax chn_sch paidhow  famwkoff usualhrs mosthrs leasthrs  mostUsual leastUsual advsched wrkshift timeoff union age age2 mar realinc  ed  male hompop white  wrkstat waypaid secondwk wrksched wrkshift health mntlhlth stress usedup overwork
 
 ta union sethrs   ,mi 
 ta union  advsched,mi
@@ -117,6 +112,15 @@ aok_var_des , ff(swb sethours  chn_sch famwkoff realinc  `socDem' hrs1 hea)fname
 
 //--------------------regressions----------------------
 est drop _all
+
+//-----------may17_3
+
+ta waypaid,gen(WP)
+
+reg swb WS2-WS8 WP2-WP3 secondwk  health mntlhlth stress usedup overwork hrs1 inc i.year, robust 
+est sto z1
+
+estout z1*  using `tmp'z1.tex ,  cells(b(star fmt(%9.3f))se(par fmt(%9.3f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) drop(*year*)
 
 
 //-----------may17_2
