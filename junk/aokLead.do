@@ -117,7 +117,7 @@ est drop _all
 
 ta waypaid,gen(WP)
 
-reg swb WS2-WS8 WP2-WP3 secondwk  health mntlhlth stress usedup overwork hrs1 inc i.year, robust 
+reg swb  WP2-WP3 secondwk  health mntlhlth stress usedup overwork hrs1 inc i.year, robust 
 est sto z1
 
 estout z1*  using `tmp'z1.tex ,  cells(b(star fmt(%9.3f))se(par fmt(%9.3f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) drop(*year*)
