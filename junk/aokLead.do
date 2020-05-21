@@ -57,8 +57,8 @@ ta occ10, nola
 loc socDem age age2  mar  ed  male hompop white
 loc extCon i.isco1 i.region
 
-
-
+recode male (0=1)(1=0),gen(fem)
+ta fem male,mi
 
 **** des stats
 /*
@@ -121,9 +121,9 @@ reg swb HH1-HH3 HH5-HH7 HH0 WS2-WS8 i.year, robust
 est sto fA2
 reg swb HH1-HH3 HH5-HH7 HH0 WS2-WS8 realinc i.year, robust
 est sto fA3
-reg swb HH1-HH3 HH5-HH7 HH0 WS2-WS8 realinc age age2 female  mar  ed  hompop i.year, robust
+reg swb HH1-HH3 HH5-HH7 HH0 WS2-WS8 realinc age age2 fem  mar  ed  hompop white i.year, robust
 est sto fA4
-reg swb HH1-HH3 HH5-HH7 HH0 WS2-WS8 realinc age age2 female  mar  ed  hompop i.isco1 IS1 IS2 IS4-IS8 i.year, robust
+reg swb HH1-HH3 HH5-HH7 HH0 WS2-WS8 realinc age age2 fem  mar  ed  hompop white  IS1 IS2 IS4-IS8 i.year, robust
 est sto fA5
 
 estout fA*  using `tmp'fA.tex ,  cells(b(star fmt(%9.3f))se(par fmt(%9.3f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) drop(*year*)
