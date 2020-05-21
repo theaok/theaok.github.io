@@ -113,6 +113,23 @@ aok_var_des , ff(swb sethours  chn_sch famwkoff realinc  `socDem' hrs1 hea)fname
 //--------------------regressions----------------------
 est drop _all
 
+//-----------may21
+
+reg swb HH1-HH3 HH5-HH7 HH0 i.year, robust
+est sto fA1
+reg swb HH1-HH3 HH5-HH7 HH0 WS2-WS8 i.year, robust
+est sto fA2
+reg swb HH1-HH3 HH5-HH7 HH0 WS2-WS8 realinc i.year, robust
+est sto fA3
+reg swb HH1-HH3 HH5-HH7 HH0 WS2-WS8 realinc age age2 female  mar  ed  hompop i.year, robust
+est sto fA4
+reg swb HH1-HH3 HH5-HH7 HH0 WS2-WS8 realinc age age2 female  mar  ed  hompop i.isco1 IS1 IS2 IS4-IS8 i.year, robust
+est sto fA5
+
+estout fA*  using `tmp'fA.tex ,  cells(b(star fmt(%9.3f))se(par fmt(%9.3f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) drop(*year*)
+
+
+
 //-----------may17_3
 
 ta waypaid,gen(WP)
