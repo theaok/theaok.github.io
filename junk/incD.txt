@@ -3,7 +3,7 @@
       name:  {res}<unnamed>
        {txt}log:  {res}/tmp/incD.txt
   {txt}log type:  {res}smcl
- {txt}opened on:  {res}22 May 2020, 10:23:12
+ {txt}opened on:  {res}22 May 2020, 10:28:19
 
 {com}. ta realinc realincD
 
@@ -1906,7 +1906,7 @@
       {txt}name:  {res}<unnamed>
        {txt}log:  {res}/tmp/incD.txt
   {txt}log type:  {res}smcl
- {txt}closed on:  {res}22 May 2020, 10:23:12
+ {txt}closed on:  {res}22 May 2020, 10:28:19
 {txt}{.-}
 {smcl}
 {txt}{sf}{ul off}

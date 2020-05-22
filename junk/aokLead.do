@@ -150,9 +150,10 @@ est sto `dv'A6
 est sto `dv'A7
  reg `dv'  fem hrs1 WS2 WSother INC1-INC4 INC6-INC10 age age2   mar  ed  hompop white  IS1 IS2 IS4-IS8 i.ind11 i.year, robust
 est sto `dv'A8
-estout `dv'*  using `tmp'`dv'.tex ,  cells(b(star fmt(%9.3f))se(par fmt(%9.3f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) drop(*year*)
+estout `dv'*  using `tmp'`dv'.tex ,  cells(b(star fmt(%9.3f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) drop(*year*)
 }
 
+//se(par fmt(%9.3f))
 
 
 
