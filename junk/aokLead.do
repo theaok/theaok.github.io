@@ -53,12 +53,17 @@ ta occ10, nola
 //$gss
 use /home/aok/data/gss/gss.dta,clear
 
-
-recode male (0=1)(1=0),gen(fem)
-ta fem male,mi
-
 xtile realincD=realinc, nq(10)
 ta realincD,gen(INC)
+
+
+cap log close
+log using /tmp/incD.txt, replace
+ta realinc realincD
+log close
+
+! cp /tmp/incD.txt /home/aok/misc/html/theaok.github.io/junk/
+
 
 d WS*
 gen WSother=.
@@ -137,13 +142,14 @@ reg `dv' HH1-HH3 HH5-HH7 HH0 WS2 WSother INC1-INC4 INC6-INC10 i.year, robust
 est sto `dv'A3
 reg `dv' HH1-HH3 HH5-HH7 HH0 WS2 WSother INC1-INC4 INC6-INC10 age age2 fem  mar  ed  hompop white i.year, robust
 est sto `dv'A4
-reg `dv' HH1-HH3 HH5-HH7 HH0 WS2 WSother INC1-INC4 INC6-INC10 age age2 fem  mar  ed  hompop white  IS1 IS2 IS4-IS8 i.year, robust
+reg `dv' HH1-HH3 HH5-HH7 HH0 WS2 WSother INC1-INC4 INC6-INC10 age age2 fem  mar ed  hompop white  IS1 IS2 IS4-IS8 i.ind11  i.year, robust
 est sto `dv'A5
-reg `dv'  WS2 WSother hrs1 i.WS2#c.hrs1 i.WSother#c.hrs1 INC1-INC4 INC6-INC10 age age2 fem  mar  ed  hompop white  IS1 IS2 IS4-IS8 i.year, robust
+reg `dv'  WS2 WSother hrs1 i.WS2#c.hrs1 i.WSother#c.hrs1 INC1-INC4 INC6-INC10 age age2 fem  mar  ed  hompop white  IS1 IS2 IS4-IS8 i.ind11 i.year, robust
 est sto `dv'A6
- reg `dv' i.fem##c.hrs1 WS2 WSother INC1-INC4 INC6-INC10 age age2   mar  ed  hompop white  IS1 IS2 IS4-IS8 i.year, robust
+ reg `dv' i.fem##c.hrs1 WS2 WSother INC1-INC4 INC6-INC10 age age2   mar  ed hompop white  IS1 IS2 IS4-IS8 i.ind11 i.year, robust
 est sto `dv'A7
-
+ reg `dv'  fem hrs1 WS2 WSother INC1-INC4 INC6-INC10 age age2   mar  ed  hompop white  IS1 IS2 IS4-IS8 i.ind11 i.year, robust
+est sto `dv'A8
 estout `dv'*  using `tmp'`dv'.tex ,  cells(b(star fmt(%9.3f))se(par fmt(%9.3f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) drop(*year*)
 }
 
