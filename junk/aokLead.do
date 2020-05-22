@@ -27,10 +27,6 @@ loc tmp "/tmp/`pap'/"
 
 **** gss
 
-
-//$gss
-use /home/aok/data/gss/gss.dta,clear
-
 //TODO think about it
 //reviewer wanted that
 //keep if wrkslf==0 //later can look a missing codes maybe eep them
@@ -54,11 +50,27 @@ ta occ10, nola
 //everybody works here so do not care about unempl! also using WS as possed to hrs1 bc  mnore obs here
 
 
-loc socDem age age2  mar  ed  male hompop white
-loc extCon i.isco1 i.region
+//$gss
+use /home/aok/data/gss/gss.dta,clear
+
 
 recode male (0=1)(1=0),gen(fem)
 ta fem male,mi
+
+xtile realincD=realinc, nq(10)
+ta realincD,gen(INC)
+
+d WS*
+gen WSother=.
+replace WSother=0 if WS1==1|WS2==1
+replace WSother=1 if WS3==1|WS4==1|WS5==1|WS6==1|WS7==1|WS8==1
+ta WSother WS1,mi
+ta WSother WS2,mi
+//TODO think about it again lol
+
+loc socDem age age2  mar  ed  male hompop white
+loc extCon i.isco1 i.region
+
 
 **** des stats
 /*
@@ -115,18 +127,28 @@ est drop _all
 
 //-----------may21
 
-reg swb HH1-HH3 HH5-HH7 HH0 i.year, robust
-est sto fA1
-reg swb HH1-HH3 HH5-HH7 HH0 WS2-WS8 i.year, robust
-est sto fA2
-reg swb HH1-HH3 HH5-HH7 HH0 WS2-WS8 realinc i.year, robust
-est sto fA3
-reg swb HH1-HH3 HH5-HH7 HH0 WS2-WS8 realinc age age2 fem  mar  ed  hompop white i.year, robust
-est sto fA4
-reg swb HH1-HH3 HH5-HH7 HH0 WS2-WS8 realinc age age2 fem  mar  ed  hompop white  IS1 IS2 IS4-IS8 i.year, robust
-est sto fA5
 
-estout fA*  using `tmp'fA.tex ,  cells(b(star fmt(%9.3f))se(par fmt(%9.3f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) drop(*year*)
+foreach dv of varlist swb satjob satlife unhappy{
+reg `dv' HH1-HH3 HH5-HH7 HH0 i.year, robust
+est sto `dv'A1
+reg `dv' HH1-HH3 HH5-HH7 HH0 WS2 WSother i.year, robust
+est sto `dv'A2
+reg `dv' HH1-HH3 HH5-HH7 HH0 WS2 WSother INC1-INC4 INC6-INC10 i.year, robust
+est sto `dv'A3
+reg `dv' HH1-HH3 HH5-HH7 HH0 WS2 WSother INC1-INC4 INC6-INC10 age age2 fem  mar  ed  hompop white i.year, robust
+est sto `dv'A4
+reg `dv' HH1-HH3 HH5-HH7 HH0 WS2 WSother INC1-INC4 INC6-INC10 age age2 fem  mar  ed  hompop white  IS1 IS2 IS4-IS8 i.year, robust
+est sto `dv'A5
+reg `dv'  WS2 WSother hrs1 i.WS2#c.hrs1 i.WSother#c.hrs1 INC1-INC4 INC6-INC10 age age2 fem  mar  ed  hompop white  IS1 IS2 IS4-IS8 i.year, robust
+est sto `dv'A6
+ reg `dv' i.fem##c.hrs1 WS2 WSother INC1-INC4 INC6-INC10 age age2   mar  ed  hompop white  IS1 IS2 IS4-IS8 i.year, robust
+est sto `dv'A7
+
+estout `dv'*  using `tmp'`dv'.tex ,  cells(b(star fmt(%9.3f))se(par fmt(%9.3f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) drop(*year*)
+}
+
+
+
 
 
 
