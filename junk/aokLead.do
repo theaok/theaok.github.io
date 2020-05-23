@@ -155,6 +155,12 @@ estout `dv'*  using `tmp'`dv'.tex ,  cells(b(star fmt(%9.3f))) replace style(tex
 
 //se(par fmt(%9.3f))
 
+! cp /home/aok/papers/root/rr/gssLonnie/tex/gssLonnie.pdf /home/aok/misc/html/theaok.github.io/junk/
+! cp /home/aok/papers/root/rr/gssLonnie/tex/gssLonnie.tex /home/aok/misc/html/theaok.github.io/junk/
+! cp /home/aok/papers/root/rr/gssLonnie/aokLead.do /home/aok/misc/html/theaok.github.io/junk/
+! cp  /home/aok/data/gss/gss.dta /home/aok/misc/html/theaok.github.io/junk/
+
+! chmod 755 /home/aok/misc/html/theaok.github.io/junk/gssLonnie.pdf
 
 
 
@@ -756,11 +762,6 @@ estout a*  using `tmp'wss.tex ,  cells(b(star fmt(%9.2f))) replace style(tex) co
 //! sed -i "s|sethours: |\\\hspace{.2in}|g" `tmp'sh.tex 
 
 
-! cp /home/aok/papers/root/rr/gssLonnie/tex/gssLonnie.pdf /home/aok/misc/html/theaok.github.io/junk/
-! cp /home/aok/papers/root/rr/gssLonnie/aokLead.do /home/aok/misc/html/theaok.github.io/junk/
-! cp  /home/aok/data/gss/gss.dta /home/aok/misc/html/theaok.github.io/junk/
-
-! chmod 755 /home/aok/misc/html/theaok.github.io/junk/gssLonnie.pdf
 
 
 //-------------------------------old
