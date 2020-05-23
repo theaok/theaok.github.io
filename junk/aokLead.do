@@ -128,10 +128,82 @@ aok_var_des , ff(swb sethours  chn_sch famwkoff realinc  `socDem' hrs1 hea)fname
 
 
 //--------------------regressions----------------------
-est drop _all
 
 //-----------may21
 
+
+est drop _all
+
+foreach dv of varlist health mntlhlth stress satjob{
+reg `dv' HH1-HH3 HH5-HH7 HH0 i.year i.region , robust
+est sto `dv'A1
+reg `dv' HH1-HH3 HH5-HH7 HH0 WS2 WSother i.year i.region , robust
+est sto `dv'A2
+reg `dv' HH1-HH3 HH5-HH7 HH0 WS2 WSother INC1-INC4 INC6-INC10 i.year i.region , robust
+est sto `dv'A3
+reg `dv' HH1-HH3 HH5-HH7 HH0 WS2 WSother INC1-INC4 INC6-INC10 age age2 fem  mar  ed  hompop white size union   i.year i.region , robust
+est sto `dv'A4
+reg `dv' HH1-HH3 HH5-HH7 HH0 WS2 WSother INC1-INC4 INC6-INC10 age age2 fem  mar ed  hompop white size union    IS1 IS2 IS4-IS8 i.ind11  i.year i.region , robust
+est sto `dv'A5
+reg `dv'  WS2 WSother hrs1 i.WS2#c.hrs1 i.WSother#c.hrs1 INC1-INC4 INC6-INC10 age age2 fem  mar  ed  hompop white size union    IS1 IS2 IS4-IS8 i.ind11 i.year i.region , robust
+est sto `dv'A6
+ reg `dv' i.fem##c.hrs1 WS2 WSother INC1-INC4 INC6-INC10 age age2   mar  ed hompop white size union    IS1 IS2 IS4-IS8 i.ind11 i.year i.region , robust
+est sto `dv'A7
+ reg `dv'  fem hrs1 WS2 WSother INC1-INC4 INC6-INC10 age age2   mar  ed  hompop white size union    IS1 IS2 IS4-IS8 i.ind11 i.year i.region , robust
+est sto `dv'A8
+estout `dv'*  using `tmp'd`dv'.tex ,  cells(b(star fmt(%9.4f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) drop(*year*)
+}
+
+
+
+
+
+
+
+est drop _all
+foreach dv of varlist swb satjob satlife unhappy{
+reg `dv' i.wrksched HH1-HH3 HH5-HH7 HH0 i.year i.region , robust
+est sto `dv' 
+reg `dv' i.wrksched HH1-HH3 HH5-HH7 HH0 WS2 WSother i.year i.region , robust
+est sto `dv' 
+reg `dv' i.wrksched HH1-HH3 HH5-HH7 HH0 WS2 WSother INC1-INC4 INC6-INC10 i.year i.region , robust
+est sto `dv' 
+reg `dv' i.wrksched HH1-HH3 HH5-HH7 HH0 WS2 WSother INC1-INC4 INC6-INC10 age age2 fem  mar  ed  hompop white size union   i.year i.region , robust
+est sto `dv' 
+reg `dv' i.wrksched HH1-HH3 HH5-HH7 HH0 WS2 WSother INC1-INC4 INC6-INC10 age age2 fem  mar ed  hompop white size union    IS1 IS2 IS4-IS8 i.ind11  i.year i.region , robust
+est sto `dv' 
+reg `dv' i.wrksched  WS2 WSother hrs1 i.WS2#c.hrs1 i.WSother#c.hrs1 INC1-INC4 INC6-INC10 age age2 fem  mar  ed  hompop white size union    IS1 IS2 IS4-IS8 i.ind11 i.year i.region , robust
+est sto `dv' 
+ reg `dv' i.wrksched i.fem##c.hrs1 WS2 WSother INC1-INC4 INC6-INC10 age age2   mar  ed hompop white size union    IS1 IS2 IS4-IS8 i.ind11 i.year i.region , robust
+est sto `dv' 
+ reg `dv' i.wrksched  fem hrs1 WS2 WSother INC1-INC4 INC6-INC10 age age2   mar  ed  hompop white size union    IS1 IS2 IS4-IS8 i.ind11 i.year i.region , robust
+est sto `dv' 
+estout `dv'*  using `tmp'c`dv'.tex  ,  cells(b(star fmt(%9.4f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) drop(*year*)
+}
+
+
+est drop _all
+foreach dv of varlist swb satjob satlife unhappy{
+reg `dv' i.knowschd HH1-HH3 HH5-HH7 HH0 i.year i.region , robust
+est sto `dv' 
+reg `dv' i.knowschd HH1-HH3 HH5-HH7 HH0 WS2 WSother i.year i.region , robust
+est sto `dv' 
+reg `dv' i.knowschd HH1-HH3 HH5-HH7 HH0 WS2 WSother INC1-INC4 INC6-INC10 i.year i.region , robust
+est sto `dv' 
+reg `dv' i.knowschd HH1-HH3 HH5-HH7 HH0 WS2 WSother INC1-INC4 INC6-INC10 age age2 fem  mar  ed  hompop white size union   i.year i.region , robust
+est sto `dv' 
+reg `dv' i.knowschd HH1-HH3 HH5-HH7 HH0 WS2 WSother INC1-INC4 INC6-INC10 age age2 fem  mar ed  hompop white size union    IS1 IS2 IS4-IS8 i.ind11  i.year i.region , robust
+est sto `dv' 
+reg `dv' i.knowschd  WS2 WSother hrs1 i.WS2#c.hrs1 i.WSother#c.hrs1 INC1-INC4 INC6-INC10 age age2 fem  mar  ed  hompop white size union    IS1 IS2 IS4-IS8 i.ind11 i.year i.region , robust
+est sto `dv' 
+ reg `dv' i.knowschd i.fem##c.hrs1 WS2 WSother INC1-INC4 INC6-INC10 age age2   mar  ed hompop white size union    IS1 IS2 IS4-IS8 i.ind11 i.year i.region , robust
+est sto `dv' 
+ reg `dv' i.knowschd  fem hrs1 WS2 WSother INC1-INC4 INC6-INC10 age age2   mar  ed  hompop white size union    IS1 IS2 IS4-IS8 i.ind11 i.year i.region , robust
+est sto `dv' 
+estout `dv'*  using `tmp'b`dv'.tex  ,  cells(b(star fmt(%9.4f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) drop(*year*)
+}
+
+est drop _all
 
 foreach dv of varlist swb satjob satlife unhappy{
 reg `dv' HH1-HH3 HH5-HH7 HH0 i.year i.region , robust
@@ -140,15 +212,15 @@ reg `dv' HH1-HH3 HH5-HH7 HH0 WS2 WSother i.year i.region , robust
 est sto `dv'A2
 reg `dv' HH1-HH3 HH5-HH7 HH0 WS2 WSother INC1-INC4 INC6-INC10 i.year i.region , robust
 est sto `dv'A3
-reg `dv' HH1-HH3 HH5-HH7 HH0 WS2 WSother INC1-INC4 INC6-INC10 age age2 fem  mar  ed  hompop white size  i.year i.region , robust
+reg `dv' HH1-HH3 HH5-HH7 HH0 WS2 WSother INC1-INC4 INC6-INC10 age age2 fem  mar  ed  hompop white size union   i.year i.region , robust
 est sto `dv'A4
-reg `dv' HH1-HH3 HH5-HH7 HH0 WS2 WSother INC1-INC4 INC6-INC10 age age2 fem  mar ed  hompop white size   IS1 IS2 IS4-IS8 i.ind11  i.year i.region , robust
+reg `dv' HH1-HH3 HH5-HH7 HH0 WS2 WSother INC1-INC4 INC6-INC10 age age2 fem  mar ed  hompop white size union    IS1 IS2 IS4-IS8 i.ind11  i.year i.region , robust
 est sto `dv'A5
-reg `dv'  WS2 WSother hrs1 i.WS2#c.hrs1 i.WSother#c.hrs1 INC1-INC4 INC6-INC10 age age2 fem  mar  ed  hompop white size   IS1 IS2 IS4-IS8 i.ind11 i.year i.region , robust
+reg `dv'  WS2 WSother hrs1 i.WS2#c.hrs1 i.WSother#c.hrs1 INC1-INC4 INC6-INC10 age age2 fem  mar  ed  hompop white size union    IS1 IS2 IS4-IS8 i.ind11 i.year i.region , robust
 est sto `dv'A6
- reg `dv' i.fem##c.hrs1 WS2 WSother INC1-INC4 INC6-INC10 age age2   mar  ed hompop white size   IS1 IS2 IS4-IS8 i.ind11 i.year i.region , robust
+ reg `dv' i.fem##c.hrs1 WS2 WSother INC1-INC4 INC6-INC10 age age2   mar  ed hompop white size union    IS1 IS2 IS4-IS8 i.ind11 i.year i.region , robust
 est sto `dv'A7
- reg `dv'  fem hrs1 WS2 WSother INC1-INC4 INC6-INC10 age age2   mar  ed  hompop white size   IS1 IS2 IS4-IS8 i.ind11 i.year i.region , robust
+ reg `dv'  fem hrs1 WS2 WSother INC1-INC4 INC6-INC10 age age2   mar  ed  hompop white size union    IS1 IS2 IS4-IS8 i.ind11 i.year i.region , robust
 est sto `dv'A8
 estout `dv'*  using `tmp'`dv'.tex ,  cells(b(star fmt(%9.4f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) drop(*year*)
 }
