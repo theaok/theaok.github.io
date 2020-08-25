@@ -1,0 +1,1494 @@
+%to have line numbers
+%\RequirePackage{lineno}
+\documentclass[10pt, letterpaper]{article}      
+\usepackage[margin=.1cm,font=small,labelfont=bf]{caption}[2007/03/09]
+%\usepackage{endnotes}
+%\let\footnote=\endnote
+\usepackage{setspace}
+\usepackage{longtable}                        
+\usepackage{anysize}                          
+\usepackage{natbib}                           
+%\bibpunct{(}{)}{,}{a}{,}{,}                   
+\bibpunct{(}{)}{,}{a}{}{,}                   
+\usepackage{amsmath}
+\usepackage[% draft,
+pdftex]{graphicx} %draft is a way to exclude figures                
+\usepackage{epstopdf}
+\usepackage{hyperref}                             % For creating hyperlinks in cross references
+
+
+% \usepackage[margins]{trackchanges}
+
+% \note[editor]{The note}
+% \annote[editor]{Text to annotate}{The note}
+%    \add[editor]{Text to add}
+% \remove[editor]{Text to remove}
+% \change[editor]{Text to remove}{Text to add}
+
+%TODO make it more standard before submission: \marginsize{2cm}{2cm}{1cm}{1cm}
+\marginsize{1cm}{1cm}{.5cm}{.5cm}%{left}{right}{top}{bottom}   
+					          % Helps LaTeX put figures where YOU want
+ \renewcommand{\topfraction}{1}	                  % 90% of page top can be a float
+ \renewcommand{\bottomfraction}{1}	          % 90% of page bottom can be a float
+ \renewcommand{\textfraction}{0.0}	          % only 10% of page must to be text
+
+ \usepackage{float}                               %latex will not complain to include float after float
+
+\usepackage[table]{xcolor}                        %for table shading
+\definecolor{gray90}{gray}{0.90}
+\definecolor{orange}{RGB}{255,128,0}
+
+\renewcommand\arraystretch{.9}                    %for spacing of arrays like tabular
+
+%-------------------- my commands -----------------------------------------
+\newenvironment{ig}[1]{
+\begin{center}
+ %\includegraphics[height=5.0in]{#1} 
+ \includegraphics[height=3.3in]{#1} 
+\end{center}}
+
+ \newcommand{\cc}[1]{
+\hspace{-.13in}$\bullet$\marginpar{\begin{spacing}{.6}\begin{footnotesize}\color{blue}{#1}\end{footnotesize}\end{spacing}}
+\hspace{-.13in} }
+
+%-------------------- END my commands -----------------------------------------
+
+
+
+%-------------------- extra options -----------------------------------------
+
+%%%%%%%%%%%%%
+% footnotes %
+%%%%%%%%%%%%%
+
+%\long\def\symbolfootnote[#1]#2{\begingroup% %these can be used to make footnote  nonnumeric asterick, dagger etc
+%\def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup}	%see: http://help-csli.stanford.edu/tex/latex-footnotes.shtml
+
+%%%%%%%%%%%
+% spacing %
+%%%%%%%%%%%
+
+% \abovecaptionskip: space above caption
+% \belowcaptionskip: space below caption
+%\oddsidemargin 0cm
+%\evensidemargin 0cm
+
+%%%%%%%%%
+% style %
+%%%%%%%%%
+
+%\pagestyle{myheadings}         % Option to put page headers
+                               % Needed \documentclass[a4paper,twoside]{article}
+%\markboth{{\small\it Politics and Life Satisfaction }}
+%{{\small\it Adam Okulicz-Kozaryn} }
+
+%\headsep 1.5cm
+% \pagestyle{empty}			% no page numbers
+% \parindent  15.mm			% indent paragraph by this much
+% \parskip     2.mm			% space between paragraphs
+% \mathindent 20.mm			% indent math equations by this much
+
+%%%%%%%%%%%%%%%%%%
+% extra packages %
+%%%%%%%%%%%%%%%%%%
+
+\usepackage{datetime}
+
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,backgrounds}
+
+
+%\usepackage{color}					% For creating coloured text and background
+%\usepackage{float}
+\usepackage{subfig}                                     % for combined figures
+
+\renewcommand{\ss}[1]{{\colorbox{blue}{\bf \color{white}{#1}}}}
+\newcommand{\ee}[1]{\endnote{\vspace{-.10in}\begin{spacing}{1.0}{\normalsize #1}\end{spacing}\vspace{.20in}}}
+\newcommand{\emd}[1]{\ExecuteMetaData[/tmp/tex]{#1}} % grab numbers  from stata
+
+%TODO before submitting comment this out to get 'regular fornt'
+%\usepackage{sectsty}
+% \allsectionsfont{\normalfont\sffamily}
+% \usepackage{sectsty}
+% \allsectionsfont{\normalfont\sffamily}
+%\renewcommand\familydefault{\sfdefault}
+
+\usepackage[margins]{trackchanges}
+\usepackage{rotating}
+\usepackage{catchfilebetweentags}
+
+\usepackage{abstract}
+\renewcommand{\abstractname}{}    % clear the title
+\renewcommand{\absnamepos}{empty} % originally center
+%-------------------- END extra options -----------------------------------------
+\date{{}\today \hspace{.2in}\xxivtime}
+\title{The Top Regrets Of The Dying:\\ ``I Wish I Hadn't Worked So Hard.''\\
+  (Greed Is Good For Economy, But Not For Human Wellbeing) %\\ 
+   %(The More Work Hours and Money, The Less Happiness)
+}
+\author{
+% Adam Okulicz-Kozaryn\thanks{EMAIL: adam.okulicz.kozaryn@gmail.com
+%   \hfill I thank XXX.  All mistakes are mine.} \\
+% {\small Rutgers - Camden}
+}
+
+\begin{document}
+
+%%\setpagewiselinenumbers
+%\modulolinenumbers[1]
+%\linenumbers
+
+\bibliographystyle{/home/aok/papers/root/tex/ecta}
+\maketitle
+\vspace{-.4in}
+\begin{center}
+
+\end{center}
+
+
+\begin{abstract}
+\noindent A palliative nurse listed the most common regrets of the dying in
+their last days: among the top, especially for men, is "I wish I hadn't worked so hard." We know from philosophers, social scientists, and religions that greed and materialism are vices. Yet somehow % economist's idea of \textit{homo
+  % oeconomicus}, a fully informed and rational human being who
+economists have convinced the masses that always maximizing income and
+consumption at all cost is a virtue.
+%
+% has dominated the society and turned greed and materialism
+% into virtues.
+We test whether wanting more work and more money ``more hours and more money'' results in human flourishing measured as life satisfaction. And we use alternative measures: ``next to health,
+money is most important,'' ``no right and wrong ways to make money,'' ``job is
+just a way to earn money.'' Results on all measures agree--greed/materialism is
+robustly related to lower life satisfaction.
+%
+The large effect size of greed measures on SWB is remarkable. The negative effect size of
+greed is on average about half of the positive effect of income.
+%
+Study supports policies aiming at
+improving working conditions and lowering working hours; curbing materialism and
+conspicuous/positional consumption. 
+%
+Study is observational, not causal, and results may not generalize beyond the US, especially where people are less obsessed with work and money.  
+\end{abstract}
+\vspace{.15in} 
+\noindent{\sc subjective wellbeing (swb), happiness, life satisfaction, working
+  hours, greed, money, consumerism, conspicuous consumption, materialism TODO add to ebib as keyword PAPER-CODE-NAME and tag with ebib keywords 
+}
+\vspace{.25in} 
+
+\begin{spacing}{1.8} %TODO MAYBE before submission can make it like 2.0
+\rowcolors{1}{white}{gray90}
+
+\noindent``Money is therefore not only the object but also the fountainhead of greed.'' Karl Marx, Grundrisse\\
+
+
+%``Nothing on earth consumes a man more quickly than the passion of resentment.'' Nietzsche\\
+
+\noindent ``I wish I hadn't worked so hard'' is among the the top regrets of the dying \citep{ware12}.
+ This is an incredibly useful insight--wisdom from people who evaluate their
+life as a whole on deathbed--we should learn from their experience and unique
+point of view being able to summarize the whole life. Social indicators,
+quality of life studies and subjective wellbeing fields should use that treasure
+trove of information more. There are few more overlooked and more relevant
+pieces of information there on how to live one's life.  In addition to ``I wish
+I hadn't worked so hard,'' the other resentments are \citep{ware12}:\\
+
+\noindent ``I wish I'd had the courage to live a life true to myself, not the life others
+expected of me.''\\
+``I wish I'd had the courage to express my feelings.''\\
+``I wish I had stayed in touch with my friends.''\\
+``I wish that I had let myself be happier.''\footnote{yeah i wish i didn't work so
+  hard but also similar related--live your own life, more travel etc--they all
+  point to less work; if there are any work related they are rather about being
+  more brave and actionable or taking different career or investment paths  than
+  working harder and more and getting more money; remarkably, apparently no one
+  regrets not working harder or making more money! and yet again this is
+  precisely the most common pursuit during the lifetime--more income and
+  consumption. Yet note that people do regret some forms of consumption such as
+  travel, again extrinsic v intrinsic--buy experience not stuff. For other
+  studies on deathbed regrets and elaboration of the concept see SOM
+  (Supplementary Online Material).}\\
+
+There is a clear patterns
+in responses--regrets are spiritual or social, but not material.
+
+In general, philosophers, social scientists (with notable exception of
+economics), and religions condemn working too much and wanting too much money and possessions. 
+Temperance and restraint from excess are traditionally seen as virtues %wikipedia:
+                                %platonic, christianinty, hinduism, even ben
+                                %franklin lol
+Traditionally, greed is seen as a vice; it is even one of the seven deadly sins in
+Catholicism. Benjamin Franklin wrote on moral perfection and his list of virtues includes
+frugality, temperance and moderation\footnote{''Benjamin Franklin on Moral Perfection''--Practical advice on obtaining a perfectly moral bearing. From his autobiography. \url{https://www.ftrain.com/franklin_improving_self}} 
+
+
+Wisdom of dying people and their honest evaluation of what really matters in life especially
+should be taken into account if it conflicts with one's way of life. Same can be
+said of philosophy and social science. And the contrast could not be starker.
+
+
+Greed, materialism, and consumerism became accepted or even celebrated in American
+society.  "More hours" is a badge of courage -- "conspicuous exhaustion" and
+"busyness" -- especially in Anglo countries, among professional/managerial jobs
+LONNIE CITE: Gershuny??? 
+%
+Musk proclaims that ``a person needs to work 80-100 hours per week''  \citep{muskIN18nov26}.
+ Income and consumption maximization (greed) is a part of American
+Dream \citep{robinson2009greed}.
+%
+In popular culture and popular opinion in the US, wanting to work more hours and
+make more money is a virtue. We live in a deeply materialistic and consumerist
+society. Both hard work and high income are highly desirable--they may signal
+ambition and desire to succeed. Such person, as popular opinion has it, should be
+happy.\footnote{In one study students were asked about their feeling related
+to money, and ``happiness'' was the most frequent emotion \citep{mogilner2010pursuit}.
+A recent survey found that a third of people define success by their possessions
+\citep[cited in][]{joye20}.}
+%
+Capitalism is about more hrs and more money. This is what Americans strive to do
+\cite{aokditella}. This is the whole purpose of the free market economy, to satisfy whatever
+desires and wants there may be; and to create new ones--arguably it is only half a joke
+and half-truth that marketing is a science how to make people buy things they don't need for the money they don't have. 
+Indeed, money itself creates insatiable wants \citep{marx1844-human-requirements}.
+
+
+And yet, as this study argues, wanting more work and more money is related to
+lowered life satisfaction. If the goal is happiness, then our values as a society are off.
+
+First, we define terms, present theory and literature, and then proceed to a simple empirical exercise.
+
+\section{SWB}
+
+% Aristotle proposed eudamonia, good life. Bentham meh 
+% , good life; greatest happiness for the greatest number
+
+Happiness is an end in itself. ``What do [men] demand of life and wish to
+achieve in it? The answer can hardly be in doubt. They strive after happiness;
+they want to become happy and to remain so.'' \citep[][p. 52]{freud30}. 
+A brief overview of the concept of happiness is usefully provided in
+\citet{mcmahon05}, and a full definition and overview across human history is in \citet{mcmahon06}.
+
+
+For simplicity, the terms happiness, life satisfaction, and
+subjective well-being (SWB) are used interchangeably.
+Ruut Veenhoven (\citeyear[p. 2]{veenhoven08}) defines happiness as ``overall judgment of life that draws on two sources of information: cognitive comparison with standards of the good life (contentment) and affective information from how one feels most of the time (hedonic level of affect).''
+ Some scholars use `life satisfaction' to  refer to cognition and `happiness' to
+ refer to affect \citep[e.g.,][]{dorahy98etal}. This dichotomy is not pursued here, because
+   there is only one survey item\footnote{This is an inherent limitation of our
+     study, as the GSS only has one question on happiness. Still, these are the
+     best data for our study--datasets with more precise measures of SWB have
+     inadequate geographical and temporal coverage.} in this study capturing mostly
+   the concept of life satisfaction but also happiness to a lesser
+   degree. Therefore the SWB definition by \citet{veenhoven08} seems most appropriate.
+ 
+Even though self-reported and subjective, the happiness measure is reliable
+(precision varies), valid, and correlated with similar objective measures of
+well-being \citep{myers00,layard05}.
+
+
+\section{Greed}
+
+\noindent``Greed, envy, sloth, pride and gluttony: these are not vices anymore. No, these are marketing tools. Lust is our way of life. Envy is just a nudge towards another sale. Even in our relationships we consume each other, each of us looking for what we can get out of the other. Our appetites are often satisfied at the expense of those around us. In a dog-eat-dog world we lose part of our humanity.'' Jon Foreman\\
+
+
+% \noindent``Money is therefore not only the object but also the fountainhead of greed.'' Karl Marx, Grundrisse\\
+
+
+``Excess and intemperance'' are money's true norm \citep{marx1844-human-requirements}.
+%Google Dictionary defines greed as ``intense and selfish desire for something, especially wealth, power, or food''
+Merriam-Webster's dictionary defines greed as ``a selfish and
+excessive desire for more of something (as money) than is needed.'' For more
+definitions see \citet{seuntjens15b}, and for an useful overview see \citet{wang11b}. 
+ The definition fits our measure, if one doesn't miss necessities (needs), then it is
+ greed.
+
+ According to the  livability theory:
+ ``Like all animals, humans have innate needs, such as for food, safety, and
+ companionship--gratification of needs manifests in hedonic
+ experience''\citep{veenhoven14b}--for vast majority of Americans wanting more
+ money does not satisfy innate needs, it is greed. Wanting more money if one can
+ satisfy basic needs is greed.
+
+
+However, in popular opinion in the US, greed is more associated  with ENRON scandal and the likes--breaking
+the law to acquire millions. But again,  the definition of a
+greedy person is a person who wants more than is needed, and what is needed
+are the biological/physiological needs that we share with other animals: food,
+shelter, security etc \citep{veenhoven14b}
+%
+{Plus perhaps some additional money for those higher on
+  Maslow's hierarchy of needs--but do note that attainment of any of those does
+  not require much money, it is rather that people in consumerist society
+  wrongly think they need money for esteem, etc. Also, more work hours prevents 
+  one from socializing/belonging and self actualization.}
+%
+% dont need much money to satisfy needs;
+Notably overearning and overworking decreases free time and that makes it
+impossible to socialize and belong with others (one of the human needs on maslow
+hierarchy of needs). Indeed, the US is in the crisis of alienation and isolation \citep{putnam01,wilkinson09}.
+
+\citet{bok10} made a useful comparison: today's bottom decile has better quality of life than everyone 100 years ago except top decile. Arguably, person in the US at 90th percentile of income 100 years ago was
+not critically hampered by lack of money to satisfy her basic needs, and so is
+not a person today at 10th percentile of income in a rich country such as the US. 
+\footnote{We drop 10percent poorest from the sample as a robustness check. We also
+  control for income and social class in our models. In addition to
+  \citet{bok10}, there are more writing about the progress that human
+  civilization has made \citep[e.g.,][]{pinker18}.}
+Except for those in deep poverty, wanting more is arguably typically greed due to materialism.
+Sure, even in the US, and even for the middle class, more money would typically help
+with their quality of life, but the point is that by working more one looses
+time, which is necessary to satisfy human needs. Arguably, for a typical middle class
+American cutting work (income) and especially consumption would result in better
+quality of life.
+
+Even the impoverished in poor countries spend as much as 30 percent of income on
+conspicuous consumption \citep{banerjee11}. The problem is not so much lack of income as
+conspicuous consumption. Of course, there is a related problem of income
+inequality and by all means much more should be redistributed from the rich to
+the poor. And of course, typically rich are more greedy (and more unethical in
+general) than the rest \cite{piff17,piff14,piff12,piff10,kraus09}, but it does
+not change the fact that the middle class, and even the poor, can be greedy, too.
+%
+Greed is based on the love for money, not the possession of it. Poor people can
+be greedy, rich people can be charitable.
+
+The upper limit for 1st decile of usual weekly earnings of full-time wage and
+salary workers in the US is \$500 so about \$70 daily, which is more than 10
+times of what half of the World population lives on: \$5.50.\footnote{The data come from \url{https://www.bls.gov/news.release/wkyeng.t05.htm} and \url{https://www.worldbank.org/en/news/press-release/2018/10/17/nearly-half-the-world-lives-on-less-than-550-a-day}.}   
+
+Perhaps, according to the US perspective, our measures are not greed but merely
+money-orientation: ``more hours and more money,'' ``next to health, money is
+most important,'' ``no right and wrong ways to make money,'' ``job is just a way
+to earn money'' \footnote{There are several greed scales, with items that have
+  stronger money orientation than ones used here. For instance
+  \citet{seuntjens15}: 1. I always want more, 2. Actually, I'm kind of greedy,
+  3. One can never have too much money, 4. As soon as I have acquired something,
+  5. It doesn't matter how much I have. I'm never completely satisfied, 6. My
+  life motto is "more is better," 7. I can't imagine having too many things. \citet{mussel18} compares different scales.  % This is also data limitation, we are unaware of lage scale nationally representative daaset having a such greed scale that would also contain subjective wellbeing and its predictors.  
+}. But taking international perspective and human
+biological needs  \citep[as per ][]{veenhoven14b}, we think that our measures
+are reasonable and adequate measures of greed.
+
+The US is perceived as exceptionally and problematically narcissistic \citep{miller15}.
+The US % has managed to developed as a country, and then
+is able to dominate other countries through being (or threatening to be) aggressive and violent \citep[e.g.,][]{pratto08}. %p 203
+ Indeed, the US is considered the leading terrorist organization in the World
+ \citep{truthout14nov3}. 
+
+It is difficult for people in the US to see that they are greedy, since term ``greed''
+has negative connotations, but at the same time it became the norm, so people
+don't see there is anything wrong. Indeed as Jon Foreman put it:
+``Greed, envy, sloth, pride and gluttony: these are not vices anymore. No, these are marketing tools. Lust is our way of life. Envy is just a nudge towards another sale. Even in our relationships we consume each other, each of us looking for what we can get out of the other. Our appetites are often satisfied at the expense of those around us. In a dog-eat-dog world we lose part of our humanity.''
+
+
+
+Intention to work more and make more and greed may seem not always the same, 
+but in an affluent society, such as the US, wanting more is usually not a need
+but a want or greed. Indeed, an argument can be made that Americans are in general greedy, they consume most in the world per capita \citep{leonard10,kasser13}, they are selfish in a sense they consume more than they need; so yes if someone lives in the US, one of the richest countries in the world, and is not in poverty and want more, that person is greedy.
+
+
+%meh
+% \citet{seuntjens15b} provides a useful overview of the concept of greed:
+% In the psychological literature greed is often, and mistakenly, used interchangeably
+% with self-interest. In the rational economic model, agents are thought to be self-interested
+% and to maximize their outcomes. Self-interest refers to the fact that rational agents only
+% care about their own outcomes, and are indifferent concerning the outcomes of others.
+% Greed is related to the assumption of maximization, which states that agents always prefer
+% to have more rather than less of a good. We believe that greed is an exaggerated form of
+% maximizing, in which people not simple prefer to have more, but are also frustrated by not
+% having it. While it may be rational to strive for the maximum, striving for more than what is
+% possible is not rational. Thus, when people are greedy, they can become so focused on
+% what they want or desire that it leads to behaviour that is not rational anymore.
+% Another construct used interchangeably with greed is materialism. In Belk's (1984)
+% definition, greed is even one of the core elements of materialism. Although materialistic
+% people can indeed be greedy, greed is broader than just a desire for material possessions
+% (Tickle, 2004). People can be greedy for food, power, or sex, which has nothing to do with
+% materialism. Whereas materialists desire things because they signal success in life
+% (Richins, 2004), greed can also be felt for things that do not signal success or status (e.g.,
+% being greedy for candy).
+
+
+
+\section{Basic Theory}
+
+\noindent``Money is therefore not only the object but also the fountainhead of greed.'' Karl Marx, Grundrisse\\
+ 
+% Marx is one of the greatest thinkers of all times, and his theory is relevant
+% here. While his major work ``Capital'' \citep{marx10} may be daunting and
+% inaccesbile, there are many excellent intrductions and overviews conveying some
+% of the key points, the two relevant here are:
+% \url{theschooloflife.com/thebookoflife/the-great-philosophers-karl-marx}
+% \url{https://www.google.com/amp/s/www.newyorker.com/magazine/2016/10/10/karl-marx-yesterday-and-today/amp} 
+% There is also a free reporsitory of all Marx (and hundreds other Marxists) works: \url{marxists.org}.
+
+
+% %https://socialistrevolution.org/marxism-vs-modern-monetary-theory/#:~:text=Marx%20explained%20that%20money's%20history,showed%2C%20have%20an%20exchange%20value.&text=required%20for%20its%20production%2C%20and,production%20process%20by%20the%20worker.
+% For Marx, value of money comes from commodity exchange value (all commodities
+% are produced for exchange, not for usefulness). Because of the key importance of
+% exchange, money is a social relation.
+%marx on money more here: https://mronline.org/2017/09/18/the-significance-of-marxs-theory-on-money/
+%
+
+%Marx saw much negative in money: ``I do not like money, money is the reason we fight.''
+Marx wrote a brief paper ``The Power of Money'' \citep{marx1844-powerOfMoney}. Money is used to appropriate an object. Money is a
+powerful and omnipotent being because it can buy anything, appropriate all objects.
+%``By possessing the property of buying everything, by possessing the property of
+% appropriating all objects, money is thus the object of eminent possession. The
+% universality of its property is the omnipotence of its being. It is therefore
+% regarded as an omnipotent being. Money is the procurer between man’s need and
+% the object.''
+But using Shakespeare and Goethe he also notices that money has a
+distortive power. It distorts human nature and relations between humans:
+\begin{quote}
+Money, then, appears as this distorting power both against the individual and against the bonds of society, etc., which claim to be entities in themselves. It transforms fidelity into infidelity, love into hate, hate into love, virtue into vice, vice into virtue, servant into master, master into servant, idiocy into intelligence, and intelligence into idiocy.
+
+Since money, as the existing and active concept of value, confounds and confuses all things, it is the general confounding and confusing of all things--the world upside-down--the confounding and confusing of all natural and human qualities.
+
+He who can buy bravery is brave, though he be a coward. As money is not exchanged for any one specific quality, for any one specific thing, or for any particular human essential power, but for the entire objective world of man and nature, from the standpoint of its possessor it therefore serves to exchange every quality for every other, even contradictory, quality and object: it is the fraternization of impossibilities. It makes contradictions embrace.
+
+Assume man to be man and his relationship to the world to be a human one: then you can exchange love only for love, trust for trust, etc. If you want to enjoy art, you must be an artistically cultivated person; if you want to exercise influence over other people, you must be a person with a stimulating and encouraging effect on other people. Every one of your relations to man and to nature must be a specific expression, corresponding to the object of your will, of your real individual life.
+\end{quote}
+
+Acquiring money is counterproductive--neediness grows as the power of
+money increases \citep{marx1844-human-requirements}.
+% a person is on a hedonic treadmil \citep{brickman78cj}
+%
+Then, according to Marx, for human flourishing, instead of acquiring more money,
+one should rather try to enjoy things without using money, because of the money
+distortive property. Hence, we would expect that those who want more money are
+not happier, and probably less happy.
+%yeah like we get used to possessions but not stuff ike social relationships,buy experience not stuff
+%
+``Money can't buy happiness, but it can make you awfully comfortable while you're
+being miserable'' (Clare Boothe Luce, attributed).
+
+
+%to res.org PAPER TEST THIS: capitalists v labor using psid effect on happiness :) 
+While Marx didn't use directly terms ``life satisfaction'' or ``happiness'', he had
+much to say about wellbeing using different terminology. He was a humanist, inherently interested in human flourishing and wellbeing.
+The point of the free classless society is for a person to be able to develop
+her multiple physical and psychological talents and potentials: ``the full development of human mastery over
+the forces of nature . . . the absolute working out of [their] creative
+potentialities . . . the development of all human powers as an end in
+itself''\citep[cited in][p. 91]{struhl16}.
+% %like nietzsche become who you are lol
+% 
+According to Marx, work is a drudgery and toil in capitalism \citep{marx10, lyons07}.
+% capitalism produced  wretched living and working conditions
+% yeah but thats not about greed!
+%
+%
+Wage slaves are ``hired slaves instead of block slaves. You have to dread the idea of being unemployed and of being compelled to support your masters'' \citep[p. 283][]{goldman03}.
+% 
+Capitalists largely do not work, their income and
+wealth come from capital, not labor. %they are rent seekers duh
+Labor under capitalism is a wretched condition. Yet it is necessary, one needs
+to make a living and exchange their labor for necessities. But wanting more work
+and money through labor (and even capital) is a futile endeavor and should lead to
+more alienation and misery, not human flourishing. Indeed as in the title's
+quote about top regrets of the dying--''I wish I hadn't worked so hard.''
+%
+What one should do instead according to Marx is enjoy life freely and
+spontaneously, ``It will be possible to hunt in the morning, fish in the
+afternoon, rear cattle in the evening, criticize after dinner . . . without ever
+becoming hunter, fisherman, herdsman, or critic., and do what one pleases'';
+this agrees with the Frankfurt School, e.g., Marcuse's
+unrestrained joyful spontaneity \citep{marcuse15}. Even Keynes made similar
+predictions in his ``Economic Possibilities for Our Grandchildren'' \citep{keynes30}.
+% yeah like colombia happier than the us
+
+Instead, under capitalism, as Marx put it well ``labor has become not only a
+means of life but life's prime want'' \citep[cited in][p. 91]{struhl16}. Indeed, 
+Americans live to work, while people in less capitalistic
+nations work to live \citep{aokditella}.
+Then wanting more work and more money under capitalism is
+counterproductive for human flourishing (unless one is in poverty). 
+
+Marx would rather call capitalists ``greedy'' than workers, but  of course
+workers can be both taken advantage by capitalists and ``greedy'' at the same
+time, especially when they live in contemporary postindustrial affluent US.
+% theSchoolOfLife-marx:
+Notably, Marx thought capitalists are also at least in some ways victims of the
+capitalist system:
+\begin{quote}
+  The propertied class and the class of the proletariat present the same human
+  self-estrangement. . . . The class of the proletariat feels annihilated in
+  estrangement; it sees in it its own powerlessness and the reality of an
+  inhuman existence. It is . . . abasement, the indignation at that abasement,
+  an indignation to which it is necessarily driven by the contradiction between
+  its human nature and its condition of life, which is the outright, resolute
+  and comprehensive negation of that nature.
+\end{quote} \citep[cited in][p 381]{byron16}.
+
+For example, the idealized bourgeois family was in fact fraught with tension, oppression, and resentment, and stayed together not because of love but for financial reasons.
+
+
+
+%https://en.wikipedia.org/wiki/Marx%27s_theory_of_human_nature
+% What is relevant here is Marx's Gattungswesen, species essence, or for simplicity,
+Marx agreed that basic human needs must be satisfied (similar to Veenhoven's
+livability theory discussed later \citep{veenhoven14b})\footnote{While some
+  argue Marx had no theory of human nature, a case can be made that he at least
+  parts of his writing refered to human nature. 
+%
+  Veenhoven's and Marx's theories are
+  similar in a way they both talk about essential biological/physiological
+  needs. But while Veenhoven emphasizes human similarity to other animals, Marx
+emphasizes the differences: ``To know what is useful for a dog, one must study dog-nature. This nature
+itself is not deduced from the principle of utility. Applying this to man, he
+that would criticize all human acts, movements, relations, etc. by the principle
+of utility must first deal with human nature in general, and then with human
+nature as modified in each historical epoch''\citep[quoted in][p. 83]{struhl16}
+The varying human nature by historical epoch is counter to evolutionary biology, where genes are relatively
+stable over thousands of years; Still Marx does believe in  evolution \citep{heyer82},
+and he somewhat acknowledges the problem, where he
+worries that some negative human tendencies would still exist after capitalism is abolished.}: ``people cannot be
+liberated as long as they are unable to obtain food and drink, housing and
+clothing id adequate quality and quantity'' \citep[cited in][p. 70]{geras83}.
+Marx argues that humans are social beings, and too much focus on individualism distorts human
+nature.\footnote{History shapes human nature, too.}  Humans are not inherently
+and purely selfish, as economists argue, rather selfishness results from commodity
+fetishism. %the fact that people act selfishly is held to be a product of scarcity and capitalism, not an immutable human characteristic.
+ Humans are alienated from their human nature under capitalism. %Alienation, for Marx, is the estrangement of humans from aspects of their human nature
+Good society should allow full uninhibited spontaneous human expression % as in
+% Frankfurt School
+\citep{marcuse15}. 
+%
+And this would be one mechanism that greed leads to unhappiness--humans become
+alienated from their nature, and end up unhappy. 
+
+The ruling class is capitalists, and the ruling ideas is economics.
+
+``The ideas of the ruling class are in every epoch the ruling ideas.'' (The
+German Ideology, 1845)
+The ruling class is capitalists, and the ruling ideas is economics.
+
+Ideology perpetuates greed. Economics is to be blamed--it claimed that
+laissez faire neoliberal free market capitalism is fairest for everyone--and
+masses believed in this. 
+Ironically, masses supporting capitalism are irrational and acting against
+their own interest--but they do so following classical
+economic theory preaching that everyone is rational and self-interested. 
+% (sociology is opposite as some others are quite too), of course there are many
+% notable economists against it--paul krugman, thomas piketty, bob frank, to name
+% the few, but the discipline as a whole is clearly most pro inequality (maybe
+% business too) among
+% social sciences.
+We know that people are not very rational and they often act against their own
+interest \citep{akerlof10,ariely09,shiller15}. Non-capitalists are not
+free in capitalism, they are commodities in the market and they work too much
+and worry too much to enjoy life \citep{aokJap14}. Ironically, we
+have capitalism in the first place in order to be free--we justify the very
+existence of capitalism with freedom \citep{hayek14,friedman09,glaeser11B}. Free
+market provides incentives to embrace capitalism and submit oneself to a
+capitalist, and economics provides ``science'' to justify such as system.
+
+%TODO cp here more from becky charlotte evil econs
+
+The economic theory\footnote{Not all of economics is responsible for overwork, overearning, and
+overconsumption, it is mostly classical like adam smith and neoclassical like
+Milton friedman. There are economists that do expose false consciousness related to
+money \citep[e.g,][]{kahneman06c}. % theycall it  Focusing Illusion lol haha
+} states that the more income and consumption, the
+more utility or happiness: \textbf{cite autor i guess (its in charlotte becky i guess)}
+\begin{equation}
+%  income = consumption % (\pm investments and savings)
+money 
+  = utility \approx happiness
+\end{equation}
+
+In classical economic theory both self-interest is the key assumptions, as rational people should
+maximize their personal outcomes \citep{seuntjens15b}.% about adam smith
+
+And by economic theory, profit maximization, not any social responsibility,
+should be the only concern of businesses \cite{friedman70}.
+% Yet pure and unrestrained income and consumption maximization, as economists
+% would like it,
+Economists advanced a concept of an ideal human being, so called ``homo oeconomics,'' a perfectly rational
+homo sapiens who maximizes income and consumption at all times: % , is still a radical idea to most
+% humans, even business people.
+% Economic ideas
+``1) people are self-interested utility-maximizers, 2)
+individuals should be unimpeded in their pursuit of their own self-interest
+through economic transactions, and 3) virtually all human interactions are
+economic transactions'' % create tensions even among business students
+\citep{walker1992greed}.
+
+Indeed, taking economics classes may increase one's greedy behavior \citep{wang11b}.
+
+In addition to maximizing income and consumption, another problem with economics
+ is complete and unrestrained labor specialization, which according to Marx leads to alienation from human nature
+and other humans.
+
+%theSchoolOfLife-marx
+According to Marx, our work should not be highly specialized in one area, but we should take on
+multiple roles: gardening, construction, writing, etc. We should be spontaneous
+and creative and see ourselves in the product we create: I did that, this is
+me. %yeah like nietzshe the goal of life is to become ourselves
+% Marx also wants to help us find work that is more meaningful. Work becomes meaningful, Marx says, in one of two ways. Either it helps the worker directly to reduce suffering in someone else or else it helps them in a tangible way to increase delight in others. A very few kinds of work, like being a doctor or an opera star seem to fit this bill perfectly.
+Ideally if we could help others decrease their suffering (like nurses do) and
+increase their delight (like artists do). 
+
+A relevant economics theorist is \citet{keynes30}, who predicted about 100 years
+ago that there will be enough wealth for everyone to work less and enjoy
+life.\footnote{It is forgotten that people actually worked less before industrialization than they do now \citep{schor08}. People tend to overearn, that is, they work to earn more than they need \citep{hsee13}.}
+And in general we don't need much labor anymore to produce what we need, for
+instance,
+%theSchoolOfLife-marx
+ in 1700, it took the labor of almost all adults to feed a nation,
+ today hardly anyone needs to be employed in farming, making cars needs
+ practically no employees, and so forth. 
+And yet we do not liberate ourselves--Marx is more relevant now than earlier.% than in the postwar period, the second half of 20th century
+\citep{piketty14,peet15,menandMISC16oct3}. %menandMISC16oct3just compares now to 80s
+
+Another economist, Veblen criticized leisure class and conspicuous consumption
+\citep{veblen05a,veblen05b}. His writings are relevant in a sense that overwork
+and overearning is arguably usually for the sake of conspicuous or positional
+consumption, which in return does not result in happiness, but often creates
+unhappiness for a consumer and those around her
+\citep{frank12,frank_nyt_mar_20_14,frank08,frank04,kasser13,schmuck00}.\footnote{\citet{frank12} gives many examples, and one interesting example is consumption of luxury cars decreases satisfaction of others \citep{winkelmann12}.}
+
+
+\section{SWB Theory}
+
+There are several SWB theories about how happiness is created. There is  adaptation/adjustment/''hedonic
+treadmill'' theory \citep{brickman78cj}: the problem with materialism is that one's goal never gets fulfilled--there is
+always new IPhone and new model of Lexus, and planned obsolescence \citep{satyro2018planned,agrawal2016limits} %, which ensures that  objects such as  break often
+%
+The theory of happiness as a motivator \citep{carver90} is also relevant
+here. This is one key reason why materialism and consumerism work--humans get
+momentary bliss or pleasure from making money or spending it, only to find that
+it doesn't last and one is back on the hamster wheel.
+
+The needs/livability theory \citep{veenhoven95} was already discussed earlier. 
+One surely need money to satisfy needs under capitalism; but
+vast majority of people in affluent countries such as the US have already their
+needs satisfied, and hence, wanting more is simply greed. Importantly, many fail to
+satisfy basic needs, not because they do not have enough money but because they
+spend too much, notably on conspicuous or positional consumption. 
+%
+Again, Veenhoven's  livability theory is similar to Marx's theory of human nature:
+ ``Like all animals, humans have innate needs, such as for food, safety, and
+ companionship. Gratification of needs manifests in hedonic
+ experience''\citep{veenhoven14b}
+
+Finally, there is  comparison/discrepancies theory \citep{michalos85}. By
+materialism and consumerism, one not only diminishes her own wellbeing, but also
+wellbeing of others around her. Humans compare all the time, and a person
+overworking or overspending makes others the same way. Earning and spending is
+like an arms race that can be won only by minuscule fraction of the population,
+say top .01 of a percent of population, all others lose, especially that in many
+cases winner takes it all--Robert Frank provides many examples in his wonderful
+``Darwin's Economy'' \citeyear{frank12}. 
+
+\section{The Relationship Of Greed, Materialism, And Consumerism With  Human Flourishing}
+
+
+``Does money buy happiness?'' is a title of a classic happiness paper by
+Easterlin \citeyear{easterlin73} that started so called ``economics of happiness.'' 50
+years later, thousands of studies have been produced on the topic and consensus is
+ that money buys happiness up to a point, or at least that there are diminishing marginal
+ returns (\url{https://worlddatabaseofhappiness.eur.nl}).
+%
+% While the money--SWB link is the most researched topic in the happiness field,
+% most of the thousands of studies about money are about the effect of income on
+% SWB \url{https://worlddatabaseofhappiness.eur.nl}. 
+%
+% 
+ In other words, one needs to be able to afford necessities or basic
+ human needs as per Veenhoven's Livability Theory \citep{veenhoven14b}. More
+ money than necessary does not buy happiness, and indeed may actually decrease
+ it as elaborated in this section.
+
+Interestingly, Easterlin started his classic paper with an
+observation that pursuit of money and pursuit of happiness are about the same
+thing in the US.\footnote{In one study students were asked about their feeling related
+to money, and ``happiness'' was the most frequent emotion \citep{mogilner2010pursuit}.
+A recent survey found that a third of people define success by their possessions
+\citep[cited in][]{joye20}.}
+%
+% lol not sure if this is helpful in any way; and she looks like another one
+% b-school happiness bs
+% implicitly activating the construct of time motivates individuals to spend more time with friends
+%and family and less time working behaviors that are associated with greater happiness. In contrast, implicitly activating money
+%motivates individuals to work more and socialize less, which (although productive) does not increase happiness. 
+%
+% another one by her
+% https://www.sciencedirect.com/science/article/pii/S2352250X15300051?casa_token=SZ3vd8qMllMAAAAA:irw62ENvYkLjFrcf8WLzx-Vke_H6aCzI_OmgtypoAswe0F8UrwbLewPSZiXMgJr-LHgNuoabcg8
+%
+% yeah thats what i find, maybe even more important than income is not wanting it more lol
+%Contrary to people's intuitions, happiness may be less contingent on the sheer amount of each resource available and more on how %people both think about and choose to spend them.
+%
+%Happiness is not having what you want, but wanting what you have.--and there is evidence that both matter independentlly having w%hat you want, and wanting what you have
+%
+%
+
+There are closely related and mutually reinforcing forces: greed/money
+orientation/love of money, materialism, consumerism, conspicuous/positional
+consumption--people chase money in order to consume and see that as an end in
+itself, the goal of life has become to make as much money as possible mostly in
+order to acquire as much material possessions as possible.\footnote{
+Again, like with greed, wanting more work and money is not the same as
+materialism, consumerism  and conspicuous consumption, but in affluent US
+society it usually is, and again, we will subset sample in app to non-poor to
+argue this point. 
+%
+And importantly: first that even much consumption among so called poor in rich
+countries is on wants and not needs. This is the case even in poor countries
+The poor could spend up up to 30 percent more on food than it actually does if
+it completely cut expenditures on alcohol, tobacco, and festivals \citep{banerjee11}.
+It is often men that engage in non-necessary consumption among the poor. % RUBIA TODO ADD REFERENCE AND POSSIBLY ELABORATE
+The poor even engage in conspicuous consumption at the expense of proper calorie
+intake \citep{bellet18}. There is culture of adornment
+\citep{cordwell2011fabrics,mascia1992tattoo}. But even in the US, one can see
+culture of adornment, also among the poor: Iphones, LV bags, golden chains. %ray %from laeda mentioned golden chains :) 
+}
+%More hours and more money typically translates into more consumption. 
+%meh maybe dont emphasize this too much and already has key whillans17 above
+% \section{time v money}
+% the more work, the less free time; and time is often more important for swb than money 
+
+There is also a belonging mechanism at play: humans have a strong need to belong and
+fit. For instance religious people are happier in religious nations
+\citep{aokrel}. Because the US is a deeply materialistic and consumerist society,
+one may need more money than it would be otherwise necessary to feel comfortable--not
+many can be comfortable not keeping up with the Joneses. But such overearning
+and overconsuming has nothing to do with real human needs, it is an artificial
+product of capitalism that forces overconsumption--all commodities are produced
+for exchange, not for usefulness--and we forget there will be no production
+without consumption \citep{marx1844-human-requirements}. Therefore, as per one estimate \$75,000 where
+more money does not buy more happiness \citep{kahneman10} is probably around
+half of that. And importantly, even wanting mere \$75,000 is still a greed,
+because according to the definition, it is wanting more than necessary (an
+artificial ``need'' to belong by overearning and overconsuming is not a real
+need).\footnote{Also, as mentioned earlier, there is a related winner-take-all
+  mechanism: one needs to overwork and overearn because how the system is
+  constructed--for instance, to succeed, you need a really expensive house
+  because these are the typos of houses in really good school districts, where
+  children have best chance to graduate and go to really good universities, and
+  so forth--for elaboration and more examples see \citet{frank12}.}
+
+The topic is fascinating, because on one hand majority of the population accepts
+or celebrates money orientation and consumerism, but on the other hand we know
+that it doesn't buy happiness or indeed leads to unhappiness.
+%
+% we don't know much about the effect of consumption on happiness \citep[e.g.,][]{wang17,carver16,aok_ls_car15,veenhoven04b,okulicz19}.
+%
+%
+% The quest for possessions, money, image and status can be a costly endeavor; it is
+% associated with lower levels of wellbeing, and known to lead to increased compulsive
+% consumption, depression, anxiety and risky health behavior
+% \citep{dittmar14, kasser16}.
+
+Would You Be Happier If You Were Richer? No. It's an illusion \citep{kahneman06c}, or indeed
+ false consciousness \url{https://www.marxists.org/glossary/terms/f/a.htm}.
+We know that materialism/consumerism/positional goods decrease happiness 
+\cite{kasser16,dittmar14,brown05,kasser13,schmuck00,kasser93,leonard10}, and related,
+extrinsic (v intrinsic) consumption decrease happiness 
+\citep{ryan00,ryan99,morrison17}--humans should buy time and experience, not stuff. 
+Valuing time and experience over money, not the other way round, predicts happiness \citep{whillans2019valuing}.
+One should buy experience not stuff (e.g., go bowling as opposed to buying more
+clothes)\citep{putnam01,kasser16,dittmar14}. One should buy time, (e.g., cut
+commute)  % hire a maid lol this is capitalist haha
+--time is actually arguably
+the most important resource \citep{whillans17}. Likewise, autonomous and
+flexible work schedules predict greater happiness \citep{gssLonnie18,aokLead17,farber16sep15,golden06w,golden13}\footnote{Interestingly, anytime we are paid by the hour, we start thinking of non-work time as money sacrificed...and that opportunity cost view lasts for  a lifetime, even when we switch to getting salaries \citep{devoe19}.}
+
+% Materialism -- Preoccupation with or emphasis on material  objects, comforts, and
+% considerations, with a disinterest in or rejection of spiritual, intellectual,
+% or cultural values
+
+
+
+ % some on wealth, notably a recent volume \citep{brule19}. 
+
+Again, the topic is fascinating, because on one hand majority of the population accepts
+or celebrates money orientation and consumerism, but on the other hand we know
+that it doesn't buy happiness or indeed leads to unhappiness.
+%
+But also it is fascinating because both money orientation and consumerism can be
+exciting and indeed provide a momentary pleasure--this is another reason in
+addition to being mainstream and fashionable, why we chase them.
+But in the long run money orientation and consumerism do not lead to improved
+SWB, typically lead to decreased SWB, and often to outright misery. In that
+sense, being exciting and pleasurable momentarily, but having typically negative
+consequences in the long run. Money orientation and consumerism are like
+ fatty foods, marijuana, vodka, and gambling \citep{linden11}.
+
+While there are studies on  materialism, consumerism,
+conspicuous/positional consumption and SWB, there are no studies about
+greed/money orientation/love of money, hence this study, and hence in what
+follows we focus on greed.
+
+There are no studies about actual pursuit of money, or intention to work
+more and make more money, and this is what this paper is about. The first study
+using ``more hours and more money'' along with other similar measures for this purpose.
+
+Money orientation, materialism and consumerism do provide at least momentary pleasure:
+\citep[Bentham cited in ][p. 79]{>>>TODO} ``a pleafure of gain or a pleafure of
+acquifition: at other times a pleafure of poffeffion'' and buffers against
+negatives ``immunity from pain'' ``the happening of mischief, pain, eveil, or unnhappinefs.''
+Although one needs to remember that Bentham wrote these words before the
+industrial revolution took off, at the time where deprivation was common, and
+indeed more money was necessary for most people to meet basic needs. Today, the
+situation is opposite in developed countries, and certainly in the US, for most
+people more money is greed. 
+
+Greed is good in many ways as reviewed by \citet{seuntjens15b}:
+Greed has many positive economic consequences: greed and self-interest are  principal
+motivators for a flourishing economy: greed motivates the creation of new
+products and the development of new industries. 
+Some greed may be inherent to human nature--all humans are
+greedy to some extent. %Being greedy may be vital for human welfare.
+Greed may be an evolutionary adaptation 
+promoting self-preservation. Those who are more
+predisposed to gain and hoard as much resources as possible may have an
+evolutionary advantage.\footnote{But then it also makes things worse for a
+  person and for society, as elaborated throughout, and this may be one reason why
+it was considered a vice already by ancient philosophers and religions. There are
+evolutionary adaptations there are harmful for the species itself \citep{frank12}.}
+%
+But greed is insatiable. To the greedy, it is never enough. The greedy are permanently on a
+hedonic treadmill--they may thing they will be happier
+with more money, but as soon as they get more they adapt their desires
+and expectations and want even more.
+%
+Greed may result in financial debt. Greed can make  bankers behave recklessly 
+and risky, which in turn led to the financial crisis. A classic example of the
+negative consequences of greed is the ``Tragedy of the Commons.''
+ Medieval herders in the UK could let their livestock graze on a
+common parcel of land besides on their own, private parcel. There was a clear preference
+for herders to let their livestock graze on these ``commons.'' Although rational from an
+individual perspective, it led to overgrazing and the common ground becoming infertile
+and useless to all.  These types of situations occur due to greed.
+
+\textbf{somewhere do talk about mechanisms/causal path, do say why it could be causal! }
+
+
+Greed is good for business. The Wall Street  movie
+ character, Gordon Gecko infamously remarked ``Greed is good.''
+And indeed greed is popular among business elites
+\citep{robinson2009greed}.
+Individual differences in entrepreneurial tendencies
+and abilities are  positively related to primary psychopathy
+\citep{akhtar2013greed} \textbf{have a look what this study is about and
+  rephrase so it fits the story here lol}.
+Greed is positively related to goal motivation \citep{feherrelationship}.
+
+
+
+
+
+\section{Data and Model}
+
+We use the US General Social Survey (GSS) \url{gss.norc.org} cumulative file
+1972-2018. The GSS is collected face-to-face and is nationally
+representative. Since 1994, the GSS is collected every other year (earlier, it was mostly annually).
+
+The outcome of interest, SWB is measured with answers to ``Taken all together,
+how would you say things are these days---would you say that you are very happy,
+pretty happy, or not happy?'' on scale  1$=$not happy, 2$=$happy, and 3$=$very happy. 
+
+%as per lonnie:
+Two measures of greed, \texttt{more hours and more money} and  \texttt{job is
+  just a way to earn money} come from the QWL (Quality of Working Life) module. The QWL module was
+designed by NIOSH (National Institute for Occupational Safety and Health) (in
+CDC (Centers for Disease Control and Prevention)) to measure attitudes toward work, workplaces,
+safety/health. These two questions  were designed by social psychology researchers to capture the levels and trends in cultural attitudes, in this case re: money. 
+
+Note that while we use the cumulative file  1972-2018, the greed/money
+orientation questions were only asked in few years:\\
+\texttt{more hours and more money} and \texttt{job is just a way to earn money}: 1989, 1998, 2006, 2016\\
+\texttt{next to  health, money is most  important} and \texttt{no right  and wrong  ways to  make money}: 1973, 1974, 1976.\\
+
+We were thinking about constructing a greed scale using these and possibly other
+variables, but it would not work as the years do not overlap. Hence, we focus on
+showing robustness by using each measure separately to show that no matter how
+we measure greed, results are similar. 
+
+Descriptive statistics is in SOM (Supplementary Online Material).
+
+Greed/money orientation is arguably confounded with type of work one performs,
+hence, we include industry dummies: professional, administrative and managerial, clerical, sales, service, agriculture, production and transport, craft and technical.           
+
+Likewise, greed/money orientation is arguably confounded with religiosity:
+religious people are not supposed to want more money than needed, or to be greedy. We include religious dummies: Protestant, Catholic, Jewish, None, Other, Buddhism, Hinduism, Other Eastern, Moslem/Islam, Orthodox-Christian, Christian, Native American, Inter-Nondenominational.
+
+We use household income and not personal income for two reasons: personal income
+data are missing for a substantial portion of the sample. 
+Second, what matters for one's happiness (and greed) is not only her own individual
+income but household income.
+
+We control for number of people in household--if one has a family and children
+(and possibly elderly in the household), wanting more money may be necessary and
+less greedy.
+
+Finally we control for predictors of SWB. What makes people happy?
+\citet{myers00} suggests that age, race, gender, income, education and marriage
+are all sources of interpersonal variations in happiness. Young and old people
+are happy  \citep[e.g.,][]{teksoz}. Men are less happy than women, the
+difference being small \citep{blanchflower04o}. At least some income is necessary for  happiness and unemployment decreases it
+    \citep[e.g.,][]{ditella01moa,ditella01mob,ditella06m}. Being married boosts happiness \citep[e.g.,][]{myers00,diener04s}.
+     Blacks are less happy than whites
+    \citep[e.g.,][]{aokcities,aok11a,blanchflower04o}.   
+     A key predictor of SWB is health, and used here subjective self-report of
+     health is a reasonable measure of objective health \citep{subramanian09b}.
+
+
+We also control for regional  differences by including dummies for census regions:
+ New England, Middle Atlantic, E. Nor. Central, W. Nor. Central, South
+Atlantic, E. Sou. Central, W. Sou. Central, Mountain, and Pacific. And since we
+use pooled the GSS data, we include year dummies.
+
+We use ordinary least squares (OLS) to analyze the data. Although OLS assumes cardinality of the
+outcome variable, and happiness is clearly an ordinal variable, 
+OLS is an appropriate estimation method to use in this case. 
+\citet{carbonell04} showed that results are substantially the same to those from discrete models, 
+and  OLS has become the default method in happiness research \citep{blanchflower11}.
+ Theoretically, while there is still debate about the cardinality of SWB, 
+there are strong arguments to treat it as a cardinal variable \citep{ng96,ng97,ng11}. 
+
+
+\section{Results}
+
+Pairwise correlations (not shown) of greed variables with SWB are small, about
+-.1, but so are pairwise correlations of other variables small, e.g.,income is
+only correlated with SWB at  .2--one needs to remember that about half of SWB is explained by genes \citep{lykken96}.
+
+We proceed as follows: there are 4 tables, each for the separate measure of
+greed, and each has 5 models that sequentially elaborate the relationship
+between each measure of greed and SWB. Model 1 only includes a measure of greed
+(and year and region dummies as all models do (not shown). Then there are two
+alternative models 2 to explore separate addition of working hours dummies (2a)
+and income (2b); model 3 includes all three variables together, model 4 adds
+occupation dummies (not shown), and model 5 adds a set of sociodemograpic
+controls and religion dummies (not shown). 
+Again, all models include year and region dummies.
+ 
+In table \ref{betaa}  what is notable is that in a2b the effect of \texttt{more hours and more money} is half of the effect of income, this is a substantial and unexpected effect size, that greed cuts happiness received from income by half! Even more remarkably in full model a5, the effect of \texttt{more hours and more money} is about as large as that of income.
+
+Controlling for working hours and income doesn't remove the effect of greed--so
+if you want to work more and make more money, this  makes you unhappy--but
+that's over and beyond the SWB from your current working hours and
+income.\footnote{We tried interactions of greed measures with income and working
+hours but we didn't find very clear and robust patterns and we do not report them.}
+ 
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{../out/betaa.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{betaa}OLS regressions of SWB, fully standardized beta coefficients: \texttt{more hours and more money}}\end{table} \end{spacing}
+ 
+In table \ref{betab} the effect of \texttt{next to  health, money is most  important} is about half to thirds of
+that of income. In models with all controls, it looses statistical significance
+but remains negative. 
+
+In table \ref{betac} the effect of \texttt{no right  and wrong ways to  make
+  money}  is about half to two thirds of income. In table \ref{betad} the effect of \texttt{job is just a way to earn money} is
+about third to half  of income.
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{../out/betab.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{betab}OLS regressions of SWB, fully standardized beta coefficients: \texttt{next to  health, money is most  important}}\end{table} \end{spacing}
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{../out/betac.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{betac}OLS regressions of SWB, fully standardized beta coefficients: \texttt{no right  and wrong ways to  make money}}\end{table} \end{spacing}
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{../out/betad.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{betad}OLS regressions of SWB, fully standardized beta coefficients: \texttt{job is just a way to earn money}}\end{table} \end{spacing}
+
+
+% LATER: meh: maybe later if reviewer asks have it in app
+% do indicate these interactions with income in the body prominently! or even have
+% that in the body; wanting more work and money is not vice for poor;
+Controlling for income and unemployment/working hours is critical: wanting more work and money
+is not vice for the poor or unemployed (or even some underemployed)
+Controlling for income (and social class) attenuates criticism  that it is low
+income or deprivation,not greed. In SOM we also subset sample by excluding
+bottom or top decile of income distribution, and results are similar.  
+
+The large effect size of greed measures on SWB is remarkable. The negative effect size of
+greed is on average about half of the positive effect of income.
+Depending on specification, the effect size of greed is as small as a third and
+as large as that of income on SWB.
+
+Effect size is quite persistent: either income or hours worked have only
+moderate confounding effect on the negative effect of greed measures on SWB:
+controlling for either of them cuts the effect size by as little as about 10 percent
+for up to about 40 percent. Income has more confounding effect than working hours. 
+
+
+\section{Conclusion and Discussion}
+\textbf{i guess remove these subsections when done reorganizing and cleaning}
+\textbf{to literature or conclusion on overwork from first 2 papers with lonnie}
+\textbf{if not disussion then literatureL  do refr to my paper: johs: yeah we live to work, and yeah happier working more, but the real interpretation  (after comments from from readers) is that it is better to be unhappy working a lot, than be even more unhappy not being able to afford necessities such as education and healthcare--so yeah add that to the section where i have conCon among the poor}
+
+\subsection{Conclusion}
+
+ The regrets of the dying \citep{ware12}  provide a sobering lesson on what is
+ important in life. A person on her deathbed has a unique perspective to honestly
+ evaluate the life as a whole. Overwork and overearning or greed and closely
+ interrelated materialism and consumerism are scourge of our times.
+
+Our empirical tests agrees--greed/materialism is
+robustly related to lower life satisfaction. The large effect size of greed
+measures on SWB is remarkable. The negative effect size of greed is on average about half of the positive effect of income.
+
+
+ The paradox
+ is that the popular culture promotes them and few question them as a way of
+ life and yet they lead to deep and painful regrets at the end of life.
+%
+ It is not new that greed and materialism are vices, we knew it for ages since
+ ancient times, and yet today it is forgotten, not only greed and materialism are
+ accepted but often celebrated. 
+
+ It came to the point that it has become a normal state of affairs and
+ greed/materialism are not even noticed anymore. But wanting more work and money
+ in the affluent US society usually is greed--people typically want more money
+  than they need.  
+
+Even much consumption among so called poor in rich countries is on wants and not needs. This is the case even in poor countries.
+The poor could spend up up to 30 percent more on food than it actually does if
+it completely cut expenditures on alcohol, tobacco, and festivals \citep{banerjee11}.
+It is often men that engage in non-necessary consumption among the poor. % RUBIA TODO ADD REFERENCE AND POSSIBLY ELABORATE
+The poor even engage in conspicuous consumption at the expense of proper calorie intake \citep{bellet18}. 
+
+
+There is a notable paradigm shift under way in terms of what persons and
+societies should maximize. The second half of the twentieth century was marked
+by maximization of income and consumption and rebuilding the world after the
+wars. Establishment of intl institutions like World Bank, IMF, WTO, etc. Now
+even some economists are noticing that maximizing income or consumption is not
+the only goal worth pursuing. For instance Amartya Sen proposed subjective
+wellbeing as a measure to maximize \cite{stiglitz09al}. 
+Recently, \citet{diener09} has provided an authoritative  
+discussion of why potential problems with happiness are not serious
+enough to make it unusable for interventions, planning, and public policy.  
+
+Study supports policies aiming at
+improving working conditions and lowering working hours; curbing materialism and
+conspicuous/positional consumption. 
+
+Study is observational, not causal, and results may not generalize beyond the
+US, especially where people are less obsessed with work and money. lonnie:
+reverse causality:, maybe--can't ruler out--sure unhappy people can be more
+greedy, but also less so--greed is linked to economic sussess, so they could be
+relatively happy 
+
+\subsection{Discussion}
+
+``There's class warfare, all right, but it's my class, the rich class, that's
+ making war, and we're winning.'' Warren Buffett\\
+
+What Buffet noticed,  goes almost unnoticed in the US--one of the
+exceptionalism  of the US is very low class consciousness
+ \citep{lipset97, lipset00}.
+
+discussion  and policy: from earlier papers with lonnie; and keynes dream of our grandchildren; yeah as pe veenhoven evidence based pursuit of happiness: humans are irrational so we need scienc to nudge them in the right direction :)
+way higher taxes on wealthy! possibly tax on consumption!
+
+
+I wish I hadn't worked so hard is opposite to what is promoted by capitalists,
+economists, and politicians, e.g.,``People need to work longer hours'' Jeb Bush, 2016 presidential candidate \citep{smithABC15jul8}
+
+
+Gershuny and others argue that "more hours" is a badge of courage -- "conspicuous exhaustion" and "busyness" -- especially in Anglo countries, among professional/managerial jobs. 
+Musk proclaims that ``A person needs to work 80-100 hours per week to change the world''  \citep{muskIN18nov26}
+
+
+% About two thrids of US employees are disengaged
+% \citep{thompsonMISC20sep20}. %meh maybeCITE more sciency source and add more;;;
+70\% of American workers are ``not engaged'' or ``actively disengaged'' at
+work \citep[][]{harvey14}
+
+If they don't like their job much, the extra \$ may not be worth the extra
+time spend at work. This is consistent with a Marxian perspective that labor
+under capitalism is drudgery and toil. Indeed it is ``wage slavery,'' where
+labor is commodified--we are like commodities on free market trying to sell our labor. 
+
+
+Materialism and over-consumption doesnt lead to happiness, but unhappiness, and consumption creates pollution and climate change \citep{leonard10,pachauri14}.
+and degrowth!!
+
+So if greed is good for economy, may it then be good for human wellbeing
+indirectly--the better the economy, the higher the standard of living, the
+happier the people. Except that we dont need more economic growth anymore.
+The second half of the twentieth century was marked
+by maximization of income and consumption and rebuilding the world after the
+wars. Establishment of intl institutions like World Bank, IMF, WTO, etc. Now, if
+anything degrowth is needed \cite{kallis12,kallis11,bergh11}.
+
+we speculate that results should geberalize to other countrues and if anything be stronger there! if hrs money doesnt makes one unhappy in the US, it should be so anywhere!
+
+Greed is central in human existence and contributes to many problems, notably
+climate change \citep[e.g.,][]{okulicz19}. At the same time, empirical research
+on greed is rare.
+
+Not only greed is good in popular culture, it is also supported by
+economists \citep{wang11b,wight2005adam}\footnote{Not all economists agree of course,
+  for instance see \citet{wight2005adam} or \url{https://www.epi.org/}.}.
+
+\subsection{Takeaway}
+
+American corporate capitalism--the highly competitive economic system embraced by
+the United States as well as England, Australia and Canada--encourages
+materialism more than other forms of capitalism.
+%
+As expected, citizens who live in more competitive free market systems cared more about money, power and achievement than people who live under more cooperative systems. Research also supports the notion that the more people care about money and power, the less they care about community and relationships.
+% These countries rely more on strategic cooperation among the various players in the economy and society to solve their economic problems, such as unemployment, labor and trade issues, rather than relying mostly on free-market competition as the United States does.
+\url{https://www.apa.org/monitor/2009/01/consumerism}.
+
+\citet{menandMISC16oct3}:
+What makes it hard to discard the tools we have objectified is the persistence of the ideologies that justify them, and which make what is only a human invention seem like "the way things are." Undoing ideologies is the task of philosophy. Marx was a philosopher. The subtitle of "Capital" is "Critique of Political Economy." The uncompleted book was intended to be a criticism of the economic concepts that make social relations in a free-market economy seem natural and inevitable, in the same way that concepts like the great chain of being and the divine right of kings once made the social relations of feudalism seem natural and inevitable.
+%
+In his 1845 work The German Ideology, he wrote, ``the ideas of the ruling class
+are in every epoch the ruling ideas.''
+%theSchoolOfLife-marx
+% A capitalist society is one where most people, rich and poor, believe all sorts of things that are really just value judgements that relate back to the economic system, for example: that a person who doesn’t work is practically worthless, that if we simply work hard enough we will get ahead, that more belongings will make us happier and that worthwhile things (and people) will invariably make money.
+
+%  instead \ExecuteMetaData[../out/tex]{ginipov} do \emd{ginipov}
+
+% \begin{figure}[H]
+%  \includegraphics[height=3in]{../out/gov_res_trust.pdf}\centering\label{gov_res_trust}
+% \caption{woo}
+% \end{figure}
+
+
+
+
+
+% %table centered on decimal points:)
+% \begin{table}[H]\centering\footnotesize
+% \caption{\label{freq_im_god} importance of God}
+% \begin{tabular} {@{} lrrrr @{}}   \hline 
+% Item& Number & Per cent   \\ \hline
+% 1(not at all)&    9,285&  9\\
+% 2&    3,555&        3\\
+% 3&    3,937&        4\\
+% 4&    2,888&        3\\
+% 5&    7,519&        7\\
+% 6&    5,175&        5\\
+% 7&    6,050&        6\\
+% 8&    8,067&        8\\
+% 9&    8,463&        8\\
+% 10&   52,385&       49\\
+% Total&  107,324&      100\\ \hline
+% \end{tabular}\end{table}
+
+
+% % Define block styles
+% \tikzstyle{block} = [rectangle, draw, fill=black!20, 
+%     text width=10em, text centered, rounded corners, minimum height=4em]
+% \tikzstyle{b} = [rectangle, draw,  
+%     text width=6em, text centered, rounded corners, minimum height=4em]
+% \tikzstyle{line} = [draw, -latex']
+% \tikzstyle{cloud} = [draw, ellipse,fill=black!20, node distance = 5cm,
+%     minimum height=2em]
+    
+% \begin{tikzpicture}[node distance = 2cm, auto]
+%     % Place nodes
+%     \node [block] (lib) {liberalism, egalitarianism, welfare};
+%     \node [block, below of=lib] (con) {conservatism, competition, individualism};
+%     \node [cloud, right of=con] (ls) {well-being};
+%     \node [block, below of=ls] (cul) {genes, culture};
+%     \node [b, left of =lib, node distance = 4cm] (c) {country-level};
+%     \node [b, left of =con,  node distance = 4cm] (c) {person-level};
+%     % Draw edges
+%     \path [line] (lib) -- (ls);
+%     \path [line] (con) -- (ls);
+%     \path [line,dashed] (cul) -- (ls);
+% \end{tikzpicture}
+
+
+%PUT THIS NOTE, polish and put to /root/author_what_data --ALWAYS
+%stick here stuff as i run it!!! maybe comment out later...
+
+\bibliography{/home/aok/papers/root/tex/ebib.bib,gssLonnieRubia.bib}
+
+
+\section*{\Huge SOM-supplementray online material; ONLINE APPENDIX}
+% \textbf{[note: this section will NOT be a part of the final version of
+%   the manuscript, but will be available online instead]} %hence everything below
+%                                 %is organized byu section, not subsection
+% !!!
+% have most of the stuff outputted to online appendix:)--start with that and then
+% select stuff to paper--have brief narrative describng patterns in online app too
+% !!!
+
+% \section*{Variables' definitions, coding, and distributions}
+% \label{app_var_des}
+
+\section{Greed is Good}
+
+Timothy 6:10\\
+For the love of money is a root of all kinds of evil, for which some have strayed from the faith in their greediness, and pierced themselves through with many sorrows.\\
+
+Timothy 6:9\\
+But those who desire to be rich fall into temptation and a snare, and into many foolish and harmful lusts which drown men in destruction and perdition.\\
+
+%How many people desire to be rich?\\
+%Who does NOT desire to be rich?
+
+And there are more here \url{https://www.biblemoneymatters.com/bible-verses-about-money-what-does-the-bible-have-to-say-about-our-financial-lives/#bible-verses-about-greed}
+
+
+
+\begin{quote}
+\begin{verbatim}                                                                          
+The point is, ladies and gentleman, that greed -- for lack of a better word -- is good.   
+                                                                                          
+Greed is right.                                                                           
+                                                                                          
+Greed works.                                                                              
+                                                                                          
+Greed clarifies, cuts through, and captures the essence of the evolutionary spirit.       
+                                                                                          
+Greed, in all of its forms -- greed for life, for money, for love, knowledge -- has marke\
+d the upward surge of mankind.                                                            
+                                                                                          
+And greed -- you mark my words -- will not only save Teldar Paper, but that other malfunc\
+tioning corporation called the USA.                                                       
+\end{verbatim}
+\end{quote}
+
+
+\section{regrets}
+
+Per the most major regret from \cite{ware12}:\\
+
+``I wish I'd had the courage to live a life true to myself, not the life others
+expected of me.''\\
+
+{There is a Frank Sinatra's song ``My Way'':\\
+And now, the end is near\\
+And so I face the final curtain\\
+My friends, I'll say it clear\\
+I'll state my case of which I'm certain\\
+I've lived a life that's full\\
+I traveled each and every highway\\
+But more, much more than this\\
+I did it my way\\
+Regrets, I've had a few\\
+But then again, too few to mention\\
+I did what I had to do\\
+And saw it through without exemption\\
+I planned each chartered course\\
+Each careful step along the byway\\
+But more, much more than this\\
+I did it my way\\
+Yes, there were times, I'm sure you knew\\
+When I bit off more than I could chew\\
+But through it all, when there was doubt\\
+I ate it up and spit it out\\
+I faced it all and I stood tall\\
+And did it my way\\
+I've loved, laughed and cried\\
+I've had my fill, my share of loosing\\
+And now, as tears subside\\
+I find it all so amusing\\
+To think I did all that\\
+And may I say, not in a shy way\\
+Oh no, no, not me\\
+I did it my way\\
+For what is a man, what has he got\\
+If not himself then he has not\\
+To say all the things he truly feels\\
+And not the words of one who kneels\\
+The record shows, I took the blows\\
+But I did it my way''}\\
+
+
+\footnote{And there are websites with more regrets, e.g.,:
+I wish I wouldn't have compared myself to others.
+I wish I'd taken action and dove in head first.
+I wish I didn't wait to ``start it tomorrow.''
+I wish I'd taken more chances.
+I wish I was content with what I have.
+I wish I'd have traveled more.
+I wish I'd have laughed it off.
+I wish I'd left work at work (for only 40 hours per week).
+\url{https://www.lifehack.org/articles/communication/these-20-regrets-from-people-their-deathbeds-will-change-your-life.html}
+}
+
+Apart from palliative nurse diaries, there are  academic studies on
+the topic. \citet{morrison11b} lists these regrets:
+
+\begin{verbatim}
+Romance, lost love -- 18.1%
+Family -- 15.9%
+Education -- 13.1%
+Career -- 12.2%
+Finance -- 9.9%
+Parenting -- 9.0%
+Health -- 6.3%
+Other -- 5.6%
+Friends -- 3.6%
+Spirituality -- 2.3%
+\end{verbatim}
+
+\citet{roese05} which is a meta aalysis of earlier work on the topic:
+\begin{verbatim}
+Twelve Life Domains
+
+Career: jobs, employment, earning a living (e.g., "If only I were a dentist")
+
+Community: volunteer work, political activism (e.g., "I should have volunteered more")
+
+Education: school, studying, getting good grades (e.g., "If only I had studied harder in college")
+
+Parenting: interactions with offspring (e.g., "If only I'd spent more time with my kids")
+
+Family: interactions with parents and siblings (e.g., "I wish I'd called my mom more often")
+
+Finance: decisions about money (e.g., "I wish I'd never invested in Enron")
+
+Friends: interactions with close others (e.g., "I shouldn't have told Susan that she'd gained weight")
+
+Health: exercise, diet, avoiding or treating illness (e.g., "If only I could stick to my diet")
+
+Leisure: sports, recreation, hobbies (e.g., "I should have visited Europe when I had the chance")
+
+Romance: love, sex, dating, marriage (e.g., "I wish I'd married Jake instead of Edward")
+
+Spirituality: religion, philosophy, the meaning of life (e.g., "I wish I'd found religion sooner")
+
+Self: improving oneself in terms of abilities, attitudes, behaviors (e.g., "If only I had more self-control")
+\end{verbatim}
+
+
+\begin{verbatim}
+Rankings of Life Regrets Within Life Domains (Studies 1 and 2a)
+
+Study 1 (Meta-Analysis)
+Study 2a (College Student Sample)
+Rank	Domain	Proportion (%)	Rank	Domain	Frequency (%)
+1	Education	32.2	1	Romance	26.7
+2	Career	22.3	2	Friends	20.3
+3	Romance	14.8	3	Education	16.7
+4	Parenting	10.2	4	Leisure	10
+5	Self	5.5	5	Self	10
+6	Leisure	2.5	6	Career	6.7
+7	Finance	2.5	7	Family	3.3
+8	Family	2.3	8	Health	3.3
+9	Health	1.5	9	Spirituality	3.3
+10	Friends	1.5	10	Community	0
+11	Spirituality	1.3	11	Finance	0
+12	Community	0.95	12	Parenting	0
+\end{verbatim}
+
+\section{LOMS: LOVE OFMoney Scale}
+
+see \citet{tang2003income}:
+
+\begin{verbatim}
+Items of the Love of Money Scale (LOMS)
+Factor 1: Importance
+01. Money is important.
+02. Money is valuable.
+03. Money is good.
+04. Money is an important factor in the lives of all
+of us.
+05. Money is attractive.
+Factor 2: Success
+06. Money represents my achievement.
+07. Money is a symbol of my success.
+08. Money reflects my accomplishments.
+09. Money is how we compare each other.
+Factor 3: Motivator
+10. I am motivated to work hard for money.
+11. Money reinforces me to work harder.
+12. I am highly motivated by money.
+13. Money is a motivator.
+Factor 4: Rich
+14. Having a lot of money (being rich) is good.
+15. It would be nice to be rich.
+16. I want to be rich.
+17. My life will be more enjoyable, if I am rich and
+have more money.
+\end{verbatim}
+
+\section{Descriptive Statistics}
+
+\input{../out/var_des}
+
+\input{../out/hist1}
+\input{../out/hist2}
+\input{../out/hist3}
+
+\section{paper body results; no beta coefficient but regular one}
+
+\begin{spacing}{.9} \begin{table}[H]\centering  \label{a} \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{../out/a.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{OLS regressions of SWB: \texttt{more hours and more money}}\end{table} \end{spacing}
+
+\begin{spacing}{.9} \begin{table}[H]\centering  \label{b} \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{../out/b.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{OLS regressions of SWB: \texttt{next to  health, money is most  important}}\end{table} \end{spacing}
+
+\begin{spacing}{.9} \begin{table}[H]\centering  \label{c} \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{../out/c.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{OLS regressions of SWB: \texttt{no right  and wrong ways to  make money}}\end{table} \end{spacing}
+
+\begin{spacing}{.9} \begin{table}[H]\centering  \label{d} \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{../out/d.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{OLS regressions of SWB:  \texttt{job is just a way to earn money}}\end{table} \end{spacing}
+
+
+\section{excluding poor, bottom 10 percent}
+
+we exclude those that are needy not greedy
+Interestingly (not shown) greed variables correlate with income at about -.2--meaning that
+poorer people are more greedy, and to some degree needy, but again as a
+robustness check we exlude bottom 10\% of income distribution as a robustness
+check to make sure that we capture greed and not need--arguably being in bottom
+10\% of income distribution and wanting more money may mean need rather than greed. 
+
+
+\begin{spacing}{.9} \begin{table}[H]\centering  \label{a} \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{../out/poora.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{OLS regressions of SWB: \texttt{more hours and more money}}\end{table} \end{spacing}
+
+\begin{spacing}{.9} \begin{table}[H]\centering  \label{b} \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{../out/poorb.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{OLS regressions of SWB:  \texttt{next to  health, money is most  important}}\end{table} \end{spacing}
+
+\begin{spacing}{.9} \begin{table}[H]\centering  \label{c} \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{../out/poorc.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{OLS regressions of SWB:  \texttt{no right  and wrong ways to  make money}}\end{table} \end{spacing}
+
+\begin{spacing}{.9} \begin{table}[H]\centering  \label{d} \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{../out/poord.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{OLS regressions of SWB:  \texttt{job is just a way to earn money}}\end{table} \end{spacing}
+
+
+\section{excluding rich, top 10 perc}
+they may actually be capitalists or quasi capitalists
+
+\begin{spacing}{.9} \begin{table}[H]\centering  \label{a} \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{../out/richa.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{OLS regressions of SWB: \texttt{more hours and more money}}\end{table} \end{spacing}
+
+\begin{spacing}{.9} \begin{table}[H]\centering  \label{b} \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{../out/richb.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{OLS regressions of SWB:  \texttt{next to  health, money is most  important}}\end{table} \end{spacing}
+
+\begin{spacing}{.9} \begin{table}[H]\centering  \label{c} \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{../out/richc.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{OLS regressions of SWB:  \texttt{no right  and wrong ways to  make money}}\end{table} \end{spacing}
+
+\begin{spacing}{.9} \begin{table}[H]\centering  \label{d} \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{../out/richd.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{OLS regressions of SWB:  \texttt{job is just a way to earn money}}\end{table} \end{spacing}
+ 
+
+% %\input{/tmp/a.tex} %aok_var_des
+
+% % \begin{spacing}{.9}
+% %   \begin{table}[H]\centering \caption{Summary statistics.} \label{sumSta} \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5
+% %             in}p{.5in}p{.5 in}}\hline
+% %         \input{/tmp/aha2.tex}
+% %          \end{tabular}\end{scriptsize}\end{table}
+% % \end{spacing}
+
+% % \begin{spacing}{.9}
+% %   \begin{table}[H]\centering \caption{Correlation matrix.} \label{sumSta} \begin{scriptsize} \begin{tabular}{@{}
+% %           p{1.2in} rrrrrrrrrrrrr @{}}\hline
+% %         \input{/tmp/ahb2.tex}\hline
+% %          \end{tabular}\end{scriptsize}\end{table}
+% % \end{spacing}
+
+
+
+% Table XXX shows variable distributions. If a variable has more than
+% 10 categories it is classified into bins...
+
+% %\input .... %TODO !!!! have input here histograms
+
+% \section*{Additional Descriptive Statistics}
+% \label{app_des_sta}
+
+% %make sure i have [H] or h! ???
+% % \begin{table}[H]
+% % \caption{}
+% % \centering
+% % \label{}
+% % \begin{scriptsize}
+% % \input{../out/reg_c.tex}
+% % \end{scriptsize}
+% % \end{table}
+
+%\newpage
+%\theendnotes
+
+\end{spacing}
+\end{document}
