@@ -57,7 +57,8 @@ save "`d'dat/gss2.dta", clear
 
 
 //------------------------------sum_sts----------------------------------------
-  
+use gss2.dta
+
 //------------------------------END sum_sts------------------------------------
 
 
@@ -224,7 +225,7 @@ adopath - ~/Desktop/junk/
 /********************************************/
 /* variable names,  labels, and value labels */
 /********************************************/
-insheet using https://sites.google.com/site/adamokuliczkozaryn/datman-1/gss.csv
+insheet using https://sites.google.com/site/adamokuliczkozaryn/datman-1/gss.csv,clear
 d
 
 /* there are many ways to label things... */
