@@ -447,7 +447,7 @@ eclplot estimate min95 max95 parmlab,hori
 
 
 /************/
-/* graphs 2 */
+/* graphs 2 */ //---------SKIP OUTDATED: postgr3 uninstalable-----------//
 /************/
 findit spostado
 findit xi3
