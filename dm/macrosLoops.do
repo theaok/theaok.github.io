@@ -71,11 +71,12 @@ reg happy `c3'
 
 
 //list macros
-macro l
+macro l 
 
 //drop macros
-macro drop
 macro drop _all
+
+macro l 
 
 
 /*********/
@@ -341,8 +342,9 @@ loc age=_b[age]
 di `age'        
 
 
-/this is a way to be productive with code
+//this is a way to be productive with code
 //easy to adjust for a project
+/*
 d p* mp* h* d*
 foreach v of varlist p* mp* h* d*{
 hist `v', percent saving (`v'.gph,replace) by(foreign)
@@ -350,7 +352,7 @@ hist `v', percent saving (`v'.gph,replace) by(foreign)
 
 local df: dir . files "*.gph"
 graph combine `df'
-
+*/
 
 import excel "https://docs.google.com/uc?id=1QfvuTHE1kzyF4ju39jq0oxlO6NFhVB-V&export=download", clear 
 d
