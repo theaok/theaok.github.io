@@ -143,6 +143,7 @@ use https://sites.google.com/site/adamokuliczkozaryn/datman-1/gss.dta, clear
 loc all_results ""         
 levelsof region, loc(_reg)         
 
+//!!! mistake here; 3 pts of extra credit!!!
 foreach r in `_reg'{
   reg happy inc if region=="`r'"
   loc result= _b[inc]
