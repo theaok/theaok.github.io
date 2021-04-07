@@ -96,6 +96,8 @@ almost the same as POSIX.2
 // [] set; e.g. [a-zA-Z0-9 ], note space !
 // () subexpression group
 
+//-----------------------skip from here----------------------
+
 //some explanation below, but you'll really get it with examples further below
 
 //regexm - used to find matching strings, evaluates to one if there is a match, and zero otherwise
@@ -105,6 +107,7 @@ almost the same as POSIX.2
 //regexr(source,regular-expression, string to replace) 
 //regexr(my_data," bad "," good ")
 
+//------------------------until here------------------------
 
 //this is a key command
 //gen <var> = regexs(1) if regexm(<from_var>, "<before pattern>(extract pattern) <after pattern>")
