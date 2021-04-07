@@ -9,13 +9,10 @@ help string functions
 //there is also... help math functions, like round, abs, logit....
   
 //abbrev(str,n)	returns str abbreviated to n characters
-//char(n)	        returns character with ASCII code n
-//indexnot(str1,str2)	returns position in str1 of first character of str1 not in str2 or 0 if all characters in str1 are in str2
 //itrim(str)	returns str without consecutive spaces
 //length(str)	returns number of characters in str
 //lower(str)	returns str without lowercase letters only
 //ltrim(str)	removes leading spaces
-//plural(n,str1[, str2])	returns plural form based on count n; str1 is word to be modified; str2 is optional modification
 //proper(str)	capitalizes all letters not preceded by letters
 //real(str)	converts str to numeric or missing
 //regexm(str,re)	evaluates whether str matches regular expression re
@@ -23,10 +20,7 @@ help string functions
 //regexs(n)	 
 //reverse(str)	returs str reversed
 //rtrim(str)	drops trailing spaces
-//soundex(str)	returns soundex code for str
-//soundex_nara(str)	returns US Census soundex code for str
 //string(n)	converts number n to string
-//string(n,fmt)	converts number n to string with format fmt
 //strmatch(str1,str2)	testes whether str1 matches pattern str2
 //strpos(str1,str2)	returns position of str2 in str1
 //strtoname(str[,p])	translates str into stata name (replaces characters not allowed by Stata)
@@ -40,7 +34,7 @@ di substr("Camden County",-6,.)
 //upper(str)	converts all letters to uppercase
 //word(str,n)	returns nth word from str (if n<0 starts counting from right)
 di word("adam is best at stata",2)
-wordcount(str)	returns number of words in str or number of spaces minus 1
+//wordcount(str)	returns number of words in str or number of spaces minus 1
 di wordcount("adam is best at stata")
 
 //---
@@ -113,9 +107,9 @@ almost the same as POSIX.2
 
 
 //this is a key command
-gen <var> = regexs(1) if regexm(<from_var>, "<before pattern>(extract pattern) <after pattern>")
+//gen <var> = regexs(1) if regexm(<from_var>, "<before pattern>(extract pattern) <after pattern>")
 //e.g.
-gen city = regexs(1) if regexm(cit_st_zip, "([A-Za-z ]*)[,]")
+//gen city = regexs(1) if regexm(cit_st_zip, "([A-Za-z ]*)[,]")
 
 display regexm("907-789-3939", "([0-9]*)\-([0-9]*)\-([0-9]*)")
 display regexs(0)
@@ -158,9 +152,11 @@ l
 //http://www.stata.com/support/faqs/data/leadingzeros.html  
 
 
-//a really good example LETS DO IT (skip weirder ones toward the middle and end):
+//!!!a really good example LETS DO IT (skip weirder ones toward the middle and end starting with names):
 //https://stats.idre.ucla.edu/stata/faq/how-can-i-extract-a-portion-of-a-string-variable-using-regular-expressions/
 
+
+//--------------------SKIP ALL from here (convoluted)-------------------------------
 
 //--- a more complicated example, rather cumbersome...can skim/zip through, but without going into the convoluted detail!
 //from http://www.unc.edu/home/danb/data_programming/stata/code/regex.html
