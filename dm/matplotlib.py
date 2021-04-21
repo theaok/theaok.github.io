@@ -136,7 +136,7 @@ auto.boxplot(column='mpg',by='rep78',vert=False), plt.show()
 
 #################################################################################
 
-#### matplotlib: grids, subplots, and layout
+### matplotlib: grids, subplots, and layout [may skip or skim thru]
 
 
 
@@ -415,7 +415,7 @@ plt.show()
 
 
 #######################################################
-####seaborn
+####seaborn [meh skip; just use pandas]
 
 '''
 kind of like stata, esasy to use, more canned than matplotlib
