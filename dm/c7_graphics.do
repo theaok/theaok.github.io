@@ -86,6 +86,46 @@ tabstat price weight mpg rep78, by(foreign) stat(mean sd min max) nototal long c
 //----------------------------END checking-----------------------------------------
 
 
+//cool graph
+ssc install radar
+
+clear
+input     id   country   y_em       y_par     y_inf        
+          1    32        55.2       60.4      40.25       
+          2    68        68.3       72.5         70        
+          3    76        61.7         67       49.6       
+          4    152       53.1       57.3       33.1
+          5    170       60.8    68.10001      60.3
+          6    188       55.85      60.15      38.65
+          7    604       54.5      56.25       51.7 
+          8    214       62.4         66       61.7
+          9    218       56.7       59.3      56.75
+          10   222       63.65      64.95       66.9
+          11   332       58.9      61.45       63.3 
+          12   340       60      62.65       46.7
+          13   484       59.55   65.35001   64.39999
+          14   558       59.75       63.3      44.95
+          15   591       65.95       69.2      65.85 
+          16   600       73.2   75.64999      63.65 
+          17   858       59      64.05      40.25
+          18   862       58.75   67.89999      49.85 
+end
+l
+//kountry country, from(iso3n)to(unc)
+
+#delimit ;
+radar _UNC_ y_em y_par y_inf,
+   aspect(1) 
+   title(Labor Market in LAC countries, size(*0.6)) 
+   lc(red blue green)  
+   lw(*1 *2 *4) rlabel(0 20 40 60 80 100) labsize(*0.7) 
+   legend(label(1 "Employment") 
+          label(2 "Participation")
+          label(3 "Informality")
+          col(1) size(*.8)) ;
+#delimit cr
+
+
 
 /*********************************/
 /* exporting*/
