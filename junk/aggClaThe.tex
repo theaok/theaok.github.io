@@ -1,0 +1,1482 @@
+%to have line numbers
+%\RequirePackage{lineno}
+\documentclass[11pt, letterpaper]{article}      
+\usepackage[margin=.1cm,font=small,labelfont=bf]{caption}[2007/03/09]
+%\usepackage{endnotes}
+%\let\footnote=\endnote
+\usepackage{setspace}
+\usepackage{longtable}                        
+\usepackage{anysize}                          
+\usepackage{natbib}                           
+%\bibpunct{(}{)}{,}{a}{,}{,}                   
+\bibpunct{(}{)}{,}{a}{}{,}                   
+\usepackage{amsmath}
+\usepackage[% draft,
+pdftex]{graphicx} %draft is a way to exclude figures                
+\usepackage{epstopdf}
+\usepackage{hyperref}                             % For creating hyperlinks in cross references
+
+
+% \usepackage[margins]{trackchanges}
+
+% \note[editor]{The note}
+% \annote[editor]{Text to annotate}{The note}
+%    \add[editor]{Text to add}
+% \remove[editor]{Text to remove}
+% \change[editor]{Text to remove}{Text to add}
+
+%TODO make it more standard before submission: \marginsize{2cm}{2cm}{1cm}{1cm}
+\marginsize{2.5cm}{2.5cm}{1.5cm}{1.5cm}%{left}{right}{top}{bottom}   
+					          % Helps LaTeX put figures where YOU want
+ \renewcommand{\topfraction}{1}	                  % 90% of page top can be a float
+ \renewcommand{\bottomfraction}{1}	          % 90% of page bottom can be a float
+ \renewcommand{\textfraction}{0.0}	          % only 10% of page must to be text
+
+ \usepackage{float}                               %latex will not complain to include float after float
+
+\usepackage[table]{xcolor}                        %for table shading
+\definecolor{gray90}{gray}{0.90}
+\definecolor{orange}{RGB}{255,128,0}
+
+\renewcommand\arraystretch{.9}                    %for spacing of arrays like tabular
+
+%-------------------- my commands -----------------------------------------
+\newenvironment{ig}[1]{
+\begin{center}
+ %\includegraphics[height=5.0in]{#1} 
+ \includegraphics[height=3.3in]{#1} 
+\end{center}}
+
+ \newcommand{\cc}[1]{
+\hspace{-.13in}$\bullet$\marginpar{\begin{spacing}{.6}\begin{footnotesize}{#1}\end{footnotesize}\end{spacing}}
+\hspace{-.13in} }
+
+%-------------------- END my commands -----------------------------------------
+
+
+
+%-------------------- extra options -----------------------------------------
+
+%%%%%%%%%%%%%
+% footnotes %
+%%%%%%%%%%%%%
+
+%\long\def\symbolfootnote[#1]#2{\begingroup% %these can be used to make footnote  nonnumeric asterick, dagger etc
+%\def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup}	%see: http://help-csli.stanford.edu/tex/latex-footnotes.shtml
+
+%%%%%%%%%%%
+% spacing %
+%%%%%%%%%%%
+
+% \abovecaptionskip: space above caption
+% \belowcaptionskip: space below caption
+%\oddsidemargin 0cm
+%\evensidemargin 0cm
+
+%%%%%%%%%
+% style %
+%%%%%%%%%
+
+%\pagestyle{myheadings}         % Option to put page headers
+                               % Needed \documentclass[a4paper,twoside]{article}
+%\markboth{{\small\it Politics and Life Satisfaction }}
+%{{\small\it Adam Okulicz-Kozaryn} }
+
+%\headsep 1.5cm
+% \pagestyle{empty}			% no page numbers
+% \parindent  15.mm			% indent paragraph by this much
+% \parskip     2.mm			% space between paragraphs
+% \mathindent 20.mm			% indent math equations by this much
+
+%%%%%%%%%%%%%%%%%%
+% extra packages %
+%%%%%%%%%%%%%%%%%%
+
+\usepackage{datetime}
+
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,backgrounds}
+
+
+%\usepackage{color}					% For creating coloured text and background
+%\usepackage{float}
+\usepackage{subfig}                                     % for combined figures
+
+\renewcommand{\ss}[1]{{\colorbox{blue}{\bf \color{white}{#1}}}}
+\newcommand{\ee}[1]{\endnote{\vspace{-.10in}\begin{spacing}{1.0}{\normalsize #1}\end{spacing}\vspace{.20in}}}
+\newcommand{\emd}[1]{\ExecuteMetaData[/tmp/tex]{#1}} % grab numbers  from stata
+
+%TODO before submitting comment this out to get 'regular fornt'
+% \usepackage{sectsty}
+% \allsectionsfont{\normalfont\sffamily}
+% \usepackage{sectsty}
+% \allsectionsfont{\normalfont\sffamily}
+% \renewcommand\familydefault{\sfdefault}
+
+%\usepackage[margins]{trackchanges}
+\usepackage{rotating}
+\usepackage{catchfilebetweentags}
+%-------------------- END extra options -----------------------------------------
+\date{Draft: {}\today} 
+\title{The Aggressive Class Theory\\ {\large (A Social Psychological % Marxist
+    Perspective On  Aggressive-Submissive Class Relations)}%Contemporary
+% 
+%  % Back to Nietzsche. %guess nietxasche not for soc sci!
+}
+\author{
+% Adam Okulicz-Kozaryn\thanks{EMAIL: adam.okulicz.kozaryn@gmail.com
+%   \hfill Many thanks to Felicia Pratto for extraorinarily extensive and useful
+%   comments.  All mistakes are mine.} \\
+% {\small Rutgers - Camden}
+ }
+
+\begin{document}
+
+%%\setpagewiselinenumbers
+%\modulolinenumbers[1]
+%\linenumbers
+
+\bibliographystyle{/home/aok/papers/root/tex/ecta}
+\maketitle
+\vspace{-.4in}
+\begin{center}
+
+\end{center}
+
+%\tableofcontents
+\begin{abstract}
+\noindent %This article proposes a new theory, the aggressive class theory. 
+% could say sth about using soc psy for political economy etc like: 
+%by explaining  linking social psychological behavior, aggresivness, to Marxism.
+ %The aggressive class is simply a class of people that are aggressive.
+
+\noindent This article takes a new social psychological perspective on an old
+issue of social classes and argues that there is an aggressive-submissive
+relationship between them. Accordingly, a new class, the aggressive class, is
+proposed. The aggressive class theory  helps to explain how the system works,
+sustains itself and makes it unlikely for a change.
+%
+I propose that aggressiveness is typically necessary and often sufficient for success
+in capitalism. Aggressiveness is typically overlooked or mislabeled on purpose. 
+% Worse, it is often argued 
+% that not aggressiveness, but submissiveness, is necessary for
+% success.
+ Submissiveness, on the other hand, is widely promoted. % through various myths
+%  But people are told
+% People are often told and believe that in order to succeed they need to
+% have integrity, be unselfish, obedient, and hard working. But quite the
+% opposite is true: best to % \underline
+% {appear} to have these qualities, so that by
+% example and reciprocity others adopt them, but in fact take advantage of others
+% as much as possible. In short, it is best be a wolf (aggressive) among the
+% sheeps (submissive). %used to be hawk and dowes
+
+\end{abstract}
+
+\vspace{.15in} 
+\noindent{\sc keywords:  Marx, Capitalism, Class, Inequality, Aggressiveness,
+  Dominance, Altruism, Humanism, Greed, Money, Morality, Labor} %, Nietzsche %guess not for soc sci!
+% maybe politcial economy maybe
+% morality?
+%,  Quality of Life, Happiness
+%\vspace{-.25in} 
+
+\hspace{.2in}
+
+\begin{spacing}{2.0} %TODO MAYBE before submission can make it like 2.0
+\rowcolors{1}{white}{gray90}
+
+\newpage
+
+``Society is divided between the rich and the poor, [...] some people subjugate and exploit other people.'' Fidel Castro on discovering Marxism 2009\\
+
+
+
+
+There are two major classes: the rich and the poor,\footnote{Covid-19 pandemic
+  has confirmed this basic typology: capitalists and their acolytes and mercenaries and some other high earners, not working or working from their mansions or second homes in scenic environments v everyone else toiling to produce value.} and there is an
+aggressive-submissive relationship between them. %bhow brilliant US thinks
+                                %everyone middle class! and yet it could be
+                                %split nicely--few would go to rich, and
+                                %majority to poor from the middle  
+Economists claim that free market capitalism is a fair and moral system that frees people and rewards their hard work  \citep{smith76,glaeser11B}.
+ %two interrrelated problems
+ % There is a key problem with the aggressive-submissive system (free
+ % market leisses faire capitalism), and classical and neoclassical economics that justifies the system.
+ The opposite is true, the foundation of the system is the aggressive-submissive
+relationship that is unfair, immoral, and enslaves people. %wage slaves
+
+% MAYBE maybe here on wage slavery
+
+An aggressive person is likely to be a part of  the dominating class, which will set the
+rules: ``the ideas of the ruling class are in every epoch the ruling ideas.'' \citep{marx65}
+A submissive person is bound to work hard and remain submissive.
+The submissive class by working hard, works against its own interest--the more a
+person works, the more value is extracted from her, and the bigger the wealth chasm
+between the submissive and the aggressive. % And the result is growing income and
+% wealth inequality.
+
+Three wealthiest persons in the US own more than the poorer
+half of the country (\url{inequality.org}), and at least about two thirds of the country
+supports the system \citep{pew19capitalism}. 
+ %
+ This is a paradox. A theory is needed to explain how this aggressive-submissive
+relationship works and sustains itself. I offer a new social psychological % Marxist
+perspective on social classes. % I propose a new class: the aggressive class.
+% typology: aggressive and submissive classes.
+
+% A theory is needed to explain a fact that many successful people are
+% neither hard working nor able, but somehow they manage
+% to ``navigate the system'' and take advantage of others. Also, there are many people who are hard
+% working and able--they are productive, but unsuccessful. % Success in capitalism,
+% % as elaborated later, is mostly  money, and hence, top one percent or so of income distribution defines success.
+
+% Many social classes were defined, notably capitalist and working classes. This
+% article offers a new social psychological perspective on old issue of social classes
+% and class struggle between the successful and the unsuccessful. %capitalist and working class. 
+
+I propose that behavior, aggressiveness, is key for wealth and dominance, and hence,
+aggressiveness largely defines the successful and dominant class. Likewise,
+submissiveness is largely responsible for failure to gain wealth and
+dominance. Submissiveness also enables dominance, and dominance forces
+submissiveness. It is a relationship with both sides necessary.
+
+% A new class, the aggressive class, is proposed by arguing that aggressiveness is
+% key for success. In other words, an economic class (successful or wealthy group, typically capitalists) is defined in terms of
+% % an individual or group
+%  . Aggressive class largely overlaps with capitalist
+%  class (and their mercenaries)\footnote{The people in service of capitalists are called mercenaries following Google dictionary: ``a person primarily concerned with material reward at the expense of ethics.''\url{https://www.google.com/search?q=define\%3A+mercenaries}.}  and submissive class largely overlaps with working class.% \footnote{In principle, however, terms
+% %    ``aggressive'' and ``capitalist,'' and ``working'' and ``submissive'' are not
+% %    synonymous. Importantly, as elaborated later, there are may other aggressive
+% %    types: politicians, economists, etc, that is, capitalists is a major category
+% %  of aggressive class but not the only one. There are also exceptions:
+% %  capitalists who are not aggressive, and workers who are--such people, however,
+% %  are likely to change their class over time: aggressive workers may become successful,
+% % and submissive capitalists may fail and become workers. The argument about
+% % capitalists would also mostly apply to groups or entities such as corporations.}
+%  If the theory is correct, the two typologies must overlap to large degree: if aggressiveness
+%  results in success, then capitalists must be aggressive because they are the most
+%  successful group in capitalism.  
+
+%  There is an aggressive-submissive relationship with respect to resources. Aggressive types
+%  ('type' is used interchangeably with 'member of a class') 
+%  typically are either  capitlists themselves, %own means of production, and hence, do not work for wages
+%  or they aid capitalists controlling resources (they are capitalists' mercenaries)
+% %(mercenaries, layewers, economists)
+%  % and  do not work for wages to produce either, but
+%  % and are mostly paid for  extracting
+%  % surplus from labor
+% .
+%  Increasingly capitalists are rentiers, that is, they simply
+%  extract rents (make money due to resources' ownership) as opposed to extracting
+%  value added in production \citep{litanHBR17jun13}.% \footnote{Many capitalists make money due to their ownership of resources
+% % to which others want access. For example, useful or desirable land, housing,
+% % commercial real estate, air waves, internet web names, are things other people
+% % will pay to be able to use. Allowing access for fees is renting, so such capitalists are rentiers.}
+
+ %\citep{harvey14}
+ Capitalism must force submissiveness% ``hard work''
+--someone needs to work to create the  value, so that capitalists can extract
+surplus \citep{marx10,harvey14}--submissiveness leads to failure in capitalism
+ (lack of accumulation and domination).
+%
+% %pratto, aok:
+% Yet this is a limited condition.
+%
+% There is a limit on how aggressive the
+% capitalists can be and maintain their superior position. Capitalists cannot be too aggressive, so that
+% workers do not revolt. Workers need to be given enough so that they do not
+% starve, suffer from malnutrition, disease, or too poor living or working
+% conditions that would make them unusable for work. But also workers cannot be
+% given too much so that they have enough resources to organize or become
+% capitalists themselves, and workers cannot be emboldened, above all they must
+% remain submissive.
+%
+% For the system to work, workers cannot be too aggressive or their aggressiveness cannot
+% succeed. Otherwise, the aggressive class would cease to exist--aggressive class
+% needs submissive class to produce value that can be extracted.% if there is
+% % nobody generating surplus value that can be extracted, one needs to start generating value herself.
+% % https://en.wikipedia.org/wiki/Trait_theory
+% % http://ideonomy.mit.edu/essays/traits.html
+%
+Both aggressiveness and submissiveness are overlooked and instead %politically correct
+pleasant and welcoming labels such as ``leadership'' and ``hard work'' are
+used. % :  ``leadership,'' ``enterprise'' v ``hard
+% work'' or ``grit''
+%
+% % % pratto:
+% %  Submission is not necessarily the opposite of aggression. Perhaps it could be
+% %  cooperation. Submission is often what one does in response to dominance.
+% % % aok:
+% %  Yet, the point is not whether they are polar opposites; the point is that it is a
+% %  relationship aggression-submission, and that the aggressive side is taking
+% %  advantage of the submissive side.  
+% % }
+% is promoted as a key to success, for instance, ``work hard.''
+
+
+% This is worrying because clearly it is not so, and still most people believe
+% that the outcome is fair enough \citet{pew19capitalism,aokditella}. %aokditella:
+%                                 %that graph hard work results in success in the us
+%                                 % % It is not fair enough.
+% The winners are not the most able in a broad sense, neither hardest
+% working. Same with losers--vast majority (99\% or so) of population loses,
+% despite most of them  being able and working hard. 
+ 
+
+
+% It is simple: all that aggressive type needs to do is to find a submissive type
+% and take advanatage of her.
+
+
+
+% More generally, success is power or dominance, which in turn are typically caused by and
+% measured with money.
+% In capitalism, success mostly equals money, especially wealth.
+% Again, capitalists are increasingly rentiers, that is, they simply  extract rents (make money due to resources' ownership) as opposed to extracting value added in production.  
+%  %\citep{harvey14}
+%  In terms of population proportion, successful types are at the top of income
+%  distribution, say top  one percent, which translates into individual
+%  income of more  than about  \$250,000 a year. 
+% % got it here http://politicalcalculations.blogspot.com/2013/09/what-is-your-us-income-percentile.html#.VpWqo_FOkUF
+% % guess more official: http://finance.townhall.com/columnists/politicalcalculations/2013/09/29/what-is-your-us-income-percentile-ranking-n1712430/page/full 
+
+
+
+\section*{The Aggressive Class Theory % (Aggressiveness Is Usually Necessary and Often Sufficient for Success)
+}
+ 
+%\subsection{\label{sec-agg} Defining Aggressive Class}
+
+%DEF OF SUCCESS
+In general, aggression is done in order to succeed, achieve some goal,
+typically dominance of some sort. In capitalism, the goal is capital accumulation. % or wealth.   %success mostly equals money, especially wealth.
+ %
+ Aggressiveness is defined here as ``forceful, assertive, and monopolizing
+pursuit of one's aims and interests without provocation and deference to
+others.''\footnote{
+Aggressiveness is instrumental (proactive, offensive, ``cold-blooded'', etc), as
+opposed to reactive (defensive, ``hot-blooded,'' etc). It is deliberately enacted
+in order to achieve a goal and typically motivated by greed. It is unprovoked and long-term. It is structural, institutionalized, systemic, and systematic. %p13 krahe13
+%  How specifically is aggression manifested? 
+%  This is the key
+%  feature--it must not be manifested openly, otherwise aggressive class is at
+%  risk of reactive counter-aggression. 
+% It can take many forms, but it is usually %see table on
+%                                 %p110 little13
+%   non-physical, and even non-verbal, inter-group/class and interpersonal, and
+%   sometimes passive, i.e. passive-aggressive.
+%
+Synonyms: mercenary, confrontational, combative,
+% antagonistic
+pushy.
+% audatious 
+% shameless
+% belligerent,  threatening, antagonistic, pugnacious,
+% bellicose, truculent, confrontational, argumentative, 
+% contentious, militant, ; irascible, captious
+%
+% avaricious, acquisitive, covetous, grasping, materialistic, mercenary,
+% possessive; 
+Antonyms: respectfulness %deference,
+submissiveness, and notably altruism and its synonyms: 
+% unselfishness, selflessness, self-sacrifice, 
+compassion, kindness, goodwill, and decency.
+% public-spiritedness;
+% generosity, magnanimity, liberality, open-handedness, free-handedness,
+% big-heartedness, lavishness, benevolence, beneficence, philanthropy,
+% humanitarianism, charity, charitableness; literarybounty, bounteousness
+Note that this definition differs from psychological textbook definition
+\citep[e.g.,][]{anderson02,stangor14} that requires
+  there to be an intent to cause harm by perpetrator,
+and motivation to avoid harm by the target. Here, the intent of perpetrator is
+ trying to dominate and accumulate material resources--harm is typically not
+a direct goal. Strikingly, targets are usually not only unaware of being
+targets, but they often believe they are fortunate to be submissive to the
+aggressor. For instance,  being ignored by a capitalist and left unemployed is worse than being taken advantage of.  
+% \footnote{Note that this definition is different from (social) psychological
+%   textbook definition: e.g., ``behavior that is intended to harm another
+%   individual who does not wish to be harmed'' \citep[][p. 380]{stangor14}. The
+%   intention is not harm (though nonphyscial harm does occur), and the individual
+% being harmed often does not realize it (lack of class
+% consciousness). ``Instrumental aggresion'' is a closer term: ``aggression that
+% is intentional and planned. Instrumental aggression is more cognitive than affective and may be completely cold and calculating. Instrumental aggression is
+% aimed at hurting someone to gain something'' \citep[][p. 380]{stangor14}}.
+%
+%
+%
+}
+The essence of aggressiveness as defined here is not putting in a high level of effort or being agentic and energetic
+in pursuit of a goal, but rather subjugating, taking advantage of, and abusing others. 
+%
+ Hence, the aggressive type has the ``ability to navigate the system.'' 
+% A similar point is made by \citet{little13}. eg p43
+The aggressive type has an ability to navigate emotions and interpersonal
+relations, %\cite{goleman06}, % Emotional Intelligence CITE--
+and broadly understood institutions, being ``street smart'' and having knowledge
+of how ``system works.'' For instance, economists, lawyers, and politicians tend to have the 
+ability to navigate the system.\footnote{The aggressive type may be greedy. Greed is important to channel aggressiveness properly in
+capitalism. Narcissism and Machiavellianism may help as well. Machiavellianism is pursuit of self interest but appearing merciful, faithful, humane, frank, and religious \citep{hawley06}. All three members of so called ``Dark Triad,'' narcissism, psychopathy, and Machiavellianism correlate negatively with agreeableness \citep{paulhus02}.  Lack of agreeableness  can be considered a correlate of  aggressiveness--aggressive types tend not to be  agreeable.}
+
+% The other closely related term is greedy. In fact, it could be ``greedy class''
+%  instead of ``aggressive class.''
+% Aggressiveness is close to greed. You need to be greedy to be successful but it is
+% not enough. You need to be able to act on it. %implement it
+%  Aggressive people act on their
+% greed to take advantage of others.
+% It is greed or passion for money, wealth, and domination that when implemented through aggressive behavior, results in success.
+% As a sidenote,  ``greedy'' in ``greedy capitalist'' is redundant, it should be
+% enough to say ``capitalist''--there cannot be a capitalist who is not
+% greedy. Such capitalist would soon be overcome by those who are. This is
+% how capitalism works.
+% % another meaning is ``having an excessive desire or appetite for food''. but
+% % replace food with money!: 
+% % synonyms:gluttonous, ravenous, voracious, intemperate, self-indulgent,
+% % insatiable, wolfish; informalpiggish, piggy
+% % ``a greedy eater''
+
+%Another closely realted term is ``dominant.''% , say alpha male or alpha female?
+A related term to ``aggressive'' is ``dominant,'' %indeed could be dominant class
+which overlaps with ``aggressive'' as defined here in terms of the following:  % can be defined as, and
+  %https://en.wikipedia.org/wiki/Dominance_%28ethology%29#cite_ref-1
+ freedom from subjugation, having impact on
+others,  maintaining reputation and prestige, ability to access valued resources,
+influence others, affect social outcomes, ability to act without deference to others \citep{burgoon98,pratto08}.
+% Dominance can be also used in psychological terms 
+% , say using Raymond Cattell's 16 Personality Factors
+% aggressiveness would be on high range of dominance: Low range:
+ Dominant types %by type i mean beahvoral type i guess as in sih04
+ are: forceful, monopolizing, assertive, competitive, stubborn,
+ bossy. And they are not: deferential, cooperative, conflict avoiding, submissive,
+ humble, obedient, easily led, docile, and accommodating. %https://en.wikipedia.org/wiki/16PF_Questionnaire
+%low agreeableness predicts social dominance orientation eg http://psr.sagepub.com/content/12/3/248.full.pdf
+
+%  I prefer ``aggressive'' over ``dominant,'' which is more passive %neutral
+%  and closer to status that denotes a rank or position in hierarchy,
+% while ``aggressive'' reflects better assertive and forceful nature of behavior
+% such as forcing others to do one's will or using others to reach one's goals. % For
+% % the same reason, I prefer submissive over subordinate--submissive reflects
+% % better naive behavior% and modest character
+% % .
+
+% Likewise, aggressive children are not only successful individually, but also,
+% which is somewhat counterintuitive,  socially \citep{little13}. %yet one needs to be prosocial too and agg eg little13:p195
+
+% People want to be powerful and
+% dominant (wealthy)--power and dominance often defines quality of life--it
+% satisfies needs and wants \citep{pratto08,fiske10B}.
+
+
+
+
+
+% \textbf{need to be explicit here: what they are doing to us, how the aggCla
+%   exacly takes advantage, like yu, dad, andrzej etc--describe what'd they do and
+% how lol}
+
+%\section{The Aggressive Class At Macro Scale (Macro-Level: Groups, Classes, and Societies)} %MACRO, perhaps add political eco etc from n.org
+
+% ``There's class warfare, all right, but it's my class, the rich class, that's
+%  making war, and we're winning.'' Warren Buffett\\
+
+% What Buffet noticed,  goes almost unnoticed in the US--one of the
+% exceptionalisms  of the US is very low class consciousness
+%  \citep{lipset97, lipset00}. Americans are unconscious about capitalistic and
+%  working classes, and they are unconscious about aggressive-submissive
+%  relationship between them.
+
+
+\begin{figure}[H]
+ \includegraphics[height=3in]{drawing.eps}\centering
+\caption{The aggressive-submissive system.}\label{drawing}
+\end{figure}
+
+ 
+Figure \ref{drawing} is a visual representation of the aggressive class theory and explains how the
+aggressive-submissive system works and sustains itself.
+ Much of figure \ref{drawing} is inspired by \cite{marx10}. % First,
+% let's reitarate his major points, and then focus on what my aggressive class
+% theory adds % to the picture
+% .
+
+The key relationship shown in the middle with the arrow from aggressive class to
+submissive class is that of domination and manipulation. % : aggressive class
+% $\xrightarrow[]{\text{domination and manipulation}}$submissive class.
+Capitalists own means of production, and hence, they own workers, the ``wage slaves'' \citep{marx10}.\footnote{See also
+\citet{goldman03,stefanSS10may}. Wage slaves are ``hired slaves instead of block
+slaves. You have to dread the idea of being unemployed and of being compelled to
+support your masters'' \citep[p. 283][]{goldman03}.} This key domination and
+manipulation enables the relationship shown with arrows on the right. 
+ %
+ Workers must produce in order to make wages. Capitalists extract the value added.
+ The submissive class produces value which is the basis of income, wealth, and
+ resources, which in turn define success in capitalism and are extracted by the
+ aggressive class.\footnote{Figure \ref{drawing} depicts
+  simplified general patterns; there are, of course, much more complex
+  relationships and exceptions: some success goes to submissive class; some
+  production is done by aggressive class; some economists are submissive and some
+ sociologists are aggressive, etc. Inclusion of academic disciplines as examples seems
+justified: most economists and lawyers work to support the aggressive class
+interests, while most sociologists work against it.
+Importantly, over the long run, plenty of success
+may diminish aggressiveness (due to satiation), and lack of success may increase
+aggression (due to relative deprivation and frustration).}
+
+
+ Aggressive class at the top  dominates and manipulates submissive class at the bottom
+ by aggression. The aggression is a subjugating message but covered up as equality, mobility, and freedom, and goes something like this:
+ We are all in this together, one big middle class, all working hard, our motives are benign to
+ improve lives for everyone, rising tide raises all boats, etc.\footnote{The tide has risen, but only a minuscule fraction of boats went up. For decades
+ Gross Domestic Product (GDP) and productivity have been increasing, but median income
+ has stayed flat, only top incomes went up--income mobility is a myth \citep{corak13,corak11,corak04}.
+}
+ Capitalists and other leaders actually do you a favor by organizing this amazing
+ opportunity, just work hard you will make it to the top. And people believe it,
+ especially in the US \cite{aokditella}.  %from my johs paper that hard work results in success.
+ %
+  One of the
+ exceptionalisms of the US is very low class consciousness
+  \citep{lipset97, lipset00}. Americans are unconscious about capitalistic and
+  working classes, and they are unconscious about aggressive-submissive
+  relationship between them.
+ 
+The aggression is often premeditated and
+covert as discussed later. This is the key
+ feature--it must not be manifested openly, otherwise aggressive class is at
+ risk of reactive counter-aggression. 
+ Aggressive class uses submissive class to produce, and aggressive class enjoys
+ fruits of labor and benefits of domination.
+
+ % The whole facade is not only maintained by domination an dmanipulation. There
+ % are also (shown at the very left) hierarchy legitimizing myths, system
+ % justification, and false consciousness. 
+ 
+% This facade is mantained by  
+% hierarchy legitimizing myths \citep{pratto94, pratto06}, system
+%   justification \citep{jost94, jost04}, false or lack of
+%   class consciousness \citep{marx10,marx12}, and perhaps right wing authoritarianism \citep{altemeyer98}% enable exploitative status
+%   % quo
+% . 
+
+The aggressive-submissive system is maintained through system
+justification \citep{jost94, jost04} and hierarchy legitimizing
+ myths \citep{pratto94, pratto06} (inequality is due to differences in hard
+ work, perseverance, education, talent, etc); and false or lack of class
+ consciousness \citep{marx10,marx12} (everyone is free and has equal opportunity and almost everyone is in broad middle class and everyone can advance),
+  and few other factors specific to the US \citep{lipset97, lipset00}.
+ Right wing authoritarianism may help sustain the facade, too  \citep{altemeyer98}
+
+
+
+
+
+ 
+% //----------------old below------------------------
+
+
+
+
+
+ 
+In too many cases aggressiveness defines success. It is hard to find a truly warm
+friendly non-aggressive person who is successful at the same time. Aggressive types
+are successful in terms of income, wealth, and resources, but they do not produce
+ much, rather they are able to dominate and manipulate more submissive types to
+ produce and generate wealth, and then extract it as shown in
+ figure \ref{drawing}. 
+ 
+
+In a capitalistic society, hard work (among workers, not capitalists) is a form of submissiveness: one is
+generating value through work, and this value is then being extracted by a
+capitalist--the foundational principle of capitalism is accumulation through
+dispossession \citep{harvey14}, or in my terminology, it is a dominant-submissive
+relationship between classes.
+%
+
+Often workers work really hard to the point of mental and physical
+health damage, not to mention damage to family and social relations.
+There is  evidence that capitalism causes people to work more.
+Often it is repeated that advancing capitalism brought prosperity and less work,
+but such comparisons are made against early industrialization when work hours
+were long--it is forgotten that  people actually worked less before
+industrialization than they do now \citep{schor08}. People tend to
+overearn, that is, they work to earn more than they need \citep{hsee13}. Overearning is another term for mindless accumulation.
+%IRRELEVEANT
+% Overwork contributes to
+% income inequality across gender--having a husband who works long hours
+% significantly increases a woman's likelihood of quitting, whereas having a wife
+% who works long hours does not appear to increase a man's likelihood of quitting
+% \citep{cha10}.
+Overwork has negative health consequences \citep{artazcoz12}.
+Many jobs are meaningless--the modern equivalent of assembly line job are
+administrative ``pushing paper'' jobs % that are not really needed
+ \citep{economist13aug17b}.
+
+
+Perhaps, aggressiveness has caused capitalism--as in many animals, there is much
+aggressiveness in humans, and hence creating capitalism can be in some ways
+``natural.''\footnote{Greed is good in many ways as reviewed by \citet{seuntjens15b}:
+Greed has many positive economic consequences: greed and self-interest are  principal
+motivators for a flourishing economy: greed motivates the creation of new
+products and the development of new industries. 
+Some greed may be inherent to human nature--all humans are
+greedy to some extent. %Being greedy may be vital for human welfare.
+Greed may be an evolutionary adaptation 
+promoting self-preservation. Those who are more
+predisposed to gain and hoard as much resources as possible may have an
+evolutionary advantage.}
+%
+Regardless, the point is that capitalism causes people
+to be more 
+aggressive, that is, people would not be that way if not capitalism \citep{fromm64,fromm94, fromm92}. Perhaps, if 
+capitalism did not develop, people would be more like Rousseau's ``noble savage.'' %see p3 little13
+  Capitalism is all about competition--aggressiveness
+is the key for success in competition. Even if you happened not to be aggressive, it makes sense
+to become aggressive to have a better chance to win. % --speculate in housing market, etc
+%--this is how success is made in capitalism \citep{harvey14}.% , not through hard work
+%he talked about accumlation thorugh disposition
+ While some aggressiveness is  natural or adaptive  for humans
+ \citep{little13}, %guess essp ch2
+ more than hundred-fold inequalities in income, wealth, and command of
+ resources are  not natural. Neither is vicious capitalistic competitiveness natural to our species.
+ Hunter gatherers were quite egalitarian and cooperative \citep{argyle94,bowles11,fromm92}. They were almost like Rousseau's ``noble savages,''  %p3
+ although inter-group conflict and violence were common \citep{little13}. %ch2
+
+Of course, if too many people
+try to live off capital, not work, the capitalistic engine sputters--bubbles are created  and crises arise \citep[e.g.,][]{harvey14}. Yet, even if one knows that that crisis is
+near, even if one causes the coming crisis, one needs to do what one has to
+do--take advantage of the system and make as much money as possible or other more
+aggressive types will: ''As long as the music is playing, you've got to get up
+and  dance'' remarked CEO of Citigroup regarding Citi taking advantage of people \citep{dealbookNYT07jul10}.
+
+It could be counterargued that being aggressive is a good strategy in any
+system,  not just capitalism. Arguably, to some degree, but it is especially good strategy in
+capitalism. Again, capitalism is built on competition, and aggressiveness is
+critical in competition. Extreme inequality is an integral part of capitalism
+and when rewards and punishments are greater, aggression intensifies \citep{wilkinson09}.
+
+Aggressiveness is necessary to survive if one is not
+ gifted with other ingredients for success--aggressiveness can compensate for lack
+ elsewhere. And there are positive
+feedback loops. Arguably, aggression breeds aggression. If most people are
+aggressive, then it is more difficult not to be so. Successful aggressiveness leads
+to dominance and inequality, which in turn leads to more aggressiveness. The
+more inequality, the taller are the social ladders and the more power at the top. Power corrupts \citep{fiske10B,frank12} and more instrumental
+aggressiveness is likely to occur. More inequality also means more relative
+deprivation among those at the bottom, and hence more reactive aggressiveness is
+likely. In such society aggressiveness makes more sense, even violence
+does. Indeed, inequality has been linked to crime \citep{wilkinson09,argyle94}. %argyle p251 252
+ %
+ Dominance and
+inequality are foundational in capitalism, despite that  economists argue to the
+contrary \citep{galbraith98}. %just search on goog books
+                                %for carrot to find releveant page
+ % David Harvey, the world's most cited geographer and foremost expert on
+% capitalism, explains
+According to (\citet[][p. 171]{harvey14}):
+
+\begin{quote}
+The inequality derives from the simple fact that  capital is socially and
+historically constructed as a class in dominance over labor [...] Workers must
+be dispossessed of ownership and control over their own means of production if
+they are to be forced into wage labor in order to live.  
+\end{quote}
+
+People tend to believe that status$=$competence, i.e.  world is just and
+meritocratic \citep{benabou06t}. Yet, causality rather goes in the opposite
+direction: high status causes high perceived competence \citep{fiske10B}. Even
+clothing or accent signaling high status causes high perceived competence
+\citep{argyle94}. %clothing chapter and p 135 
+ Many
+people at the top of the hierarchy, notably capitalists, are often neither able
+nor hard working and often just aggressive. Yet, they enjoy higher quality of
+life and many other benefits \citep{pratto08,fiske10B}. Notably, they are
+healthier and live longer \citep{marmot05}.%power leads to more
+                                %power;respect from others etc
+
+How exactly aggressive types influence submissive types? There are at least
+several channels: (a) coercion, (b) reward, (c) legitimacy, (d) expertise, (e)
+information, (f) referent (i.e. affiliation). There is coercion and reward:
+carrot is wealth and stick is poverty \citep{galbraith98}. There is legitimacy myth:
+the most able and hard working are those with power \citep{parker12}. 
+ Typically workers have more expertise and technical knowledge than
+capitalists. Capitalists and their mercenaries, on the other hand, are well informed,
+organized, affiliated, and they know how the system works. 
+
+
+
+% \subsection{Failed Class Struggle}
+
+% ``If you're not a leftist or socialist before you're 25, you have no heart; if
+% you are one after 25 you have no head'' (Apocryphal)\\
+% %http://quoteinvestigator.com/2014/02/24/heart-head/
+
+Capitalism is a system where the winners are the ones who are best able to take advantage of others.
+It is a class struggle  between capitalists and their mercenaries on one side,
+and workers on the other side. Both
+classes should be aggressive--it is a struggle, conflict, or
+warfare after all. Yet, one reason why workers fail is because they are not
+aggressive enough--that is why they are workers in the first place.
+Capitalists and their mercenaries are clearly more aggressive
+or perhaps aggressive in some ``better'' way--they are able to take advantage of
+others and get away with it. Others yet need to become more aggressive so that
+they are not taken advantage of.
+
+Note, that no amount of hard work is going to
+help. If anything, it will actually make things worse, because it would allow
+capitalists to extract even more surplus and widen the gap. This is what
+happened over past few decades: working hours increased,  
+%(Europeans used to work more than Americans)
+ productivity increased, and upper class income increased,
+but median wage stayed flat \citep{aokditella,aok_ruut_inc_ine}.
+
+Aggressive class can be defined not only by act (how aggressive you are), but also
+by outcome (whether your aggressiveness/taking advantage of others worked, whether
+you are at the top of the hierarchy, whether you are rich). 
+In other words, aggressiveness can be understood as willingness to overcome
+others, but also as ability and outcome. %  and  if you take advantage of others succesfully--they cannot be aware of
+% that or at least they cannot be able to counteract it; otherwhise it ends. 
+By that approach, simply, aggressive class is upper income class; percentwise you could say 1 percent v 99
+percent, and astonishing reality is that in western  democracy where everyone is
+supposed to be equally important, the 99 percent of population is losing, and
+almost nobody is doing anything serious about it. Caveat, of course, is that in
+many cases people became rich mostly due to some other ingredient for success, and
+sometimes perhaps without much aggressiveness at all. Yet, most people need
+substantial aggressiveness to be successful, and many became successful mostly due to aggressiveness.
+
+Capitalism appears like a democracy--a quite bad system with many problems, but
+ nobody has a better idea than this. Very few (some obscure
+academics and activists) question the very need for capitalism.
+ People disagree about details--taxation, transfers, etc--but the very notion of
+ replacing capitalism with something else seems unthinkable. % But  it is
+%  time to discuss alternatives, for
+% instance, libertarian socialism seems to have many good ideas.
+
+
+  As of now, at least in the US, and arguably in most other highly unequal
+  countries, the majority is clearly taken advantage of by the minority, and  people seem to think that nothing can
+  be done beyond cosmetic social transfer adjustment. At the same time, the rule
+  in democracy 
+  is not by few oligarchs, but by majority,  and clearly something can be done if masses become conscious.
+
+% the US--the classless free society, but it turned out quite
+% different--Classess are very apparent
+Capitalism is supposed to make people free \citep{hayek14}. 
+ We are not free. Everyone except capitalists is a
+commodity on labor market, just like any other commodity trying to sell herself for some price (i.e. wage) \citep{esping90, scruggs06Ba}, and some succeed
+(notably capitalist's mercenaries), but many fail (unemployed, underemployed, below living wage).  And again, success or
+failure is largely due to aggressiveness, not due to hard work or ability only. 
+
+Many manage to remain in middle class, but they
+toil long hours, remain under high pressure, and do not enjoy their lives %they
+                                %are even scared to take vacation
+\citep{fischer96,coote10,schor08,cha13}. Middle class is not free, only
+capitalists are.  Non-capitalists could be
+free to some degree in theory--as predicted long time ago by Keynes (\citeyear{keynes30}): In 21st century we have enough money now for
+everyone to enjoy her life. But the money is owned by few who buy majority's
+labor. 
+
+It could be
+counterargued that capitalist faces (perhaps fiercer than ever) competition from other capitalists and he
+needs to sell on market, too. But as long as his portfolio is diversified, he
+does not risk much. Increasing share of capitalists are rentier capitalists as
+opposed to industrial capitalists \citep{harvey14}, and their business has very
+low risk, virtually zero if properly diversified. Fundamentally, any risk for
+any capitalist is of his own choosing, he could just
+keep his millions in a bank or in government bonds and live from
+interest. 
+
+The most striking is that many poor in the US still support such system.  Majority is oppressed by minority, be it 95 v 5, or 99 v 1 percent% \footnote{The higher the ratio,
+  % the greater the exploitation, that is, top 10 percent takes less advantage or
+  % extracts less surplus per capita from bottom 90 percent than 1 v 99, or .01 v 99.99 and
+  % so on.}
+and those being taken advantage of are actually often indifferent or even happy
+about it.
+For instance, 
+%, such as one Savvanah GA 
+ I have met a taxi driver who vehemently opposes ``Obamacare'' (Affordable Care Act), yet cannot afford health insurance. 
+Even many poor do not want to change the system--almost nobody revolts against capitalism;  people only want some cosmetic changes
+within capitalism. % about half of people want little more social
+% transfers and about half of people want little less social transfers (Republicans and
+% Democrats receive about half of vote).
+
+%there is some fetish of being close to power! may elaborate--why poor vote
+%republican, why they support the system--i must have soemwhere some ideas!
+%guess it is also linked to RWA
+
+One important fascist-like feature of capitalism is
+crowd control \citep{kunstler12}, %kunstler12:p219 some cool disussion of facism--yes capitalists are like facists;
+ and this is also a key feature of aggressive-submissive relationship--we are
+ controlled and manipulated by aggressive class.  
+%
+% I THINK THIS IS REALLY IMPORTANT AND THIS IS ALSO SUPER INNOVATIVE AND SMART
+Capitalism has a unique ability to make people who are taken advantage of to
+support those who take advantage of them. Alas, the aggressive and submissive
+classes are born and maintained. 
+
+Brutal competition makes you more aggressive
+and competitive against weaker ones and submissive to those above you, i.e.,
+capitalists. You cannot become a capitalist right away--you need capital, and
+hence you are forced to work hard for a capitalist to save and accumulate
+capital and hope to become a capitalist one day, and if you are aggressive
+enough, you may be able to gradually take advantage of people and extract value
+added from their labor. More realistically, however, you will simply work hard
+for a capitalist for the rest of your life and regret it \cite{ware12}. It has to happen this way--if you do
+not have capital--you have to embrace the system--otherwise you won't
+survive. If you have the capital, why would you act against the system?
+You may be leftist, humanistic, and Marxist in your youth, but at some point you
+ are forced to turn pro-capitalistic. If you don't, you will
+ become  homeless, poor, or at best an academic or an artist, but almost
+ certainly you will not be successful (wealthy), and hence your opinion will not
+ matter much. Those who embrace capitalism, are likely to succeed, and hence
+ their opinion matters and it perpetuates status quo.
+ %
+ ``The ideas of the ruling
+ class are in every epoch the ruling ideas'' (Marx 1845).
+ %
+ Such design ensures capitalism survival, and it works very well indeed. 
+
+Not only rationality, but also ideology perpetuates capitalism. Economics is to be blamed--it claimed that
+laissez faire neoliberal free market capitalism is fairest for everyone--and
+masses believed in this. 
+Ironically, masses supporting capitalism are irrational and acting against
+their own interest--but they do so following classical
+economic theory preaching that everyone is rational and self-interested. 
+% (sociology is opposite as some others are quite too), of course there are many
+% notable economists against it--paul krugman, thomas piketty, bob frank, to name
+% the few, but the discipline as a whole is clearly most pro inequality (maybe
+% business too) among
+% social sciences.
+We know that people are not very rational and they often act against their own
+interest \citep{akerlof10,ariely09,shiller15}. Aggressive class is more rational
+and self-interested than others.
+
+As discussed above, non-capitalists are not
+free in capitalism, they are commodities in the market and they work too much
+and worry too much to enjoy life \citep{aokJap14}. Ironically again, we
+have capitalism in the first place in order to be free--we justify the very
+existence of capitalism with freedom
+\citep{hayek14,friedman09,glaeser11B}. Free market provides incentives to
+embrace capitalism and submit oneself to a capitalist, and economics provides
+``science'' to justify such as system. There is also a biological or
+specifically hormonal mechanism supporting status quo or preventing submissive
+class from overthrowing the aggressive class \citep{wood12}.
+
+% Few oligarchs (capitalists)
+% But then let's do this, let's be rational and be homo
+% oeconomicus, and apply economic principle--if people were rational --majority of
+% them shouldn't cara about economics because economics doesnt work for them--it
+% works for capitalists; economists actually run the country (along with layers;
+% and politicals of course), they are highest paid social scientsist (almost twoce
+% as much as sociologists) and they largely help few oligarchs legitimize their
+% extraction of surplus, and strangely few are upset about it.
+% Why country is not
+% run by sociologists or psychologists? If that appears strange to you well, then
+% economists who run the country now are trying to become psychologists--they
+% would call it behavioral or experimental econiics; they do it becuase they
+% realize that traditional economics is not very useful neither there is much new
+% to be discoveed there.  
+
+
+%\subsection{Aggressive Class and Social Class Typology}
+
+Among animals, aggression is mostly directed towards those next in rank. Humans are not exception.
+Most aggressiveness is from top to
+bottom: capitalists$\rightarrow$their mercenaries$\rightarrow$workers. This is
+instrumental aggression (proactive, offensive, controlled, ``cold-blooded,'' etc).
+Such
+aggressiveness is portrayed as fair and desirable using terms like ``leadership.''
+There is some reactive aggressiveness (defensive, ``hot-blooded,'' etc) from
+bottom to top in riots, strikes, protests, etc, and
+such aggressiveness is frowned upon. Bottom-up aggressiveness rarely aims to challenge capitalism in
+general; its aims are modest, for instance, raising wages.
+% , but not really against the
+% superior--even labor unions--they are not really aggressive--they do not overcome
+% capitalists. In other words, aggressiveness is allowed within the system, but not
+% against the system. There is plenty of aggressiveness within the system: most 
+% capitalists and otherwhise succesful persons are aggressive and that's why they
+% are succesful. 
+
+% One form of aggresvness takes place among capitalists or businesses,  many call
+% it ``healthy competition.''
+% Some aggressiveness is among equals (capitalists and their mercenaries), not really among workers--they do
+% not have time to be aggressive--they have to work.
+
+Many aggressive types do not own much capital, neither they
+work for wages,\footnote{Again,
+working class is understood here as comprising of people working for wages, paid
+for doing something else than extracting value added.}
+hence, they neither belong to capitalist nor working class.  They are either
+self employed or they live off
+taking advantage of others (like capitalists and their mercenaries) but they do
+not own capital and simply consume their earnings like workers. They do not work directly
+for capitalists as mercenaries, but they are typically supportive of and
+submissive to capitalists. If they are self employed, their aggressiveness is
+directed towards their clients, business partners, and competition.
+ Some of the middle class can be classified here: freelancers, entrepreneurs, owners of very small businesses. %http://www.mltranslations.org/Britain/Marxclass.htm 
+An old term ``petty bourgeoisie'' can be used to classify these people. 
+% definition: petty bourgoise should be also oriented and in the ass of
+% capitalists--which they are!everyone is!
+For
+discussion of petty bourgeoisie in contemporary times see \citet{steinmetz89}. 
+%my dad! kuba and the likes
+ Aggressiveness-submissiveness relationship for each class, capitalists, workers,
+ and petty bourgeoisie is summarized in table \ref{appAggClawright77}. 
+ %
+ Table provides a simplified typology, for instance, some workers are aggressive and they may
+  become capitalists one day; and some capitalists may be submissive (say they
+  inherited wealth) and they may fall to working class. Likewise, there is much
+  diversity within  and overlap across classes, and there are other similar
+  typologies--for discussion see \citet{argyle94,wright77}. %http://www.sociosite.net/class/summary.php;http://www.sociosite.net/class/images/schema_11_en.jpg;wikipedia
+ 
+
+%there is more in wright's table and could be added here
+\begin{table}[H]\centering\footnotesize
+\caption{Aggressiveness among contemporary Marxists
+  classes as defined by \citet{wright77}, who made a good case for adding
+  managers (or mercenaries as labeled here) as a class. 
+}
+\begin{tabular}{p{1.9in}p{5.3in}}\hline 
+class&aggressiveness-submissiveness \\\hline
+capitalists&aggressive towards everyone, including other capitalists and submissive to none\\
+mercenaries (leaders/managers)& submissive to capitalists (and higher-level
+managers) and aggressive towards workers (and lower level managers)\\
+petty bourgeoisie & submissive to capitalists; aggressive towards workers (if any)\\
+workers& submissive to everyone\\\hline
+\end{tabular}\label{appAggClawright77}\end{table}
+
+
+\section*{Conclusion And Discussion}
+
+
+
+
+\subsection*{What can be done? Policymaking?}
+
+``The hottest places in hell are reserved for those who in a period of moral crisis maintain their neutrality'' Dante (Apocryphal)\\
+
+
+%MAY REPHRAZE THAT AND HAVE IT MORE MEANINGFUL/FORCEFUL/SCHOLARLY
+% I am an academic, and as many others in various occupations, I trust in our
+% products, that is, I believe that research and education can help. The more
+% people research and learn about aggressive class, the better. Even if we keep on
+% embracing aggressiveness, say by arguing that it is compatible with human nature,
+% at the very minimum we need to make rules clear. As argued here, we must stop
+% overemphasizing hard work, education, etc. We need to  be clear about
+% aggressiveness and stop mislabeling it as benevolent and altruistic
+% leadership, etc. 
+% % it must be made clear that in order to succeed one needs to
+% % take advantage of others as much as possible in a covert way, or ideally make
+% % people feel that they are helped.   
+
+% I do not believe in wisdom of masses \citep{surowiecki05}, and especially in
+% this case, majority of people are likely to make wrong choices--most people just
+% want to be better than others.
+% One way to be better than others is to be aggressive,
+% or submissive to someone aggressive and successful (capitalist) who can provide
+% me with some leftover. Capitalism with its inherent aggressiveness and
+% inequality may persist for a long time. On the other hand, combining
+% aggressiveness with class consciousness could result in some revolution. 
+
+
+
+Aside from speculation about the long run, there is an easy fix in the short
+run. We should simply tax aggressiveness. It is a vice after all, and we tax other
+vices--smoking, drinking, etc. % (we should not tax  benevolent aggressiveness of course,
+% such as that in sports, etc)
+ Before we can measure aggressiveness reliably
+ and inexpensively for everyone, we can simply
+tax capitalists and their mercenaries, that is, the rich.
+ This is quite imprecise and crude, to be sure, but it is easy, does not cost
+ anything (everyone already files a tax return), and most importantly, there are other good reasons to tax the rich more. 
+ As argued here,
+vast majority of successful people (notably capitalists and their mercenaries) do
+not deserve to be successful--some or even all of their success is not due to
+hard work, but due to aggressiveness. Other random factors (beyond one's control)
+such as luck and talents play a role, too. For elaboration see \citet{frank12,frank16}.
+
+As a first step in the right direction, I would follow Piketty's idea to tax incomes of rich people at 80\% \citep{piketty14,piketty03,piketty95,saez06p,diamond11,piketty11}.
+ % If such step appears too aggressive, I would like to point out that fighting aggressiveness may require aggressiveness. 
+
+\subsection*{Conclusion And Discussion}
+
+``Nice guys finish last.''  Leo Durocher \citep[cited in][]{judge12}\\
+
+Everyday we are experiencing a tyranny by aggressive class--they take advantage
+of us to achieve their goals, they extract value added from our work, they
+are remunerated for their dominance, and we continue to
+ be submissive
+ % bow down and kneel
+% before them
+to receive a share of their wealth produced by us.  
+% Indeed, successful aggressive capitalists % such as Donald Trump
+% resemble fascists in some ways \citep{douthatNYT15dec3}. 
+\footnote{There is also a book making a similar parallel ``The invisible handcuffs of capitalism: How market tyranny stifles the economy by stunting workers'' \citep{perelman11}. Interestingly, Pope Francis calls capitalism a tyranny in an official
+  Vatican document (underlined by author):
+``Today everything comes under the laws of competition and the survival of the fittest, \underline{where the powerful feed upon the powerless}. As a consequence, masses of people find themselves excluded and marginalized: without work, without possibilities, without any means of escape.
+%
+Human beings are themselves considered consumer goods to be used and then
+discarded. We have created a ``disposable'' culture which is now spreading. It is
+no longer simply about exploitation and oppression, but something new. Exclusion
+ultimately has to do with what it means to be a part of the society in which we
+live; those excluded are no longer society's underside or its fringes or its
+disenfranchised--they are no longer even a part of it. The excluded are not the
+``exploited'' but the outcast, the ``leftovers''. [...]
+%
+ While the earnings of a minority are growing exponentially, so too is the gap
+ separating the majority from the prosperity enjoyed by those happy few. This
+ imbalance is the result of ideologies which defend the absolute autonomy of the
+ marketplace and financial speculation. Consequently, they reject the right of
+ states, charged with vigilance for the common good, to exercise any form of
+ control. \underline{A new tyranny is thus born}, invisible and often virtual,
+ which unilaterally and relentlessly imposes its own laws and rules.''
+ \url{http://www.vatican.va/content/francesco/en/apost_exhortations/documents/papa-francesco_esortazione-ap_20131124_evangelii-gaudium.html} %#SOME_CHALLENGES_OF_TODAY%E2%80%99S_WORLD
+% a see https://www.salon.com/2013/11/26/pope_francis_capitalism_is_a_new_tyranny/
+}
+
+
+
+%pratto; tyranny is great for future rsearch
+Capitalism is not sufficiently understood as being tyrannical.\footnote{Marx's Capital is fundamentally a critique of the economic concepts that make
+social relations in a free-market economy seem natural and inevitable, in the
+same way that concepts like the great chain of being and the divine right of
+kings once made the social relations of feudalism seem natural and
+inevitable \citep{menandMISC16oct3}. In his 1845 ``The German Ideology,'' Marx
+wrote, ``the ideas of the ruling class are in every epoch the ruling ideas.''
+}
+ It is not exactly tyranny of a police state, tyranny
+as conquest, or the tyranny of dictatorship or oligarchy. And yet all these
+tyrannical elements are present. A major mission of the police is to protect
+``law and order,'' which boils down to protecting status quo, which is
+aggressive-submissive as elaborated here.  %, securing law and order (and who fears riots and protests) etc
+Police is protecting interests of capitalists
+more specifically, for instance, in terms of the private property: vast majority of the property is owned by
+capitalists, e.g., 3 wealthiest persons in the US own more than the poorer
+half of the country (\url{inequality.org}). %https://inequality.org/wp-content/uploads/2017/11/BILLIONAIRE-BONANZA-2017-Embargoed.pdf
+ There was tyranny as conquest, e.g., British East India Company, and still is,
+ for instance, the US invasion of Iraq was arguably in large part due to
+ oil--the US did not intervene in other major human rights and humanitarian
+ crises \citep{power13}. And clearly, capitalism is the tyranny of
+ dictatorship or oligarchy: wealthiest persons in the US are clearly in many
+ respects like traditional oligarchs of the past wielding an awesome power and
+ influence \citep{mayer17}. 
+
+
+The very psychological structure of the system, the aggressive-submissive
+hierarchy perpetuates capitalistic system.
+The most successful and powerful ones are likely to be aggressive, as argued here,
+this is one of the reasons why they are successful in the first place. And the
+unsuccessful ones are not aggressive enough, again, this is one of the reasons why
+they are unsuccessful. Aggressiveness is required to change the system, but those
+who are aggressive have no interest in changing the system, but on the contrary,
+they have interest in increasing exploitation and inequality. This untamed
+greed, however, is leading to unmasking of the aggressive-submissive
+relationship. The aggressive class is, to paraphrase Marx (\citeyear{marx12}),
+its own grave-digger.
+% they defend themselves: walmart, mc donalds increasing min wage etc
+
+%like Hilary clinton said in presidential debate that we need to save capitalism from itself
+On the other hand, there appears to be an equilibrium--aggressive class is only abusing and
+exploiting others as much as possible, but not more. It fears
+retaliation. Hence, many developments happened against aggressive class
+interests, for instance, New Deal, Great Society, and
+more recently, Walmart and McDonald's raising wages. These developments might
+have prevented social unrest that could have endangered aggressive class existence. 
+
+The goal of this paper is to define aggressive class, show aggressiveness being key
+ingredient for success in capitalism, and hence, argue for action to break the link between
+aggressiveness and success. An obvious solution (that will also solve many other
+problems) is to replace capitalism with
+something else, say socialism and humanism \citep{maslow13,harvey14}, but
+further development of this line of thought is beyond the scope of this paper,
+and a more modest and narrow conclusion is offered instead.
+
+We should stop overemphasizing hard work as key ingredient for success. At best,
+it is inaccurate. At worst, it is simply taking advantage of people, akin to
+slavery,\footnote{Nietzsche put it this way ``Whoever does not have two-thirds of his day for himself, is a slave, whatever he may be: a statesman, a businessman, an official, or a scholar.'' And there is a concept of wage slavery; Marx himself makes a distinction between
+wage-labor and slave-labor (\citeyear{marx10}). See also
+\citet{goldman03,stefanSS10may}. Wage slaves are ``hired slaves instead of block
+slaves. You have to dread the idea of being unemployed and of being compelled to support your masters'' \citep[p. 283][]{goldman03}.
+} making them work hard and then reaping the benefits of their
+work. Notably, academics and governments should stop overemphasizing hard work,
+because it is our job to protect the people--they pay us for that in taxes.
+ Rules of the game are not clear, and worse, what is promoted (submissive hard
+work) is opposite to what leads to success: aggressive and covert taking
+advantage of others without doing much work. Aggressiveness is built into
+capitalism--capitalism is built on a premise of ruthless competition, and aggressiveness
+is a key skill when it comes to ruthless competition. 
+
+The thesis of this paper is that aggressiveness is key for success in capitalism
+but the opposite is perpetuated that  submissiveness is necessary for
+success. Not only aggressiveness is key
+for success in capitalism but also that capitalism fosters aggressiveness--I do
+not intend to develop this line of thought further here--it was already
+developed by Erich Fromm (\citeyear{fromm64,fromm94, fromm92})--for a brief overview see \citet{swanson75}.
+
+The fundamental problem with aggressive class is that it is remunerated for
+aggressiveness and not for hard work or ability or other virtue. Remuneration
+(money or exchange value) should reflect labor, or perhaps some other virtue
+such as ability or creativity, but not a vice, aggressiveness.
+
+Given great injustice in the aggressive-submissive relationship, it is important
+ to note the powerful forces working to support the status
+ quo. First, there is lack of class consciousness or false consciousness
+ \citep{marx12,marx10}  preventing the submissive class from realizing that they
+ are being taken  advantage of. Most people in the US believe that they belong
+ to the middle  class and they strongly believe that their  hard work will result in success \citep{aokditella}, and
+ hence, even if actually poor and disadvantaged, they think that they will make it one
+ day.  Paradoxically, it is often the most disadvantaged ones that justify the system most \citep{jost94, jost04}.
+ % Such thinking, of course, is mostly false. It is actually easier to make it
+ % in many other countries than in the US \citep{corak13,corak11,corak04}.  And in
+ % case of the US, there are few special considerations that make capitalism
+ % flourish better than elsewhere--for discussion see \citet{lipset97, lipset00}. 
+
+World is dangerous for aggressive class % and competive
+\citep{perry13}, %for rwa
+                                %dangerous, for sdo competetive
+but also aggressive class is dangerous for the world.
+% --aggressive types not only want
+% power, dominance, and resources, but also when they get it, it is likely to
+% corrupt them further. Power corrupts \citep{fiske10B}. 
+It is likely that if
+they lead, there will be  racism, sexism, and other  prejudice, possibly
+unemployment, and even war and famine  \citep{altemeyer03,altemeyer04}. Not only
+society, but also nature is likely to be more exploited in unsustainable way if aggressive types lead  \citep{milfont13,klein14}% , and of course, humans have already caused climate change  \citep{pachauri14}
+. Fundamentally, capitalists (the aggressive class)  cause resource depletion, pollution, and climate change \citep{harvey14,klein14}.
+
+Importantly, note that this monograph refrains from moral judgments.\footnote{Some
+may consider terms such as ``greed, selfish, narcissistic'' to be moral
+condemnations, but I use them in descriptive or positive as opposed to
+moralistic or normative sense. Even when I say that aggressiveness is a vice, I
+simply make a descriptive classification based on quoted lists of vices
+developed by others.} Aggressive
+class is simply only condemned on the grounds that there are double-standards,
+deceit, hypocrisy, or simply logical
+inconsistency between what is done and what is said. The advertised logic of capitalism is that talents and hard work
+results in success.
+But aggressive class is largely remunerated neither for 
+work, nor for talents, while the popular wisdom is the opposite:
+success in capitalism is a result of hard work and talents. 
+
+Another logical inconsistency is that the working class acts against its own interest by being submissive. First step is to gain class consciousness, and second step is to take action. Some of that is already happening.
+ While capitalism is still most popular, socialism is slightly gaining
+ popularity in general population and significantly among groups: socialism is
+ more popular than capitalism among 18-29 age group and Democrats.\footnote{https://news.gallup.com/poll/240725/democrats-positive-socialism-capitalism.aspx}
+ There are also movements, notably Bernie Sanders and Protest Wall street.
+%LATER millennials don't have negative connotations of socialism and communism as boomers do CITE
+
+Paradoxically, morality is used to cover-up
+aggressiveness--most successful types appear moral, but act aggressively, and
+propagate and instill moral behavior in others so that others are more easily
+taken advantage of. 
+ %
+ Another paradox is economists' use of freedom to justify
+capitalism: economists claim that people are free in aggressive-submissive relationship. % Such nonsense...
+
+
+In general, our civilization is moving from more aggressive to less aggressive over time as
+we continue development. Yet note that the more development, the less aggression,
+but also less freedom and more inhibition \citep{freud30}. We are less free
+today to express our (natural) aggressiveness.  
+% Aggressiveness is still deep in our genes, though, that's why it feels natural and
+% is still present with us despite being socially frowned upon; and again much
+% aggressiveness is usefull...
+%
+%
+While arguably aggressiveness was important for survival in our evolutionary
+history and is now important for economic success, one also needed
+cooperation--we were quite cooperative and egalitarian through our evolutionary
+history as hunters-gatherers\citep{bowles11,maryanski92}. % And one needs some 
+% aggressiveness now as well for success in capitalism \citep{benkler06, benkler11, grant13}. % --again one needs right amount of aggressiveness--not too little, but not too much either.
+
+But the point is that in our evolutionary  past clearly more aggressiveness was
+needed than today, hence, given fast (in evolutionary time) recent progress of
+our civilization, it is safe to assume that some of our aggressiveness is
+non-adaptive. In other animals some aggressiveness is non-adaptive as well. For instance,
+some spiders kill but do not consume prey or even kill potential mates and fail to mate \citep{sih04}.
+  Deers developed antlers for fight, but some have developed antlers so large
+  that they get stuck in trees and whole species survival is endangered \cite{frank12}.  
+
+It would be a mistake to say that free market capitalism or aggressiveness
+is in some way inherently most natural to humans. It is natural for humans to fight and
+compete but also to cooperate, and if anything to cooperate more than fight
+\citep{bowles11}.
+
+But fundamentally, the aggressive-submissive relationship described here, the
+laissez faire free market capitalism that has dominated the world is an
+artificial mechanism. It has not existed throughout  our evolutionary history for
+tens of thousands of years, and only appeared about two hundred years ago.
+ The aggressive-submissive relationship  is simply designed
+and regulated by policy, as is inequality for instance as pointed out by
+\citep{fischer96}. Surely capitalism exploits  natural human tendency to
+compete, but so does communism exploits natural human tendency to cooperate,
+Nazism exploits natural human tendency to overcome others, and so on. If they
+did not exploit some tendency they would not develop. % Hence, capitalism is not
+% more natural system for humans than Nazism or Communism.
+ A Marxist perspective on aggression can be found in \citet{reed70}.
+
+Aggressiveness and capitalism in many ways contradict  broadly understood human
+progress and development. To use Harvey's (\citeyear{harvey14}) terminology,
+this is yet another contradiction of capitalism. % : Capitalism needs aggressiveness
+% to develop further, but such development contradicts human development.
+ Perhaps,
+aggressiveness and capitalism get us closer to our animistic nature and
+instincts, but they get us farther away from human development as  defined by
+Maslow or Fromm \citep{maslow13,fromm92,fromm64,fromm94}. In other words, while
+aggressiveness is socially competent and successful \citep{little13}, as argued here, it is not
+socially desirable. Because it is not socially desirable, it has been commonly
+argued that aggression is maladaptive and must be avoided. % Recently,
+% \citet{little13} made a case that  aggression among children and adolescents is
+%  often socially competent and successful.
+%  This monograph extends this
+% argument to political economy of class relations. In capitalism, it is
+% incompetent to lack a considerable amount of aggressiveness.
+
+We frown upon most forms of aggressiveness in general, and only allow it in some
+regulated form usually as a sport or some other form of entertainment. Notably
+physical aggressiveness on the streets is forbidden, but it is allowed as a
+sport, say boxing.  Same with
+aggressive car driving: car racing on public streets is forbidden, but we
+allow it as a sport.
+
+Yet, we still maintain that socioeconomic aggressiveness by
+capitalists and their mercenaries is somehow beneficial for everyone and
+everywhere. Arguably, one reason we still believe it is because human brain is hardwired to accept authority \citep{milgram78}.
+Another explanation for persistence and support by
+victims of aggressive-submissive relationship is perhaps victim-perpetrator attachment or
+so called ``Stockholm Syndrome,'' where victims support perpetrators
+\citep{van2012traumatic,graham1988survivors,van1989compulsion}.
+% https://ordinaryevil.wordpress.com/2009/07/14/victimperpetrator-attachment-conditioning/
+% http://discussingdissociation.com/2009/11/15/attachment-to-the-perpetrator/
+% http://lifetrauma.com/increased-attachment-with-life-trauma-victims/
+ Just like
+physical violence and car racing, socio-economic aggression  should be left for
+games. Monopoly board game is one already existing example.
+
+Life would be better without aggressive class. Imagine a world when everyone or
+vast majority is aggressive--very little resources would be available because
+most energy would be devoted to plotting, scheming, and attempting to overcome
+others.\footnote{These are of course hypothetical examples meant for
+  illustrative purpose. And there would be
+  little resources if everyone or vast majority of people were in aggressive
+  class. So far capitalism has actually produced great deal of resources (albeit
+highly unequally owned), but only a small fraction of the society was an
+aggressive class, and as argued here, the resources were mostly produced by
+non-aggressive class.} It would be also a very brutal and barbarian world. A world without
+aggressive class, on the other hand, would be full of resources, because energy
+would be focused on production and enjoyment, not aggression. It would be also a welcoming and
+friendly world, where people can retain benefits of their work as opposed to
+being them taken away by aggressive class. It would be free-play spontaneous
+world envisioned by the Frankfurt school \citep{marcuse15,marcuse13,fromm92,fromm12,fromm64,fromm62,fromm44,fromm94}.
+
+% The conclusion is not that we can, neither we should get rid of aggressiveness
+% completely, but certainly we have too much aggressiveness today. In other words,
+% we have too  much competition and not enough cooperation. %duams said that
+% % that leviathan book and the other one joshi benaker about joy of linux
+% % cooperative noncompetetive (still there is some competition everywhere and we do
+% % need some--e.g. linux coders compete with others to produce better code)
+%  We certainly  need discussion about aggressive class and what it is doing to us.
+
+%  The goal of this study is to document what I have observed and summarize it as a theory.
+%  % There is not a conclusion yet.
+%  It is simply a theory that is descriptive, not
+% normative. It does not say what we should do next based on this theory, and to
+% some point it may be disappointing because the theory is negative in that it
+% describes problem, the aggressive class, but it does not really offer a solution
+% other than discouraging aggressiveness by possibly taxing the rich or replacing
+% capitalism with something else.  % It is time to become aggressive,
+% % and at very least name this phenomenon and openly talk about it.
+% %  inherent in capitalism (and communism) and it points to an
+% % inherent (atleast to some degree) conflict between human (animal) nature and higher animal trancending
+% % ideals of humanism that would encompass ideas like social justice or
+% % capabilities apprach (nussbaum. sen); and if anything this theory actually
+% % points to laisezz faire capitalism as most natural system for humans, which is
+% % somehow disappointing, because again, it would be nice to raise above animals,
+% % but the problem is whether it is in our nature to do so--do we need thosuands of
+% % years of evolution to fix it or what? 
+
+
+% Here is the problem with agg class: it is anti humanistic and hence anti human civilization--progress on human rights and soxial issues is against it; and it resulys in qaste--mindless.acymimation can only result in cobspicious consumption or speculation, almost always both cite shuny things and against thrift
+
+% Again, the whole problem is that capitalism ir neoliberalizm eouldnt be that bad if it were just the best whi are successful, and the loosers it were their fault. it is not  so however: the winners are not the smartest most abke or in other qay  best but most aggressive ones; same with loosers--many loosw despite having many giof qualities but  not beibg agg enough!!
+
+
+\bibliography{/home/aok/papers/root/tex/ebib,/home/aok/papers/root/rr/aggCla/tex/aggCla,/home/aok/papers/root/old/2017/swbFem/rubia/references,/home/aok/papers/root/old/2017/swbFem/tex/swbFem}
+
+\section*{\huge Supplementary Online Material (SOM)}
+
+\subsection*{Ingredients for Individual Success (Micro Or Person Level)} %MICRO
+
+"Success is the result of perfection, hard work, learning from failure, loyalty,
+and persistence." Colin Powell
+
+\hspace{.2in}
+
+Hard work is most commonly advertised as necessary and sufficient for success,
+and this myth successfully functions in popular culture in the US \citep{aokditella}.  
+
+However, as this paper argues, in capitalism, aggressiveness is key for success. Others have
+argued other ingredients as enumerated in table \ref{tabSuc},\footnote{
+  The list is rather exhaustive
+  than mutually exclusive. There is an overlap and
+  circularity to some degree, for instance, both genes and environment define
+  talents.
+%pratto:
+  Ingredients' importance depends on environment and historical time, and they lead to different
+  specific types of success.
+%pratto:
+These factors lead to success, because they are appreciated due to particular
+aspects of the environment. That is, if the feature wasn't interpreted by others
+as a mark of success, or if the society did not have a pathway by which those features translated into success,
+the factor would not matter. Michelangelo, for example,  might be revered now as an
+original, creative, and skillful artist. During his day, however, he was regarded as a craftman, a decorator,
+not an artist--he never had superior position, made much money, or achieved success.
+   Success, however, is defined broadly here (see section \ref{sec-suc}).
+ %http://www.sociosite.net/class/summary.php;http://www.sociosite.net/class/images/schema_11_en.jpg;wikipedia
+}
+ but
+aggressiveness has been largely overlooked--or rather omitted and
+mischaracterized on purpose. At the same time, we seem to more readily
+acknowledge that aggressiveness is important for success among other animals. \citet{argyle94},
+for instance, lists following predictors of dominance among animals: age, sex,
+size, rank of mother, intelligence, and aggressiveness.
+
+%there is more in wright's table and could be added here
+\begin{table}[H]\centering\footnotesize
+\caption{\label{tabSuc} Ingredients for success.} 
+\begin{tabular}{l}\hline 
+iq (intelligence quotient)/tallent/intelligence \citep{herrnstein10}\\
+eq (emotional intelligence quotient)/emotions/social skills or ``ability to navigate the system'' \citep{goleman06}\\ 
+communication skills \citep{grant13,trump09}\\ %(part of and a way to utilize aggressiveness) %eg p 314 burgoon98  
+environment/ecology (notably country, neighborhood, and family) \citep{fischer96}\\
+hierarchy/elites \citep{mills99}\\ %elites and hierarchy decide who is succesful
+education \citep{becker09}\\
+creativity \citep{florida08}\\
+intuition, gut feeling, or leap of faith \citep{dane07,bezos10, jobs05,walker14}\\ 
+passion/flow \citep{csikszentmihalyi91, vallerand07}\\  
+luck/risk (including genes) \citep{frank12,frank16}\\
+hard work \citep{andrews05,duckworth13}\\\hline
+\end{tabular}\end{table}
+
+%hunter gatherers were quite egalitarian argyle94 bowles11
+Over the course of our civilization development, we are trying to
+or in most cases actually increasing the success ingredients listed in table
+\ref{tabSuc}, including hard work \citep{schor08}. % , maybe except gut feeling or leap
+% of faith (astrology and magic are on decline)
+ We are decreasing, on the other hand, aggressiveness \citep{freud30}. %need to leaborate
+                                %later on decreaing aggressiveness--fereud
+                                %civilizationa dn its discontents etc
+ Indeed, decreasing aggressiveness is one of the hallmarks of human progress, what
+makes us different and better than animals. Luck and hard work are
+peculiar, too. Luck is purely beyond our control and typically
+underestimated, and hard work is purely within our control and typically
+overestimated--the myth is that if you work hard and keep on trying you will
+finally succeed.  
+%gyuess even luck/risk: less risk kind of means more luck
+
+All above ingredients for success matter, and lack of any single one
+can jeopardize benefits of all others, or plenty of any single one can
+compensate for all others. In short, all ingredients from table \ref{tabSuc} are often necessary, and
+sometimes few or even one is sufficient for success. I will not try to argue, as many
+others did, that my key ingredient, aggressiveness, is more important than
+others. I simply want to make a case that it has been overlooked, misused,  and that there are some far reaching consequences.
+
+In its crudest, yet popular and populist form, all success depends on
+hard work in capitalism. More
+enlightened observers would add other ingredients as enumerated above, but most people emphasize individual agency in determining one's own
+success. Few, such as \citet{fischer96}, \citet{mills99}, and \citet{frank12} deviate from such view and claim that
+success is largely determined by outside forces. % Hence, success ingredients can
+% be classified as personal/within one's control v ecological/beyond one's
+% control, and most belong in various degrees to both categories.  Notably, hard
+% work is purely within one's control and lack purely outside.
+
+Ingredients for success could be classified as positive or negative,
+%in some org may have a list of good and bad!
+  virtues or vices.
+%benign or malignant
+ All success ingredients from table \ref{tabSuc} would be mostly positive, but
+ aggressiveness has been mostly classified  a vice.\footnote{See SOM (Supplementary Online Material) section ``Aggressiveness Is A Vice''}
+  We want more talent/intelligence, education, creativity, and
+communication skills.  We want  better emotions, and  environment/ecology
+(notably neighborhood and family). But we do not want more aggressiveness, nor %even
+``better'' aggressiveness--% Arguably not. Such approach largely overalps with
+% Marxist perspective. 
+%
+this is true for human  society as a whole. Persons, groups, and notably countries, unfortunately, typically
+benefit from being aggressive, at least in the short run. In other words,
+aggressiveness is ``smart for one, but dumb for all.'' Our civilization has realized that aggressiveness is
+harmful, and hence, it has been discouraged \citep{freud30}, especially violent
+physical 
+aggressiveness is commonly penalized. Aggressiveness is discouraged and
+penalized  among children and adolescents \citep{little13} and  among
+adults \citep[e.g.,][]{dahling2014machiavellianism}.
+People rarely get advice to be aggressive
+violently, rather they are sometimes advised to be aggressive in a ``smart'' way:
+ they are told to be a leader, to compete viciously, etc. But by far the most popular
+advice for success is to work hard, or to get education (i.e. work hard at school). One needs to make an effort, create value. How
+convenient for a capitalist.
+
+%  a succesful capitalistic society cannot do that--advertice aggressiveness--if everyone was very
+% aggressive then nothing would get done--someone needs to work. Hence, the myth of
+% hard work is perpetuated--if masses work hard, and there are only few people who take advantage of it, then system works fine.
+
+
+\end{spacing}
+\end{document}
+
+
+%  instead \ExecuteMetaData[../out/tex]{ginipov} do \emd{ginipov}
+
+% \begin{figure}[H]
+%  \includegraphics[height=3in]{../out/gov_res_trust.pdf}\centering\label{gov_res_trust}
+% \caption{woo}
+% \end{figure}
+
+
+%TODO !!!! have input here aok_var_des
+
+
+
+% %table centered on decimal points:)
+% \begin{table}[H]\centering\footnotesize
+% \caption{\label{freq_im_god} importance of God}
+% \begin{tabular} {@{} lrrrr @{}}   \hline 
+% Item& Number & Per cent   \\ \hline
+% 1(not at all)&    9,285&  9\\
+% 2&    3,555&        3\\
+% 3&    3,937&        4\\
+% 4&    2,888&        3\\
+% 5&    7,519&        7\\
+% 6&    5,175&        5\\
+% 7&    6,050&        6\\
+% 8&    8,067&        8\\
+% 9&    8,463&        8\\
+% 10&   52,385&       49\\
+% Total&  107,324&      100\\ \hline
+% \end{tabular}\end{table}
+
+
+% % Define block styles
+% \tikzstyle{block} = [rectangle, draw, fill=black!20, 
+%     text width=10em, text centered, rounded corners, minimum height=4em]
+% \tikzstyle{b} = [rectangle, draw,  
+%     text width=6em, text centered, rounded corners, minimum height=4em]
+% \tikzstyle{line} = [draw, -latex']
+% \tikzstyle{cloud} = [draw, ellipse,fill=black!20, node distance = 5cm,
+%     minimum height=2em]
+    
+% \begin{tikzpicture}[node distance = 2cm, auto]
+%     % Place nodes
+%     \node [block] (lib) {liberalism, egalitarianism, welfare};
+%     \node [block, below of=lib] (con) {conservatism, competition, individualism};
+%     \node [cloud, right of=con] (ls) {well-being};
+%     \node [block, below of=ls] (cul) {genes, culture};
+%     \node [b, left of =lib, node distance = 4cm] (c) {country-level};
+%     \node [b, left of =con,  node distance = 4cm] (c) {person-level};
+%     % Draw edges
+%     \path [line] (lib) -- (ls);
+%     \path [line] (con) -- (ls);
+%     \path [line,dashed] (cul) -- (ls);
+% \end{tikzpicture}
