@@ -148,23 +148,31 @@ are  GSS and WVS.
 
 <h4> GSS <a href="http://gss.norc.org/">http://gss.norc.org/</a></h4>
 
-Full cumulative version is available <!-- in Jupyter: /mnt/data/gss/GSS7216_R4.DTA -->
-also, a cleaned up version is available <!-- in Jupyter: /mnt/data/gss/gss.dta -->
-To find variables, just ctrl-f in cumulative codebook for a string you
-are interested in, say for happiness/life satisfaction do "happ" to
+The website has full annual files and best is cumulative 1972-2020.  <!-- in Jupyter: /mnt/data/gss/GSS7216_R4.DTA -->
+I cleaned it up and just retained a bunch of key vars <!-- in Jupyter: /mnt/data/gss/gss.dta -->
+ <a href="https://drive.google.com/file/d/1aFuG5Mmci8NxGFtJ1zJQZ0NGh7uA-rqa/view?usp=sharing"></a>
+To find variables, just ctrl-f in cumulative codebook from GSS website
+ for a string you are interested in, say for happiness/life satisfaction do "happ" to
 pick up both "happiness" and "happy" and for satisfaction "satis" to
-pick up "satisfied" and "satisfaction"<br><br>
+pick up "satisfied" and "satisfaction." Or in stata "lookfor," eg
+ "lookfor inc" to find income variables.<br><br>
 <!-- TODO: the above should go into dofile! -->
 
-TODO: dofile and cleaned dataset<br><br>
+TODO: post 2 rudimentary dofiles for raw, and cleaned up: lookfor, des, sum, table, graphs, reg<br><br>
 
 I also highly recommend buying a book about GSS: "Social Trends in
 American Life: Findings from the General Social Survey since 1972"
 edited by Peter V. Marsden.  Used version just \$5  <a href="http://a.co/d/ewznUY4">http://a.co/d/ewznUY4</a> 
 
-<h4>WVS</h4>
+<h4>WVS <a href="https://www.worldvaluessurvey.org/">https://www.worldvaluessurvey.org/</a></h4>
 
-TODO descr here and dofile and cleaned dataset
+Covers 80 counties, 7 waves of data for many countries going back to
+80s, a wonderful dataset to explore happiness internationally, and as
+the name idicated the data is about values across the world. The above
+website includes the data and codebooks, and again, probably most of
+time want a cumulative dataset
+
+TODO: post 2 rudimentary dofiles for raw, and cleaned up: lookfor, des, sum, table, graphs, reg<br><br>
 
 <!-- <h3>recommended course materials</h3> -->
 
@@ -198,14 +206,14 @@ TODO descr here and dofile and cleaned dataset
 <li> paper 50%
 </dl>
 
-<table BORDER=1 CELLPADDING=3 CELLSPACING=1 RULES=ROWS FRAME=HSIDES><tr><td>    
-min</td><td> max</td><td> grade</td><tr><td>
-90.0</td><td>100.0</td><td>A   </td><tr><td>
-85.0</td><td>89.9</td><td>B+   </td><tr><td>
-80.0</td><td>84.9</td><td>B    </td><tr><td>
-75.0</td><td>79.9</td><td>C+   </td><tr><td>
-70.0</td><td>74.9</td><td>C    </td><tr><td>
-0</td><td>69.9</td><td>F       </td></table>
+<!-- <table BORDER=1 CELLPADDING=3 CELLSPACING=1 RULES=ROWS FRAME=HSIDES><tr><td>     -->
+<!-- min</td><td> max</td><td> grade</td><tr><td> -->
+<!-- 90.0</td><td>100.0</td><td>A   </td><tr><td> -->
+<!-- 85.0</td><td>89.9</td><td>B+   </td><tr><td> -->
+<!-- 80.0</td><td>84.9</td><td>B    </td><tr><td> -->
+<!-- 75.0</td><td>79.9</td><td>C+   </td><tr><td> -->
+<!-- 70.0</td><td>74.9</td><td>C    </td><tr><td> -->
+<!-- 0</td><td>69.9</td><td>F       </td></table> -->
  
 
 <hr />
@@ -224,15 +232,15 @@ min</td><td> max</td><td> grade</td><tr><td>
          <!--   1:  introduction to A and B; class 2: advanced A and B -->
 
 
-tentative: the most uptodate calendar is always on the website<br>
+<!-- tentative: the most uptodate calendar is always on the website<br> -->
 
-(university calendar: <a href="http://scheduling.rutgers.edu/calendar.shtml">http://scheduling.rutgers.edu/calendar.shtml</a>)<br><br>
+<!-- (university calendar: <a href="http://scheduling.rutgers.edu/calendar.shtml">http://scheduling.rutgers.edu/calendar.shtml</a>)<br><br> -->
 
-calendar is continuously updated: see timestamps on slides, best save
-	 or print them at the beginning of the class (i will not print
-	 for you); almost all
-	 changes will be minor; i will tell you if there is any bigger
-	 change; the further the class ahead the less updated it is<br><br>
+<!-- calendar is continuously updated: see timestamps on slides, best save -->
+<!-- 	 or print them at the beginning of the class (i will not print -->
+<!-- 	 for you); almost all -->
+<!-- 	 changes will be minor; i will tell you if there is any bigger -->
+<!-- 	 change; the further the class ahead the less updated it is<br><br> -->
 
 
 <b>when printing handouts you can print multiple slides per sheet (i
@@ -250,7 +258,6 @@ calendar is continuously updated: see timestamps on slides, best save
 
 <!-- TODO in the future have data, text editors and intro to stata  and GIT only; R after --
   -- spring break-->
-
 
 
  
@@ -275,7 +282,7 @@ calendar is continuously updated: see timestamps on slides, best save
 <hr />
 <h3>theory: key and classical theories</h3>
 
-<h4> dive into
+<h4>jan31  dive into
   swb <small><a href="http://rcit.rutgers.edu/av-request/58341/b23e4671c1">vid</a></small></h4>
 <dl> What is, what is the field about?
   <li><a href="ps1.pdf"><b>ps1.pdf</b></a>
