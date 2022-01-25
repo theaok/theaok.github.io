@@ -121,20 +121,7 @@ outfix2 price weight mpg using auto.out, cols(1 11 21)
 
 *** outfile, outdat you can do it at home
 
-/***************************************************/
-/* workaround for installing user-written commands */
-/***************************************************/ 
 
-sysdir  
-help sysdir
-
-mkdir ~/Desktop/junk/
-adopath + ~/Desktop/junk/
-adopath - ~/Desktop/junk/
-
-/* this one is more "invasive", remember to set it back...   */
-//sysdir set PLUS ~/Desktop/junk/  
-//sysdir set PLUS ~/ado/plus
 
 
 
