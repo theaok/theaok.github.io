@@ -1,7 +1,7 @@
 *______________________________________________________________________
 * Data Management in Stata
 *Adam Okulicz-Kozaryn, Summer 09
-*Revised: spring2016, F17
+*Revised: spring2016, F17, S22
 
 * notes : 
 clear         
@@ -11,9 +11,8 @@ set more off
 *--------------------------------------------------------------------
 *--------------------------------------------------------------------
 
-//that's a fancy macro, we'll cover it when we do programing
+//that's a fancy macro, we'll cover it when we do programing; run as one chunk
 local worDir "PUT YOUR WORKING DIR ON DESKTOP DESIRED PATH AND NAME HERE"
-
 cap mkdir `worDir'
 cd  `worDir'
 
@@ -33,6 +32,7 @@ use gss, clear
 
 
 /* Basics */
+
 generate age2=age^2
 
 tab marital                   /*check var values*/
@@ -117,6 +117,7 @@ list in 1/15, clean
 
 
 /* Tostring / Destring */
+
 use gss, clear
 
 d
@@ -132,6 +133,7 @@ l  marital m_s m_n, nola
 
 
 /* Encode / Decode */
+
 encode region, gen(regN) /*string into numeric*/
 l region regN in 1/5
 l region regN in 1/5, nola
@@ -158,6 +160,7 @@ sum mar*  //cannot do math with strings!
 
 
 /* Missing Values */
+
 tab inc                       /*we get income value labels*/
 tab inc, nola                 /*let's get income values*/
 tab inc, nola mi              /*and see if we have any missings*/
@@ -190,6 +193,7 @@ li hi_inc inc, sepby(hi_inc)
 /****************/
 
 /*Keep / Drop */
+
 use gss.dta, clear
 keep in 1/10
 count
@@ -211,6 +215,7 @@ d
 
 
 /*Sort, Order*/
+
 use gss.dta, clear
 
 l, sepby(marital)
@@ -244,6 +249,7 @@ l id total previous  count_marital_group marital, sepby(marital)
 
 
 /*collapse*/
+
 use gss.dta, clear
 gen id= _n
 
