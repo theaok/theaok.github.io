@@ -61,18 +61,7 @@ merge 1:1 famid using moms //moms is using
 l
 
 
-*our favorite gss data (from slide)
-use gss.dta, clear
-gen id= _n
-keep id region
-save gss1.dta, replace /* (using)*/
-use gss.dta, clear
-gen id= _n
-keep id inc /* (master)*/
-merge 1:1 id using gss1.dta /* combine with (using)*/
-tab _merge /*always think about the merging results*/
-
-//and more examples below (from merge helpfile; all helpfiles have examples at the bottom)
+//and more examples below (from merge helpfile; again all helpfiles have examples at the bottom)
 
 
 *cars merging
@@ -178,11 +167,23 @@ d
 
 //-----------------SKIP THE FOLLOWING------------------
 
+//joinby
+use https://www.stata-press.com/data/r16/child
+l
 
+use https://www.stata-press.com/data/r16/parent
+sort family_id
+l
 
+joinby family_id using https://www.stata-press.com/data/r16/child
+
+list, sepby(family_id) abbrev(12)
+
+/*
 TODO: redo this exercise with something more real world--where 2 disctinct
 datasets are merged not one that is fake--guess just input data like with dads
 and moms above!!
+*/
 
 //---------EXERCISE 1--------------
 
