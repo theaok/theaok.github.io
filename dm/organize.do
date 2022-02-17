@@ -391,6 +391,12 @@ and find all status variables and save them as csv
 
 
 
+
+
+
+
+
+
 //------------------exercise solutions---------------------- 
 
 
