@@ -1,9 +1,4 @@
-*** an example of local macro... more later in programming class; run as one chunk!!! 
-local path "/some_drive/some_dir/"
-//locals are like objects in object oriented programming like Python
-display "`path'"
-
- 
+//this is just one dofile for simplicity, but treat each one starting with this as separate file:
 //------------------------------begin dofile------------------------------------
 //------------------------------begin dofile------------------------------------
 //------------------------------begin dofile------------------------------------
@@ -25,8 +20,9 @@ set more off
 *E.G. many additional vars commented out that can be used in the future  
 * double check everything with "assert"
 
-loc d="~/desk/papers/gss_town_AND_politics/"        //the root directory, or the parent directory
-
+//run the blow as one chunk!
+loc d="~/mySuperProject/"        //the root directory, or the parent directory
+cap mkdir "`d'"
 /**********************************************************/
 /* below is a directory structure for a simple project... */
 /**********************************************************/
@@ -38,16 +34,17 @@ capture mkdir "`d'lit"
 capture mkdir "`d'dat"
 //capture mkdir "`d'dat/base"                
 capture mkdir "`d'scr"
-
+//
 cd "`d'"
-
+pwd
+ls
 
 
 //------------------------------data_mgmt----------------------------------------
 
 use "`d'dat/gss.dta", clear
 
-........
+//........ commands here to do data_mgmt
 
 save "`d'dat/gss2.dta", clear
 
@@ -59,11 +56,16 @@ save "`d'dat/gss2.dta", clear
 //------------------------------sum_sts----------------------------------------
 use gss2.dta
 
+//.......commands here to do des_sts
+
 //------------------------------END sum_sts------------------------------------
 
 
 
 //------------------------------regressions----------------------------------------
+use gss2.dta
+
+//.......commands here to do regressions
   
 //------------------------------END regressions------------------------------------
 
@@ -82,7 +84,7 @@ use gss2.dta
 /*****************************/
 
   
-/* this is a masterdofile */
+/* this is a masterdofile: the ONE dofile to rule them all */
 do `d' data_mgmt.do
 do `d' data_anal.do
 do `d' produce_res.do
@@ -103,19 +105,25 @@ do `d' produce_res.do
 /* this is a complicated project so we have a root directory soemwhere that is common for many projects  */
 /*********************************************************************************************************/
 
-loc g="~/desk/papers/root/"  // g is general or generic as opposed to d for project specific dir
+loc g="~/root/"  // g is general or generic as opposed to d for project specific dir
+cap mkdir "`g'"
 
-
-capture mkdir "`g'do"
-capture mkdir "`g'data"
+capture mkdir "`g'do" //here will be root dofiles
+capture mkdir "`g'data" //here will be root data
 capture mkdir "`g'data/gss"
+
+cd "`g'"
+pwd
+ls
 
 
 /**********************************************************/
 /* below is a directory structure for a simple project... */
 /**********************************************************/
 
-loc d="~/desk/papers/gss_town_AND_politics/"
+loc d="~/gss_town_AND_politics/"
+cap mkdir "`d'"
+
 
 capture mkdir "`d'tex"                 
 capture mkdir "`d'out"                 
@@ -125,7 +133,6 @@ capture mkdir "`d'lit"
 capture mkdir "`d'dat"
 //capture mkdir "`d'dat/base"                
 capture mkdir "`d'scr"
-
 cd "`d'"
 
 
@@ -141,22 +148,22 @@ set more off
 
 
 //------------------------------data_mgmt----------------------------------------
-do `g'do/aok_programs.do
-do `g'do/gss_data_mgmt.do
+do `g'do/gss_data_mgmt.do //replication principle even though we start with clean data (may comment this out if this take for instance long to run; still have to have this at least as a comment to show how we got to clean data from raw data!!
 //------------------------------END data_mgmt------------------------------------
   
 
 //------------------------------sum_sts----------------------------------------
 use "`g'data/gss/gss.dta", clear   //grabbing data from root directory, because that data has many children
 
-........
+//........
 
-save "`d'dat/gss2.dta", clear
 //------------------------------END sum_sts------------------------------------
 
 
 //------------------------------regressions----------------------------------------
-  
+
+//........
+
 //------------------------------END regressions------------------------------------
 
 
@@ -168,7 +175,9 @@ save "`d'dat/gss2.dta", clear
 //------------------------------begin dofile------------------------------------
 //------------------------------begin dofile------------------------------------
 //------------------------------begin dofile------------------------------------
-  
+
+
+
 /****************************/
 /* /\********************\/ */
 /* /\* naming, labeling *\/ */
@@ -176,8 +185,7 @@ save "`d'dat/gss2.dta", clear
 /****************************/   
 
 
-loc d="~/desk/papers/gss_town_AND_politics/"        
-
+loc d="~/mySuperProjectLabel/"        
 /**********************************************************/
 /* below is a directory structure for a simple project... */
 /**********************************************************/
@@ -210,9 +218,9 @@ cd "`d'"
 sysdir  
 help sysdir
 
-mkdir ~/Desktop/junk/
-adopath + ~/Desktop/junk/
-adopath - ~/Desktop/junk/
+cap mkdir ~/junk/
+adopath + ~/junk/
+adopath - ~/junk/
 
 /* this one is more "invasive", remember to set it back...   */
 //sysdir set PLUS ~/Desktop/junk/  
@@ -250,11 +258,13 @@ d
 /* and now we can pu value labels [in 2 steps]*/
 /* first, define value label */
 
-la def gender 1"male"  2 "female"
+la def genderL 1"male"  2 "female"
 
-la val gender gender
+la val gender genderL
 
-
+ta gender
+ta gener, nola
+codebook gender, ta(100)
 
 //----
   
@@ -273,8 +283,8 @@ ta female gender, mi
 
 /* we do not have to do this because variable female is self explanatory, but just for exercise */
 la var female "female"
-la def female 1 "female" 0 "male"
-la val female female
+la def femaleL 1 "female" 0 "male"
+la val female femaleL
 codebook female, ta(100)
 
 /* we can actually put value lables in just one step with recode */
@@ -337,6 +347,9 @@ label data "gss subset for data mgmt class"
 d
 
 
+//------------------------------end of dofile------------------------------------
+//------------------------------end of dofile------------------------------------
+//------------------------------end of dofile------------------------------------  
 
 
 
