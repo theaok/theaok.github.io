@@ -1,27 +1,29 @@
 <!-- later move here from orgs -->
 
 also see
-<a href="https://theaok.github.io/swb/final_project.pdf">https://theaok.github.io/swb/final_project.pdf</a>
+<a href="https://theaok.github.io/swb/final_project.pdf">https://theaok.github.io/swb/final_project.pdf</a><br><br>
 
-if data, make sure to obey replication principle, eg absolutely have
-to have a dofile or python script etc that will produce final results
+<h4>if data</h4>
+
+make sure to obey replication principle, eg absolutely have
+to have (and submit along with assignments!) a dofile or python script etc that will produce final results
 that you have in your paper from the VERY RAW data, eg data you have
 downloaded from the website; elaboration <a href="https://theaok.github.io/dm/replication.pdf">https://theaok.github.io/dm/replication.pdf</a>
 
 <h4>if svy res</h4>
 make sure your var is coded right way!<br>
 ta varName, tab(100)<br>
-eg eften var is -9 for missing!!<br>
+eg often var is -9 for missing!!<br>
 have to recode that!eg:<br>
-replace varName=. if varName==-9<br>
+replace varName=. if varName==-9<br><br>
 
-do plenty of des stats before regressions!<br>
+do plenty of des stats before regressions:<br>
 sum var1 var2<br>
 ta var1 var2, mi<br>
 scatter var1 var2<br>
 hist var1<br><br>
 
-often need to reverse var, so that higher val means 'more' or 'better' and is intuitive eg happiness 1(lo)-3(hi), not 1(hi)-3(lo); install user written command:<br>
+often need to reverse var, so that higher val means 'more' or 'better' and it`s intuitive eg happiness 1(lo)-3(hi), not 1(hi)-3(lo); install user written command:<br>
 findit revrs<br>
 revrs varName, replace<br><br>
 
@@ -44,28 +46,30 @@ snowball and catch them all on your topic
 <h4>tip of the day: print it out</h4>
 Definitely your paper!
 You see things differently on paper.
-Rearrange move parts around.
-My advisor (one year the best geographer in the world!) used to cut it
-up with scissors and glue back on the top other sheet of paper. 
+Rearrange, move parts around.
+My advisor (one year, the best geographers in the world!) used to cut it
+up with scissors and glue back on the top of another sheet of paper. 
 I'm more modern and mark it up to move around: eg i'd circle couple
 paragraphs and put `1->` then where i move it i put `->1` and then 2,3
-etc. Do reorganize!! Move things around.
+etc. And when i type it in, i move stuff around. Do reorganize, move things around.
 <br><br>
 
-Also print out your key articles and mark them up.
+Also print out your key literature, and mark them up.
 
-<h4>Use appendix or supplementary online material (som) a lot</h4>
+<h4>use appendix or supplementary online material (som) a lot</h4>
 Look at top journals such as Nature, Science, PNAS: most of work is in
 appendix or supplementary online material (som)  it may be 20, or
 even 200 pages: all the details, elaborations, and supplementary
 analyses, robustness checks etc. But the actual paper is several pages
 only, typically just  2-3, maybe 4-5 tables/figures. Only the most
 important and critical ones that make the point and tell the story;
-all the other stuff thats useful but not necessary to make the key
+all the other stuff that`s useful but not necessary to make the key
 point/tell the story is postponed to appendix/som. We obviously have
 info overload, do not overload your readers, be as concise and to the
 point as possible. People don`t have time to read the stuff that they
-don`t have to!
+don`t have to. Readers just want to learn new stuff as quickly and
+efficiently as possible. Rare few who want all the details and
+intrincacies will find them in appendix/som.
 
 
 <h4>follow scientific writing advice</h4>
@@ -84,7 +88,7 @@ because its all in your head and you don`t realize whats on paper and
 whats missing where (your head v paper).
 
 <h4>do talk to scholars in your field that you know about from the literature</h4>
-The scholars in your narrowly defined field wont be at your school!
+The scholars in your narrowly defined field won`t be at your school!
 There`s a handful of them, say 5-50, they`re  scattered around the
 world, so do email them, they`d be happy (unless it`s a top top Nobel
 prize laureate kind of person, she`d be too busy to talk to you) --
@@ -95,7 +99,7 @@ date,
 on the bleeding edge, more eager, and more in need to do research; if
 a senior scholar, ideally one thats productive, well established
 (published and cited a lot), so a top one (but again probably not very
-top top Nobel prize kind of thing, they`re too busy -- you need to establish yourself first to talk to them)
+top top Nobel prize kind of thing).<!-- , they`re too busy -- you need to establish yourself first to talk to them) -->
 
 <h4>related to previous, paper is useless if held in a drawer, share it
 with the world</h4>
@@ -107,7 +111,7 @@ with your field. Your field doesn`t know about you, unless you
 share. You share ONLY in 2 ways: academic conferences and
 publications -- this is the only way to take your work to the next level when you get feedback from your field -- again top people
 in your narrowly defined field, again about 5-50 people in the world,
-they won`t be at
+  won`t be at
 your school. Sure there will be people in related area at your school,
 but not exactly precisely in the very narrow area that YOU are
 doing -- almost always you`re not doing the exact same narrow area from 
@@ -115,7 +119,7 @@ doing -- almost always you`re not doing the exact same narrow area from
 
 
 
-Comments from your narrowly defined field are priceless--again the only way to take your work to the world class scholarship level. And don`t get discouraged, typically you`ll get rejected, I`m getting rejected say 70perc of the time after being in the field for 20 years. But you still get the priceless comments on how to make it better!
+Comments from your narrowly defined field are priceless--again the only way to take your work to the world class level. And don`t get discouraged, typically you`ll get rejected, I`m getting rejected say 70perc of the time after being in the field for 20 years. But you still get the priceless comments on how to make it better!
 
 <h4>related to previous: keep your pipeline full</h4>
   It takes on average 3mo to get comments, can take 6mo, write another
