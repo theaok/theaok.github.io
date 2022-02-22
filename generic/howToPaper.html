@@ -3,6 +3,44 @@
 also see
 <a href="https://theaok.github.io/swb/final_project.pdf">https://theaok.github.io/swb/final_project.pdf</a>
 
+if data, make sure to obey replication principle, eg absolutely have
+to have a dofile or python script etc that will produce final results
+that you have in your paper from the VERY RAW data, eg data you have
+downloaded from the website; elaboration <a href="https://theaok.github.io/dm/replication.pdf">https://theaok.github.io/dm/replication.pdf</a>
+
+<h4>if svy res</h4>
+make sure your var is coded right way!<br>
+ta varName, tab(100)<br>
+eg eften var is -9 for missing!!<br>
+have to recode that!eg:<br>
+replace varName=. if varName==-9<br>
+
+do plenty of des stats before regressions!<br>
+sum var1 var2<br>
+ta var1 var2, mi<br>
+scatter var1 var2<br>
+hist var1<br><br>
+
+often need to reverse var, so that higher val means 'more' or 'better' and is intuitive eg happiness 1(lo)-3(hi), not 1(hi)-3(lo); install user written command:<br>
+findit revrs<br>
+revrs varName, replace<br><br>
+
+always have to have actual survey questions asked to a respondent in
+the paper!!
+
+<h4>if GSS</h4>
+just get the full cumulative data set 1971-21<br>
+use lookfor in stata to find vars<br>
+lookfor satis<br> 
+to match both 'SATISfied' and 'SATISfaction'<br><br>
+
+use
+website <a href="https://gssdataexplorer.norc.org/">https://gssdataexplorer.norc.org/</a>"to
+identify vars: click 'Search Variables'  eg: 'hope' and click say
+'hpeless', see on right it says 'Related Variables' so you can
+snowball and catch them all on your topic
+
+
 <h4>Tip of the day: Print it out</h4>
 Definitely your paper!
 You see things differently on paper.
