@@ -26,7 +26,7 @@ or <a href="https://www.google.com/search?q=stata+estout&client=firefox-b-1-d&sx
 
 <h4>if svy res</h4>
 make sure your var is coded right way!<br>
-ta varName, tab(100)<br>
+codebook varName, tab(100)<br>
 eg often var is -9 for missing!!<br>
 have to recode that!eg:<br>
 replace varName=. if varName==-9<br><br>
