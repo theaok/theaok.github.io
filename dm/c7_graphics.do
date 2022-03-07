@@ -28,7 +28,7 @@ assert female==0|female==1
 
 //checking a variable--complex fancy neat way
 
-sysuse auto
+sysuse auto,clear
 //we gen some var
 gen byte goodcar=(rep78>=3 & headroom>3 & trunk>15)
 checkvar goodcar rep78 headroom trunk
@@ -114,7 +114,7 @@ l
 //kountry country, from(iso3n)to(unc)
 
 #delimit ;
-radar _UNC_ y_em y_par y_inf,
+radar  y_em y_par y_inf,
    aspect(1) 
    title(Labor Market in LAC countries, size(*0.6)) 
    lc(red blue green)  
