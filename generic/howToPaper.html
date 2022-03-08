@@ -20,9 +20,23 @@ to have (and submit along with assignments!) a dofile or python script etc that 
 that you have in your paper from the VERY RAW data, eg data you have
 downloaded from the website; elaboration <a href="https://theaok.github.io/dm/replication.pdf">https://theaok.github.io/dm/replication.pdf</a><br><br>
 
+per regressions follow excellent <a href="https://stats.oarc.ucla.edu/stata/webbooks/reg/">https://stats.oarc.ucla.edu/stata/webbooks/reg/</a>
+<br><br>
+per interactions:
+<a href="https://www.stata.com/features/overview/factor-variables/">https://www.stata.com/features/overview/factor-variables/</a>
+and 
+<a href="https://www.stata.com/why-use-stata/easy-to-grow-with/linear.pdf">https://www.stata.com/why-use-stata/easy-to-grow-with/linear.pdf</a>
+
+
+
+<br><br>
+
+
 format output properly!! if stata, can
 use: <a href="https://www.google.com/search?q=outreg2&client=firefox-b-1-d&sxsrf=APq-WBsIDwwd6eQ_6DFg2mYGwpj7CR0vow%3A1645562782153&ei=nksVYtzJCLijptQP-vq-8Ak&ved=0ahUKEwjckNeIl5T2AhW4kYkEHXq9D54Q4dUDCA0&uact=5&oq=outreg2&gs_lcp=Cgdnd3Mtd2l6EAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAELADEEMyBwgAELADEENKBAhBGABKBAhGGABQAFgAYJAKaAFwAXgAgAEAiAEAkgEAmAEAyAEKwAEB&sclient=gws-wiz">outreg2</a>
 or <a href="https://www.google.com/search?q=stata+estout&client=firefox-b-1-d&sxsrf=APq-WBsazauSdN7F2z2H9TpR7LFdtR8-Fw%3A1645562806627&ei=tksVYoeiJbibptQP__ufuAU&ved=0ahUKEwiH1ayUl5T2AhW4jYkEHf_9B1cQ4dUDCA0&uact=5&oq=stata+estout&gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEOgcIIxCwAxAnOgcIABBHELADOgcIABCwAxBDOgQIIxAnOgQIABBDOgsILhCABBDHARCjAjoOCC4QgAQQsQMQxwEQ0QM6DgguEIAEELEDEMcBEKMCSgQIQRgASgQIRhgAUJwGWOoXYI0aaAJwAXgAgAFTiAHUBZIBAjEymAEAoAEByAEKwAEB&sclient=gws-wiz">estout</a>
+
+and for descriptive stats can use logout <a href="https://theaok.github.io/dm/exp.do">https://theaok.github.io/dm/exp.do</a>
 
 <h4>if svy res</h4>
 make sure your var is coded right way!<br>
@@ -36,6 +50,9 @@ sum var1 var2<br>
 ta var1 var2, mi<br>
 scatter var1 var2<br>
 hist var1<br><br>
+
+at very least every paper needs  descriptive stats for every variable: mean, sd, min, max
+<br><br>
 
 often need to reverse var, so that higher val means 'more' or 'better' and it`s intuitive eg happiness 1(lo)-3(hi), not 1(hi)-3(lo); install user written command:<br>
 findit revrs<br>
@@ -55,6 +72,23 @@ website <a href="https://gssdataexplorer.norc.org/">https://gssdataexplorer.norc
 identify vars: click 'Search Variables'  eg: 'hope' and click say
 'hpeless', see on right it says 'Related Variables' so you can
 snowball and catch them all on your topic
+
+
+<h4>dont forget about practical/substantive sig!</h4>
+
+
+think and interpret the magnitude, eg: flextime has a large effect on
+happiness-the size effect is about as large as that of household
+income, or about as large as a one-step increase in self-reported
+health, such as up from good to excellent health: 
+<a href="https://link.springer.com/article/10.1007/s11482-017-9525-8">https://link.springer.com/article/10.1007/s11482-017-9525-8</a>
+
+
+also may have beta coef<br>
+regress happiness male city health income age age2, beta<br>
+so then intrepret whether your key var of interest is large or small
+in magnitude as compared to other key vars such as health and income
+
 
 
 <h4>tip of the day: print it out</h4>
@@ -96,10 +130,23 @@ And see <a href="https://theaok.github.io/swb/final_project.pdf">https://theaok.
 sec:"links: good research in words of others"
 
 <h4>don`t work continuously</h4>
+
+its actually good not just for happiness, but also for productivity to take a break; have like a week or two without looking at it at all, and then when you come back youll not just be more productive, but also will see much better things you didnt see earlier; BUT before you take a break try to wrap up as much as you can so you dont lose the momentum and dont spend time on coming back to it; AND do make notes what are the next steps and things todo when you come back<br><br>
+
+
 Let it sit for 2-3 weeks. Or even longer, few months (after the class,
 of course). When you come back you see things you haven`t seen before
 because its all in your head and you don`t realize whats on paper and
 whats missing where (your head v paper).
+
+<h4>be flexible and opportunistic</h4>
+
+
+im realizing its been intensive and overwhelming, so keep in mind what
+i said yesterday: simplify, be flexible and opportunistic (do whats
+easy and doable now) eg readjust your hypothesis to data, keep the big complicated stuff for later,
+likewise per my comments: do *NOT* do everything i ask for: much or most of my comments should be put towards the end into "limitations" and "future research"
+
 
 <h4>do talk to scholars in your field that you know about from the literature</h4>
 The scholars in your narrowly defined field won`t be at your school!
