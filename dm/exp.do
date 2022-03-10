@@ -1,3 +1,6 @@
+//new way in satat17
+//https://www.stata.com/new-in-stata/tables/
+
 /*Exporting regression results*/
 
 /*
