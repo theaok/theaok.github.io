@@ -50,6 +50,10 @@ ckvareditsave female, stub(valid) req(0) rulechgflag(1) rule("in {0,1}")
 ckvar
 */
 
+//NOTE for checking missimgness can use misstable
+sysuse nlsw88.dta, clear
+misstable sum   // to locate the missing values in all the variables
+count if missing(grade, industry)
 
 //---checking with descriptive statistics
 

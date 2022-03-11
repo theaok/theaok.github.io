@@ -41,6 +41,8 @@ outreg2 using excel.xls, replace e(all) long
 /* or maybe just: e(ll N) for instance */
 
 
+//NOTE that outreg2 can also export descriptive stats http://dss.princeton.edu/training/Outreg2.pdf
+
 
 //-----------------estout------------------------------------------------
 est clear
