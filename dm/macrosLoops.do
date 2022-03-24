@@ -235,7 +235,7 @@ display `" Hamlet said "To be, or not to be." "'
 //can also fromat macro...
 sysuse auto,clear
 reg mpg weight   //run a reg
-local r2: display %5.4f e(r2)  //pull out useful info and format it
+local r2: display %5.2f e(r2)  //pull out useful info and format it
 twoway (lfitci mpg weight) (scatter mpg weight), note(R-squared=`r2')  //stick it into a graph
 
 
@@ -341,6 +341,7 @@ mat l e(b)
 loc age=_b[age]
 di `age'        
 
+//------------------------SKIP-----------------------
 
 //this is a way to be productive with code
 //easy to adjust for a project
