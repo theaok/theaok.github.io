@@ -1,3 +1,6 @@
+//redone sp22
+version 16
+
 //!! TODO  compare with this http://www.stata.com/meeting/wcsug07/medeiros_reg_ex.pdf
 
 
@@ -72,9 +75,13 @@ l
 https://www.statalist.org/forums/forum/general-stata-discussion/general/1354264-special-characters-in-string-vars
 https://www.statalist.org/forums/forum/general-stata-discussion/general/1368547-removing-numeric-characters-in-a-string-variable
 */
+
+
+
 /***********************/
 /* regular expressions */
 /***********************/
+
 
 almost the same as POSIX.2
 
@@ -96,7 +103,7 @@ almost the same as POSIX.2
 // [] set; e.g. [a-zA-Z0-9 ], note space !
 // () subexpression group
 
-//-----------------------skip from here----------------------
+//-----------------------SKIP FROM HERE----------------------
 
 //some explanation below, but you'll really get it with examples further below
 
@@ -107,7 +114,8 @@ almost the same as POSIX.2
 //regexr(source,regular-expression, string to replace) 
 //regexr(my_data," bad "," good ")
 
-//------------------------until here------------------------
+//------------------------UNTIL HERE------------------------
+
 
 //this is a key command
 //gen <var> = regexs(1) if regexm(<from_var>, "<before pattern>(extract pattern) <after pattern>")
@@ -155,14 +163,16 @@ l
 //http://www.stata.com/support/faqs/data/leadingzeros.html  
 
 
-//!!!a really good example LETS DO IT (skip weirder ones toward the middle and end starting with names):
+//!!!! a really good example LETS DO IT (skip weirder ones toward the middle and end starting with names):
 //https://stats.idre.ucla.edu/stata/faq/how-can-i-extract-a-portion-of-a-string-variable-using-regular-expressions/
 
 
-//--------------------SKIP ALL from here (convoluted)-------------------------------
+
+//--------------------SKIP ALL from here (convoluted), better use Py!-------------------------------
+//---------------------but if you're stata afficionado, do at home----------------------------
 
 //--- a more complicated example, rather cumbersome...can skim/zip through, but without going into the convoluted detail!
-//from http://www.unc.edu/home/danb/data_programming/stata/code/regex.html
+//from http://www.unc.edu/home/danb/data_programming/stata/code/regex.html [dead link now]
 clear
 input str40 company_name 
 "Coca-Cola"
@@ -342,8 +352,7 @@ outsheet using "/home/ben/SG.2011/ex.csv", replace comma
 */
 
 
-*-----------------------------------a practical
-                                    example-----------------------------
+*-----------------------------------a practical example-----------------------------
 
 //data comes from lexis nexis
 //
