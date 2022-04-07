@@ -352,7 +352,7 @@ outsheet using "/home/ben/SG.2011/ex.csv", replace comma
 */
 
 
-*-----------------------------------a practical example-----------------------------
+*-----------------------------------a practical example SKIP-----------------------------
 
 //data comes from lexis nexis
 //
