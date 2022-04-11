@@ -22,6 +22,12 @@ downloaded from the website; elaboration <a href="https://theaok.github.io/dm/re
 
 per regressions follow excellent <a href="https://stats.oarc.ucla.edu/stata/webbooks/reg/">https://stats.oarc.ucla.edu/stata/webbooks/reg/</a>
 <br><br>
+per interactions:
+<a href="https://www.stata.com/features/overview/factor-variables/">https://www.stata.com/features/overview/factor-variables/</a>
+and 
+<a href="https://www.stata.com/why-use-stata/easy-to-grow-with/linear.pdf">https://www.stata.com/why-use-stata/easy-to-grow-with/linear.pdf</a>
+<br><br>
+
 
 format output properly!! if stata, can
 use: <a href="https://www.google.com/search?q=outreg2&client=firefox-b-1-d&sxsrf=APq-WBsIDwwd6eQ_6DFg2mYGwpj7CR0vow%3A1645562782153&ei=nksVYtzJCLijptQP-vq-8Ak&ved=0ahUKEwjckNeIl5T2AhW4kYkEHXq9D54Q4dUDCA0&uact=5&oq=outreg2&gs_lcp=Cgdnd3Mtd2l6EAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAELADEEMyBwgAELADEENKBAhBGABKBAhGGABQAFgAYJAKaAFwAXgAgAEAiAEAkgEAmAEAyAEKwAEB&sclient=gws-wiz">outreg2</a>
