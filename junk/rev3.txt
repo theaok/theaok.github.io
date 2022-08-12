@@ -64,7 +64,9 @@ done
 convinced me (page 4). Actually, religiosity or secularism might have
 impact on some results."
 
-Misunderstanding! We do control for religiosity
+A misunderstanding! We do control for religiosity! We just do not use
+GSS items as further dependent variables, where it is ambigious whether a
+variable measures morality or religiosity.
 
 "Research data could be more described, analyzed and discussed in the
 research part. Currently there is one massive table and few
