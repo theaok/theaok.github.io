@@ -37,7 +37,7 @@ explicitly listed in limitations
 places.  The sentences could often be a bit richer / more decorative,
 although this is not essential as it is all understandable."
 
-TODO made it less stark and more toned down
+made it less stark and more toned down
 
 in addition moved some of the starkest parts into the appendix 
 
