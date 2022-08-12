@@ -14,7 +14,7 @@ added introduction
 
 moved tab2 independent variables descriptions to appendix
 
-made regression tables more concise; now refereing to all of the tables in
+made regression tables more concise; now referring to all of the tables in
 results section
 
 added gt 250k to largest places to define them numerically
@@ -36,7 +36,7 @@ tables occupying all this part."
 
 again, made the tables more concise
 
-elaborated and  rephrazed the results paragraph
+elaborated and  rephrased the results paragraph
 
 5.- What measures indicate a positive relationship between urbanity and materialism?
 

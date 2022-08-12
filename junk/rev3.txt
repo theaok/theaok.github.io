@@ -8,7 +8,7 @@ toned down
 highlighted that initial evidence meant to spark more
 research and debate
 
-moven strongest statements to appendix
+moved strongest statements to appendix
 
 "I would strongly recommend to write an introduction. One may think
 that the text before "1.Basic Theory" is introduction; however, this
@@ -39,11 +39,11 @@ section 'auxiliary theory'--this also helps with toning it down as
 some most stark and straight points were removed from the body of the
 paper and put in the appendix
 
-and theory from the begining was reincorporated in theory section
+and theory from the beginning was reincorporated in theory section
 
 and moved around between sections so it flows better
 
-relabelled headings from basic/short to more descriptive
+relabeled headings from basic/short to more descriptive
 
 and have 3 theory sections for clarity: start with basic on negative
 side of urbanism; then specifically on pathways/mechanisms from
@@ -65,7 +65,7 @@ convinced me (page 4). Actually, religiosity or secularism might have
 impact on some results."
 
 A misunderstanding! We do control for religiosity! We just do not use
-GSS items as further dependent variables, where it is ambigious whether a
+GSS items as further dependent variables, where it is ambiguous whether a
 variable measures morality or religiosity.
 
 "Research data could be more described, analyzed and discussed in the
@@ -73,7 +73,7 @@ research part. Currently there is one massive table and few
 paragraphs.
 
 moved table with independent variables descriptions to appendix; made
-regression tabes more concise by collapsing regions and religious
+regression tables more concise by collapsing regions and religious
 denominations to yes/no 
 
 "Also in the conclusion part more discussion with references to previous studies can be added."

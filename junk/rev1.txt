@@ -14,7 +14,7 @@ n/a
 cornerstone to the whole paper introduced?  Surely this needs to be
 introduced explicitly?"
 
-now it's "Table 6: Inependent variable definitions."--moved it to the
+now it's "Table 6: Independent variable definitions."--moved it to the
 appendix as per other reviewers complains of too many tables; yes,
 good point they were just put as original gss names xnorcsiz and
 srcbelt, now clarified by adding "(urban-rural)"
