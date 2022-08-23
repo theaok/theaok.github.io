@@ -637,7 +637,7 @@ aok_listtex nuts nutsNameAscii arr tsc pcgdpCur,path(`tmp'aokL1.tex) cap(top 10 
 
 
 //BUG !! fix island how come gdp is zero shit
-
+ 
 
 
 
