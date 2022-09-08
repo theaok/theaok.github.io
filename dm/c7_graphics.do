@@ -207,6 +207,15 @@ twoway (scatter mpg weight, sort msymbol(smcircle_hollow) ) (lfit mpg weight),  
 gr combine  g1.gph g2.gph, c(2) iscale(1) saving(g3, replace)
 //gr combine g0.gph g3.gph, col(1) 
 
+
+//Datenanalyse mit Stata Ulrich Kohler; RU: https://ebookcentral-proquest-com.proxy.libraries.rutgers.edu/lib/rutgers-ebooks/reader.action?docID=4768932#
+//p166 scatterplot with histogram for x and y at top and on the right: //TODO run it annd make sure everything fine
+twoway scatter price mpg, name(xy, replace) xlabel(, grid) ylabel(, grid gmax)
+twoway histogram mpg, name(hx, replace) fraction xscale(alt) xlabel(, grid gmax) fysize(25)
+twoway histogram price, fraction name(hy, replace) horizontal  yscale(alt) ylabel(0(500)2500, grid gmax) fxsize(25) //TODO: fixrescale label properly
+graph combine hx xy hy, imargin(0 0 0 0) hole(2)
+
+
 *//############## descriptive graphs ##############################
 
 /******************/

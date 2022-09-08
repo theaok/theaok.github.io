@@ -1,7 +1,7 @@
 *______________________________________________________________________
 * Data Management in Stata
 *Adam Okulicz-Kozaryn, Summer 09
-*Revised: spring2016, F17, S22
+*Revised: spring2016, F17, S22, f22
 
 * notes : 
 clear         
@@ -184,6 +184,10 @@ replace hi_inc=0 if inc>0 & inc<16
 
 li hi_inc inc, sepby(hi_inc)
 
+//AND pay attention to patterns with missigness, ie missigness is rarely at random,
+//ie vars relate to missingness in other vars,eg:
+// summarize age if !missing(income,emp3)
+// summarize income if !mi(edu,emp)
 
 //EXERCISE 1
 
