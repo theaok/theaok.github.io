@@ -274,6 +274,11 @@ webuse sp500, clear
 histogram open, frequency normal 
 histogram open, percent 
 
+//Datenanalyse mit Stata Ulrich Kohler; RU: https://ebookcentral-proquest-com.proxy.libraries.rutgers.edu/lib/rutgers-ebooks/reader.action?docID=4768932#
+//p178:
+histogram pib, discrete fraction gap(10) addlabels  xlabel(1(1)8, valuelabel angle(45))
+ 
+
 /*SKIP other histograms: byhist, bihist*/
 /* ssc install byhist */
 /* ssc install bihist */
