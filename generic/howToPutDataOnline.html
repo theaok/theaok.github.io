@@ -3,7 +3,13 @@ note! if you have anything private like address, name, dob, ssn, etc: do not upl
 <!-- in general for the sake of time saving please try to keep it under -->
 <!-- 100mb (and definitely 1gb), if bigger just drop some variables or take -->
 <!-- random sample. -->
-note: if dataset is bigger than 25mb, just take a random sample, say in stata "sample 10" to get 10perc random sample; also: zipping reduces file about 3x (and stata can unzip, just google 'stata unzipfile'
+note: if dataset is bigger than 25mb, just take a random sample, say
+in stata "sample 10" to get 10perc random sample; also: zipping
+reduces file about 3x (and stata can unzip, just google 'Stata
+unzipfile'; of course can do the same in Python<br><br>
+
+we may practice by putting online this file:
+< ahref="https://drive.google.com/uc?id=1YH8DfzsQ8suZkVQBk7T9FTKvvm9Vyej8&export=download">https://drive.google.com/uc?id=1YH8DfzsQ8suZkVQBk7T9FTKvvm9Vyej8&export=download</a>
 
 <h3>google drive (upto 25mb)</h3>
 
@@ -76,19 +82,27 @@ https://drive.google.com/file/d/1F4ZfRhKzJAlQKGRDCTEZBGuWjti6JcRd/view?usp=shari
 <!-- \url{http://www.lifehack.org/articles/technology/running-out-room-dropbox-here-are-11-dropbox-alternatives-that-offer-way-more-free-cloud-storage.html}\\ -->
 <!-- \url{http://beebom.com/2015/03/best-dropbox-alternatives-for-cloud-storage} -->
 
-<h2>the following might be slightly different/out of date; i did it
-  few years back</h2>
 
 <h3>github (<25mb) EASY</h3>
  <!-- !LATER: git ignore csv  -->
-can also upload files of upto 25mb to dropbox and then load from
- there, and remember to load the 'raw' file!, eg:<be>
+<dl>
+<li> can also upload files of upto 25mb (maybe even 50) to GitHub 
+<li> under repo hit "Add file" and "Upload new files"
+<li> then about middle-right hit "Raw"
+<li> so the link is "https://raw.githubusercontent.com/USER/REPO/MAIN/FILE" eg:
+<li> "https://raw.githubusercontent.com/blup321/vis/main/a.csv"
+</dl>
+
+		   and remember to load the 'raw' file!, eg:<be>
 insheet using https://github.com/sdegiorgis/test/raw/master/PhillyParcelsSubsample.csv
 
+<h2>the following might be different/out of date; i did it few years back</h2>
+		   
+		   
 <h3>github (<100mb) NOT easy</h3>
 
 can upload data files over 25mb (but not larger than 100mb) to GitHub if you upload them
-through the command in your computer's command prompt (for my Mac it's called terminal). It took a million articles and tutorials
+through the command in your computers command prompt (for my Mac its called terminal). It took a million articles and tutorials
 but I finally got my biggest data set to upload this way! If it would be helpful, I could take the time to type up how I did 
 this for my classmates/future students to use to upload bigger data sets to GitHub. One of the key articles I used is here:
 https://help.github.com/en/github/managing-files-in-a-repository/adding-a-file-to-a-repository-using-the-command-line 		   
