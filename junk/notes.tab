@@ -8,10 +8,10 @@ pcPerInc	Per capita personal income		"Per capita personal income is total person
 resGasPri			"http://www.eia.gov/dnav/ng/ng_pri_sum_a_epg0_prs_dmcf_m.htm"	2015	2022
 sal_tax	state sales tax rate	source: Tax Foundation (2013)	"http://showmeideas.org/selected-economic-indicators/ 00-09; http://taxfoundation.org/article/state-and-local-sales-tax-rates-2011-2013 ;11-13 and according urls for later"	2000	2022
 busCli	State Business Tax Climate Index tax foundation		https://taxfoundation.org/2023-state-business-tax-climate-index/	2014	2022
-govAdmExp	state expenditure on govt adm			2000	2020
-debtInt	interest on debt			2000	2020
-taxRev	state total tax revenue (not total revenue, which is much bigger)			2000	2020
-totRev	state total revenue			2000	2020
+govAdmExp	state expenditure on govt adm			2000	2021
+debtInt	interest on debt			2000	2021
+taxRev	state total tax revenue (not total revenue, which is much bigger)			2000	2021
+totRev	state total revenue			2000	2021
 comGasPri	Natural Gas Prices (Dollars per 1,000 Cubic Ft; Commercial, Apr		"http://www.eia.gov/dnav/ng/ng_pri_sum_a_EPG0_PCS_DMcf_m.htm"	2015	2022
 pop	population, Jul 1st		"files: https://www2.census.gov/programs-surveys/popest/tables/2010-2016/state/totals/nst-est2016-01.xlsx https://www2.census.gov/programs-surveys/popest/tables/2010-2018/state/totals/nst-est2018-01.xlsx, and similar for later"	2000	2021
 popGro	population growth from previous year, percent			2001	2021
@@ -41,12 +41,12 @@ estBirPC	establishment (firms) births relative to last year/cap 1k			2000	2020
 estDeaPC	establishment (firms) deaths relative to last year/cap 1k			2000	2020
 gdpPC	GDP  (millions of current dollars)/cap 1k			2000	2021
 proTaxRevPC	rev from property tax; st and loc gov amnt/cap 1k			2000	2020
-insTruExpPC	state insurance trust expenditure/cap 1k			2000	2020
+insTruExpPC	state insurance trust expenditure/cap 1k			2000	2021
 totDisPC	bailout: $ total disbursed (as of Jul2017)/cap 1k			2019	2019
-debtEndFiscYrPC	state debt at the end of fiscal year/cap 1k			2000	2020
+debtEndFiscYrPC	state debt at the end of fiscal year/cap 1k			2000	2021
 govEmpAllPC	Empl: Gov and gov enterprises; total full and part time/cap 1k			2000	2021
 govEmpStLoPC	st and loc empl: Gov and gov enterprises; total full and part time/cap 1k			2000	2021
-debtEndFiscYrPGDP	state debt at the end of fiscal year / GDP (millions of current dollars)			2000	2020
-debtTotRev	state debt at the end of fiscal year / state total revenue			2000	2020
-debtTaxRev	state debt at the end of fiscal year / state tax revenue			2000	2020
-debtIntTaxRev	interest on debt / state total tax (not TOT) revenue			2000	2020
+debtEndFiscYrPGDP	state debt at the end of fiscal year / GDP (millions of current dollars)			2000	2021
+debtTotRev	state debt at the end of fiscal year / state total revenue			2000	2021
+debtTaxRev	state debt at the end of fiscal year / state tax revenue			2000	2021
+debtIntTaxRev	interest on debt / state total tax (not TOT) revenue			2000	2021
