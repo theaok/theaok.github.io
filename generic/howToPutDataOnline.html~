@@ -50,7 +50,7 @@ https://drive.google.com/file/d/1F4ZfRhKzJAlQKGRDCTEZBGuWjti6JcRd/view?usp=shari
 <!-- <li> so it would become <a href="https://docs.google.com/uc?id=0B5Y56f52-YHrMEpQX2ZwVDV0QVE&export=download">https://docs.google.com/uc?id=0B5Y56f52-YHrMEpQX2ZwVDV0QVE&export=download</a> -->
 <!-- <li> in this example it's a .dta file so to load it, you'd say:</br>  -->
 <!--  use  "https://docs.google.com/uc?id=0B5Y56f52-YHrMEpQX2ZwVDV0QVE\&export=download" -->
-<li> and then paste that FILE\_ID into:<br> 
+<li> and then paste that FILE_ID into:<br> 
   https://docs.google.com/uc?id=FILE_ID&export=download
 <li> so it would become:<br>
   https://docs.google.com/uc?id=1F4ZfRhKzJAlQKGRDCTEZBGuWjti6JcRd&export=download
@@ -89,7 +89,7 @@ https://drive.google.com/file/d/1F4ZfRhKzJAlQKGRDCTEZBGuWjti6JcRd/view?usp=shari
 <li> can also upload files of upto 25mb (maybe even 50) to GitHub 
 <li> under repo hit "Add file" and "Upload new files"
 <li> then about middle-right hit "Raw"
-<li> so the link is "https://raw.githubusercontent.com/USER/REPO/MAIN/FILE" eg:
+<li> so the link is "https://raw.githubusercontent.com/USER/REPO/main/FILE" eg:
 <li> "https://raw.githubusercontent.com/blup321/vis/main/a.csv"
 </dl>
 
