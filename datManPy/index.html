@@ -14,3 +14,158 @@ Fall 2023 Tue 6.00-8.50pm BSB-134<br>
 <li> office: 321 Cooper St, room 302;  office hours: Mon 4-5, and by appointment
 <li> or just stop by: this semester I am in most of Mon and Thu
 </ul>
+
+<h4>prerequisites</h4>
+
+You need to be comfortable using a computer. Knowledge of Python (or
+Stata, R, etc ) and data-management/computer science is helpful but not
+necessary. We will cover the basics. 
+
+<h4>course description</h4>
+
+Most of this class is writing simple Python code; if you do not like
+programming, this class is not for you... But you may not yet know
+whether you like it and you may start liking it in this class: it
+often happened before!
+<br><br>
+The class teaches tools for data
+cleaning, organization, manipulation and automation. Topics
+include data types, text/math functions, labeling, recoding,
+documentation, merging, and reshaping.  We'll use loops, and if/else.  
+
+<h4>learning objectives/outcomes</h4>
+
+You'll learn:
+<dl>
+<li> about data (sources, best practices, tips and tricks): this class
+  is as much about Python as about data (you'll use the data you chose
+  that will serve you well beyond this class!!) 
+<li> the basics of the computer programming
+<li> the practice of data management (there will be some theory, too)
+<li> how to conduct reproducible research 
+<li> how to automate research by programming
+<li> GIT, a version control system 
+</dl>
+
+You'll demonstrate mastery of the material by writing code for a
+project/paper using learned  techniques;
+you may cowrite code (<b>upto 3 people</b>) but then
+the project should be <b>3</b> times better than a single-authored paper.
+
+<h4>required textbooks and materials</h4>
+
+No required textbooks. All required materials (code, readings) will be provided. 
+
+<h4>recommended course materials</h4>
+
+Will be provided as we go forward in weekly class materials, and
+possibly added here. 
+
+
+<h3>software</h3>
+
+<!-- <h4>QGIS</h4> --> <!-- free download (best option: user friendly) -->
+We'll use Python >=3.10<!-- in classroom: 3.2 'Bonn' --> (latest: 3.11)
+(<a href="https://www.python.org">python.org</a>). Can
+      download for free for Linux, Win, Mac. We will use several libs,
+	mostly GeoPandas.<br>   
+
+BUT no need to download or install any software: we will run
+  Python online in webbrowser in the cloud, so called "Colab" (2
+  sections down). But first lets get GitHub running.
+	
+      <!-- <br><br> -->
+      <!-- If you have old/broken/etc laptop: run qgis at school or off -->
+      <!-- apps.camden.rutgers.edu, just go to that url in web browser; if -->
+      <!-- it doesnt work, may need to activate first at: https://services.oit.rutgers.edu/services/manage.cgi?.State=Manage%20Services&arg= -->
+
+      
+
+<!-- <h4>GeoDa</h4> -->
+<!-- <\!-- A great advantage of QGIS is that it communicates well with Python. We -\-> -->
+<!-- <\!-- will cover Python in the second part of class, but -\-> -->
+<!-- <\!--  usage of Python  is not necessary for successful completion of this class. -\-> -->
+<!-- <\!-- Python is free  <a href="http://www.python.org/">http://www.python.org/</a> -\-> We'll -->
+<!-- also use GeoDA for spatial statistics later in the course, which is also free and cross-platform <a href="http://geodacenter.asu.edu/">http://geodacenter.asu.edu/</a> -->
+<!-- <br><br> -->
+
+<a name="git"><h5>GitHub<!-- (very quick HOWTO on basic use of github.com) --></h5></a>
+ <!-- (first -->
+<!-- make a quick ex1.do with say just 'sysuse auto, clear' and 2nd line 'd') -->
+
+We will use GitHub to store the Python code in form of a notebook, and
+we will edit (and run) the notebook in colab (next sec).
+
+<dl>
+<!-- <li> when submitting ps in git just have one file that you will be -->
+<!--   updating for each ps!! [can just call it ps.do] -->
+<!-- <li> if you are serious about programming, you should use a -->
+<!--   version control system, say GIT -->
+<!-- <li> set up a repo on <a href="https://github.com/">github.com</a> -->
+<!--   or <a href="https://bitbucket.org">bitbucket.org</a> or something else -->
+<!-- <li> that way we will be more productive: i will be able to give you -->
+<!--   much more comments and suggestions and offer more help writing code  -->
+<!-- <li> it is also much more fun! and this is how code must be written if -->
+<!--   you are serious about it; to get started just go to one of the above websites  -->
+<!-- <li> let's talk outside of the class about GIT if you decide to use it! -->
+</dl>
+
+<li> <u>sign up or login</u> at <a href="https://github.com/">github.com</a>
+  <!-- (can also use <a href="https://bitbucket.org">bitbucket.org</a> or something else) -->
+<li> (depending on os, browser) on top left hit "New" or "Create
+  Rpository" or top right under plus "+" select "New repository"
+<li> pick some repository name, say "vis" 
+  <!-- your right 'New repository' button: click it; or on -->
+  <!-- the left  go to 'repositories', click 'new'; then pick some name for -->
+  <!-- your repository -->; keep
+  selected 'Public'; important!: under  "Initialize this repository
+  with" check "Add a README file";  and hit at the bottom "Create repository"
+<!-- <li> then click blue 'README' about in the middle and third of a page -->
+<!--   from the top, can write something there, say brief description of -->
+<!--   what you're gonna be doing, then hit 'Commit new file'  -->
+
+ <!--  <li> now can simply hit button 'Upload files' and choose your dofile, -->
+ <!-- say ps0.do, important: add some meaningful commit message, say: 'first try on importing and exporting data' and hit 'Commit -->
+ <!-- changes' button -->
+<li> then hit "Settings" towards the middle-top right;  on the left select
+  "Collaborators" tab and hit "Add people" : "theaok", and hit "Add theaok to this repository"
+</dl>
+
+<dl><u>workflow: my comments, diffs, inline response <b>[lets go over this next week again]</b></u>
+<li> i will run it in my Colab, edit, and upload back 
+<li> diff and response to my comments: actually cleaner and better in
+  colab: File-Revision history; <small><small> or clunky in GitHub:
+   can click my commit message and see the so called
+  diff--the difference between your version and my version:</small></small> important!
+  do make sure to fix it up for next ps, you may even have inline
+  response to my comments in your next ps (especially if sth complex
+  or if you disagree) 
+<li>  <!--you can either start another dofile from scratch on -->
+  <!-- github.com or you can keep on working with this one--if so then -->
+  <!-- download this latest version first, edit it, and upload it back when -->
+  <!-- done-- -->dont forget about a meaningful commit message--can keep on
+  uploading newer versions as many times as you like 
+<li> note: when you click the file, you can then click 'History' and
+  see how the file evolved over time :)
+<li> a thought about file naming: ps1.ipynb, ps2.ipynb, etc, or
+  ps1, ps2, etc sections in one file; or just one file and keep it updating throught with new stuff as we go! 
+</dl>
+
+<h4>grading</h4>
+
+<dl>
+<li> 60% (6ps x 10%) problem sets  [just computer code] <!-- TODO have 7 next year and make final -->
+  <!-- project 30perc -->
+<li> 30% final project  [just another computer code  wrapping previous ps] <!-- (code only; incl presentation (code and some output esp graphs<b>2*5%</b>)) -->  
+<li> 10% of final grade for engagement (class participation (answering/asking questions, helping others, etc)  and listserv discussions) and civic engagement (see bottom of the syllabus)
+</dl>
+
+<hr />
+
+<h2>calendar</h2>
+[*] = bonus (extra/not required)<br>
+
+sep5 intro
+<dl>
+<li>
+</dl> 
