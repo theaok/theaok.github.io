@@ -14,8 +14,8 @@ body {
 edited continuously)<br>
 <b>gis-py@googlegroups.com</b> listserv (everyone in class gets these
 emails, use often!) [email me if you didn't get welcome email or can't
-email listserv (i may need to add your alternative email! just added
-one from roster)]<br> 
+email listserv (i may need to add your alternative email! only added
+roster's email)]<br> 
 <!--   <small>if too many emails: can filter them into a folder in your -->
 <!--   gmail:https://support.google.com/mail/answer/6579?hl=en and/or  sign -->
 <!--   into https://groups.google.com/g/gis_int and see conversations as -->
@@ -45,7 +45,7 @@ Fa 2023; Tue *and* Thu 3:35-4:55pm, BSB-336 <!-- CCC-NCR --> <!-- <b>online! zoo
 
 <h3>prerequisites</h3>
 
-You need to be comfortable using a computer and able to write simple
+You need to be comfortable using a computer, and able to write simple
 code in Python or willing to learn it. Most of the class material is
 simple coding in Python. There is no
 prerequsite to know Python, you can learn it in the class.
@@ -62,13 +62,13 @@ produce maps, put interesting info
 <!--  do basic research, -->
 <!-- eg public pol/admin, sociology, -->
 <!-- criminology, and public health/epidemiology. -->
-GIS  useful in all fields.<!-- --no matter what you study it <u>always</u> -->
+GIS is useful in all fields that have any geographic/location info.<!-- --no matter what you study it <u>always</u> -->
 <!-- takes place somewhere and place matters -->
 
 
 <h3>course objectives</h3>
 <ul>
-<li>manipulate data: import/export, subset, merge, dissolve, produce centroids, etc 
+<li>manipulate data: import/export, subset, merge/join, dissolve, produce centroids, etc 
 <li>visualize data: <!-- create professional --> make maps
 <!-- <li>perform basic geographic analysis, such as correlation is space  -->
 </ul>
@@ -84,7 +84,7 @@ none
 <!-- <h4>QGIS</h4> --> <!-- free download (best option: user friendly) -->
 We'll use Python >=3.10<!-- in classroom: 3.2 'Bonn' --> (latest: 3.11)
 (<a href="https://www.python.org">python.org</a>). Can
-      download for free for Linux, Win, Mac. And we will use several libraries,
+      download for free for Linux, Win, Mac. We will use several libs,
 	mostly GeoPandas.<br>   
 
 BUT no need to download or install any software: we will run
@@ -110,8 +110,8 @@ BUT no need to download or install any software: we will run
  <!-- (first -->
 <!-- make a quick ex1.do with say just 'sysuse auto, clear' and 2nd line 'd') -->
 
-We will use GitHub to store the Python code in form of a notebook, we
-will edit the notebook in colab (next sec).
+We will use GitHub to store the Python code in form of a notebook, and
+we will edit (and run) the notebook in colab (next sec).
 
 <dl>
 <!-- <li> when submitting ps in git just have one file that you will be -->
@@ -153,11 +153,11 @@ will edit the notebook in colab (next sec).
 <li> diff and response to my comments: actually cleaner and better in
   colab: File-Revision history; <small><small> or clunky in GitHub:
    can click my commit message and see the so called
-  diff--the difference between your version and my version: important!
+  diff--the difference between your version and my version:</small></small> important!
   do make sure to fix it up for next ps, you may even have inline
   response to my comments in your next ps (especially if sth complex
-  or if you disagree) </small></small>
-<li>  you can <!-- either start another dofile from scratch on -->
+  or if you disagree) 
+<li>  <!--you can either start another dofile from scratch on -->
   <!-- github.com or you can keep on working with this one--if so then -->
   <!-- download this latest version first, edit it, and upload it back when -->
   <!-- done-- -->dont forget about a meaningful commit message--can keep on
@@ -165,7 +165,7 @@ will edit the notebook in colab (next sec).
 <li> note: when you click the file, you can then click 'History' and
   see how the file evolved over time :)
 <li> a thought about file naming: ps1.ipynb, ps2.ipynb, etc, or
-  sections in one file; or just one file and keep it updating throught with new stuff as we go! 
+  ps1, ps2, etc sections in one file; or just one file and keep it updating throught with new stuff as we go! 
 </dl>
 
 <small><small>
@@ -190,7 +190,7 @@ probably the first two are most useful:
 
 <a name="colab"><h5>colab</h5></a> 
 
-You can just run Py notebook in Colab and save subsequent versions in
+Just run Py notebook in Colab and save subsequent versions in
 Github that will keep track of changes [stick with this for the ps]<!-- , and -->
 <!-- for ps submission add me, theaok, to your github -->
 <!-- (https://stackoverflow.com/questions/62596466/how-can-i-run-notebooks-of-a-github-project-in-google-colab)<br> -->
@@ -251,7 +251,7 @@ over Git<25mb]:
 <li> <!-- Strictly speaking an advice, rather than a requirement, but in -->
   <!-- practice really a requirement, as it is virtually impossible to -->
   <!-- succeed otherwise! --> <b>2 keys to success: start early AND ask often many questions; (and study groups: get couple people on zoom, screenshare notebooks, etc)</b> This is a
-  software class. It is different from typical soc sci classes! You will get
+  software class. It is different non-software classes. You will get
   stuck often and whenever stuck, email listserv, ask me, ask your
   classmates, as opposed to pulling
   your hair out! And stop by my office, too. Googling (and chatGPT?)  solves most
@@ -259,10 +259,10 @@ over Git<25mb]:
   classmates; also more social/human, if you talk to computer all the
   time, its not healthy.
 <li> There are several problem sets (ps) due the following week after being
-  posted (unless indicated otherwise; many ps will be due in 2
-  weeks). You will be asked to write some computer code that 
+  posted (unless indicated otherwise; many ps due in 2
+  weeks). You will write computer code that 
   does something that we covered in the class to your data. You may
-  work in groups (<b><=2</b>), but <u>say who you worked with</u>,
+  work in groups (<b><=4</b>), but <u>say who you worked with</u>,
   and the more people in the group, the better/longer the code must be.
 <li> Final project is like final paper (doing some useful empirical
   quantitative research), except that I only grade code, in fact you can submit
@@ -279,14 +279,14 @@ over Git<25mb]:
 
 <!-- <h4>grading</h4> -->
 
-<dl>
-<li> 60% problem sets  (6ps x 10%) [just Pyhon code (notebook)] <!-- TODO have 7 next year and make final -->
-  <!-- project 30perc -->
-<li> 30% final project  [just another computer code file wrapping previous ps] <!-- (code only; incl presentation (code and some output esp graphs<b>2*5%</b>)) -->  
-<li> 10% course participation (class participation (answering/asking
-  questions, helping others, etc)  and listserv discussions) and civic
-  engagement 
-</dl>
+<!-- <dl> -->
+<!-- <li> 60% problem sets  (6ps x 10%) [just Pyhon code (notebook)] <\!-- TODO have 7 next year and make final -\-> -->
+<!--   <\!-- project 30perc -\-> -->
+<!-- <li> 30% final project  [just another computer code file wrapping previous ps] <\!-- (code only; incl presentation (code and some output esp graphs<b>2*5%</b>)) -\->   -->
+<!-- <li> 10% course participation (class participation (answering/asking -->
+<!--   questions, helping others, etc)  and listserv discussions) and civic -->
+<!--   engagement  -->
+<!-- </dl> -->
 
 		
 
@@ -336,7 +336,7 @@ materials continuously and theyll be changing slightly <br>
 <h3>dive into thematic mapping</h3>
 
  
-<h4>?? intro </h4> 
+<h4>sep5,7 intro </h4> 
 <ul> will fire up Python, load some data, and produce our first thematic map
 <li> everyone got welcome email (from google groups "gis-py")? if not, do email me! very
   important! otherwhise you miss critical communication!
@@ -353,10 +353,6 @@ materials continuously and theyll be changing slightly <br>
 <!--     Plugin management   -->
 
 
-TODO do a bit of pandas for dat man like reading in data and looking at it!!<br>
-
-TODO pick up from here: rmember its data sci so have other data too <br>
-  like natural sicence etc
   
  <h4> <font color="red"> >>>note: the following will be updated>>> </font>  </h4> 
 
@@ -868,14 +864,14 @@ These videocasts and podcasts are the exclusive copyrighted property of Rutgers 
 
 <hr />
 
-<h3>description/objectives in terms of "universal competencies" (naspaa) </h3><!-- naspa boilerplate as per that spreadsheet that patrice came up with -->
+<!-- <h3>description/objectives in terms of "universal competencies" (naspaa) </h3><\!-- naspa boilerplate as per that spreadsheet that patrice came up with -\-> -->
 
 
-This class is about management and analysis of geographic data. Students produce maps and interpret them--not only technical correctness is emphasized, but also use of GIS for problem solving and decision making. 
-In this class students learn by example. Most, if not all, examples/tutorials/exercises that I provide are about public service. For instance, we use data about education, income inequality and public health indicators. As a part of mapping process, we discuss what these maps mean for  public service/policy.
-Maps are about communicating data. An exciting feature of maps is that they can be easily/intuitively understood by everyone if they are produced properly. There is least one class devoted to principles of communication using maps: simplicity/clarity, insight/discovery, relevance/usefulness, etc
-The role of (geographic) data in   management/leadership is increasing. Students not only produce maps, but also interpret them, which usually informs decision making. Also,  at least one class is devoted to data sources--I want to show students that no matter what research question or management task they are dealing with, there will be almost always plenty of (geographic) data that can be used.
-Mapping is an excellent tool to contribute to policy process. It is emphasized in this class that mapping can be used at least in several ways--e.g., description of a situation, monitoring of a progress/process, inference of a relationship. 
+<!-- This class is about management and analysis of geographic data. Students produce maps and interpret them--not only technical correctness is emphasized, but also use of GIS for problem solving and decision making.  -->
+<!-- In this class students learn by example. Most, if not all, examples/tutorials/exercises that I provide are about public service. For instance, we use data about education, income inequality and public health indicators. As a part of mapping process, we discuss what these maps mean for  public service/policy. -->
+<!-- Maps are about communicating data. An exciting feature of maps is that they can be easily/intuitively understood by everyone if they are produced properly. There is least one class devoted to principles of communication using maps: simplicity/clarity, insight/discovery, relevance/usefulness, etc -->
+<!-- The role of (geographic) data in   management/leadership is increasing. Students not only produce maps, but also interpret them, which usually informs decision making. Also,  at least one class is devoted to data sources--I want to show students that no matter what research question or management task they are dealing with, there will be almost always plenty of (geographic) data that can be used. -->
+<!-- Mapping is an excellent tool to contribute to policy process. It is emphasized in this class that mapping can be used at least in several ways--e.g., description of a situation, monitoring of a progress/process, inference of a relationship.  -->
 
 <hr />
 <h3>civic engagement component (opportunity for extra credit!)</h3>
