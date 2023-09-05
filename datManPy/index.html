@@ -1,13 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+  font-family: Sans-Serif; line-height:130% ; font-size:12px}
+</style>
+</head>
+<body>
+
 56:219:522 data processing (data management for data science)<br>
 fa23 tue 6-8.50 bsb134<br>
 
-(there is also a version of this class in stata: 
-<a href= "https://theaok.github.io/dm">stata version</a>, both classes
-cover similar material just using different software: python v stata)<br> 
+(<a href= "https://theaok.github.io/dm">stata version</a> of this class<br> 
 
 <b>https://theaok.github.io/datManPy</b>  most current syllabus (updated continuously)<br><br>
 
-datman@googlegroups.com is a listserv (everyone in class gets these)<br>
+<b>datman@googlegroups.com</b>  listserv (everyone in class gets these)<br>
 
 
 <ul> instructor
@@ -18,40 +26,33 @@ datman@googlegroups.com is a listserv (everyone in class gets these)<br>
 
 <h4>prerequisites</h4>
 
-You need to be comfortable using a computer. Knowledge of Python (or
-Stata, R, etc) and data-management/computer science is helpful but not
+You need to be comfortable using a computer. Knowledge of Python (R, 
+Stata, etc) and data-management/computer science is helpful but not
 necessary. We will cover the basics. 
 
-<h4>course description</h4>
+<h4>course description and learning objectives/outcomes</h4>
 
 Most of this class is writing simple Python code; if you do not like
 programming, this class is not for you... But you may not yet know
-whether you like it and you may start liking it in this class: it
-often happened before!
+whether you like it and  may start liking it in this class: it
+ happened before!
 <br><br>
-The class teaches tools for data
-cleaning, organization, manipulation and automation. Topics
-include data types, text/math functions, labeling, recoding,
-documentation, merging, and reshaping.  We'll use loops, and if/else.  
+You will learn how to manage your data:  clean, organize, manipulate
+and automate. Eg:  data types, text/math functions, labels, recoding,
+documentation, merging, and reshaping.  Also loops, and if/else.  
 
-<h4>learning objectives/outcomes</h4>
 
-You'll learn:
+You'll learn about:
 <dl>
-<li> about data (sources, best practices, tips and tricks): this class
+<li> data (sources, best practices, tips and tricks): this class
   is as much about Python as about data (you'll use the data you chose
   that will serve you well beyond this class!!) 
-<li> the basics of the computer programming
-<li> the practice of data management (there will be some theory, too)
-<li> how to conduct reproducible research 
-<li> how to automate research by programming
-<li> GIT, a version control system 
+<li> hands-on/applied Python/Pandas (there will be some theory, too)
 </dl>
 
 You'll demonstrate mastery of the material by writing code for a
-project/paper using learned  techniques;
-you may cowrite code (<b>upto 3 people</b>) but then
-the project should be <b>3</b> times better than a single-authored paper.
+project/paper: may cowrite code (<b>upto 3 people</b>) but then
+the project should be <b>3</b> times better than a single-authored one.
 
 <h4>required textbooks and materials</h4>
 
@@ -66,14 +67,14 @@ possibly added here.
 <h3>software</h3>
 
 <!-- <h4>QGIS</h4> --> <!-- free download (best option: user friendly) -->
-We'll use Python >=3.10<!-- in classroom: 3.2 'Bonn' --> (latest: 3.11)
+ Python >=3.10<!-- in classroom: 3.2 'Bonn' --> (latest: 3.11)
 (<a href="https://www.python.org">python.org</a>). Can
       download for free for Linux, Win, Mac. We will use several libs,
-	mostly Pandas.<br>   
+ mostly Pandas.<br>   
 
-BUT no need to download or install any software: we will run
-  Python online in webbrowser in the cloud, so called "Colab" (2
-  sections down). But first lets get GitHub running.
+BUT no need to download or install anything: we will run
+  Python online (in webbrowser in the cloud), so called "colab" (2
+  sections down). But first GitHub.
 	
       <!-- <br><br> -->
       <!-- If you have old/broken/etc laptop: run qgis at school or off -->
@@ -94,8 +95,8 @@ BUT no need to download or install any software: we will run
  <!-- (first -->
 <!-- make a quick ex1.do with say just 'sysuse auto, clear' and 2nd line 'd') -->
 
-We will use GitHub to store the Python code in form of a notebook, and
-we will edit (and run) the notebook in colab (next sec).
+We will use GitHub to store Python code (.py) in form of a
+notebook (.ipynb), and we will edit (and run) the notebook in colab (next sec).
 
 <dl>
 <!-- <li> when submitting ps in git just have one file that you will be -->
@@ -113,9 +114,9 @@ we will edit (and run) the notebook in colab (next sec).
 
 <li> <u>sign up or login</u> at <a href="https://github.com/">github.com</a>
   <!-- (can also use <a href="https://bitbucket.org">bitbucket.org</a> or something else) -->
-<li> (depending on os, browser) on top left hit "New" or "Create
+<li> (depending on os/browser) on top left hit "New" or "Create
   Rpository" or top right under plus "+" select "New repository"
-<li> pick some repository name, say "vis" 
+<li> pick some repository name, say "datman" 
   <!-- your right 'New repository' button: click it; or on -->
   <!-- the left  go to 'repositories', click 'new'; then pick some name for -->
   <!-- your repository -->; keep
@@ -144,11 +145,11 @@ we will edit (and run) the notebook in colab (next sec).
 <li>  <!--you can either start another dofile from scratch on -->
   <!-- github.com or you can keep on working with this one--if so then -->
   <!-- download this latest version first, edit it, and upload it back when -->
-  <!-- done-- -->dont forget about a meaningful commit message--can keep on
+  <!-- done-- --> dont forget about a meaningful commit message--can keep on
   uploading newer versions as many times as you like 
 <li> note: when you click the file, you can then click 'History' and
   see how the file evolved over time :)
-<li> a thought about file naming: ps1.ipynb, ps2.ipynb, etc, or
+<li> file naming: ps1.ipynb, ps2.ipynb, etc, or
   ps1, ps2, etc sections in one file; or just one file and keep it updating throught with new stuff as we go! 
 </dl>
 
@@ -167,10 +168,10 @@ Github that will keep track of changes [stick with this for the ps]<!-- , and --
     to <a href="https://github.com/theaok/datManPy/blob/main/pandas.ipynb">https://github.com/theaok/datManPy/blob/main/pandas.ipynb</a>
     and hit 'open in colab'
     <small><small>OR go
-  to <a href="https://github.com/theaok/datManPy/blob/main/pandas.ipynb">https://github.com/theaok/datManPy/blob/main/pandas.ipynb</a>
+  to <a href="colab.research.google.com">colab.research.google.com</a>
   and on popup pick GitHub, search for:<br>
   https://github.com/theaok/datManPy/blob/main/pandas.ipynb<br>
-  (it should find it and click "all.ipynb", and it should load it into colab, and
+  (it should find it and load it into colab, and
   follow instructions at the top of the file, ie save it in your
   GitHub etc)<br></small></small>
   <li> and as we have more editions of this class i will fork best
@@ -183,13 +184,11 @@ Github that will keep track of changes [stick with this for the ps]<!-- , and --
 </div>
 
 The class is a bit like an independent study: you will carry out some
-research (by making maps).
-You need your own data for this class ASAP, the more data and the more
+very basic research. You do need your own data for this class ASAP: the more data and the more
 complex, the better. Software will need to load the data straight up
-from online! Some data are easily downloadable from online
+from online. Some data  easily downloadable from online
 eg <a href="https://gss.norc.org/get-the-data/stata">https://gss.norc.org/get-the-data/stata</a>,
-but many are not. Then you have to put data online yourself [just go
-over Git<25mb]:  
+but many  not. Then you have to put data online yourself [just go over Git<25mb]:  
 <a href="https://theaok.github.io/generic/howToPutDataOnline.html">https://theaok.github.io/generic/howToPutDataOnline.html</a><br><br>
 
 <a href="https://www.icpsr.umich.edu/web/pages/ICPSR/index.html">icpsr: biggest repository of survey data; check out also var search</a><br>
@@ -281,3 +280,5 @@ Any student with a disability affecting performance in the class
 should contact the disability office ASAP: <a href="http://learn.camden.rutgers.edu/disability/disabilities.html">http://learn.camden.rutgers.edu/disability/disabilities.html</a>
 
 </div>
+
+</body>
