@@ -128,10 +128,10 @@ pdftex]{graphicx} %draft is a way to exclude figures
   Hey! Cities! Leave them kids alone!
 }
 \author{
-Adam Okulicz-Kozaryn\thanks{EMAIL: adam.okulicz.kozaryn@gmail.com
-  \hfill I thank XXX.  All mistakes are mine.} \\
-{\small Rutgers - Camden  % and Vistula University
-}
+% Adam Okulicz-Kozaryn\thanks{EMAIL: adam.okulicz.kozaryn@gmail.com
+%   \hfill I thank XXX.  All mistakes are mine.} \\
+% {\small Rutgers - Camden  % and Vistula University
+% }
 }
 
 \begin{document}
@@ -152,7 +152,7 @@ Adam Okulicz-Kozaryn\thanks{EMAIL: adam.okulicz.kozaryn@gmail.com
 \noindent strong effects! on the whole, 0.5 on 1-10 scale, and for some countries close to 1!
 \end{abstract}
 \vspace{.15in} 
-\noindent{\sc XXX TODO add to ebib as keyword PAPER-CODE-NAME and tag with ebib keywords 
+\noindent{\sc %XXX TODO add to ebib as keyword PAPER-CODE-NAME and tag with ebib keywords 
 }
 \vspace{.25in} 
 
@@ -226,13 +226,17 @@ TODO varDes
 % \end{figure}
 
 
-The differences are large--about .5 on 0-10 SWB scale
-
->>>boilerplate from UAR genetic being half then personal and only littyle left
-for environmental etc
-
-
-. And in a1-a3\footnote{Not
+The differences are large--about .5 on 0-10 SWB scale. It needs to be remembered
+that ecological variables have small effects on SWB as
+ expected--most SWB is explained by genes \citep{schnittker08} and person level
+ predictors \citep{veenhoven14b}). % . Still, the leading social scientists
+ % such as Amartya Sen and Ed Diener advocate use of SWB for
+ % public policy \citep{stiglitz09al,diener09}.
+ %
+ %
+ %
+ %
+ And in a1-a3\footnote{Not
 in a4 controling for country dummies.} there is a big
 difference between the largest cities (gt1m) and everything else just as for
 adults \citep{aok-ls_fisher16}. But interestingly, not necessarily like adults,
@@ -264,7 +268,7 @@ Finally we split by gender in a4m and a4f--interestingly city penaly higher for 
                                                                       robust std
                                                                       err \end{tabular}\end{scriptsize}\caption{\label{a4cou}OLS
                                                                     regressions
-                                                                    of SWB on
+                                                                    of life satisfaction on
                                                                     place size
                                                                     for each
                                                                     country
@@ -286,7 +290,7 @@ in table \ref{regB} different from lifests, biggest hit from lt3k to 3-15k in b1
 controllig for countruy dummies rather smooth gradient. females aboy 2x less
 eudamonia than males in urb v rural
 
-\begin{table}[H]\centering\caption{OLS regressions of life satisfaction.} \label{regB} \begin{scriptsize} \begin{tabular}{p{2.2in}p{.6in}p{.6in}p{.6in}p{.6in}|p{.6in}p{.6in}p{.6in}p{.6in}p{.6in}p{.6 in}p{.6in}p{.6 in}}\hline \input{../out/regB.tex} \hline\multicolumn{4}{l}{*p$<$0.05 **p$<$0.01 ***p$<$0.001} \end{tabular}\end{scriptsize}\end{table}
+\begin{table}[H]\centering\caption{OLS regressions of Eudamonia.} \label{regB} \begin{scriptsize} \begin{tabular}{p{2.2in}p{.6in}p{.6in}p{.6in}p{.6in}|p{.6in}p{.6in}p{.6in}p{.6in}p{.6in}p{.6 in}p{.6in}p{.6 in}}\hline \input{../out/regB.tex} \hline\multicolumn{4}{l}{*p$<$0.05 **p$<$0.01 ***p$<$0.001} \end{tabular}\end{scriptsize}\end{table}
 
 in atble \ref{b4cou} urban eudamia penalty is less clear than life
 satisfaction--while most countries do have urban penalty, there is a handful
@@ -304,19 +308,23 @@ with urban eudamonic premium
                                                                       robust std
                                                                       err \end{tabular}\end{scriptsize}\caption{\label{b4cou}OLS
                                                                     regressions
-                                                                    of SWB on
+                                                                    of Eudamonia on
                                                                     place size
                                                                     for each
                                                                     country
                                                                     separately
-                                                                    includiOBng
+                                                                    including
                                                                     covariates
-                                                                    from a4 (not
-                                                                    shown). Only
-                                                                  LBN and HUN
-                                                                  marginally
-                                                                  happier in
-                                                                  cities lt1m
+                                                                    from b4 (not
+                                                                    shown). Most
+                                                                    countries
+                                                                    eudamoinc
+                                                                    urban
+                                                                    penalty, but
+                                                                    a
+                                                                    handful of
+                                                                    countries
+                                                                    have premium
                                                            }\end{table} \end{spacing}
 
 
@@ -406,6 +414,8 @@ see supplemetary material as opposed to see appendix!
                                                                     regressions
                                                                     of SWB on
                                                                     place size
+                                                                    only
+                                                                    (bivariate; a1)
                                                                     for each
                                                                     country
                                                                     separately. barely
@@ -453,7 +463,7 @@ see supplemetary material as opposed to see appendix!
 
 %\newpage
 %\theendnotes
-\bibliography{/home/aok/papers/root/tex/ebib.bib}
+\bibliography{/home/aok/papers/root/tex/ebib.bib,pisa.bib}
 
 \end{spacing}
 \end{document}
