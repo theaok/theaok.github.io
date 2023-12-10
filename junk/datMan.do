@@ -5,8 +5,21 @@ import spss using "/home/aok/data/pisa/18/STU/CY07_MSU_STU_QQQ.sav"
 compress
 save pisa18,replace
 
-
+use pisa18, clear
 lookfor satis //there is a bunch and see WellBeing codebook
+
+lookfor meaning //a bunch!!! PIL!
+
+d ST185Q01HA ST185Q02HA ST185Q03HA EUDMO
+pwcorr ST185Q01HA ST185Q02HA ST185Q03HA EUDMO
+alpha ST185Q01HA ST185Q02HA ST185Q03HA
+
+factor ST185Q01HA ST185Q02HA ST185Q03HA, fa(1)
+rotate
+predict eud
+corr EUDMO eud //.99 ok thats it
+
+d EUDMO //i think its a scale
 
 //btw bunch of vars about beauty, tall, weight etc
 
@@ -27,7 +40,7 @@ ren  ST004D01T gender
 
 ren ST007Q01TA faEd
 
-keep ls wealth gender faEd CNTRYID CNTSCHID CNTSTUID SUBNATIO 
+keep ls EUDMO ST185Q01HA ST185Q02HA ST185Q03HA wealth gender faEd CNTRYID CNTSCHID CNTSTUID SUBNATIO 
 save pisa18sub,replace
 
 
@@ -48,7 +61,22 @@ merge 1:m CNTSCHID using pisa18sub //yay all merged
 recode gender (1=1)(2=0),gen(fem)
 la var fem "female"
 
-graph bar (mean) ls, over(city) //by(CNT) //yay hurray!!!
+
+
+cd /home/aok/papers/pisa/tex
+
+graph bar (mean) ls, over(city, label(nolabel)) saving(ls,replace) ysc(r(6,8)) exclude0 yla(6(.5)8) //by(CNT) //yay hurray!!!
+
+graph bar (mean) EUDMO, over(city) saving(eud,replace) //by(CNT) //yay hurray!!!
+
+gr combine ls.gph eud.gph, row(2)
+gr export bar.pdf
+
+
+
+graph bar (mean) EUDMO  , over(city) 
+
+
 
 reg ls i.city, robust  //it is huuuge yay!
 est sto a1
@@ -122,4 +150,33 @@ rrr, m(reg ls i.city wealth i.gender faEd i.Region)f(a4cou)
 
 
 
+//----------------------------------------eud---------------------------------
 
+
+
+reg EUDMO i.city, robust  
+est sto b1
+
+reg EUDMO i.city wealth, robust 
+est sto b2
+
+reg EUDMO i.city wealth fem faEd, robust
+est sto b3
+
+reg EUDMO i.city wealth fem faEd i.Region, robust 
+est sto b4
+
+reg EUDMO i.city wealth fem faEd i.Region, robust beta 
+//estadd beta
+di 0.48/0.71 //again just like ls about  65perc of fam wealth!!!
+
+reg EUDMO i.city wealth fem faEd i.Region if gender==1, robust
+est sto b4f
+
+reg EUDMO i.city wealth fem faEd i.Region if gender==2, robust
+est sto b4m //interestingly city penaly higher for female; arguably because fem more affected by urban crime
+
+estout b*  using /home/aok/papers/pisa/out/regB.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(* 0.05 ** 0.01 *** 0.001)drop(*Region*)
+! sed -i '/^constant/a\country dummies &no&no&no&yes&yes&yes\\\\' `tmp'`siz'.tex
+
+rrr, m(reg EUDMO i.city wealth i.gender faEd i.Region)f(b4cou)

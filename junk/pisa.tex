@@ -180,7 +180,7 @@ TODO: write sth about happness in kids; btw looks like they used normal happines
 
 \section{Data}
 
-We use 2018 pisa from url. Age is 15 to 16.3, so not kids kids but more like
+We use 2018 pisa from \url{https://www.oecd.org/pisa/data/2018database/}. Age is 15 to 16.3, so not kids kids but more like
 little adolescents.
 
 Urbanicity is recorded in  School questionnaire administered to school
@@ -203,13 +203,36 @@ a limitation is that we do not see a good health variable--exisiting ones are
 missing for vast majroity. Health is of course a key happiness predictor, but
 arguably less imoportant for kids as they are healthier than adults. 
 
-lots of boilerplate here
 
-varDes
+PISA 2018 defines meaning in life as the extent to which 15-year-olds
+comprehend, make sense of, or find significance in their lives
+\citep{pisa18}. PISA 2018 asked students whether they agree or disagree (
+"strongly disagree", "disagree", "agree", "strongly agree") with the following
+statements: "My life has clear meaning or purpose"; "I have discovered a
+satisfactory meaning in life"; and "I have a clear sense of what gives meaning
+to my life". These statements were combined to create the index of meaning in
+life
+
+
+
+TODO varDes
 
 \section{Results}
 
-The differences are large--about .5 on 0-10 SWB scale. And in a1-a3\footnote{Not
+%meh have plenty of tables
+% \begin{figure}[H]
+%  \includegraphics[height=3in]{bar.pdf}\centering\label{bar}
+% \caption{Mean of life satisfaction and eudamonia by urbanicity.}
+% \end{figure}
+
+
+The differences are large--about .5 on 0-10 SWB scale
+
+>>>boilerplate from UAR genetic being half then personal and only littyle left
+for environmental etc
+
+
+. And in a1-a3\footnote{Not
 in a4 controling for country dummies.} there is a big
 difference between the largest cities (gt1m) and everything else just as for
 adults \citep{aok-ls_fisher16}. But interestingly, not necessarily like adults,
@@ -255,6 +278,48 @@ Finally we split by gender in a4m and a4f--interestingly city penaly higher for 
                                                                   happier in
                                                                   cities lt1m
                                                            }\end{table} \end{spacing}
+
+
+\subsection{Eudamonia}
+
+in table \ref{regB} different from lifests, biggest hit from lt3k to 3-15k in b1-b3, and in b4
+controllig for countruy dummies rather smooth gradient. females aboy 2x less
+eudamonia than males in urb v rural
+
+\begin{table}[H]\centering\caption{OLS regressions of life satisfaction.} \label{regB} \begin{scriptsize} \begin{tabular}{p{2.2in}p{.6in}p{.6in}p{.6in}p{.6in}|p{.6in}p{.6in}p{.6in}p{.6in}p{.6in}p{.6 in}p{.6in}p{.6 in}}\hline \input{../out/regB.tex} \hline\multicolumn{4}{l}{*p$<$0.05 **p$<$0.01 ***p$<$0.001} \end{tabular}\end{scriptsize}\end{table}
+
+in atble \ref{b4cou} urban eudamia penalty is less clear than life
+satisfaction--while most countries do have urban penalty, there is a handful
+with urban eudamonic premium
+
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5
+                                                                      in}p{.5in}p{.5
+                                                                      in}}\hline
+                                                                      \input{../out/b4cou.tex}
+                                                                      \hline *
+                                                                      p$<$0.05,
+                                                                      $+$
+                                                                      p$<$0.1;
+                                                                      robust std
+                                                                      err \end{tabular}\end{scriptsize}\caption{\label{b4cou}OLS
+                                                                    regressions
+                                                                    of SWB on
+                                                                    place size
+                                                                    for each
+                                                                    country
+                                                                    separately
+                                                                    includiOBng
+                                                                    covariates
+                                                                    from a4 (not
+                                                                    shown). Only
+                                                                  LBN and HUN
+                                                                  marginally
+                                                                  happier in
+                                                                  cities lt1m
+                                                           }\end{table} \end{spacing}
+
+
 
 
 \section{Conclusion and discussion}
