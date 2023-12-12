@@ -125,7 +125,7 @@ pdftex]{graphicx} %draft is a way to exclude figures
 %-------------------- END extra options -----------------------------------------
 \date{{}\today \hspace{.2in}\xxivtime}
 \title{  % remember to have Vistula University!!
-  Hey! Cities! Leave them kids alone!
+  Hey! Cities! Leave Them Kids Alone! \\ \Large{(Adolescents Are Less Happy in Cities)} %(urban unhappiness is common in adolescents)
 }
 \author{
 % Adam Okulicz-Kozaryn\thanks{EMAIL: adam.okulicz.kozaryn@gmail.com
@@ -173,6 +173,81 @@ We know that adults tend to be less happy in cities across the world (except in
 the poorest nations such as Sub-Saharan Africa) \citep{aok21}. But we do not
 know about the children. 
 
+\section{theory and mechanisms of urban unhappiness}
+
+% rephraze copied from swbUrbRurPsid
+ Genes determine about half of SWB
+ \citep{schnittker08,lykken96t,brooksGenetic}.
+ %
+ Humans have not
+evolved for city life among thousands of people densely packed together in an
+artificial setting, i.e., in a city. For over 95\% of human evolutionary history there were no cities--hunters-gatherers lived in bands of 50-80 \citep{maryanski92}. 
+%Humans have evolved to prefer and be happy in nature,  open space
+%there was that citation that i have recently seen but forgot where that that
+%humans evolved to prefer nature--those who prefered it and were in harmony with
+%it were more likely to survive etc
+
+
+Ingroup preference or homophily (``love of the same'') theory
+  states
+that a  human has a preference for other humans like her \citep{mcpherson01,tajfel82,tajfel71,smelser99,putnam07,christakis09f}. % , and outgroups contain dissimilar persons.
+ A defining
+feature of a city is heterogeneity or diversity \citep{wirth38}, which
+accordingly produces: 
+ mistrust, uneasiness, conflict, and misanthropy
+ \citep{milgram70,thrift05,amin06}.\footnote{
+ Yet, on the other hand, in a city there can be community, a neighborhood
+village, that at least in some ways can simulate a more natural habitat for a
+human \citep{fischer95,fischer75,jacobs93}.}
+
+Livability theory \citep{veenhoven95,veenhoven14b,veenhoven00b} states that
+humans, just as other animals, have needs (such as those on Maslow hierarchy of
+needs \citep{maslow87}), and if those needs are satisfied, then conditions are
+livable and happiness follows. As opposed to evolution and homophily
+predicting urban unhappiness, it is unclear what livability theory
+ predicts regarding urbanism. Some aspects of urbanism may
+ improve livability, and hence, happiness.
+  %
+ Cities have multiple benefits  \citep{meyer13,florida08,glaeser11,osullivan09}, notably jobs and amenities that improve livability and
+ happiness. But cities also do have multiple disamenities such as more congestion, crime,
+   infectious  disease spread, air, noise, and light pollutions
+   \citep{bettencourt10b,bettencourt07,meyer13,aokCityBook15}.\footnote{Measuring
+     it with happiness yardstick,  city disadvantages outweigh city
+     advantages--cities are less happy (at least in the developed world)
+     \citep{aok21}.} 
+ %
+   And those disamenities may especially affect adolescents. Urban
+ crime (and bullying) is perhaps more of a problem for adolescents (especially
+ females) than for adults who may be better able to insulate themselves from
+ it\footnote{An adult would spend much time at work, home, or in a
+   car, which are relatively crime free. An adolescent is arguably less able to
+   insulate herself from neighborhood and peers, which are often infested with
+   crime in large cities. It needs to be remebered that crime is a a city
+   feature--all large cities have large crime problem--crime  does increase
+   extremely consistently with city size \cite{blissCL_nov4_14,bettencourt13,bettencourt10,bettencourt10b,bettencourt07}.}
+ and cope with it. Clearly, by definition, adults have better coping mechanisms
+ than more fragile adolescents. 
+
+ It has been theoretized already a century ago that urbanism has a negative
+ effect on human brains / neural processing \citep{simmel03}, and it has been
+ recently confirmed by neuroscience including that even growing up in a city has
+ lasting negative effects later in life \citep{lederbogen11}. Again adolescents
+ are more at risk than adults. 
+   
+   Multiple Discrepancies Theory (MDT) \citep{michalos85,michalos14c} states that
+happiness is relative and a result of multiple comparisons. Arguably, visual and social comparisons are more likely in
+urban areas as there are more people and more stimuli. And there is some
+evidence that humans tend to make upwards comparisons \citep{frey02s} thus
+ending up relatively deprived \citep[e.g.,][]{luttmer05,frank12}.
+
+Adolescents, like adults, are likely to want to keep up with Joneses, but in
+slightly different ways, e.g., clothing, jewelry, parties, cars--see some
+examples in \citet{frank12}.
+
+Finally a big, maybe the biggest, happiness killer of the youth is social media
+\cite{twengeATL17sep,twenge14}.
+
+
 \section{Happiness in Kids}
 
 TODO: write sth about happness in kids; btw looks like they used normal happiness question; not smileys
@@ -213,9 +288,11 @@ satisfactory meaning in life"; and "I have a clear sense of what gives meaning
 to my life". These statements were combined to create the index of meaning in
 life
 
+We control for internet use, and we do  have specific measures how used, eg we
+ measure social media use.  We also measure out of school usage and useage ``for
+ fun''--see table \ref{var_des} for all variables definitions. 
 
-
-TODO varDes
+\input{varDes.tex} 
 
 \section{Results}
 
@@ -250,9 +327,18 @@ stronger--income/wealth confounds with urbanicity.
 In full model a4 results are strong, beta (fully standardized; not shown) for
 gt1m is 65 percent of wealth.
 
-Finally we split by gender in a4m and a4f--interestingly city penaly higher for female; arguably because fem more affected by urban crime 
+Finally we split by gender in a4m and a4f--interestingly city penaly higher for
+female; arguably because fem more affected by urban crime
 
-\begin{table}[H]\centering\caption{OLS regressions of life satisfaction.} \label{regA} \begin{scriptsize} \begin{tabular}{p{2.2in}p{.6in}p{.6in}p{.6in}p{.6in}|p{.6in}p{.6in}p{.6in}p{.6in}p{.6in}p{.6 in}p{.6in}p{.6 in}}\hline \input{../out/regA.tex} \hline\multicolumn{4}{l}{*p$<$0.05 **p$<$0.01 ***p$<$0.001} \end{tabular}\end{scriptsize}\end{table}
+And finally finally add the 4 internet use variables in a5 (we postpone it to
+the last model as the internet variables cut the sample size by about 200k),
+results are similar\footnote{Actually interent use has very low correlation
+  with urbanicity--see online appendix for details. It probably has been the case
+  that internet was more of an urban phenomenon, but in an era of
+  smartphones--they are ubiquitious throught degrees of urbanness and
+  development levels.}
+
+\begin{table}[H]\centering\caption{OLS regressions of life satisfaction.} \label{regA} \begin{scriptsize} \begin{tabular}{p{2.2in}p{.6in}p{.6in}p{.6in}p{.6in}|p{.6in}p{.6in}|p{.6in}p{.6in}p{.6in}p{.6 in}p{.6in}p{.6 in}}\hline \input{../out/regA.tex} \hline\multicolumn{4}{l}{*p$<$0.05 **p$<$0.01 ***p$<$0.001} \end{tabular}\end{scriptsize}\end{table}
 
 
 
@@ -288,9 +374,11 @@ Finally we split by gender in a4m and a4f--interestingly city penaly higher for 
 
 in table \ref{regB} different from lifests, biggest hit from lt3k to 3-15k in b1-b3, and in b4
 controllig for countruy dummies rather smooth gradient. females aboy 2x less
-eudamonia than males in urb v rural
+eudamonia than males in urb v rural\\
 
-\begin{table}[H]\centering\caption{OLS regressions of Eudamonia.} \label{regB} \begin{scriptsize} \begin{tabular}{p{2.2in}p{.6in}p{.6in}p{.6in}p{.6in}|p{.6in}p{.6in}p{.6in}p{.6in}p{.6in}p{.6 in}p{.6in}p{.6 in}}\hline \input{../out/regB.tex} \hline\multicolumn{4}{l}{*p$<$0.05 **p$<$0.01 ***p$<$0.001} \end{tabular}\end{scriptsize}\end{table}
+And like with life satisfaction controling for internet use does not change lt1m coefficent significantly 
+
+\begin{table}[H]\centering\caption{OLS regressions of Eudamonia.} \label{regB} \begin{scriptsize} \begin{tabular}{p{2.2in}p{.6in}p{.6in}p{.6in}p{.6in}|p{.6in}p{.6in}|p{.6in}p{.6in}p{.6in}p{.6 in}p{.6in}p{.6 in}}\hline \input{../out/regB.tex} \hline\multicolumn{4}{l}{*p$<$0.05 **p$<$0.01 ***p$<$0.001} \end{tabular}\end{scriptsize}\end{table}
 
 in atble \ref{b4cou} urban eudamia penalty is less clear than life
 satisfaction--while most countries do have urban penalty, there is a handful
@@ -424,7 +512,104 @@ see supplemetary material as opposed to see appendix!
                                                                     and 2 more
                                                                   }\end{table} \end{spacing}
 
- 
+
+\section{internet use}
+
+Urbanicity has very low positive correlation with internet use
+
+\begin{spacing}{.5}
+\begin{scriptsize}
+\begin{verbatim}
+. d city int*
+
+Variable      Storage   Display    Value
+    name         type    format    label      Variable label
+-------------------------------------------------------------------------------
+city            byte    %9.0g      city       RECODE of SC001Q01TA (Which of
+                                                the following definitions best
+                                                describes the comm
+intWday         byte    %2.0f      labels341
+                                              During a typical weekday, for how
+                                                long do you use the Internet
+                                                outside of school
+intWend         byte    %2.0f      labels342
+                                              On a typical weekend day, for how
+                                                long do you use the Internet
+                                                outside of school
+intSN           byte    %2.0f      labels374
+                                              Use digital devices outside of
+                                                school: Participating in Social
+                                                Networks (e.g. <F
+intFun          byte    %2.0f      labels376
+                                              Use digital devices outside of
+                                                school: Browsing the Internet
+                                                for fun (such as wa
+
+
+. pwcorr city int*
+
+             |     city  intWday  intWend    intSN   intFun
+-------------+---------------------------------------------
+        city |   1.0000 
+     intWday |   0.0488   1.0000 
+     intWend |   0.0720   0.7251   1.0000 
+       intSN |   0.0569   0.2594   0.2792   1.0000 
+      intFun |   0.0866   0.3066   0.3479   0.5249   1.0000 
+\end{verbatim}
+\end{scriptsize}
+\end{spacing}{.9}
+
+Using some internet is good for an adolescent, but using a lot on the weekend is bad
+
+
+\begin{spacing}{.5}
+\begin{scriptsize}
+\begin{verbatim}
+reg ls i.city wealth fem faEd i.intWday i.intWend, robust
+
+Linear regression                               Number of obs     =    266,770
+                                                F(19, 266750)     =     340.73
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.0238
+                                                Root MSE          =     2.5032
+
+------------------------------------------------------------------------------
+             |               Robust
+          ls | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        city |
+      3-15k  |  -.4296694   .0196451   -21.87   0.000    -.4681732   -.3911656
+    15-100k  |  -.4853962   .0185923   -26.11   0.000    -.5218366   -.4489557
+    100k-1m  |  -.5295389   .0186871   -28.34   0.000    -.5661651   -.4929126
+       gt1m  |  -.7087667   .0212434   -33.36   0.000    -.7504032   -.6671301
+             |
+      wealth |    .058285   .0053595    10.87   0.000     .0477805    .0687896
+         fem |  -.4855582   .0097124   -49.99   0.000    -.5045942   -.4665223
+        faEd |  -.0238479   .0051004    -4.68   0.000    -.0338445   -.0138513
+             |
+     intWday |
+1-30 minu..  |   .1687749   .0381252     4.43   0.000     .0940505    .2434993
+31-60 min..  |   .1174412   .0369693     3.18   0.001     .0449823    .1899001
+Between 1..  |   .0837295   .0347786     2.41   0.016     .0155643    .1518946
+Between 2..  |  -.0017767   .0345739    -0.05   0.959    -.0695406    .0659872
+Between 4..  |  -.0369376   .0357303    -1.03   0.301    -.1069681    .0330928
+More than..  |   .0083298   .0365747     0.23   0.820    -.0633557    .0800153
+             |
+     intWend |
+1-30 minu..  |    .241415    .046509     5.19   0.000     .1502586    .3325714
+31-60 min..  |    .296678   .0448001     6.62   0.000     .2088711     .384485
+Between 1..  |   .2990314    .042022     7.12   0.000     .2166694    .3813934
+Between 2..  |      .1492   .0414603     3.60   0.000     .0679389     .230461
+Between 4..  |  -.0009641   .0418857    -0.02   0.982     -.083059    .0811307
+More than..  |  -.2383889   .0423359    -5.63   0.000    -.3213662   -.1554117
+             |
+       _cons |   7.966607   .0429739   185.38   0.000     7.882379    8.050834
+------------------------------------------------------------------------------
+\end{verbatim}
+\end{scriptsize}
+\end{spacing}{.9}
+
+
 % %\input{/tmp/a.tex} %aok_var_des
 
 % % \begin{spacing}{.9}
@@ -463,7 +648,7 @@ see supplemetary material as opposed to see appendix!
 
 %\newpage
 %\theendnotes
-\bibliography{/home/aok/papers/root/tex/ebib.bib,pisa.bib}
+\bibliography{/home/aok/papers/root/tex/ebib.bib,/home/aok/papers/root/old/2022/swbUrbRurPsid/tex/swbUrbRurPsid.bib,pisa.bib}
 
 \end{spacing}
 \end{document}
