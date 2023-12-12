@@ -93,7 +93,7 @@ set maxvar 32000 //100000
 
 import sas using "/home/aok/data/pisa/18/SCH/cy07_msu_sch_qqq.sas7bdat", clear
 
-keep  SC013Q01TA SC001Q01TA OECD SUBNATIO  STRATUM Region NatCen CNTSCHID CNT  CNTRYID
+keep  SC013Q01TA SC001Q01TA OECD SUBNATIO  STRATUM Region NatCen CNTSCHID CNT  CNTRYID STRATIO SCHLTYPE CLSIZE EDUSHORT STAFFSHORT STUBEHA TEACHBEHA 
 ta SC001Q01TA,mi //ok only 6perc missing whew
 
 recode SC001Q01TA (1=1 "lt3k")(2=2 "3-15k")(3=3 "15-100k")(4=4 "100k-1m")(5=5 "gt1m") ,gen(city)
@@ -165,6 +165,9 @@ reg ls i.city wealth i.gender faEd i.Region, robust cluster(CNTSCHID) //of cours
 
 //reg ls i.city wealth i.gender faEd i.Region i.CNTSCHID, robust //takes forever
 
+d STRATIO SCHLTYPE CLSIZE EDUSHORT STAFFSHORT STUBEHA TEACHBEHA 
+reg ls i.city wealth i.gender faEd i.Region STRATIO SCHLTYPE CLSIZE EDUSHORT STAFFSHORT STUBEHA TEACHBEHA , robust cluster(CNTSCHID)
+
 ta CNT //142 countries
 di `r(r)'
 ta Region
@@ -233,7 +236,7 @@ est sto b4f
 reg EUDMO i.city wealth fem faEd i.Region if gender==2, robust
 est sto b4m //interestingly city penaly higher for female; arguably because fem more affected by urban crime
 
-reg ls i.city wealth fem faEd i.Region int*, robust 
+reg EUDMO i.city wealth fem faEd i.Region int*, robust 
 est sto b5
 
 estout b*  using /home/aok/papers/pisa/out/regB.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0fc))varlabels(_cons constant) label  starlevels(* 0.05 ** 0.01 *** 0.001)drop(*Region* int*)
