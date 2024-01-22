@@ -1,10 +1,8 @@
-*______________________________________________________________________
 * class 1 dofile
 *Adam Okulicz-Kozaryn, Summer 09
 *Revised: summer 11
 * revised spring 15,17; 24!
 
-*----------------------------
 
 //!!!! start with putting data online: let's see the link to howto and explain step by step
   

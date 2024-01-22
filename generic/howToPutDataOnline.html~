@@ -1,4 +1,11 @@
-note! if you have anything private like address, name, dob, ssn, etc: do not upload anywhere! First, generate some new id, like 1,2,3 and keep the full dataset secure in your own place, then deidentify: drop all sensitive info and upload this deidentified file (later if needed can merge it back to your initial file on id)<br><br>
+note! if you have <b>anything sensitive/private</b> like address, name, dob, ssn, etc: do not upload anywhere! First, generate some new id, like 1,2,3 and keep the full dataset secure in your own place, then deidentify: drop all sensitive info and upload this deidentified file (later if needed can merge it back to your initial file on id)<br><br>
+
+data are public on github and shared goog drive; if you absolutely
+cannot share your data even after deidentifying cases by dropping
+sensitive info  (say super private data from your company), then as a
+last resort can just email it to me and note in the notebook that you
+only shared private data with me
+<br><br>
 
 <!-- in general for the sake of time saving please try to keep it under -->
 <!-- 100mb (and definitely 1gb), if bigger just drop some variables or take -->
