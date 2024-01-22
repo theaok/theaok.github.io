@@ -2,15 +2,12 @@
 * class 1 dofile
 *Adam Okulicz-Kozaryn, Summer 09
 *Revised: summer 11
-* revised spring 15,17
+* revised spring 15,17; 24!
+
 *----------------------------
 
-//!!!! start with putting data online: let's do it step by step following my apprach
+//!!!! start with putting data online: let's see the link to howto and explain step by step
   
-* notes :  save your work on flash drive/ in your own home directory; we
-* will work on c drive but your work may be deleted from there
-
-*----------------------------
 
 * everything that follows star as a first char in line is a comment
   
@@ -46,8 +43,11 @@ ls                            /*list what we got*/
 /* cd c:\files                   /\* we change dir to where are our files*\/                               */
 
 /*you can load data from url*/
-use https://sites.google.com/site/adamokuliczkozaryn/adv_reg/states.dta  ,clear
 
+//using the regular wont work:
+//use "https://drive.google.com/file/d/1COEnsNjYUxJHbvny70xuEXikYm-23ulV/view?usp=drive_link",clear
+//need this:
+use "https://docs.google.com/uc?id=1COEnsNjYUxJHbvny70xuEXikYm-23ulV&export=download", clear 
 
 //IMPORTANT!! typically have to destring data!! they appear as red in spreadsheet once you say edit:
 destring *, replace
@@ -65,7 +65,7 @@ outsheet using mydata.csv, replace comma nolabel
 
 
 /***********/
-/* looking */
+/* quick des sta */
 /***********/
 
 use states.dta,clear
@@ -79,7 +79,6 @@ sum
 edit
 browse
 
-//note: there is also that new thing spss-like variable manager...
 
 list college
 
@@ -102,11 +101,13 @@ list college, sepby(region)
 /* /\* Description *\/ */
 /***********************/
 
+use "https://docs.google.com/uc?id=1COEnsNjYUxJHbvny70xuEXikYm-23ulV&export=download", clear 
+
+
 /*Basic Description*/  
 cd c:\files                   /*first, always get to the dir with data*/
 dir                           /* you may check what files you have in the current directory*/
                             	 /*it saves time typing paths*/
-use https://sites.google.com/site/adamokuliczkozaryn/adv_reg/states.dta,clear 
 
 ls
 des csat expense              /*"des" is usually the first thing you want to do to see what var you have*/
@@ -142,8 +143,6 @@ what is the relationship between ``Car type'' and ``Repair Record 1978''
 */
 
   
-/* Graph Matrix */  
-use https://sites.google.com/site/adamokuliczkozaryn/adv_reg/states.dta, clear  
 
 graph matrix expense percent income csat, half /*have DV at the end so that it goes to y-axis*/
                               /*",half" option makes graph look cleaner*/
@@ -223,7 +222,8 @@ graph bar (iqr) csat if region!=2, over(region)
 /*exercises*/
 
 /*1*/
-use https://sites.google.com/site/adamokuliczkozaryn/adv_reg/states.dta,clear
+use "https://docs.google.com/uc?id=1COEnsNjYUxJHbvny70xuEXikYm-23ulV&export=download", clear 
+
 d
 sum
 sum csat
