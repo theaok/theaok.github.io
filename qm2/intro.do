@@ -42,7 +42,6 @@ ls                            /*list what we got*/
 /* use c:\files\gss.dta, clear  */
 /* cd c:\files                   /\* we change dir to where are our files*\/                               */
 
-/*you can load data from url*/
 
 //using the regular wont work:
 //use "https://drive.google.com/file/d/1COEnsNjYUxJHbvny70xuEXikYm-23ulV/view?usp=drive_link",clear
