@@ -62,7 +62,7 @@ tw(scatter div mar, mlabel(state))(lfit div mar)
 
 
 //----------------------------exercise 0-----------------------------------------
-
+clear
 input Y  X   
 1 17
 3 13
@@ -110,7 +110,7 @@ reg wage educ
 
 //--------------------------measurment------------------------------------------
 
-use "https://sites.google.com/site/adamokuliczkozaryn/adv_reg/wages.dta", clear
+use "https://docs.google.com/uc?id=1aEo3U7f79NkK9oBWFuMhCQAaNGf1mJbk&export=download", clear 
 
 
 *// lin-lin
