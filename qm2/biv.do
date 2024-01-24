@@ -1,4 +1,5 @@
 *//class c2 
+//revised sp24
 set more off
 version 10
 
@@ -88,8 +89,8 @@ tw(scatter Y X)(lfitci Y X), title("Lecture's Graph") subtitle("Y vs X and linea
 
 
 //--------------------------wages--------------------------------------------
+use "https://docs.google.com/uc?id=1aEo3U7f79NkK9oBWFuMhCQAaNGf1mJbk&export=download", clear 
 
-use "https://sites.google.com/site/adamokuliczkozaryn/adv_reg/wages.dta", clear
 corr wage educ
 loc rho `r(rho)'
 sum wage
