@@ -73,6 +73,11 @@ end
 
 
 reg Y X
+
+di invttail(3,.025) //invttail(df,p) = t
+di ttail(3,3.18) // ttail(df,t) = p
+
+
 predict yhat
 predict r, resid
 l
