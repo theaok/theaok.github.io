@@ -1,3 +1,4 @@
+//feb 2024
 clear
 set more off
 version 10
@@ -5,7 +6,7 @@ version 10
 //------------------cps---------------------------
 
 *//On average, men earn higher than women.  Why?
-use "https://sites.google.com/site/adamokuliczkozaryn/adv_reg/wages.dta", clear
+use "https://docs.google.com/uc?id=1aEo3U7f79NkK9oBWFuMhCQAaNGf1mJbk&export=download", clear 
 
 
 graph bar (mean) wage, over(female)
@@ -30,7 +31,7 @@ table female married, c(mean wage) row col f(%7.2f)
 
 
 //------------------trivariate-----------------------
-use "https://sites.google.com/site/adamokuliczkozaryn/adv_reg/wages.dta", clear
+use "https://docs.google.com/uc?id=1aEo3U7f79NkK9oBWFuMhCQAaNGf1mJbk&export=download", clear 
 
 sum wage educ exp
 corr wage educ exp
