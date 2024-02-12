@@ -1,7 +1,8 @@
-TODO: add way more! important and confusing topic!
+//TODO: add way more! important and confusing topic!
+version 10
 
 //--------------------------measurment------------------------------------------
-use "https://sites.google.com/site/adamokuliczkozaryn/adv_reg/wages.dta", clear
+use https://github.com/theaok/data/raw/main/wages.dta, clear
 
 
 *// lin-lin

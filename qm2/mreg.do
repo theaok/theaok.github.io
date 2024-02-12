@@ -53,6 +53,9 @@ di .93-1.96*0.081
 
 //------------------truth----------------------------
 
+use https://github.com/theaok/data/raw/main/wages.dta, clear
+
+
 reg wage exp
 predict wage_res, resid
 sum wage_res
@@ -113,7 +116,7 @@ help regress
 
 
 //----------------------------F-----------------------------------------
-use "https://sites.google.com/site/adamokuliczkozaryn/adv_reg/wages.dta", clear
+use https://github.com/theaok/data/raw/main/wages.dta, clear
 
 reg wage educ exp
 
@@ -172,6 +175,8 @@ di "[(Rsq_U-Rsq_R)/m]/[(1-Rsq_U)/(n-k)] " [(`Rsq_U'-`Rsq_R')/2]/[(1-`Rsq_U')/(53
 
 //----------------------------chow-----------------------------------------
 *//chow test 
+use https://github.com/theaok/data/raw/main/wages.dta, clear
+
 
 reg  wage educ  union
 loc RSS_R = e(rss)
@@ -216,7 +221,7 @@ di 10.65527^2
 
 
 //-----------------bonus: wages-----------------------------------
-use "https://sites.google.com/site/adamokuliczkozaryn/adv_reg/wages.dta", clear
+use https://github.com/theaok/data/raw/main/wages.dta, clear
 
 
 
