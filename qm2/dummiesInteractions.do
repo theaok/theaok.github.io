@@ -7,7 +7,9 @@ https://www.google.com/search?q=stata+recode&ie=utf-8&oe=utf-8
 
 version 14
 //use http://people.hmdc.harvard.edu/~akozaryn/myweb/wages, clear
-use https://sites.google.com/site/adamokuliczkozaryn/adv_reg/wages, clear
+//use https://sites.google.com/site/adamokuliczkozaryn/adv_reg/wages, clear
+use https://github.com/theaok/data/raw/main/wages.dta, clear
+
 
 //again very useful to use lookfor esspecially if big dataset!
 lookfor female married
@@ -42,7 +44,9 @@ reg math R1
 ** interactions
 
 //use http://people.hmdc.harvard.edu/~akozaryn/myweb/wages, clear
-use https://sites.google.com/site/adamokuliczkozaryn/adv_reg/wages, clear
+//use https://sites.google.com/site/adamokuliczkozaryn/adv_reg/wages, clear
+use https://github.com/theaok/data/raw/main/wages.dta, clear
+
 
 xtile q_exp=exp, nq(5)
 sort exp
@@ -58,6 +62,7 @@ margins fem, at(exp=(0(10)60))
 marginsplot 
 
 ** replciation of slide about interaction of dummies
+version 14
 table mar fem,c(mean wage) row col f(%7.2f)
 
 reg wage fem##mar
@@ -74,3 +79,6 @@ marginsplot
 http://www.stata.com/features/overview/marginal-analysis/
 http://www.stata.com/meeting/uk12/abstracts/materials/uk12_rising.pdf
 http://www.stata.com/manuals13/rmarginsplot.pdf
+
+//paper example
+https://link.springer.com/article/10.1007/s11205-016-1327-0
