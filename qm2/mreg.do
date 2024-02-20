@@ -129,8 +129,8 @@ di "F (by stata)=" e(F)
 
 *// F test vs t-test in bivariate case are the same and they test the same Null
 reg wage educ
-ftable
-ttable
+//ftable #there is a way to get tables in stata use findit commandName; but we will just google it
+//ttable
 /* so critical t_(532) is 1.96, and critical F_(1,532) is 3.86 */
 reg wage educ
 /* so we reject null in both cases... */

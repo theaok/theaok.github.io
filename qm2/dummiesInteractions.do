@@ -18,6 +18,9 @@ lookfor female married
 ** reg on dummy
 
 reg wage fem
+ttest wage,by(female)   //compare to qm1 ttest for diff in means
+
+
 reg wage mar
 
 reg wage fem exp
