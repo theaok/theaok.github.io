@@ -2,8 +2,8 @@ clear
 set more off
 version 10
 
-cap mkdir  ~/files //c:\files
-sysdir set PLUS  ~/files //c:\files
+//cap mkdir  ~/files //c:\files
+//sysdir set PLUS  ~/files //c:\files
 findit modeldiag
 net   from http://fmwww.bc.edu/RePEc/bocode/m
 net install modeldiag
@@ -11,8 +11,7 @@ net install modeldiag
 
 //----------------------------het----------------------------------------
 
-use https://sites.google.com/site/adamokuliczkozaryn/adv_reg/wages, clear
-
+use "https://docs.google.com/uc?id=1aEo3U7f79NkK9oBWFuMhCQAaNGf1mJbk&export=download", clear 
 
 reg wage educ
 predict wagehat
@@ -114,6 +113,13 @@ regplot, sep(foreign)
 //etc..
 
 //also see http://www.stata-journal.com/sjpdf.html?articlenum=gr0009; and especially an example in section 5
+
+
+use https://stats.idre.ucla.edu/stat/stata/webbooks/reg/crime,clear
+//and see especialy:
+//scatter dfbeta 
+//lvr2plot, ml()
+//avplot(s)
 
 
 //---------------------------ENDmodeldiag----------------------------------------
