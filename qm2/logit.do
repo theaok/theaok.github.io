@@ -2,17 +2,18 @@
 
 sysuse auto,clear
 
+//start with interval/ratio dv
 d foreign weight length price mpg
 sum foreign weight length price mpg
+//use des stats first
 gr bar weight ,over(foreign) //like 1k diff
+//confirm with reg second
 reg  weight foreign //same here
 
-gr bar length ,over(foreign)
-gr bar price ,over(foreign)
-
+//nov dv binary
 ta foreign rep78, col //.1 .5 .8
 gr bar foreign, over(rep78) //.1 .5 .8
-
+//LPM
 reg foreign i.rep78 //.1 .5 .8
 
 sum price weight
