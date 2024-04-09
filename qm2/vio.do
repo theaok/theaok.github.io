@@ -17,24 +17,26 @@ reg wage educ
 predict wagehat
 graph twoway (scatter wage educ) (line wagehat educ, sort)
 graph twoway (scatter wage educ) (lfit wage educ)
+
 reg  wage educ  exp union nonwhite hispanic  female married south
 rvfplot, yline(0)
-gr export g1.eps, replace
+//gr export g1.eps, replace
 
 estat hettest
-estat imtest
-estat szroeter, rhs
+//estat imtest
+//estat szroeter, rhs
+
 //looks like if we regress on exp only there is less heteroskedascity -- let's check
 reg wage exp
 estat hettest
 rvfplot, yline(0)
 graph twoway (scatter wage exp) (lfit wage exp)
 
-*// see the distribution -- often if your dv is non-normal, residuals will be non-normal as well
+*//see the distribution -- often if your dv is non-normal, residuals will be non-normal as well
 
 hist wage
 gladder wage
-ladder wage
+//ladder wage
 
 reg wage educ
 hettest
