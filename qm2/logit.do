@@ -38,6 +38,18 @@ margins, at(weight=(1(1)5))
 marginsplot
 
 
+//----heteroskedascity in logit
+
+//could just run LPM (ols with dummy dv)
+
+//do nothing
+//https://www.stata.com/statalist/archive/2010-11/msg00996.html
+
+//use hetprobit
+help hetprobit
+hetprobit hiPr  , het(weight) vce(robust)
+margins, at(weight=(1(1)5)) 
+marginsplot
 
 //------more practice; especially marginsplot---------
 
