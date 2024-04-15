@@ -396,3 +396,5 @@ that are more efficient than those obtained by 2SLS.
 //https://libguides.princeton.edu/stata-did //nice TODO!! below step by step
 //https://www.princeton.edu/~otorres/Panel101.pdf same here
 //https://www.stata.com/meeting/germany22/slides/Germany22_Luedicke.pdf see too
+
+and little bit on panel too here
