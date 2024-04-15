@@ -37,6 +37,10 @@ graph box bp, over(when) over(sex)
 	     subtitle("(120 Preoperative Patients)" " ")
 	     note("Source:  Fictional Drug Trial, StataCorp, 2003")
 
+reg bp when if sex==0	     
+reg bp when if sex==1	     
+
+reg bp i.when##i.sex	     
 	     
 graph box bp, over(when) over(agegrp)
 	     
