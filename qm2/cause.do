@@ -1,3 +1,77 @@
+//---------------------elements of research design----------
+
+//before after OR treatment v control 
+
+//say Y is blood pressure
+clear
+input float(id year T Y X) 
+1 2000 0  120 5
+1 2001 1  80 3
+2 2000 0  110 7
+2 2001 1  75 4
+3 2000 0  90 5
+3 2001 1  70  6
+4 2000 0 170 2
+4 2001 1 110 6
+end
+
+l
+
+gr box Y, over(T)
+
+mean Y, over(T)
+
+reg Y T
+
+
+//an example
+//https://www.statalist.org/forums/forum/general-stata-discussion/general/1401656-before-and-after-treament
+
+
+//medical trial/blood pressure examples
+
+sysuse bplong, clear
+graph box bp, over(when) over(sex)
+	     ytitle("Systolic blood pressure")
+	     title("Response to Treatment, by Sex")
+	     subtitle("(120 Preoperative Patients)" " ")
+	     note("Source:  Fictional Drug Trial, StataCorp, 2003")
+
+	     
+graph box bp, over(when) over(agegrp)
+	     
+	     
+use http://www.stata-press.com/data/r13/bpwide, clear //wide format
+graph box bp_before bp_after, over(sex)	     
+
+
+/*
+//btw before after is similar to ttest for 2 group difference, just over time
+//say have 2 groups 
+clear
+input x1 x2 //https://statistics.laerd.com/stata-tutorials/paired-t-test-using-stata.php 
+10.6 10.5
+10.9 11.1
+10.2 10.3
+11.6 11.8
+11.8 11.9
+9.7 9.8
+10.8 11
+11.8 12 
+end
+l
+
+ttest x1=x2
+
+gen id=_n
+reshape long x, i(id)j(T)
+l
+recode T (1=0) (2=1),gen(TT)
+ta T TT, mi
+reg x TT //stat sig different :(
+
+*/
+
 //-----------------------ivreg------------------------------
 
 
@@ -313,3 +387,12 @@ that are more efficient than those obtained by 2SLS.
 */
 
 */
+
+
+//---------------------------DID------------------------
+
+//https://www.stata.com/stata17/difference-in-differences-DID-DDD/
+
+//https://libguides.princeton.edu/stata-did //nice TODO!! below step by step
+//https://www.princeton.edu/~otorres/Panel101.pdf same here
+//https://www.stata.com/meeting/germany22/slides/Germany22_Luedicke.pdf see too
