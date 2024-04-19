@@ -402,3 +402,22 @@ that are more efficient than those obtained by 2SLS.
 //https://www.stata.com/meeting/germany22/slides/Germany22_Luedicke.pdf see too
 
 and little bit on panel too here
+
+
+//https://thetarzan.wordpress.com/2011/06/20/differences-in-differences-estimation-in-r-and-stata/
+use https://github.com/theaok/data/raw/main/eitc.dta,clear
+
+gen anykids = (children >= 1)
+gen post93 = (year >= 1994)
+
+mean work if post93==0 & anykids==0     /* value 1 */
+mean work if post93==0 & anykids==1     /* value 2 */
+mean work if post93==1 & anykids==0     /* value 3 */
+mean work if post93==1 & anykids==1     /* value 4 */
+
+gen interaction = post93*anykids
+reg work post93 anykids interaction
+
+reg work post93##anykids
+margins post93,by(anykids)
+marginsplot
