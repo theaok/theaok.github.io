@@ -402,7 +402,7 @@ that are more efficient than those obtained by 2SLS.
 //https://www.stata.com/meeting/germany22/slides/Germany22_Luedicke.pdf see too
 
 and little bit on panel too here
-
+>>>and see app eco class materials
 
 //https://thetarzan.wordpress.com/2011/06/20/differences-in-differences-estimation-in-r-and-stata/
 use https://github.com/theaok/data/raw/main/eitc.dta,clear
