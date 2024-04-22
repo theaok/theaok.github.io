@@ -400,9 +400,9 @@ that are more efficient than those obtained by 2SLS.
 //https://libguides.princeton.edu/stata-did //nice TODO!! below step by step
 //https://www.princeton.edu/~otorres/Panel101.pdf same here
 //https://www.stata.com/meeting/germany22/slides/Germany22_Luedicke.pdf see too
+//TODO and see app eco class materials
 
-and little bit on panel too here
->>>and see app eco class materials
+
 
 //https://thetarzan.wordpress.com/2011/06/20/differences-in-differences-estimation-in-r-and-stata/
 use https://github.com/theaok/data/raw/main/eitc.dta,clear
@@ -421,3 +421,7 @@ reg work post93 anykids interaction
 reg work post93##anykids
 margins post93,by(anykids)
 marginsplot
+
+
+//------------------panel data----------
+and little bit on panel too here
