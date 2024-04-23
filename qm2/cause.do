@@ -400,7 +400,13 @@ that are more efficient than those obtained by 2SLS.
 //https://libguides.princeton.edu/stata-did //nice TODO!! below step by step
 //https://www.princeton.edu/~otorres/Panel101.pdf same here
 //https://www.stata.com/meeting/germany22/slides/Germany22_Luedicke.pdf see too
-//TODO and see app eco class materials
+//https://www.youtube.com/watch?v=p578jxAPJT4
+//https://www.youtube.com/watch?v=K0drFLzrI3I
+//https://www.youtube.com/watch?v=OQCKafoCb9Q
+//https://www.youtube.com/watch?v=DIDV-ARtEGQ
+//https://www.youtube.com/watch?v=eiffOVbYvNc
+//https://www.youtube.com/watch?v=Q5QOCMIwjbg
+//!!!!TODO and see teach/app_eco class materials
 
 
 
