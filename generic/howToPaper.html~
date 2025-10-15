@@ -91,7 +91,9 @@ always have abstract and keywords!!<br><br>
 
 always have "conclusion and discussion" section at the end<br><br>
 
-marketing is kinda cool like trying to sell it well; but waste of time in a sense that it doesnt produce anything; better strategy like approach hot topics, and new cutting-edge stuff
+marketing is kinda cool like trying to sell it well; but waste of time
+in a sense that it doesnt produce anything; better strategy like
+approach hot topics, and new cutting-edge stuff incl data 
 
 <br><br>
 
@@ -126,8 +128,8 @@ per regressions follow excellent <a href="https://stats.oarc.ucla.edu/stata/webb
 
 per interactions:
 <a href="https://www.stata.com/features/overview/factor-variables/">https://www.stata.com/features/overview/factor-variables/</a>
-and 
-<a href="https://www.stata.com/why-use-stata/easy-to-grow-with/linear.pdf">https://www.stata.com/why-use-stata/easy-to-grow-with/linear.pdf</a>
+<!-- and  -->
+<!-- <a href="https://www.stata.com/why-use-stata/easy-to-grow-with/linear.pdf">https://www.stata.com/why-use-stata/easy-to-grow-with/linear.pdf</a> -->
 <br><br>
 
 <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiBkfGs2uL3AhVOtKQKHcgiBiEQFnoECBEQAQ&url=https%3A%2F%2Fwww.stata.com%2Fwhy-use-stata%2Feasy-to-grow-with%2Flinear.pdf&usg=AOvVaw23PuvabL-ZXzG-K0W-vnTn">Linear Regression Models with Interaction/Moderation-Stata</a>
@@ -161,14 +163,15 @@ at very least every paper needs  descriptive stats for every variable: mean, sd,
 
 often need to reverse var, so that higher val means 'more' or 'better' and it`s intuitive eg happiness 1(lo)-3(hi), not 1(hi)-3(lo); install user written command:<br>
 findit revrs<br>
-revrs varName, replace<br>
-that would create a new var revVarName<br><br>
+<!-- revrs varName, replace<br> -->
+<!-- that would create a new var revVarName -->
+<br><br>
 
 always have to have actual survey questions asked to a respondent in
 the paper!!
 
 <h4>if GSS</h4>
-just get the full cumulative data set 1971-21<br>
+just get the full cumulative data set 1971-24<br>
 use lookfor in stata to find vars<br>
 lookfor satis<br> 
 to match both 'SATISfied' and 'SATISfaction'<br><br>
@@ -202,7 +205,8 @@ in magnitude as compared to other key vars such as health and income
 Definitely your paper!
 You see things differently on paper.
 Rearrange, move parts around.
-My advisor (one year, the best geographers in the world!) used to cut it
+My advisor <!-- (one year, the best geographers in the world!) -->
+ used to cut it
 up with scissors and glue back on the top of another sheet of paper. 
 I'm more modern and mark it up to move around: eg i'd circle couple
 paragraphs and put `1->` then where i move it i put `->1` and then 2,3
@@ -212,17 +216,17 @@ etc. And when i type it in, i move stuff around. Do reorganize, move things arou
 Also print out your key literature, and mark them up.
 
 <h4>use appendix or supplementary online material (som) a lot</h4>
-Look at top journals such as Nature, Science, PNAS: most of work is in
+Look at top journals like Nature, Science, PNAS: most of work is in
 appendix or supplementary online material (som)  it may be 20, or
 even 200 pages: all the details, elaborations, and supplementary
 analyses, robustness checks etc. But the actual paper is several pages
-only, typically just  2-3, maybe 4-5 tables/figures. Only the most
+only, typically just  1-3 tables/figures. Only the most
 important and critical ones that make the point and tell the story;
-all the other stuff that`s useful but not necessary to make the key
+all the other stuff thats useful but not necessary to make the key
 point/tell the story is postponed to appendix/som. We obviously have
 info overload, do not overload your readers, be as concise and to the
-point as possible. People don`t have time to read the stuff that they
-don`t have to. Readers just want to learn new stuff as quickly and
+point as possible. People dont have time to read the stuff that they
+dont have to. Readers just want to learn new stuff as quickly and
 efficiently as possible. Rare few who want all the details and
 intrincacies will find them in appendix/som.
 
@@ -236,85 +240,87 @@ Book by William Zinsser!!!<br><br>
 And see <a href="https://theaok.github.io/swb/final_project.pdf">https://theaok.github.io/swb/final_project.pdf</a>
 sec:"links: good research in words of others"
 
-<h4>do work continuously but don`t work continuously for too long</h4>
+<h4>do work continuously but dont work continuously for too long</h4>
 
-<b>warning: thinking/academic work is bad for your body!!!</b><br>
+warning: thinking/academic work is bad for your body!!<br>
 
-<b>do a test: sit on laptop for like 6hrs continously (typical load to get anything done), then get up and note how stiff and really weak and de-energized you are! </b><br>
+do a test: sit on laptop for couple hrs continously (typical to get anything done), then get up and note how weak you are! <br>
 
-and have enough of these 6hr blocks over time and you deteriorate greatly in
+and have enough of these couple hrs blocks over time and you deteriorate greatly in
 general, not just physically, mentally too--sure
 easy to see why working in a mine with a hammer is bad for you, but so
 is thinking/academic work!<br>
 
-warning: thin line: do need uninterrupted blocks of time, eg all Fri, all Sat, all Sun at 14hrs per day, BUT then do other stuff like outdoors, exercise, social connection--if you do research all the time for too long it will fry your brain (you`ll become crazy)<br><br>
+thin line: do need uninterrupted blocks of time, eg all Fri, all Sat, all Sun at 14hrs per day, BUT then do other stuff like outdoors, exercise, social connection--if you do research all the time for too long it will damage your brain<br><br>
 
-
-its actually good not just for happiness, but also for productivity to take a break; have like a week or two without looking at it at all, and then when you come back youll not just be more productive, but also will see much better things you didnt see earlier; BUT before you take a break try to wrap up as much as you can so you dont lose the momentum and dont spend time on coming back to it; AND do make notes what are the next steps and things todo when you come back<br><br>
-
+its actually good not just for happiness, but also for productivity to
+take a break; have like a week or two without looking at it at all,
+and then when you come back youll not just be more productive, but
+also see things you didnt see earlier; BUT before you take a break
+wrap up to have it in a decent shape; AND do make notes what are the next steps and things todo when you come back<br><br>
 
 Let it sit for 2-3 weeks. Or even longer, few months (after the class,
-of course). When you come back you see things you haven`t seen before
-because its all in your head and you don`t realize whats on paper and
+of course). When you come back you see things you havent seen before
+because its all in your head and you dont realize whats on paper and
 whats missing where (your head v paper).
 
 <h4>be flexible and opportunistic, simplify!</h4>
 
 
-im realizing its been intensive and overwhelming, so keep in mind what
-i said yesterday: simplify, be flexible and opportunistic (do whats
-easy and doable now) eg readjust your hypothesis to data, keep the big complicated stuff for later,
-likewise per my comments: do *NOT* do everything i ask for: much or most of my comments should be put towards the end into "limitations" and "future research"<br><br>
+<!-- im realizing its been intensive and overwhelming, so keep in mind what -->
+<!-- i said yesterday: -->
+simplify, be flexible and opportunistic (do whats
+easy and doable now) eg readjust your hypothesis to data, keep the big
+complicated stuff for later, likewise per my comments: do *NOT* do everything i ask for: much or most of my comments should be put towards the end into "limitations and future research"<br><br>
 
-Important! be clear about them! 
-How ideally it should be done?
-Doesnt have to have everything perfec, but has to know whats missing!!
-and say it
+<!-- Important! be clear about them!  -->
+<!-- How ideally it should be done? -->
+<!-- Doesnt have to have everything perfect, but has to know whats missing!!  and say it -->
 
 <h4>manage complexity: simplify!</h4>
 
-research is at least in some ways essentially a process of managing complexity--a key challenge and part of the research process is managing complexity; managing complexity is speaking plainly dealing with being overwhelmed, so simplify, make it easy on yourself, do something that is doable, postpone big ideas for later; never try to do everything now perfectly, youll drive yourself crazy
+<!-- at least in some ways essentiallya key challenge and part of the--research process is managing complexity  -->
+research is a process of managing complexity--simplify, make it easy on yourself, do something that is doable, postpone big ideas for later; never try to do everything now perfectly, youll drive yourself crazy
 
 
 <h4>do talk to scholars in your field that you know about from the literature</h4>
-The scholars in your narrowly defined field won`t be at your school!
-There`s a handful of them, say 5-50, they`re  scattered around the
-world, so do email them, they`d be happy (unless it`s a top top Nobel
-prize laureate kind of person, she`d be too busy to talk to you) --
-you`re both passionate about the same thing; coauthor! Most scholars
-need coauthor and like to have a new one. Ideally get a junior scholar
+The scholars in your narrowly defined field wont be at your school. 
+Theres a handful of them, say 5-50, and theyre scattered around the
+world--email them, theyd be happy (unless its a top top scholar like Nobel
+prize, they wont talk to you).<br>
+
+Youre both passionate about the same thing; coauthor! Most scholars
+need coauthors and would like to have a new one. Ideally get a junior scholar
 to team up: PhD student or assistant professor, they`re more upto
-date, 
-on the bleeding edge, more eager, and more in need to do research; if
-a senior scholar, ideally one thats productive, well established
-(published and cited a lot), so a top one (but again probably not very
-top top Nobel prize kind of thing).<!-- , they`re too busy -- you need to establish yourself first to talk to them) -->
+date,  more eager, and more in need to do research.<br>
+
+Can also try a senior scholar, but one thats productive, well established
+(published and cited a lot).
+
+<!-- so a top one (but again probably not very top top Nobel prize kind of thing). -->
+<!-- , they`re too busy -- you need to establish yourself first to talk to them) -->
 
 <h4>related to previous, paper is useless if held in a drawer, share it
 with the world</h4>
 
-Not just to impress and boost your CV, but mostly to make it better;
-research is a life long pursuit, it takes years or a lifetime to
-really figure something  out. And the only way to do that is to work
-with your field. Your field doesn`t know about you, unless you
+<!-- Not just to impress and boost your CV, but mostly to make it better; -->
+<!-- research is a life long pursuit, it takes years or a lifetime to -->
+<!-- really figure something  out. And the only way to do that is to work -->
+<!-- with your field. -->
+Your field doesnt know about you, unless you
 share. You share ONLY in 2 ways: academic conferences and
-publications -- this is the only way to take your work to the next level when you get feedback from your field -- again top people
-in your narrowly defined field, again about 5-50 people in the world,
-  won`t be at
-your school. Sure there will be people in related area at your school,
-but not exactly precisely in the very narrow area that YOU are
-doing -- almost always you`re not doing the exact same narrow area from 
-     the exact same perspective that scholars do at your institution.   <br><br>
+publications--the only way to take your work to the next level when you get feedback from your field.  Again, top people
+in your narrowly defined field, about 5-50 people,
+  wont be at your school. Sure there will be people in related area,
+but not exactly precisely in the very narrow area that YOU are--almost always youre not doing the exact same narrow area from the exact same perspective as scholars at your institution.   <br><br>
 
 
-
-Comments from your narrowly defined field are priceless--again the only way to take your work to the world class level. And don`t get discouraged, typically you`ll get rejected, I`m getting rejected say 70perc of the time after being in the field for 20 years. But you still get the priceless comments on how to make it better!
+Comments from your narrowly defined field are priceless--again the only way to take your work to the world class level. And dont get discouraged, typically youll get rejected, Im getting rejected say 80perc of the time after being in the field for 20 years. But you still get the priceless comments on how to make it better!
 
 <h4>related to previous: keep your pipeline full</h4>
-  It takes on average 3mo to get comments, can take 6mo, write another
-  paper and submit, keep it going, don`t wait for comments to move on,
-  you`ll be stuck for months, *KEEP PIPELINE FULL*, I always have at least 3,
-  ideally at least 5 papers under review at any given time.
+  It takes about 3mo to get comments, even 6mo, write another
+  paper and submit, keep it going, dont wait for comments to move on,
+  youll be stuck for months, *KEEP PIPELINE FULL*, I always have at least 3 papers under review at any given time.
 
 
 <h4>style</h4>
@@ -323,37 +329,41 @@ avoid opinion; use evidence: either literature or data<br><br>
 
 format tables and graphs so they look like those from journal
 articles; each table and graph must be numbered and have a caption and
-be refered to by its number from text
+be refered to by its number from text!
 
 <h4>usual comments on first draft of paper</h4>
 
 I am mostly happy with your drafts,
     but, lets not be complacent and work more and try to publish it;
     really need to push it ahead and put much more work into it to
-    have a good final product. 
-    Again,  need to to reply inline to
-    all comments, however small they may be (most of you were shy). 
-    2 general comments: need to beef it up and polish! See published 
-    research for examples. Bring everything together, this should be
-    cumulative: ie, intro, lit rev, data, results,
-    conclusion/discussion. 
-    Try to be objective: this is not op-ed or opinion, try to be
+    have a good final product.<br> 
+
+<!-- Again,  need to to reply inline to -->
+<!-- all comments, however small they may be (most of you were shy).  -->
+<!-- 2 general comments: need to beef it up and polish! See published  -->
+<!-- research for examples. Bring everything together, this should be -->
+<!-- cumulative: ie, intro, lit rev, data, results, -->
+<!-- conclusion/discussion.  -->
+
+Try to be objective: this is not op-ed or opinion, try to be
     scientific and present also contradicting information or other
     points of view. Make sure your text is connected to your analysis!
-    It flows logically. Sometimes, you may actually produce a lot of
+It flows logically.<br>
+
+Sometimes, you may actually produce a lot of
     output but end up having unfinished project: this may still be an
     A if there was a lot of work involved. Indeed, often, naturally,
     producing a good paper takes a lot of time, and it is better to
     have it unfinished than force it finish and produce something
-    mediocre!
+    mediocre
 
 <h4>my philosophy: flexible, open-minded</h4>
 
-My father used to tell me what to do. I didnt like that. My professors
-used to tell me what to do. It was better, they made more
-sense. Still, at the end of a day, I didnt like that. So I thought if
-i am i  position of power to tell other people what to do, i wont do
-that. I will advise instead of forcing.
+<!-- My father used to tell me what to do. I didnt like that. My professors -->
+<!-- used to tell me what to do. It was better, they made more -->
+<!-- sense. Still, at the end of a day, I didnt like that. So I thought if -->
+<!-- i am i  position of power to tell other people what to do, i wont do -->
+<!-- that. I will advise instead of forcing. -->
 
 
 
@@ -366,9 +376,9 @@ Remember the editor makes the decision, not reviewer.<br>
 
 And in general in later rounds of reviews the edits to paper are lighter and lighter<br>
 
-If something really goes into a new paper, say so in response to reviewer! Thank her for comments, but say that it will be a new paper, so it cant be fully accommodated here. And then indeed in the future you may write that another new paper. I did few times. Then you have 2 papers 😃<br>
+If some comment really takes you away and makes it into a new paper, say so in response to reviewer! Thank her for comments, but say that it will be a new paper, so it cant be fully accommodated here. And then indeed in the future you may write that another new paper. I did few times. Then you have 2 papers 😃<br>
 
-Again one way to deal with it is to use appendix and or online supplementary material--can put there stuff to satisfy one person but avoid dissatisfying the other. Almost nobody will read appendix or online supplementary material, so what's there doesn't upset a person, but it can be used to satisfy another person--can say in response to reviewer that you took suggestions into account and put it in appendix or online supplementary material<br>
+Again one way to deal with it is to use appendix and or online supplementary material--can put there stuff to satisfy one person but avoid dissatisfying the other. Almost nobody will read appendix or online supplementary material, so whats there doesnt upset a person, but it can be used to satisfy another person--can say in response to reviewer that you took suggestions into account and put it in appendix or online supplementary material<br>
 
 And yes you will actually quite often find reviewers among themselves or with editors disagreeing.<br>
 
