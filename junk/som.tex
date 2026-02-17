@@ -1,0 +1,895 @@
+%to have line numbers
+%\RequirePackage{lineno}
+\documentclass[10pt, letterpaper]{article}      
+\usepackage[margin=.1cm,font=small,labelfont=bf]{caption}[2007/03/09]
+%\usepackage{endnotes}
+%\let\footnote=\endnote
+\usepackage{setspace}
+\usepackage{longtable}                        
+\usepackage{anysize}                          
+\usepackage{natbib}                           
+%\bibpunct{(}{)}{,}{a}{,}{,}                   
+\bibpunct{(}{)}{,}{a}{}{,}                   
+\usepackage{amsmath}
+\usepackage[% draft,
+pdftex]{graphicx} %draft is a way to exclude figures                
+\usepackage{epstopdf}
+\usepackage{hyperref}                             % For creating hyperlinks in cross references
+\hypersetup{pdfborder={0 0 0.4}} %have nice light boxes on refs
+
+% \usepackage[margins]{trackchanges}
+
+% \note[editor]{The note}
+% \annote[editor]{Text to annotate}{The note}
+%    \add[editor]{Text to add}
+% \remove[editor]{Text to remove}
+% \change[editor]{Text to remove}{Text to add}
+
+%TODO make it more standard before submission: \marginsize{2cm}{2cm}{1cm}{1cm}
+\marginsize{.5cm}{1cm}{.5cm}{.5cm}%{left}{right}{top}{bottom}   
+					          % Helps LaTeX put figures where YOU want
+ \renewcommand{\topfraction}{1}	                  % 90% of page top can be a float
+ \renewcommand{\bottomfraction}{1}	          % 90% of page bottom can be a float
+ \renewcommand{\textfraction}{0.0}	          % only 10% of page must to be text
+
+ \usepackage{float}                               %latex will not complain to include float after float
+
+\usepackage[table]{xcolor}                        %for table shading
+\definecolor{gray90}{gray}{0.90}
+\definecolor{orange}{RGB}{255,128,0}
+
+\renewcommand\arraystretch{.9}                    %for spacing of arrays like tabular
+
+%-------------------- my commands -----------------------------------------
+\newenvironment{ig}[1]{
+\begin{center}
+ %\includegraphics[height=5.0in]{#1} 
+ \includegraphics[height=3.3in]{#1} 
+\end{center}}
+
+ \newcommand{\cc}[1]{
+\hspace{-.13in}$\bullet$\marginpar{\begin{spacing}{.6}\begin{footnotesize}\color{blue}{#1}\end{footnotesize}\end{spacing}}
+\hspace{-.13in} }
+
+%-------------------- END my commands -----------------------------------------
+
+
+
+%-------------------- extra options -----------------------------------------
+
+%%%%%%%%%%%%%
+% footnotes %
+%%%%%%%%%%%%%
+
+%\long\def\symbolfootnote[#1]#2{\begingroup% %these can be used to make footnote  nonnumeric asterick, dagger etc
+%\def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup}	%see: http://help-csli.stanford.edu/tex/latex-footnotes.shtml
+
+%%%%%%%%%%%
+% spacing %
+%%%%%%%%%%%
+
+% \abovecaptionskip: space above caption
+% \belowcaptionskip: space below caption
+%\oddsidemargin 0cm
+%\evensidemargin 0cm
+
+%%%%%%%%%
+% style %
+%%%%%%%%%
+
+%\pagestyle{myheadings}         % Option to put page headers
+                               % Needed \documentclass[a4paper,twoside]{article}
+%\markboth{{\small\it Politics and Life Satisfaction }}
+%{{\small\it Adam Okulicz-Kozaryn} }
+
+%\headsep 1.5cm
+% \pagestyle{empty}			% no page numbers
+% \parindent  15.mm			% indent paragraph by this much
+% \parskip     2.mm			% space between paragraphs
+% \mathindent 20.mm			% indent math equations by this much
+
+%%%%%%%%%%%%%%%%%%
+% extra packages %
+%%%%%%%%%%%%%%%%%%
+
+\usepackage{datetime}
+
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,backgrounds}
+
+
+%\usepackage{color}					% For creating coloured text and background
+%\usepackage{float}
+\usepackage{subfig}                                     % for combined figures
+
+\renewcommand{\ss}[1]{{\colorbox{blue}{\bf \color{white}{#1}}}}
+\newcommand{\ee}[1]{\endnote{\vspace{-.10in}\begin{spacing}{1.0}{\normalsize #1}\end{spacing}\vspace{.20in}}}
+\newcommand{\emd}[1]{\ExecuteMetaData[/tmp/tex]{#1}} % grab numbers  from stata
+
+%TODO before submitting comment this out to get 'regular fornt'
+\usepackage{sectsty}
+\allsectionsfont{\normalfont\sffamily}
+\usepackage{sectsty}
+\allsectionsfont{\normalfont\sffamily}
+\renewcommand\familydefault{\sfdefault}
+
+%\usepackage[margins]{trackchanges}
+\usepackage{rotating}
+\usepackage{catchfilebetweentags}
+
+\usepackage{abstract}
+\renewcommand{\abstractname}{}    % clear the title
+\renewcommand{\absnamepos}{empty} % originally center
+
+\RequirePackage{etex}
+%-------------------- END extra options -----------------------------------------
+\date{{}\today \hspace{.2in}\xxivtime}
+\title{Unhappiness is Unpredictability/Instability\\Online Appendix (Supplementary Online Material)
+  % Happiness and Place in Colombia: Urban-Rural and Regional
+  % remember to have Vistula University!!
+}
+\author{ % + Lina and Ebshoy
+% Adam Okulicz-Kozaryn\thanks{EMAIL: adam.okulicz.kozaryn@gmail.com
+%   \hfill I thank XXX.  All mistakes are mine.} \\
+% {\small Rutgers - Camden  % and Vistula University
+% }
+}
+
+\begin{document}
+
+%%\setpagewiselinenumbers
+%\modulolinenumbers[1]
+%\linenumbers
+
+\bibliographystyle{/home/aok/papers/root/tex/ecta}
+\maketitle
+\vspace{-.4in}
+\begin{center}
+
+\end{center}
+
+
+
+
+
+\begin{abstract}
+  \noindent
+% Happiness and Place in Colombia: Urban-Rural and Regional
+%   patterns from
+% World Values Survey (WVS)
+
+
+\end{abstract}
+\vspace{.15in} 
+\vspace{.25in} 
+
+\begin{spacing}{1.4} %TODO MAYBE before submission can make it like 2.0
+\rowcolors{1}{white}{gray90}
+
+%  instead \ExecuteMetaData[../out/tex]{ginipov} do \emd{ginipov}
+
+% \begin{figure}[H]
+%  \includegraphics[height=3in]{../out/gov_res_trust.pdf}\centering\label{gov_res_trust}
+% \caption{woo}
+% \end{figure}
+
+
+\tableofcontents
+
+\section{Relationships among variables, choice of controls, and overcontrol bias} %, overcontrol,  etc
+% * bartram editorial control vars as predictors of main IV
+% can reread editorial and look at his papers, eg:
+
+% https://academic.oup.com/esr/advance-article/doi/10.1093/esr/jcaf014/8096353
+
+% https://academic.oup.com/migration/article-pdf/doi/10.1093/migration/mnaf015/63217256/mnaf015.pdf
+
+% https://journals.sagepub.com/doi/pdf/10.1177/14407833211017672
+
+We stick with the regressions in the paper for several reasons. And reviewers did not argue to adjust the models for
+unpredictability/instability antecedents and overcontrol bias--changing the
+approach completely seems too dramatic at this stage. But we do see merit in antecedent and
+overcontrol bias exploration, so we take middle way, explore here, and
+summarize in paper. Most importantly--we think our original models mostly
+abide--there are antecedents and overcontrol bias is avoided. There is not much
+difference in results and wherever there is, we say so in the paper. The most
+problematic overcontrol bias variable 'paid by the hour' is left in the original models till the
+last specification (and there is substantial significance and effect size in
+earlier models on unpredictability/instability). Including income is a standard practice and it is unclear if the variable is problematic (especially family income used here), but we explore further here.\\
+
+$UI =$ Unpredictability and Instability
+
+$-> =$ is antecedent of (predicts)\\
+
+% responding to: 
+% \begin{verbatim}
+% consideration of whether a potential control is also an antecedent of work hours/schedule/unpredictability
+% \end{verbatim}
+
+% from editorial this seems to be the key:
+% \begin{verbatim}
+% What we really need,to identify/estimate X->Y, is to control for other
+% determinants of Y that are also antecedents of X (so, W->X).
+% \end{verbatim}
+
+We are considering here whether a potential control is also an antecedent of
+unpredictability/instability. From SIR editorial, ``what we really need,to identify/estimate $X->Y$, is to control for other
+determinants of Y that are also antecedents of X (so, $W->X$).''
+
+We argue using logic/reasoning (and literature in the next subsection) these are the antecedents:
+
+\begin{itemize}
+\item more income and education (and some occupations) $->$ higher-end jobs with either less  (or chosen/preferred UI)
+\item male and paid by the hour $->$ UI
+\item decide working hours: if one can decide schedule $->$ less UI
+\item union membership $->$ less UI (see next subsection on literature) 
+\end{itemize}
+
+
+But, as the SIR editorial warns, ``if we include controls where the relationship
+goes the other way ($X->W$),we will exacerbate bias in our estimate of
+$X->Y$[overcontrol bias]''--then:
+
+\begin{itemize}
+\item maybe: $UI ->$ income (eg extra pay for UI jobs; also UI may predict greater variability
+in income; still family income used in paper is less affected than personal income)
+\item probably!: $UI ->$ paid by the hour (if little idea how many hrs then need to pay by hr) 
+\item maybe: $UI ->$ union membership (UI can cause workers to unionize; there may be union because there was no UI in the first place, etc) 
+\end{itemize}
+
+So we will be careful with the above 3 variables. But the other ones are unlikely:
+
+\begin{itemize}
+\item not $UI ->$ education; as education typically precedes job
+\item not $UI ->$ occupation; as occupation would rather define UI
+\item not $UI ->$ decide or set schedule; decision making on schedules defines UI, not the other way round
+\item not $UI ->$ male; definitely not
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+Next we move to re-estimating paper regressions taking into account the above
+information. 
+Model a1 is repeated for reference from the body. Model a2 includes antecedents
+as theorized above. Results are similar, slightly stronger. Then we proceed to
+include problematic variables. In a3 we add income. Now the results are
+stronger, especially on "fewest hrs per week past month/usual hours"--this may
+be result of overcontrol. In a4 we removed income and add most problematic
+variable "paid by the hour." It kills significance on both main
+variables. Finally in a5 we add back income. Now results are again similar to
+a3. We conclude that indeed both income and "paid by the hour" do change the
+results, and results with these variables controlled for should be interpreted
+with caution. The main "final" result would be in a2, which is similar to what
+we report in the body of the paper. Finally in a6 we repeat ``full'' model a2
+but with union membership dummies, where base case is ``yes, respondent
+belongs,'' and results remain very similar relative to a2 (and this will be the
+case throughout for subsequent unpredictability/instability models. There is negative effect from "most hrs per week past month/usual hours" at about -.16, but not so much from "fewest hrs per week past month/usual hours."
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{c-a.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{c-a}OLS regressions of life satisfaction. The base case for union membership is ``yes, respondent belongs.''}\end{table} \end{spacing}
+
+We do a similar exercise for remaining main independent variables. The rest of
+the results are substantively similar as those reported in the body of the paper
+except on the last main independent variable "what is your working schedule" in
+table \ref{c-d}.  The dummy "daily working times are decided at short notice" is not significant when only controlling for its antecedents in d2, and only becomes significant when controlling for income in d3. Thus, these results are not robust. 
+
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{c-b.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{c-b}OLS regressions of life satisfaction. The base case for union membership is ``yes, respondent belongs.''}\end{table} \end{spacing}
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{c-c.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{c-c}OLS regressions of life satisfaction. The base case for union membership is ``yes, respondent belongs.''}\end{table} \end{spacing}
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{c-d.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{c-d}OLS regressions of life satisfaction. The base case for union membership is ``yes, respondent belongs.''}\end{table} \end{spacing}
+
+
+\subsubsection{Additional antecedents of unpredictability and instability according to the literature}
+
+Further, based on the literature, there are multiple antecedents of the following
+unpredictability/instability categories:\\
+
+Unstable hours / work-hour volatility; (Week-to-week or month-to-month fluctuations in total hours worked)%; Key predictors consistently identified:
+\begin{itemize}
+\item Hourly-paid status (vs. salaried)
+\item Low wages / low earnings                                           
+\item Part-time and involuntary part-time employment                     
+\item Service-sector occupations (retail, food service, hospitality)     
+\item Weak worker bargaining power (nonunion status, slack labor markets)
+\item Early-career / short tenure                                        
+\item Employer use of ``just-in-time'' staffing                          
+\end{itemize}
+
+Core empirical studies:
+\begin{itemize}
+\item Volatility is concentrated among low-wage, hourly, nonunion workers  when worker power is weak. LaBriola, J., \& Schneider, D. (2019). Worker power and class polarization in intra-year work hour volatility. Social Forces, 98(3), 973-999. https://doi.org/10.1093/sf/soz032
+\item Occupational and gender stratification in hour volatility, net of macro
+  conditions. Cai, J. Y. (2024). Labor market volatility and worker financial wellbeing: An occupational and gender perspective. Institute for New Economic Thinking Working Paper No. 217. 
+\item Persistence of volatility post-pandemic, especially among low-wage hourly workers. Cai, J. Y. (2023). Work-hour volatility by the numbers. Federal Reserve Bank of Boston, Community Development Issue Brief.
+\end{itemize}
+
+
+Schedule unpredictability / advance notice; (Short notice of schedules, last-minute changes, on-call shifts, cancellations)
+\begin{itemize}
+\item Retail and food-service employment                          
+\item Large-chain employers using algorithmic scheduling          
+\item Hourly pay + low job control                                
+\item Nonunion status                                             
+\item Race/ethnicity (workers of color disproportionately exposed)
+\item Younger and early-career workers                            
+\end{itemize}
+
+
+Core empirical studies
+\begin{itemize}
+\item One of the first national mappings of predictors of short notice and last-minute changes. Lambert, S. J., Fugiel, P. J., \& Henly, J. R. (2014). Schedule unpredictability among early career workers in the U.S. labor market. University of Chicago Working Paper.
+\item Uses Shift Project data; shows unpredictability is driven by employer practices, not worker preferences. Schneider, D., \& Harknett, K. (2019). Consequences of routine work-schedule instability for worker health and well-being. American Sociological Review, 84(1), 82-114.
+\item Identifies advance notice, on-call shifts, and cancellations as key mechanisms linking jobs to hardship. Schneider, D., \& Harknett, K. (2021). Routine schedule unpredictability and material hardship among service-sector workers. Social Forces, 99(4), 1682-1709.
+\end{itemize}
+
+
+Schedule inflexibility / non-responsiveness to worker preferences
+(Employer refusal or inability to adjust hours or timing in response to worker needs or stated preferences)
+\begin{itemize}
+\item Low worker input or voice over schedules              
+\item Managerial discretion without formal constraints      
+\item Algorithmic scheduling systems                        
+\item Low-wage hourly jobs                                  
+\item Absence of unions or formal scheduling rights         
+\item Gendered care-giving constraints (especially for women)
+\end{itemize}
+
+Core empirical studies
+\begin{itemize}
+\item Mismatch between preferred and actual hours as a defining feature of low-quality jobs. Golden, L. (2015). Irregular work scheduling and its consequences. Economic Policy Institute Briefing Paper No. 394.
+\item Inflexibility is organizationally chosen, not technologically inevitable. Williams, J. C., Lambert, S. J., \& Kesavan, S. (2018). Stable scheduling increases productivity and sales. Center for WorkLife Law \& University of Chicago report.
+\item Workers' stated preferences are often overridden by managerial practices. Henly, J. R., \& Lambert, S. J. (2014). Unpredictable work timing in retail jobs. Industrial \& Labor Relations Review, 67(3), 986-1008.
+\item Links inflexibility directly to perceived disrespect and loss of autonomy. Woods, T. (2025). Schedule instability as a threat to perceived dignity in the service sector. Social Problems. Advance online publication.
+\end{itemize}
+
+From these variables, they are either already in the model or they are not in
+the dataset, except union membership. We add it to the robustness checks in the above section.
+
+\subsection{Initial Analysis and Reasoning [Background Only; Skip]}
+
+We left the original tables in the body of the manuscript, as sequential
+elaboration of the models with predictors of the dependent variable in addition
+to main (unpredictability/instability) independent variables is the usual practice. But here
+we elaborate and use various ``robustness'' and ``sensitivity'' checks and
+provide more discussion.
+
+While overall, some negative effect of the unpredictability/instability measures on SWB
+often holds, there are many nuances as elaborated here. 
+
+Specifically, here we address the editorial by \citet{bartram24} as per choice of control
+variables. We explore what may predict unpredictability/instability.
+% i guess industry! make sure run corr with that
+% antecedents are identified in two ways: as per theory/logic; and with
+% cross-correlation matrix and guess  specification curve
+
+We proceed as follows. We start with pairwise correlations to get an overall
+sense of relationships. Then we use Specification Curves Analysis (SCA) to find
+out how model specification affects statistical significance and effect size of
+the main (unpredictability/instability) independent variables. Then having identified key
+control variables with pairwise correlations and SCA we focus on these in
+ additional sensitivity/robustness models. 
+
+\subsubsection{Pairwise correlations}
+
+We take main hours variables from the first 2 tables and also 2 main scheduling
+variables from the last 2 tables and control variables from regressions. 
+
+
+In table \ref{corrtable} high correlations are mostly among the main independent variables measuring
+unpredictability/instability that are in regressions separately\footnote{With exception of the first
+  regression table, where we have both \texttt{``fewest hrs per week past
+    month/usual hours''} and \texttt{``most hrs per week past month/usual
+    hours''} that correlate at .4.}
+Most others are small $|0-.3|$, with few exceptions:
+\begin{itemize}
+\item income is most correlated with other controls, no wonder it then changes
+  significance a lot when introduced in our--it correlates with following, all
+  as expected:
+  \begin{itemize}
+  \item married .4
+  \item education .4 
+  \item paid by the hour -.4 
+  \end{itemize}
+\item paid by the hour correlates with  education at -.4, also as expected 
+\item a control we introduce in specification \#4 in each table,
+  \texttt{``number of hours worked last week''} correlates highly at .6 to .8 with key unpredictability/instability independent
+  variables based on working hours, as expected: \texttt{``most hrs/week worked
+    in past month''}, \texttt{``fewest hrs/week worked in past month''}, and
+  \texttt{``how many hrs/week do you usually work''}.  
+\end{itemize}
+
+
+\input{pwcorr.tex}
+
+\subsubsection{Specification Curves Analysis (SCA)}
+
+Here we use Stata's speccurve to analyze effect size and statistical
+significance by specification. 
+
+Just to orient discussion, in SCAs below we designate as main in red color
+middle specification \#3, somewhat balancing under-fitting and over-fitting,
+from each regression table in the body of the paper.
+
+Figures \ref{sca1}  \ref{sca2} show that family income \texttt{``realinc''}  is
+the most
+important variable--subtraction of income in later specifications across the x axis
+ decreases both significance and effect size most substantially of all
+ variables. 
+
+In figure \ref{sca3}--here health decreases significance and effect size as opposed to income earlier, and
+does so very clearly--once health is added, the drop (towards 0) is clear.
+
+In figure \ref{sca4} the pattern is more complex--first, dropping  health and
+then income decrease effect size and significance. 
+
+To summarize, clearly both health and income matter for
+unpredictability/instability's 
+effect and significance  and both can make unpredictability/instability more or less
+bearable (in terms of SWB). 
+
+
+
+ \begin{figure}[H]
+   \includegraphics[height=3in]{sca1.pdf}\centering
+   \caption{\label{sca1}}
+ \end{figure}
+
+ \begin{figure}[H]
+   \includegraphics[height=3in]{sca2.pdf}\centering
+   \caption{\label{sca2}}
+ \end{figure}
+
+ \begin{figure}[H]
+   \includegraphics[height=3in]{sca3.pdf}\centering
+   \caption{\label{sca3}}
+ \end{figure}
+ 
+ \begin{figure}[H]
+   \includegraphics[height=3in]{sca4.pdf}\centering
+   \caption{\label{sca4}}
+ \end{figure}
+
+
+
+\subsubsection{Additional sensitivity/robustness models} 
+
+Finally, as per SCA  we focus on health and income and rerun regressions from the
+body below. We also focus on industry dummies here (which are also explored in
+greater detail in subsequent section).
+
+All in all across specifications results from the body mostly hold,
+but depending on the unpredictability/instability variable, significance and effect sizes
+vary as discussed below. 
+
+In table \ref{regE} the range of estimates on \texttt{``most hrs per week past month/usual hours''}
+is -.14 to -.18 sig at least at 10\%. Controlling for industry dummies in e5
+doesn't change results much relative to e1. 
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{regE.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{regE}OLS regressions of life satisfaction.}\end{table} \end{spacing}
+
+
+In table \ref{regF}
+(mosthrs-leasthrs)/usualhrs
+range -.12 to -.19 sig at least at 10\%, except p-value slightly higher at .102
+when only controlling for health. Controlling for industry dummies in f5 results
+slightly stronger than in f1.
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{regF.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{regF}OLS regressions of life satisfaction.}\end{table} \end{spacing}
+
+
+In table \ref{regG} more unstable as high as .2 without controls, and
+insignificant controlling for health, or for health and income. Controlling for industry dummies in g5 results
+ similar in g1.
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{regG.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{regG}OLS regressions of life satisfaction.}\end{table} \end{spacing}
+
+In table \ref{regH}
+here as strong  as -.24, controlling for health insignificant, but controling both for
+health and for income back to significance. Industry dummies kill significance
+in h5 v bivariate h1. 
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{regH.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{regH}OLS regressions of life satisfaction.}\end{table} \end{spacing}
+
+
+%meh not so much
+% by married in table \ref{taMar} 
+% \begin{table}[H]\centering   \begin{scriptsize}
+% \input{taMar.tex}
+% \end{scriptsize}\caption{\label{taMar}}\end{table}
+
+
+\subsubsection{Unpredictability/Instability means by income, health, and occupations} 
+
+Here we provide some additional descriptive statistics. First by income and
+health. Second, by occupations. 
+
+{\underline \bf Income and health}
+
+Here we split income at median in table \ref{taInc}: realinc2 category \# being
+income above the median. In that category there is slightly less
+unpredictability/instability on \texttt{``most hrs per week past month/usual
+  hours''}, \texttt{``most hrs per week past month/usual hours''}, and
+\texttt{``daily working times are decided at short notice''}. And there is a big
+difference on  \texttt{``2 days-1 wk''}-- it is almost 2x lower for those with
+income wbove median--unpredictability/instability on this measure is much lower
+for high earners. 
+
+
+In table \ref{taHea}, those in good or excellent health (v poor or fair), have
+actually more instability on the first 2 metrics, but slightly less on the following
+2, and much less on the last one (\texttt{``2 days-1 wk''}). 
+
+\begin{table}[H]\centering   \begin{scriptsize}
+\input{taInc.tex} 
+\end{scriptsize}\caption{\label{taInc}}\end{table}
+
+\begin{table}[H]\centering   \begin{scriptsize}
+\input{taHea.tex} 
+\end{scriptsize}\caption{\label{taHea}}\end{table}
+
+%meh not so much
+% \begin{table}[H]\centering   \begin{scriptsize}
+% \input{taHr.tex} 
+% \end{scriptsize}\caption{\label{taHr}}\end{table}
+
+
+{\underline \bf Occupations}
+
+Here we use International Standard Classification of Occupations (ISCO) that we
+collapsed to 1-digit groupings. 
+
+Clearly unpredictability/instability is an attribute of occupations. Hence, it
+is a key variable to consider here. While in the body of the paper we do
+include in more elaborate specifications these dummies, here we provide more
+information:  means (and counts) of each unpredictability/instability measure by occupation. 
+
+Note, there are  very few people in agriculture--can't interpret agriculture.
+
+On leastUl \texttt{``fewest hrs per week past month/usual hours''} not much difference
+except that service is slightly lower. So service varies more than others--the
+lowest hours for service are lower than elsewhere relative to usual hours. 
+
+On mostUsl  \texttt{``most hrs per week past month/usual hours''}
+and  mostLel \texttt{``(mosthrs-leasthrs)/usualhrs''}  not much difference, but
+production/transport is slightly higher. Production/transport hours highest
+hours are higher than for other occupations relative to usual hours. And in
+production/transport there is also a bigger difference between most and least
+hours relative to usual hours ((mosthrs-leasthrs)/usualhrs) versus other occupations.
+
+On WSS3 \texttt{``daily working times are decided at short notice''}:
+production/transport and especially craft/technical are much higher, 2x or more
+than the rest.
+
+On AS3 \texttt{``2 days-1 wk''} is higher on professional and craft/technical, but
+especially on service, 2x or more higher. 
+
+Thus while there are different patterns across unpredictability/instability metrics, 
+ production/transport,  craft/technical, and  service show different
+ levels. Most if not all of these are probably as expected. We do not make too
+ much out of it as occupational sectors  are not the focus of the paper, rather
+ a control variable; and cell sizes are quite small in the table below
+
+\begin{scriptsize}
+\begin{spacing}{.9}
+\begin{verbatim}
+. tabstat leastUsual mostUsual mostLeastUsual WSS3 AS3, by(isco1)format(%9.2f)noto stat(mean n)
+
+Summary statistics: Mean, N
+Group variable: isco1 (1 digit occupation)
+
+           isco1 |    leastUl   mostUsl   mostLel    WSS3       AS3
+-----------------+--------------------------------------------------
+    professional |      0.83      1.16      0.34      0.03      0.24
+                 |     74        74        74       110        74   
+-----------------+--------------------------------------------------
+administrative/  |      0.83      1.20      0.34      0.04      0.14
+managerial       |    107       107       106       159       108   
+-----------------+--------------------------------------------------
+        clerical |      0.88      1.18      0.30      0.04      0.16
+                 |     86        85        85       128        85   
+-----------------+--------------------------------------------------
+           sales |      0.88      1.16      0.28      0.04      0.19
+                 |     53        53        53        79        53   
+-----------------+--------------------------------------------------
+         service |      0.78      1.16      0.38      0.04      0.36
+                 |     61        62        61        94        66   
+-----------------+--------------------------------------------------
+      agriculure |      0.68      1.28      0.60      0.25      0   
+                 |      3         3         3         4         3   
+-----------------+--------------------------------------------------
+production/transpo      0.88      1.28      0.39      0.07      0.15
+                 |     39        39        39        69        39   
+-----------------+--------------------------------------------------
+craft/technical |      0.87      1.17      0.30      0.11      0.22
+                 |     65        64        64       103        65   
+--------------------------------------------------------------------
+\end{verbatim}
+\end{spacing}
+\end{scriptsize}
+
+
+
+
+\section{Using personal income instead of family income}
+
+In the body of the paper we have used family income; now as a robustness check
+we use personal income (they correlate at .73). 
+
+Note that using family income in the body of the paper as opposed to a person's
+income is somewhat adjusted by controlling for size of the household. 
+
+Income is an important variable as per discussion in this appendix in other
+sections. And likewise using personal income v family income has a large effect on
+many estimates as elaborated below. 
+
+Results on ``most hrs per week past month/usual hours'' are cut by as much as
+half. Still the sign is the same, but we mostly lost the statistical
+significance. In fact, in both tables \ref{a2} and \ref{b2} we have lost
+statistical significance on unpredictability/instability measures. 
+
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{regA2.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{a2}OLS regressions of life satisfaction.}\end{table} \end{spacing}
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{regB2.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{b2}OLS regressions of life satisfaction.}\end{table} \end{spacing}
+
+
+
+But then on the last 2 measures there is a great deal of effect. In table
+\ref{regC2} \texttt{``2 days-1 wk''} is actually more significant than with
+family income in the body of the manuscript.  And then in table \ref{regD2} we
+see about the same significance as with family income in the body of the
+manuscript. 
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{regC2.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{regC2}OLS regressions of life satisfaction.}\end{table} \end{spacing}
+
+
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{regD2.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{regD2}OLS regressions of life satisfaction.}\end{table} \end{spacing}
+
+
+
+\section{Beta (fully standardized) coefficients}
+
+
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{regAA.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{regAA}OLS regressions of life satisfaction.}\end{table} \end{spacing}
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{regBB.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{regBB}OLS regressions of life satisfaction.}\end{table} \end{spacing}
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{regCC.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{regCC}OLS regressions of life satisfaction.}\end{table} \end{spacing}
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{regDD.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{regDD}OLS regressions of life satisfaction.}\end{table} \end{spacing}
+
+
+\section{Interactions by groups}
+
+We postpone them to the appendix and we do not make much of them as sample size is
+relatively small at about 450 observations and accordingly statistical power is
+low as well.
+
+Furthermore our focus in the manuscript is on the main effect, future research,
+when more data becomes available, can focus on specific effects by
+groups. Nevertheless here we provide some preliminary results
+
+\subsection{Gender}
+
+In table \ref{regX1} for males there is some positive effect from fewest hours,
+and insignificant from most hours.
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{regX1.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{regX1}OLS regressions of life satisfaction.}\end{table} \end{spacing}
+
+In table \ref{regX2} for males there is no significant effect.
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{regX2.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{regX2}OLS regressions of life satisfaction.}\end{table} \end{spacing}
+
+Likewise in table \ref{regX3} and \ref{regX4} for males there is no significant effect.
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{regX3.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{regX3}OLS regressions of life satisfaction.}\end{table} \end{spacing}
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{regX4.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{regX4}OLS regressions of life satisfaction.}\end{table} \end{spacing}
+
+\subsection{Age}
+
+
+\begin{verbatim}
+gen a20=0
+
+replace a20=1 if age<30
+
+replace a20=. if age>=.
+
+
+gen a30_54=0
+
+replace a30_54=1 if age>29 & age <55
+
+replace a20=. if age>=.
+
+
+gen a55=0
+
+replace a55=1 if age>54 & age <200
+
+replace a55=. if age>=.
+\end{verbatim}
+
+
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{regY1.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{regY1}OLS regressions of life satisfaction.}\end{table} \end{spacing}
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{regY2.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{regY2}OLS regressions of life satisfaction.}\end{table} \end{spacing}
+
+
+
+In table \ref{regY3} one could be tempted to read into significant estimates on
+$a20=1 x  -1 day$, but there are only 11 such persons, and in actual estimation
+in specification y5 only 11 due to missing data on other variables: 
+
+\begin{verbatim}
+ ta AS2 a20
+           |          a20
+    -1 day |         0          1 |     Total
+-----------+----------------------+----------
+         0 |       321         92 |       413 
+         1 |        69         13 |        82 
+-----------+----------------------+----------
+     Total |       390        105 |       495 
+
+
+
+. ta AS2 a20 if e(sample)==1
+           |          a20
+    -1 day |         0          1 |     Total
+-----------+----------------------+----------
+         0 |       296         82 |       378 
+         1 |        54         11 |        65 
+-----------+----------------------+----------
+     Total |       350         93 |       443 
+\end{verbatim}
+
+
+Thus we abort these fruitless exercises here. 
+
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{regY3.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{regY3}OLS regressions of life satisfaction.}\end{table} \end{spacing}
+
+% \begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{regY4.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{regY4}OLS regressions of life satisfaction.}\end{table} \end{spacing}
+
+
+
+
+
+\section{Exploring ``decide working hours ('who sets the schedule')''}
+
+We thank anonymous reviewer for making the following point:
+
+\begin{verbatim}
+Wouldn't it make more sense to exclude the participants who can control their
+schedule and analyze only the effect of employer-friendly flexibility? In case
+you are arguing that unpredictability is bad for the SWB independently of who is
+controlling the schedule, this should be explicitly stated and the argumentation
+should be straightened throughout the paper. 
+\end{verbatim}
+
+In general, in the paper we simply explore the effect of unpredictability and
+instability on happiness. There are many ways to approach it and subset the
+sample. As the reviewer points out, yes, indeed, effectively we are arguing that
+``unpredictability is bad for the SWB independently of who is controlling the
+schedule''--this is due to the fact that we control for ``decide working hours
+('who sets the schedule').'' But it also makes sense, as the reviewer advises,
+to ``exclude the participants who can control their schedule and analyze only
+the effect of employer-friendly flexibility.'' This is what we do in this section
+(and a few other checks). The discussion is postponed here as we already have 6
+tables in the body of the paper and also the sample size gets from small to even
+smaller. (Still we report key points from this section in the body of the paper). 
+ 
+
+As reported in the paper, the decide working hours ('who sets the schedule')
+variable measures increasing degrees of decision latitude on the part of an
+employee. But it deserves some robustness checks as there are 2 interesting
+categories-the first one is no latitude whatsoever (also on the part of the
+employer) and the last one is full latitude on the part of an employee. Below is
+the frequency table
+
+\begin{scriptsize}
+\begin{spacing}{.9}
+\begin{verbatim}
+                 decide working hours |      Freq.     Percent        Cum.
+--------------------------------------+-----------------------------------
+       outside of my/employer control |         28        5.63        5.63
+employer decides with little/no input |        224       45.07       50.70
+          employer decides with input |        134       26.96       77.67
+                i decide witin limits |         91       18.31       95.98
+              i decide without limits |         20        4.02      100.00
+--------------------------------------+-----------------------------------
+                                Total |        497      100.00
+\end{verbatim}
+\end{spacing}
+\end{scriptsize}
+
+Excluding participants who (fully) control their schedule would mean dropping 20 people in the last category (however, note there are degrees of controlling schedule).
+
+We conduct several robustness checks.
+
+First, we repeat for reference the specification from the body of the
+paper (a5). Second, instead of treating the variable as continuous as in the body, we
+dummy it out (a5D) with the base ``employer decides with little/no input.'' Results
+are similar. Next in a5no0 we drop the observation in 1st category ``outside of
+my/employer control,'' again results are similar. Finally in a5no4 we drop ``i
+decide without limits'' and here results are different--we lose sig on 'most hrs
+per week past month/usual hours.' Finally we are dropping both ends where
+ the employer has no latitude--to see  how the results may change if we look at
+ a subsample where the  employer has discretion in column a5no04--results are similar to
+previous column a5no4.  
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{a5.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{a5}OLS regressions of life satisfaction.}\end{table} \end{spacing}
+
+Next we repeat the exercise for other main independent variables. With dummies,
+'(mosthrs-leasthrs)/usualhrs' remains marginally significant at p-value of
+about .1. Like in the previous table, we lose statistical significance if we exclude
+ ``i decide without limits,'' and similarly in the last column when we also drop ``outside of
+my/employer control.''
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{b5.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{b5}OLS regressions of life satisfaction.}\end{table} \end{spacing}
+
+In table \ref{c5} dummies do not change much and dropping the first category
+results are slightly stronger on ``2 days-1 wk.'' And again like earlier,
+dropping the 4th category kills significance, and remains insignificant when we
+also drop the first category.  
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{c5.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{c5}OLS regressions of life satisfaction.}\end{table} \end{spacing}
+
+Finally, in table \ref{d5} results remain of similar magnitude and significance throughout.
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5 in}p{.5in}p{.5 in}}\hline \input{d5.tex} \hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err \end{tabular}\end{scriptsize}\caption{\label{d5}OLS regressions of life satisfaction.}\end{table} \end{spacing}
+
+Hence, we conclude that only the last variable ``what is your working schedule''
+ predicts SWB in the sample excluding ``i decide without limits.'' For the first three
+ variables, while the sign remains the same, and the effect size is cut by no more than about 20\%, still the loss of statistical significance is notable. 
+
+
+
+\section{Descriptive Statistics}
+
+\subsection{Distributions of Variables}
+
+\begin{figure}
+\input{h/hh1.tex}
+%\end{figure}
+
+\begin{figure}
+\input{h2/h2h2.tex}
+%\end{figure}
+
+
+\section{Other/minor points}
+
+\subsection{Directionality of effect from health and income to SWB}
+
+The direction of causality of some SWB determinants such as health may be
+disputed, i.e., whether health predicts happiness or happiness predicts health 
+ \citep{diener15}. But recent evidence supports our assumption that health causing
+ happiness is predominant \citep{liu16}. 
+ The same logic applies to the role
+of income in SWB estimation and whether it is income that predicts SWB or vice
+versa \citep{easterlin74,helliwell04}. While in general it is assumed
+that income predicts SWB \citep[e.g.,][]{aokditella,aok-ls_fisher16},
+longitudinal and (quasi) experimental designs are recommended to 
+tackle reverse causality \citep{diener1994assessing,helliwell04}.
+
+
+\bibliography{/home/aok/papers/root/tex/ebib.bib,bib.bib}
+
+
+\end{spacing}
+\end{document}
