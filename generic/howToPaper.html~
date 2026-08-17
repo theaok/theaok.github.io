@@ -1,4 +1,11 @@
-<!-- later move here from orgs -->
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    font-family: Sans-Serif; margin-left: 20px; margin-right: 20px;}  /* line-height:130% ; font-size:12px ; */
+</style>
+
 
 <script>
 window.onload = function () {
@@ -38,324 +45,342 @@ window.onload = function () {
 };  
 </script>
 
+
+
+</head>
+
+
+
+
 <body>
-    <div id="toc">
+
+
+these are my loose thoughts and rough notes on doing academic research
+as bullet points: lets skim
+through relevant ones to you at your specific stage when we start doing research together (and then
+again later); also may see
+<a href="https://theaok.github.io/swb/final_project.pdf">https://theaok.github.io/swb/final_project.pdf</a>
+    <hr/>
+
+  <div id="toc">
         <!-- <h2>Table of Contents</h2> -->
     </div>
     <hr/>
     <div id="contents">
 
+<!-- later move here from orgs -->      
 
-
-
-  
-also see
-<a href="https://theaok.github.io/swb/final_project.pdf">https://theaok.github.io/swb/final_project.pdf</a><br><br>
-
-<b>my philosophy: flexible, open-minded: do what you like, just contribute to the literature</b>
-<!-- My father used to tell me what to do. I didnt like that. My professors -->
+<dl>
+  <li> my philosophy: flexible, open-minded: do what you like, just
+    contribute to the literature (and have some overlap with my research
+    so we can work together)
+<!-- My father used to tell me what to do. I did not like that. My professors -->
 <!-- used to tell me what to do. It was better, they made more -->
-<!-- sense. Still, at the end of a day, I didnt like that. So I thought if -->
+<!-- sense. Still, at the end of a day, I did not like that. So I thought if -->
 <!-- i am i  position of power to tell other people what to do, i wont do -->
 <!-- that. I will advise instead of forcing. -->
-<br><br>
-
-<b>independent/directed study/work together/dissertation</b><br>
-
-<!-- lets keep on working on the papers so that we dont perish: -->
-can start informally over github/email/zoom even in summer or more
-formally in class or take independent/directed study course with me,
-and then dissertation
-
+  <li>work together, independent/directed study, dissertation:
+<!-- lets keep on working on the papers so that we do not perish: -->
+    can start informally over github/email/zoom even in summer or more
+    formally in class or take independent/directed study course with me,
+    and then dissertation
+</dl>
 
 <h2>big picture</h2>
 
-
-you paper must be very similar to a handful of papers already published, if it is not, if you have not found such papers, then very likely what you are doing doesn't make sense<br><br>
-
-do something small, doable, advance knowledge by little bit; dont try
-to save the world at once
-
+<dl>
+  <li> your paper must be very similar to a handful of papers already
+    published, if it is not, if you have not found such papers, then
+    very likely what you are doing doesn't make sense
+  <li> do something small, doable, advance knowledge by little bit; do not try
+    to save the world at once
+</dl>
 
 
 <h2>dissertation</h2>
 
-register for dissertation hours 56-824-790 "DOCT DISSERTATION"  (not
-56-824-720 "DISSERTATION DEVELOP")  after passing qualifiers (its
-all same dissertation hrs no matter whether before or after proposal); and need like 15 hrs (as GA get 5yrs of funding)<br><br>
+(in DPPA as of fa25) register for dissertation hours 56-824-790 "DOCT DISSERTATION"  (not
+56-824-720 "DISSERTATION DEVELOP") after passing qualifiers<br>
+(its all same dissertation hrs no matter whether before or after proposal);
+and need like 15 hrs (as GA get 5yrs of funding)<br><br>
 
-
-
-dissertation is not just a long paper, but rather professional
-development, from student to scholar
-<small>(get to the point where you can disagree and challenge me, where you feel confident enough to be equal or better)</small>  <!-- kind of like with ditalia or me against berry -->
-<br><br>
-
-may 
-see <a href="https://github.com/theaok/phd">https://github.com/theaok/phd</a>
-(lots of great advice, tho little outdated; forked from someone's else github)<br><br>
-
-about dissertation proposal writing: <a href="https://github.com/theaok/theaok.github.io/blob/master/docs/WritingProposals.pdf">howto</a><br><br>
-
-for dissertation examples
-see <a href="https://opendata.uni-halle.de/bitstream/1981185920/81392/1/Steckermeier_Leonie_Christine_Dissertation_2022.pdf">autonomy and the good life</a>, 
+<dl>
+  <li> dissertation is not just a long paper, but rather professional
+    development, from student to scholar
+    <small>(get to the point where you can disagree and challenge me, where you feel confident enough to be equal or better)</small>  <!-- kind of like with ditalia or me against berry -->
+  <li> may see <a href="https://github.com/theaok/phd">https://github.com/theaok/phd</a>
+    (lots of great advice, tho little outdated; forked from someone's else github)<br><br>
+  <li> about dissertation proposal writing: 
+    <a href="https://theaok.github.io/docs/WritingProposals.pdf">one take on writing proposals</a><br><br>
+  <li> for dissertation examples
+    see <a href="https://opendata.uni-halle.de/bitstream/1981185920/81392/1/Steckermeier_Leonie_Christine_Dissertation_2022.pdf">autonomy and the good life</a>, 
 <!-- https://141.48.10.209/bitstream/1981185920/81392/1/Steckermeier_Leonie_Christine_Dissertation_2022.pdf -->
- <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=xX9YtIwAAAAJ&citation_for_view=xX9YtIwAAAAJ:7PzlFSSx8tAC">regional quality of life in eu</a>
+    <a href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=xX9YtIwAAAAJ&citation_for_view=xX9YtIwAAAAJ:7PzlFSSx8tAC">regional quality of life in eu</a>
 <!-- https://aaltodoc.aalto.fi/items/4ae3c294-d81d-4d88-a173-cb383dd57f16 -->
- and a bunch:
+    and a bunch: <a href="https://acqol.com.au/publications/higher-degree-theses">https://acqol.com.au/publications/higher-degree-theses</a>
+<!-- <a href="http://www.acqol.com.au/publications#theses">http://www.acqol.com.au/publications#theses</a><br><br>  -->
+  <li> literature/references: beef it up! need few hundred; dissertation is
+    about becoming an expert in the field, and you need to read a lot to become one
+  <li> have more than one mentor; sure dissertation committee is 3, but go
+    beyond that, collaborate with other scholars, senior and junior
+  <li> it will take committee a month or so to get back with you with comments
+    on draft; also do talk to them early, check in periodically every few
+    months on key ideas/junctures especially those they specialize in, the
+    idea is that committee contribute to build up early in the process and
+    their footprint perspective is deep in dissertation, they are mentors, too
+</dl>
 
-<a href="https://www.acqol.com.au/publications#theses">https://www.acqol.com.au/publications#theses</a><br><br>
+maybe its better to have 3 paper format, unless you are into book
+writing
 
-literature/references:  beef it up! need few hundred; dissertation is
-about becoming an expert in the field, and you need to read a lot to become one<br><br>
+<h3>deeper thoughts</h3>
 
-have more than one mentor; sure dissertation committee is 3x, but go
-beyond that, collaborate with other scholars, senior and junior<br><br>
-
-<h3>other thoughts</h3>
-
-<a href="https://theaok.github.io/docs/WritingProposals.pdf">one take on writing proposals</a>
-
-will take committee a month or so to get back with you with comments
-on draft; also do talk to them early, check in periodically every few
-months on key ideas/junctures especially those they specialize in, the
-idea is that committee contribute to build up early in the process and
-their footprint perspective is deep in dissertation, they are mentors, too<br><br>  
-
-
-<a href="https://www.timeshighereducation.com/features/how-be-phd-supervisor">an explanation of my role: the main goal is to produce new
-  knowledge and become independent researcher; challenge me: be a collaborator, not just a student</a><br><br> 
-
+<dl>
+  <li> <a href="https://www.timeshighereducation.com/features/how-be-phd-supervisor">
+      an explanation of my role: the main goal is to produce new
+      knowledge and become independent researcher; challenge me: be a
+      collaborator, not just a student</a>
 <!-- ok full blown giude bure really not sure of any good and like from 2000! -->
 <!-- https://www.amazon.com/Writing-Empirical-Papers-Theses-Dissertations/dp/0824706056 -->
 <!-- Guide to Writing Empirical Papers, Theses, and Dissertations 0th Edition -->
 <!-- G. David Garson  -->
+  <li><a href="https://www.timeshighereducation.com/news/career-advice-how-supervise-phd-student-first-time">
+      it's  expedition not a sprint; i'll try to be patient, supportive yet
+      demanding; beware of my quirks: too much data and code?;
+      don't forget theory, literature, deep thinking</a>
+  <li><a href="https://www.nature.com/articles/d41586-025-03229-8">
+      be careful/picky choosing supervisor [productive but human],
+      protect sanity [socialize, nature, time off, exercise, unwind],
+      and survive academic culture [politics, exploitation; make sure you benefit clearly and early]</a>
+</dl>
 
-<a href="https://www.timeshighereducation.com/news/career-advice-how-supervise-phd-student-first-time">it's
-  expedition not a sprint; i'll try to be patient, supportive yet
-  demanding; beware of my quirks: too much data and code?;
-  don't forget theory, literature, deep thinking</a><br><br>
-
-<a href="https://www.nature.com/articles/d41586-025-03229-8">be careful/picky choosing supervisor [productive but human], protect sanity [socialize, nature, time off, exercise, unwind], and survive academic culture
-  [politics, exploitation; make sure you benefit clearly and early]</a><br><br>
-
-
-maybe its better to have 3 paper format, unless you are into book writing<br><br>
 
 <h1>mechanics and workflow</h1>
 
-<h2>dont use word, excel, spss, sas</h2>
+<h2>avoid word, excel, spss, sas</h2>
 
-data/stats: python, stata, r (no excel, spss, sas)<br><br>
-
-writing: either latex in github
-or <a href="overleaf.com">overleaf.com</a> or google doc (just one doc
-with everything in it! and then just keep on updating it (it keeps
-versioning automatically: File-Version History))<br><br>
-
-
-
+<dl>
+  <li> data/stats: python or r (maybe stata)  (no excel, spss, sas)
+  <li> writing: either latex in github
+    or <a href="https://www.overleaf.com/">overleaf.com</a> or google doc: just one doc
+    with everything in it, and then just keep on updating it, it keeps
+    versioning automatically: File-Version History
+</dl>
 
 <h2>workflow</h2>
 
 not that impossible other way, but seems most productive (at least
-for me): 3 main stages <br><br>
+for me): 3 main stages:<br><br>
 
-conceptualize, figure it out, get the idea formed, ideally do start looking
+1) conceptualize, figure it out, get the idea formed, ideally do start looking
 at the data and literature and get basic things figured out, make a
 lot of notes: this can be done at various intervals here and there<br><br>
 
-actual production: this one you have to have blocks of uninterrupted
+2) actual production: this one you have to have blocks of uninterrupted
 time! something like tens of hours, say 30hrs over Sat and Sun, (with
 some sleep between); and then more blocks like that; probably around
 50-200hrs, as continuously as possible; indeed best just have like one
-or two  full weeks to nail it, put it >=80hrs/wk; then take like 2
+or two  full weeks to nail it, say >=80hrs/wk; then take like 2
 weeks off!<br><br>
 
-finally, polishing, reorganizing, redoing some of it, focusing,
+3) finally, polishing, reorganizing, redoing some of it, focusing,
 simplifying, etc, like 1st stage can be done here and there<br><br>
 
-set it aside and read in few weeks: if  you havent looked at it for few weeks, you read it with fresh mind and
-youll discover many things are not there and not obvious logical, because as
-you wrote it it was all in your head and couldnt tell  earlier something was  missing
+set it aside and read in few weeks: if  you have not looked at it for few weeks, you read it with fresh mind and
+you will discover many things are not there and not obvious/logical, because as
+you wrote it it was all in your head and could not tell earlier something was missing
 
 
 <h2>use appendix or supplementary online material (som) a lot</h2>
 
-In fact most of the paper should be there
+In fact most of the paper should be there.<br><br>
 
-Look at top journals like Nature, Science, PNAS: most of work is in
-appendix or supplementary online material (som)  it may be 20, or
+Look at top journals like Nature, Science, and PNAS. Most of work is in
+appendix or supplementary online material (som). It may be 20 or
 even 200 pages: all the details, elaborations, and supplementary
-analyses, robustness checks etc. But the actual paper is several pages
-only, typically just  1-3 tables/figures. Only the most
+analyses, robustness/sensitivity checks etc.<br>
+
+But the actual paper is several pages
+only and typically just 1-3 tables/figures. Only the most
 important and critical ones that make the point and tell the story;
-all the other stuff thats useful but not necessary to make the key
+all the other stuff that is useful but not necessary to make the key
 point/tell the story is postponed to appendix/som. We obviously have
 info overload, do not overload your readers, be as concise and to the
-point as possible. People dont have time to read the stuff that they
-dont have to. Readers just want to learn new stuff as quickly and
+point as possible. People do not have time to read the stuff that they
+do not have to. Readers just want to learn new stuff as quickly and
 efficiently as possible. Rare few who want all the details and
 intricacies will find them in appendix/som.
 
 
 <h2>scientific writing and style</h2>
 
-RU help (as of fa25): cooper st writing workshops
- https://writershouse.camden.rutgers.edu/programs/cooper-street/
- writers house Sienna Zeilinger Program Coordinator
- writers@camden.rutgers.edu; 
- and 
-  Gaylene Gordon gmg143@camden.rutgers.edu, the Graduate Writing Assistant https://undocumented.camden.rutgers.edu/current-students/writing/
+<dl> 
+  <li> do get yourself excellent "On Writing Well" book by William Zinsser!!
+  <li> avoid opinion; use evidence: either literature or data
+  <li> format tables and graphs so they look like those from journal articles
+  <li> each table/figure must have a number and *self-explanatory
+  title/caption* (you can understand what is going on just from
+  reading the caption) and it must be referred from text by number!
+  see published research for examples AND make these tables tight:
+  cut decimal points to 2 or 3, and decrease spacing and padding so that table is tight and compact
+  <li> may see <a href="https://theaok.github.io/swb/final_project.pdf">https://theaok.github.io/swb/final_project.pdf</a> maybe especially sec:"links: good research in words of others"
+</dl> 
+
+
+RU help (as of fa26): Cooper St writing
+workshops:  <a href="https://writershouse.camden.rutgers.edu/programs/cooper-street/">
+  https://writershouse.camden.rutgers.edu/programs/cooper-street/</a><br>
+Writers House Program Coordinator: Sienna Zeilinger:writers@camden.rutgers.edu  
 <br><br>
-
-Do get yourself `On Writing Well`
-Book by William Zinsser!!!<br><br>
-
-
-And see <a href="https://theaok.github.io/swb/final_project.pdf">https://theaok.github.io/swb/final_project.pdf</a>
-maybe esp sec:"links: good research in words of others"<br><br>
-
-
-avoid opinion; use evidence: either literature or data<br><br>
-
-format tables and graphs so they look like those from journal
-articles<br><br>
-
-each table/figure must have a number and *self-explanatory title/caption* (you can understand what is going on
-just from reading the caption) and it must be referred from text by number! see
- again, published research for examples 
-AND make these tables tight--cut decimal points to 2 or 3, and decrease spacing and padding so that table is tight and compact
-
 
 
 <h2>do work continuously but not for too long</h2>
 
-warning: thinking/academic work is bad for your body!!<br>
-
-do a test: sit on laptop for couple hrs continuously (typical to get anything done), then get up and note how weak you are! <br>
-
-and have enough of these couple hrs blocks over time and you deteriorate greatly in
-general, not just physically, mentally too--sure
-easy to see why working in a mine with a hammer is bad for you, but so
-is thinking/academic work!<br>
-
-thin line: do need uninterrupted blocks of time, eg all Fri, all Sat, all Sun at 14hrs per day, BUT then do other stuff like outdoors, exercise, social connection--if you do research all the time for too long it will damage your brain<br><br>
-
-its actually good not just for happiness, but also for productivity to
-take a break; have like a week or two without looking at it at all,
-and then when you come back youll not just be more productive, but
-also see things you didnt see earlier; BUT before you take a break
-wrap up to have it in a decent shape; AND do make notes what are the next steps and things TODO when you come back<br><br>
-
-Let it sit for 2-3 weeks. Or even longer, few months (after the class,
-of course). When you come back you see things you havent seen before
-because its all in your head and you dont realize whats on paper and
-whats missing where (your head v paper).
+<dl>
+  <li> warning: thinking/academic work is bad for your body!!
+    do a test: sit on laptop for couple hrs continuously (typical to
+    get anything done),
+    then get up and note how weak you are
+  <li> and have enough of these couple hrs blocks over time and you deteriorate greatly in
+    general, not just physically, mentally too--sure
+    easy to see why working in a mine with a hammer is bad for you, but so
+    is thinking/academic work
+  <li> thin line: do need uninterrupted blocks of time, eg all Fri,
+    all Sat, all Sun at 14hrs per day, BUT then do other stuff like
+    outdoors, exercise, social connection--if you do research all the
+    time for too long it will damage your brain
+  <li> it is actually good not just for happiness, but also for productivity to
+    take a break; have like a week or two without looking at it at all,
+    and then when you come back you will not just be more productive, but
+    also see things you did not see earlier; BUT before you take a break
+    wrap up to have it in a decent shape; AND do make notes what are
+    the next steps and things TODO when you come back
+  <li> let it sit for 2-3 weeks; or even longer, few months (after the class,
+    of course); when you come back you see things you have not seen before
+    because its all in your head and you do not realize whats on paper and
+    whats missing where (your head v paper)
+<dl>    
 
 <h2>manage complexity: be flexible and opportunistic, simplify!</h2>
 
-
-<!-- im realizing its been intensive and overwhelming, so keep in mind what -->
-<!-- i said yesterday: -->
-simplify, be flexible and opportunistic (do whats
-easy and doable now) eg readjust your hypothesis to data, keep the big
-complicated stuff for later, likewise per my comments: do *NOT* do everything i ask for: much or most of my comments should be put towards the end into "limitations and future research"<br><br>
-
-<!-- Important! be clear about them!  -->
-<!-- How ideally it should be done? -->
-<!-- Doesnt have to have everything perfect, but has to know whats missing!!  and say it -->
-
-
-<!-- at least in some ways essentiallya key challenge and part of the--research process is managing complexity  -->
-research is a process of managing complexity--simplify, make it easy on yourself, do something that is doable, postpone big ideas for later; never try to do everything now perfectly, youll drive yourself crazy
+<dl>
+  <!-- im realizing its been intensive and overwhelming, so keep in mind what -->
+  <!-- i said yesterday: -->
+  <li> simplify, be flexible and opportunistic (do whats
+    easy and doable now) eg readjust your hypothesis to data, keep the big
+    complicated stuff for later
+  <li> likewise per my comments: do *NOT* do everything i ask for:
+    much or most of my comments should be put towards the end into
+    "limitations and future research"
+    <!-- Important! be clear about them!  -->
+    <!-- How ideally it should be done? -->
+    <!-- Does Not have to have everything perfect, but has to know whats missing!!  and say it -->
+    
+    <!-- at least in some ways essentiallya key challenge and part of the--research process is managing complexity  -->
+  <li> research is also a process of managing complexity--simplify, make it
+  easy on yourself, do something that is doable, postpone big ideas
+  for later; never try to do everything now perfectly, you will drive
+    yourself crazy
+<dl>    
 
 
 <h2>do talk to scholars in your field that you know about from the literature</h2>
-The scholars in your narrowly defined field wont be at your school. 
-Threes a handful of them, say 5-50, and theyre scattered around the
-world--email them, theyd be happy (unless its a top top scholar like Nobel
-prize, they wont talk to you).<br>
 
-Youre both passionate about the same thing; coauthor! Most scholars
-need coauthors and would like to have a new one. Ideally get a junior scholar
-to team up: PhD student or assistant professor, they`re more upto
-date,  more eager, and more in need to do research.<br>
-
-Can also try a senior scholar, but one thats productive, well established
-(published and cited a lot).
-
+<dl>
+  <li> The scholars in your narrowly defined field will not be at your school. 
+    There is a handful of them, say 5-50, and they are scattered around the
+    world--email them, they would be happy. 
+  <li> You are both passionate about the same thing. Coauthor! Most scholars
+    need coauthors and would like to have a new one. Ideally get a junior scholar
+    to team up: PhD student or assistant professor, they are more upto
+    date, more eager, and more in need to do research. 
+  <li> Can also try a well established senior scholar (published a lot
+    and cited a lot), but make sure she is still productive (still is
+    publishing recently in good reputable outlets).
+    But avoid top top scholars like Nobel prize winners, they will not talk to you.
+</dl>
 <!-- so a top one (but again probably not very top top Nobel prize kind of thing). -->
 <!-- , they`re too busy -- you need to establish yourself first to talk to them) -->
 
 <h3>paper is useless if held in a drawer, share it
-with the world</h3>
+  with the world</h3>
+
 
 <!-- Not just to impress and boost your CV, but mostly to make it better; -->
 <!-- research is a life long pursuit, it takes years or a lifetime to -->
 <!-- really figure something  out. And the only way to do that is to work -->
 <!-- with your field. -->
-Your field doesnt know about you, unless you
-share. You share ONLY in 2 ways: academic conferences and
-publications--the only way to take your work to the next level when you get feedback from your field.  Again, top people
-in your narrowly defined field, about 5-50 people,
-  wont be at your school. Sure there will be people in related area,
-but not exactly precisely in the very narrow area that YOU are--almost always youre not doing the exact same narrow area from the exact same perspective as scholars at your institution.   <br><br>
+<dl>
+  <li> Your field does not know about you, unless you
+    share. You share in 2 ways only: academic conferences and
+    publications--the only way to take your work to the next level
+    is through the feedback from your field.
+  <li> Again, the top people
+    in your narrowly defined field, say about 5-50 people,
+    will not be at your school. Sure there will be people in related areas,
+    but not exactly precisely in the very narrow area that you are
+    in. Almost never you are not doing the exact same narrow area from
+    the exact same perspective as scholars at your institution.
+  <li> Comments from your narrowly defined field are
+    priceless. Again, it is the only way to take your work to the world class
+    level. And do not get discouraged, typically you will get
+    rejected. I am getting rejected say 70 percent of the time after being
+    in the field for 20 years. But you still get the priceless
+      comments on how to make it better. Unless you get desk rejected,
+    which still gives you some information.
+</dl>
 
-
-Comments from your narrowly defined field are priceless--again the only way to take your work to the world class level. And dont get discouraged, typically youll get rejected, Im getting rejected say 80perc of the time after being in the field for 20 years. But you still get the priceless comments on how to make it better!
 
 <h3>keep your pipeline full</h3>
-  It takes about 3mo to get comments, even 6mo, write another
-  paper and submit, keep it going, dont wait for comments to move on,
-  youll be stuck for months, *KEEP PIPELINE FULL*, I always have at least 3 papers under review at any given time.
+
+<dl>
+  <li> It takes about 3mo to get comments, even 6mo, write another
+  paper and submit, keep it going, do not wait for comments to move on,
+    you will be stuck for months.
+  <li> *KEEP PIPELINE FULL*, I always have at least 3 papers under review at any given time
+</dl>
 
 
 
-<h2>usual comments on first draft of paper</h2>
+<h2>usual comments on first draft of student paper</h2>
 
-I am mostly happy with your drafts,
+<dl>
+  <li> I am mostly happy with your drafts,
     but, lets not be complacent and work more and try to publish it;
     really need to push it ahead and put much more work into it to
-    have a good final product.<br><br> 
-
+    have a good final product. Realistically, to have a "publishable"
+    paper (ready for journal submission), need more than one
+    semester. Lets keep it going and work together next semester. 
 <!-- Again,  need to to reply inline to -->
 <!-- all comments, however small they may be (most of you were shy).  -->
 <!-- 2 general comments: need to beef it up and polish! See published  -->
 <!-- research for examples. Bring everything together, this should be -->
 <!-- cumulative: ie, intro, lit rev, data, results, -->
 <!-- conclusion/discussion.  -->
-
-Try to be objective: this is not op-ed or opinion, try to be
-    scientific and present also contradicting information or other
-    points of view. Make sure your text is connected to your analysis!
-It flows logically.<br><br>
-
-Sometimes, you may actually produce a lot of
-    output but end up having unfinished project: this may still be an
+  <li> Sometimes, you may actually produce a lot of
+    output but end up having an unfinished project: this may still be an
     A if there was a lot of work involved. Indeed, often, naturally,
     producing a good paper takes a lot of time, and it is better to
     have it unfinished than force it finish and produce something
-    mediocre
-
-
-
-
-
-
-
-
+    mediocre.
+  <li> Try to be objective: this is not op-ed or opinion, try to be
+    scientific and present also contradicting information or other
+    points of view. Make sure your text is connected to your analysis!
+    And make sure it flows logically.
+</dl>
 
 <h2>tip of the day: print it out</h2>
-Definitely your paper!
+
+Definitely print out your paper!
 You see things differently on paper.
-Rearrange, move parts around.
+Rearrange, move parts around. Do reorganize, move text around.
 My advisor <!-- (one year, the best geographers in the world!) -->
  used to cut it
 up with scissors and glue back on the top of another sheet of paper. 
-Im more modern and mark it up to move around: eg Id circle couple
-paragraphs and put `1->` then where i move it i put `->1` and then 2,3
-etc. And when i type it in, i move stuff around. Do reorganize, move things around.
+I am more modern and mark it up to move around: I would circle text
+that does not fit and put "1->", and then where I want to paste it I
+would write "->1", and then 2, 3, etc.
+ I actually move text around when I type it in. 
 <br><br>
 
 Also print out your key literature, and mark them up.
@@ -365,79 +390,76 @@ Also print out your key literature, and mark them up.
 
 <h2>if data</h2>
 
-double check your final results like vis and tables with external data for accuracy, say
-https://www.policymap.com/ (theres free version) or socialexplorer.com (free on campus or vpn)
-and see if your tables/vis look the same, if not, there may be error;
-its very important to double check, the worst thing to do is to
-report wrong numbers, and can happen to anyone, so really have to
-double check
-<br><br>
+btw there always should be some data; qualitative data is just rich
+quantitative data (can quantify everything
+incl <a href="https://scholar.google.com/citations?user=xK3kOxQAAAAJ">emotions in  songs</a>,
+<a href="https://scholar.google.com/citations?user=TZ9YLMoAAAAJ">personality  across states</a> etc)  
 
-think about data quality: 
-<a href="http://www.socialresearchmethods.net/kb/measure.php">measurement,</a>
-<a href="http://www.socialresearchmethods.net/kb/introval.php">validity</a>
-<a href="http://www.socialresearchmethods.net/kb/constval.php"> (incl construct),</a>
-  and limitations
-<!-- http://srmo.sagepub.com/view/the-sage-encyclopedia-of-social-science-research-methods/n150.xml -->
-<!-- http://www.chsbs.cmich.edu/fattah/courses/cutheory/conceptualizationOperationalization.htm -->
-<br><br>
-
-make sure to obey replication principle, eg absolutely have
-to have (and submit along with assignments!) a dofile or python script etc that will produce final results
-that you have in your paper from the VERY RAW data, eg data you have
-downloaded from the website; elaboration <a href="https://theaok.github.io/dm/replication.pdf">https://theaok.github.io/dm/replication.pdf</a><br><br>
-
-per regressions follow excellent <a href="https://stats.oarc.ucla.edu/stata/webbooks/reg/">https://stats.oarc.ucla.edu/stata/webbooks/reg/</a>
-<br><br>
-
-per interactions:
-<a href="https://www.stata.com/features/overview/factor-variables/">https://www.stata.com/features/overview/factor-variables/</a>
+<dl>
+  <li> double check your final results like vis and tables with external
+    data for accuracy, just google/gemini your output/results; also
+    useful for US geographies: 
+    <a href="https://www.policymap.com">policymap.com</a> (there is a free
+    version) or <a href="https://www.socialexplorer.com">socialexplorer.com</a> (free on campus or vpn)
+    and see if your results look the same, if not, there may be error;
+    it is very important to double check, the worst thing to do is to
+    report wrong numbers, and can happen to anyone, so really have to
+    double check
+  <li> think about data quality: 
+    <a href="http://www.socialresearchmethods.net/kb/measure.php">measurement,</a>
+    <a href="http://www.socialresearchmethods.net/kb/introval.php">validity</a>
+    <a href="http://www.socialresearchmethods.net/kb/constval.php"> (incl construct),</a>
+    and data limitations (there are always some!)
+    <!-- http://srmo.sagepub.com/view/the-sage-encyclopedia-of-social-science-research-methods/n150.xml -->
+    <!-- http://www.chsbs.cmich.edu/fattah/courses/cutheory/conceptualizationOperationalization.htm -->
+  <li> make sure to obey replication principle: always have code (and
+    submit it with assignments) that will produce final results
+    that you have in your paper from the very raw data, ie the data you have
+    downloaded from data producer; elaboration: <a href="https://theaok.github.io/dm/replication.pdf">https://theaok.github.io/dm/replication.pdf</a>
+  <li> per regressions follow
+  excellent <a href="https://stats.oarc.ucla.edu/stata/webbooks/reg/">https://stats.oarc.ucla.edu/stata/webbooks/reg/</a>; 
+   interactions: <a href="https://www.stata.com/features/overview/factor-variables/">https://www.stata.com/features/overview/factor-variables/</a>; 
 <!-- and  -->
 <!-- <a href="https://www.stata.com/why-use-stata/easy-to-grow-with/linear.pdf">https://www.stata.com/why-use-stata/easy-to-grow-with/linear.pdf</a> -->
-<br><br>
-
-<a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiBkfGs2uL3AhVOtKQKHcgiBiEQFnoECBEQAQ&url=https%3A%2F%2Fwww.stata.com%2Fwhy-use-stata%2Feasy-to-grow-with%2Flinear.pdf&usg=AOvVaw23PuvabL-ZXzG-K0W-vnTn">Linear Regression Models with Interaction/Moderation-Stata</a>
-
-<br>
-
-<a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiOv_uK2uL3AhXRIMUKHY2gBtYQFnoECBAQAQ&url=https%3A%2F%2Fwww.stata.com%2Fmanuals%2Frmarginsplot.pdf&usg=AOvVaw1K01i4DT6K-_ToKeR2AtVk">marginsplot</a>
-
-
-format output properly!! if stata, can
-use: <a href="https://www.google.com/search?q=outreg2&client=firefox-b-1-d&sxsrf=APq-WBsIDwwd6eQ_6DFg2mYGwpj7CR0vow%3A1645562782153&ei=nksVYtzJCLijptQP-vq-8Ak&ved=0ahUKEwjckNeIl5T2AhW4kYkEHXq9D54Q4dUDCA0&uact=5&oq=outreg2&gs_lcp=Cgdnd3Mtd2l6EAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAELADEEMyBwgAELADEENKBAhBGABKBAhGGABQAFgAYJAKaAFwAXgAgAEAiAEAkgEAmAEAyAEKwAEB&sclient=gws-wiz">outreg2</a>
-or <a href="https://www.google.com/search?q=stata+estout&client=firefox-b-1-d&sxsrf=APq-WBsazauSdN7F2z2H9TpR7LFdtR8-Fw%3A1645562806627&ei=tksVYoeiJbibptQP__ufuAU&ved=0ahUKEwiH1ayUl5T2AhW4jYkEHf_9B1cQ4dUDCA0&uact=5&oq=stata+estout&gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEOgcIIxCwAxAnOgcIABBHELADOgcIABCwAxBDOgQIIxAnOgQIABBDOgsILhCABBDHARCjAjoOCC4QgAQQsQMQxwEQ0QM6DgguEIAEELEDEMcBEKMCSgQIQRgASgQIRhgAUJwGWOoXYI0aaAJwAXgAgAFTiAHUBZIBAjEymAEAoAEByAEKwAEB&sclient=gws-wiz">estout</a>
-
-and for descriptive stats can use logout <a href="https://theaok.github.io/dm/exp.do">https://theaok.github.io/dm/exp.do</a>
+<!-- <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwiBkfGs2uL3AhVOtKQKHcgiBiEQFnoECBEQAQ&url=https%3A%2F%2Fwww.stata.com%2Fwhy-use-stata%2Feasy-to-grow-with%2Flinear.pdf&usg=AOvVaw23PuvabL-ZXzG-K0W-vnTn">Linear Regression Models with Interaction/Moderation-Stata</a> -->
+    <a href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwiOv_uK2uL3AhXRIMUKHY2gBtYQFnoECBAQAQ&url=https%3A%2F%2Fwww.stata.com%2Fmanuals%2Frmarginsplot.pdf&usg=AOvVaw1K01i4DT6K-_ToKeR2AtVk">marginsplot</a>;
+    and make sure to format output properly!! in stata can
+    use: <a href="https://www.google.com/search?q=outreg2&client=firefox-b-1-d&sxsrf=APq-WBsIDwwd6eQ_6DFg2mYGwpj7CR0vow%3A1645562782153&ei=nksVYtzJCLijptQP-vq-8Ak&ved=0ahUKEwjckNeIl5T2AhW4kYkEHXq9D54Q4dUDCA0&uact=5&oq=outreg2&gs_lcp=Cgdnd3Mtd2l6EAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAEEcQsAMyBwgAELADEEMyBwgAELADEENKBAhBGABKBAhGGABQAFgAYJAKaAFwAXgAgAEAiAEAkgEAmAEAyAEKwAEB&sclient=gws-wiz">outreg2</a>
+    or <a href="https://www.google.com/search?q=stata+estout&client=firefox-b-1-d&sxsrf=APq-WBsazauSdN7F2z2H9TpR7LFdtR8-Fw%3A1645562806627&ei=tksVYoeiJbibptQP__ufuAU&ved=0ahUKEwiH1ayUl5T2AhW4jYkEHf_9B1cQ4dUDCA0&uact=5&oq=stata+estout&gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEMgUIABCABDIFCAAQgAQyBQgAEIAEOgcIIxCwAxAnOgcIABBHELADOgcIABCwAxBDOgQIIxAnOgQIABBDOgsILhCABBDHARCjAjoOCC4QgAQQsQMQxwEQ0QM6DgguEIAEELEDEMcBEKMCSgQIQRgASgQIRhgAUJwGWOoXYI0aaAJwAXgAgAFTiAHUBZIBAjEymAEAoAEByAEKwAEB&sclient=gws-wiz">estout</a>,
+    and for descriptive stats can use logout: <a href="https://theaok.github.io/dm/exp.do">https://theaok.github.io/dm/exp.do</a>
+</dl>
 
 
 
 
-<h3>if svy res</h3>
-make sure your var is coded right way!<br>
+<h3>if survey research</h3>
+make sure your var is coded right way! in stata:<br>
 codebook varName, tab(100)<br>
 eg often var is -9 for missing!!<br>
-have to recode that!eg:<br>
+have to recode that!<br>
 replace varName=. if varName==-9<br><br>
 
-do plenty of des stats before regressions:<br>
+do plenty of des stats before regressions for your key variables: stata:<br>
 sum var1 var2<br>
 ta var1 var2, mi<br>
 scatter var1 var2<br>
 hist var1<br><br>
 
-at very least every paper needs  descriptive stats for every variable: mean, sd, min, max
-<br><br>
-
-often need to reverse var, so that higher val means 'more' or 'better' and it`s intuitive eg happiness 1(lo)-3(hi), not 1(hi)-3(lo); install user written command:<br>
-findit revrs<br>
+often need to reverse var, so that higher val means 'more' or 'better'
+and it is intuitive eg happiness 1(lo)-3(hi), not 1(hi)-3(lo); stata: install user written command:<br>
+findit revrs<br><br>
 <!-- revrs varName, replace<br> -->
 <!-- that would create a new var revVarName -->
-<br><br>
 
-always have to have actual survey questions asked to a respondent in
-the paper!
+every paper needs basic descriptive stats for every variable: mean, sd, min, max<br><br>
+
+and always have to have actual survey questions asked to a respondent in
+the paper and it is also very useful to have a cross-correlation
+matrix of all vars, at least in appendix
+
 
 <h4>if GSS</h4>
+
 just get the full cumulative data set 1971-24<br>
 use lookfor in stata to find vars<br>
 lookfor satis<br> 
@@ -451,24 +473,26 @@ identify vars: click 'Search Variables'  eg: 'hope' and click say
 snowball and catch them all on your topic
 
 
-<h2>dont forget about practical/substantive sig!</h2>
+<h2>do not forget about practical/substantive sig!</h2>
 
 
-think and interpret the magnitude, eg: flextime has a large effect on
-happiness-the size effect is about as large as that of household
+think and interpret the magnitude, eg: "flextime has a large effect on
+happiness: the size effect is about as large as that of household
 income, or about as large as a one-step increase in self-reported
-health, such as up from good to excellent health: 
+health, such as up from good to excellent health": 
 <a href="https://link.springer.com/article/10.1007/s11482-017-9525-8">https://link.springer.com/article/10.1007/s11482-017-9525-8</a><br><br>
 
 
-also may have beta coef<br>
+also may have beta (fully standardized) coef, in stata:<br>
 regress happiness male city health income age age2, beta<br>
 so then interpret whether your key var of interest is large or small
-in magnitude as compared to other key vars such as health and income
+in magnitude as compared to other interesting vars such as health and
+income in terms of effect as standard deviation 
 
 <h2>causality/endogeneity/self-selection</h2>
 
-always think about and address: causality, endogeneity,
+do not obsess about it as much as economists, but often it is good to
+give it some thought: think about and address: causality, endogeneity,
 self-selection (at least discuss briefly, talk about causal
 mechanism/path, why would x cause y, and not the other way round, or
 some other z):
@@ -478,163 +502,179 @@ some other z):
 
 <h1>publishing game: editors, reviewers, revise and resubmit</h1>
 
-work smart not hard and have some strategy; some pointers below
+work smart, not hard, and have some strategy; pointers below:
+<dl>
+  <!-- <li> Remember the editor makes the decision, not reviewer. -->
+  <!-- <li> And in general in later rounds of reviews the edits to paper are lighter and lighter -->
+  <li> If some comment really takes you away and makes it into a new paper, say so in response to reviewer!
+    Thank her for comments, but say that it will be a new paper, so it
+    cannnot be fully accommodated here.
+    And then indeed in the future you may write that another new paper. I did few times. Then you have 2 papers 😃
+  <li> A great way to deal with changes to paper is to put them into
+    appendix or supplementary online material (som). Say in response
+    to a reviewer that you took suggestions
+  into account and put them in appendix or online supplementary
+    material. Can put there
+  changes to satisfy one reviewer but avoid dissatisfying the other. Almost
+  nobody will read appendix or online supplementary material, so what
+  is there does not upset a person, but it can be used to satisfy another
+    person. And yes you will actually quite often find reviewers disagreeing.
+  <li> Couple ideas how to figure out where to go with the paper: 
+    <dl>
+      <li> How strong/mild is suggestion?
+      <li> Editor is more important than reviewer.
+      <li> Some reviewers are much more important than others (some
+	are students; some are very senior scholars),
+	and so reviews are not equal, some are weighted much more than
+	others. 
+      <li> In general try to satisfy as much as possible, disagreeing
+      risks rejection. Think critically, which reviewer  makes more sense and
+	follow that.
+      <li> Sometimes do disagree, especially if a person does not make
+      sense (it happens often), but always be super polite and respectful. 
+      <li> The more senior you become, the more you may disagree; not
+      just that you know more, but you risk less, you already have
+      many papers published and going on. 
+    </dl>
+</dl>
 
 
-Remember the editor makes the decision, not reviewer.<br><br>
+<h2>if you have not publish yet</h2>
+<!-- (class papers: do decide explicitly on journal and say it in the paper (and give -->
+<!-- reasoning), say as a footnote to the title)  -->
 
-And in general in later rounds of reviews the edits to paper are lighter and lighter<br><br>
-
-If some comment really takes you away and makes it into a new paper, say so in response to reviewer! Thank her for comments, but say that it will be a new paper, so it cant be fully accommodated here. And then indeed in the future you may write that another new paper. I did few times. Then you have 2 papers 😃<br><br>
-
-Again one way to deal with it is to use appendix and or online supplementary material--can put there stuff to satisfy one person but avoid dissatisfying the other. Almost nobody will read appendix or online supplementary material, so whats there doesnt upset a person, but it can be used to satisfy another person--can say in response to reviewer that you took suggestions into account and put it in appendix or online supplementary material<br><br>
-
-And yes you will actually quite often find reviewers among themselves or with editors disagreeing.<br><br>
-
-Couple ideas how to figure out where to go:<br><br>
-
-How strong/mild is suggestion<br><br>
-
-Editor is more important than reviewer<br><br>
-
-Some reviewers are more important than others (some are students some are very senior scholars), and so reviews are not equal, some are weighted more than others<br><br>
-
-In general try to satisfy as much as possible, disagreeing risks rejection<br><br>
-
-Sometimes do disagree, especially if a person doesnt make sense, but always be super polite and respectful<br><br>
-
-(The more senior you become, the more you may disagree; not just that you know more, but you risk less, you already have many papers published and going on)<br><br>
-
-Think critically, which reviewer (or editor)  makes more sense and
-follow that <br><br>
-
-
-<h2>if you havent publish yet</h2>
-
-look at journal articles! for happiness: johs journal of happiness studies,
- ariq applied research in quality of life; and in general for social
-indicators such as trust and freedom: sir social indicators research<br><br>
-
-and follow their lead! your paper should look like the recent ones
-from journals in the field in terms of everything!: amount of lit,
-depth and breadth of analysis, style and formatting, etc<br><br>
-
-your paper will be evaluated by ppl who published on this recently probably in this jou; and editor who likes stuff thats published recently<br><br>
-
-(class papers: do decide explicitly on journal and say it in the paper (and give
-reasoning), say as a footnote to the title) <br><br>
-
-make it look like a paper in a targeted journal!<br><br>
-
-always have abstract and keywords!!<br><br>
-
-always have "conclusion and discussion" section at the end<br><br>
-
-marketing is kinda cool like trying to sell it well; but waste of time
-in a sense that it doesnt produce anything; better strategies: 
- hot topics, new cutting-edge stuff incl data, and great/novel ideas 
-
-<br><br>
-
-if not from the beginning at least towards the end of paper production,
-spin it towards a given journal, say:
-
-you are shooting for Public Opinion Quarterly,
-go into google scholar
-and advanced search (menu on top left) and search for what you write
-about, say:
-
-abortion
-
-published in
-
-Public Opinion Quarterly:
-
-https://scholar.google.com/scholar?as_q=abortion&as_epq=&as_oq=&as_eq=&as_occt=any&as_sauthors=&as_publication=Public+Opinion+Quarterly&as_ylo=&as_yhi=&hl=en&as_sdt=0%2C31
-
-and there is a bunch! do make sure to go thru them and fix up your paper and cite them abundantly--if you submit to a given journal important to make sure to be in a good conversation with line of conversation in that journal; also these are going to be the reviewers and judges of your work--authors that publish in that journal
-
+<dl>
+  <li> look at journal articles! for happiness: <!-- johs journal of happiness studies, -->
+    ARIQ (applied research in quality of life); and in general for social
+    indicators such as trust and freedom: SIR (social indicators research)
+  <li> and follow their lead! your paper should look like the recent ones
+     in terms of everything!: amount of literature, type and depth and
+    breadth of analysis, style and formatting, etc
+  <li> your paper will be evaluated by people who published on this
+    topic recently, probably in this journal  (if editor thinks it
+    fits the journal and likes it at least a bit and does not desk
+    reject it)
+  <li> always have abstract and keywords and always have "conclusion
+    and discussion" section at the end
+  <li> do make sure you are explicit about novelty / contribution to
+    the literature, but easy on marketing (as in real world marketing / trying to sell) say in cover letter
+    or in paper itself; fundamentally (like real world
+    marketing) waste of time in a sense that it does not produce anything; better strategies: 
+    hot topics, new/cutting-edge approaches including data, and above
+    all: great/novel ideas 
+  <li> if not from the beginning at least towards the end of paper production,
+    spin it towards a given journal, say: you are shooting for Public Opinion Quarterly,
+    go onto Google Scholar and Advanced Search (top left menu) and search for what you write
+    about, say: "abortion," published in "Public Opinion Quarterly":
+    <a href="https://scholar.google.com/scholar?as_q=abortion&as_epq=&as_oq=&as_eq=&as_occt=any&as_sauthors=&as_publication=Public+Opinion+Quarterly&as_ylo=&as_yhi=&hl=en&as_sdt=0%2C31">https://scholar.google.com/scholar?as_q=abortion&as_epq=&as_oq=&as_eq=&as_occt=any&as_sauthors=&as_publication=Public+Opinion+Quarterly&as_ylo=&as_yhi=&hl=en&as_sdt=0%2C31</a>, 
+    and there is a bunch; do make sure to go through them and fix up your
+    paper and cite them abundantly; it is important to make sure to be in
+    a good conversation with line of conversation in a journal you are
+    submitting to; also these are going to be the reviewers and judges of
+    your work, authors that publish in that journal
+</dl>
 
 <h3>do start with very small/incremental contribution or even replication only</h3>
 
-eg Heliyon: <br><br>
-Any paper reporting scientifically accurate and valuable research,
+Many journals would be interested in such work, eg Heliyon: 
+"Any paper reporting scientifically accurate and valuable research,
 which adheres to accepted ethical and scientific publishing standards,
 will be considered for publication. As such, the journal also
 publishes manuscripts reporting negative/null results, incremental
-advances, and replication studies<br><br>
-(and RU has a deal with Elsevier to cover APC (article publishing
-charge)) BUT do make sure eg by contacting the journal (for Heliyon it
-doesnt work)
+advances, and replication studies"<br><br>
 
+RU has a deal with Elsevier to cover APC (article publishing charge)
+BUT do make sure first! (for Heliyon it does not work)
 
 
 <h3>title and abstract are important</h3>
 
 
-want both title and abstract to reflect paper main points as good as possible. Title and abstract are very important! Some people will only read that and many will read the paper or not solely based on title and abstract, so in a way these are actually some of the most important parts of the paper. The key is your findings and main points you make, not background info or literature. 
+Want both title and abstract to reflect paper main points as good as
+possible. Title and abstract are very important! Many (most?) will only
+read abstract, and many will only read the paper solely based on title
+and abstract, so in a way title and abstract are actually the most
+important parts of the paper. The key info in title and abstract are
+ your findings and main points you make, not background info or literature.
 
 
 <h2>journal choice and rankings</h2>
 
-see rankings: <a href="https://www.scimagojr.com/journalrank.php">scimagojr.com</a><br><br>
-read editorials! eg see mine in SIR<br><br>
-per fit, see which journal you cite a lot esp recent studies, or as per critical paper(s)
-for your study (and these will be your reviewers)<br><br>
-co-author with someone who published recently in a given journal!!!<br><br>
-(qualitative is just rich quantitative data)<br><br>
+<dl>
+  <li> see rankings: <a href="https://www.scimagojr.com/journalrank.php">scimagojr.com</a>,
+  do not submit to top top ones like Nature or Science, not even the
+  top general ones in a discipline (unless you have already published
+  few articles), but do aim for decent good reputable journals, ie
+  SJR>0.5 and IF>1
+  <li> most papers (even above 90 percent) get desk rejected by editor and mostly for lack of
+  fit, do see what the editors are looking for, read the editorial!
+  (fun fact: I have never read one until I wrote one for SIR)
+  <li> per fit: see which journal you cite a lot, especialy recent
+    studies, or in which journal are the critical papers that you
+    cite, again recent ones
+  <li> authors that you cite a lot and or those that are closest to
+    your study will be your reviewers (gatekeepers/judges of your success)
+  <li> pro-tip: co-author with someone who published recently in the
+    target journal
+<!-- journal: johs, sir, ariq; or the other field you study, eg drugs, -->
+<!-- spirituality, housing, etc: papers are typically a connection of two -->
+<!-- fields: you main IV (eg urbanism) and DV (SWB), so can ship them to -->
+<!-- either fields journal<br><br> -->
+  <li> publish or perish: this is dead serious, if you do not publish, you have failed,
+    and you will perish 
+</dl>
 
+<h1>presentations</h1>
 
+<dl>
+  <li> do fit within time window, sharp, you will be cut off
+  <li> focus on YOUR study and YOUR contribution; not background info
+    or what others did
+  <li> not too many slides, like 1 per minute, 15 min presentation like 15 slides
+  <li> not too many lines per slide, like <=12 
+  <li> do take notes (right away, during the presentation)!!! 
+    the whole purpose of presenting is to get 
+    comments! (to enlighten the audience is typically
+    secondary); if you do not take notes, you will
+    forget the comments			    
+</dl>				    
 
-
-
-journal: johs, sir, ariq; or the other field you study, eg drugs,
-spirituality, housing, etc: papers are typically a connection of two
-fields: you main IV (eg urbanism) and DV (SWB), so can ship them to
-either fields journal<br><br>
-
-publish or perish: this is dead serious, if you dont you have failed,
-youll perish 
-
-
-<h1>present</h1>
-
-
-
-do fit within time window, sharp, you will be cut off<br><br>
-
-
-focus on YOUR study and YOUR contribution; not background info<br><br>
-
-not too many slides like 1 per minute, 15 min presentation like 15 slides<br><br>
-
-not too many lines per slide like <=12<br><br>
-
-do take notes (right away)!!! that's the whole purpose of presenting is to get
-		      comments! (to enlighten audience is typically
-		      secondary) if you don't take notes, you will
-		      forget the comments
 <h1>AI</h1>
 
-focus on creativity, critical thinking; automate what can be automated
- <a href="https://www.forbes.com/sites/danfitzpatrick/2024/06/30/chatgpt-forces-universities-to-adapt-or-retreat/">https://www.forbes.com/sites/danfitzpatrick/2024/06/30/chatgpt-forces-universities-to-adapt-or-retreat/</a>
-
-<br> 
-research is a formalized curiosity, it is poking and prying with a
- purpose; poke and soak
-<br>
-
-use if as a first stab at it, to write, code, etc, but do not stop
- there, edit and make it better and add from yourself
-
+<dl>
+  <li> focus on creativity, critical thinking; automate what can be
+  automated: 
+    <a href="https://www.forbes.com/sites/danfitzpatrick/2024/06/30/chatgpt-forces-universities-to-adapt-or-retreat/">https://www.forbes.com/sites/danfitzpatrick/2024/06/30/chatgpt-forces-universities-to-adapt-or-retreat/</a>
+  <li> research is a formalized curiosity, it is poking and prying with a
+    purpose; poke and soak
+  <li> use AI as a first stab at it, to write, code, etc, but do not stop
+    there, edit and make it better and add from yourself; disclose use of
+    AI, ideally by giving details such as prompts; and do check what AI
+    did, it sometimes errs
+</dl>
+    
 <h1>job (real world)</h1>
 
-<h2>dont do research all the time, dont be unemployed--its not what you know but who you know</h2>
+<h2>do not do research all the time, do not be unemployed: "it is not what you know but who you know"</h2>
 
-yeah unfortunately, we academics and especially junior folks tend to be idealistic (later we turn cynical) but it is what it is; i mean not like 100%; more like 60-90% who you know, so there is still good 10-40% what you know, so its not that bad; and still then long term building reputation is a lot about what you know; it is just in the short run early on and in the job-search-mode who you know is super important, and unfortunately often in academia we dont tell it younger folks; right so then hopefully asap can switch off the job-search-mode to scholar-mode and focus say 80-95% on research (but beware of 95%-100% scholar-mode for extended periods of time, while it can make you famous posthumously and maybe even already in 10-50 years, it may also result in unemployment, poverty, and misery)<br><br>
+<dl>
+  <li> yup, unfortunately, we academics and especially junior folks
+    tend to be idealistic (later we turn cynical)
+  <li> but it is what it is; I mean not like 100%; more like 60-90%
+ "who you know," so there is still good 10-40% "what you know," so it is  not that bad
+  <li> and still then long term reputation building is a lot about
+    "what you know"
+  <li> it is just in the short run early on and in the job-search-mode
+ "who you know" is super important, and unfortunately often in academia we do not tell it younger folks
+  <li>  hopefully asap can switch off the job-search-mode to
+  scholar-mode and focus say 80-95% on research (but beware of
+  95%-100% scholar-mode for extended periods of time, while it can
+  make you famous posthumously and maybe even already in 10-50 years,
+  it may also result in unemployment, poverty, and unhappiness 
+</dl>
 
-
-https://www.insidehighered.com/opinion/career-advice/teaching/2025/10/03/what-i-learned-advising-120-phd-students-opinion<br>
+<a href="https://www.insidehighered.com/opinion/career-advice/teaching/2025/10/03/what-i-learned-advising-120-phd-students-opinion">https://www.insidehighered.com/opinion/career-advice/teaching/2025/10/03/what-i-learned-advising-120-phd-students-opinion</a>
+    
 my first question is always “What are your career goals?” If they
 cannot answer that, I encourage them to do more soul searching. Do
 they aspire to be tenure-track faculty members? If so, have they
@@ -646,7 +686,9 @@ consulting firm or working in a well-established consulting company?
 Then have they learned how to write proposals, provide deliverables
 and secure testimonial letters from satisfied clients?
 
+</dl>
 
 </div>
 </body>
+</html>
  
