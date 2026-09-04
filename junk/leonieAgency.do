@@ -218,14 +218,13 @@ marginsplot, x(satFin)
 reg govRes i.satFin3##c.free inc age age2 male class mar , robust 
 margins satFin3, at(free=(1(1)10))
 marginsplot, x(free)
-gr export m-satFin3.pdf
+gr export m-satFin3.pdf,replace
 
 reg govRes i.satFin3##i.free3 inc age age2 male class mar , robust 
 margins satFin3, at(free3=(1(1)3))
 marginsplot, x(free3)
 
-//no sig interaction with class
-reg govRes c.free##c.class i.satFin inc age age2 male mar , robust 
+
 
 
 reg govRes c.free##c.satFin inc age age2 male class mar , robust 
@@ -234,7 +233,12 @@ est sto a3
 reg govRes c.free##c.inc age age2 male class mar , robust 
 est sto a4
 
-reg govRes c.free##c.male inc age age2  class mar , robust 
+//sig interaction with class
+reg govRes c.free##c.class satFin inc age age2 male mar , robust 
+reg govRes c.free##i.class        inc age age2 male mar , robust 
+//margins free, at(class=(1(1)5)) 
+//marginsplot, x(free)
+reg govRes c.free##c.class        inc age age2 male mar , robust 
 est sto a5
 
 
