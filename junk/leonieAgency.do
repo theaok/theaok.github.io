@@ -137,6 +137,7 @@ save /tmp/all, replace
 
 //---------
 
+use /tmp/all, clear
 
 tw(qfitci govRes ny_gdp_pcap_kd)
 
@@ -145,6 +146,11 @@ collapse  govRes free si_pov_nahc ny_gdp_pcap_kd si_dst_10th_10 sl_uem_totl_zs f
 //no rel
 tw(qfitci govRes ny_gdp_pcap_kd)(scatter govRes ny_gdp_pcap_kd,mlab(cc))
 tw(qfitci free ny_gdp_pcap_kd)(scatter free ny_gdp_pcap_kd, msymbol(none) mlabel(cc) mlabsize(tiny) mlabposition(0))
+tw(qfitci govRes si_dst)(scatter govRes si_dst, msymbol(none) mlabel(cc) mlabsize(tiny) mlabposition(0))
+
+tw(qfitci govRes free)(scatter govRes free, msymbol(none) mlabel(cc) mlabsize(tiny) mlabposition(0))
+gr export govRes_free.pdf, replace
+
 
 
 tw(qfitci free si_dst)(scatter free si_dst, msymbol(none) mlabel(cc) mlabsize(tiny) mlabposition(0))
@@ -160,7 +166,22 @@ gr export free_pov.pdf, replace
 //---------
 
 
-use save /tmp/all, clear
+use  /tmp/all, clear
+
+
+//-------meh not that much here
+tabstat free, by(town) stat(mean) format(%9.2f)
+ta town, gen(TT)
+//tabstat govRes, by(town) stat(mean) format(%9.2f)
+reg free i.town satFin inc age age2 male class mar i.c, robust
+reg free TT1-TT7 satFin inc age age2 male class mar i.c, robust  
+ 
+
+//-------
+
+
+
+
 //welfare/redistribution
 sum wrkLaz pooLaz subPoo escPov priPub trust  fair //fair not in wave7
 codebook wrkLaz pooLaz subPoo escPov priPub trust,ta(100) //use these later;
