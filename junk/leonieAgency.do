@@ -2,7 +2,7 @@ stata
 
 cd /home/aok/papers/leonieAgency/tex
 
-//----------------------------------wid crap dont use it
+//-------------------wid crap dont use it
 
 ssc install wid
 help wid
@@ -56,15 +56,22 @@ label variable valuep99p100 "Top 1% share"
 //https://data.worldbank.org/indicator/NY.GDP.PCAP.KD
 
 //avg10yr  bc 1yr lots missig, even 5 lots of missing, !! say in paper
-wbopendata, indicator(SI.POV.NAHC;NY.GDP.PCAP.KD;SI.DST.10TH.10)clear long 
+wbopendata, indicator(SI.POV.NAHC;NY.GDP.PCAP.KD;SI.DST.10TH.10;SL.UEM.TOTL.ZS;FP.CPI.TOTL.ZG)clear long 
 keep if year>=2015 & year<=2025
-keep regionname countrycode countryname incomelevelname year si_pov_nahc ny_gdp_pcap_kd si_dst_10th_10
-collapse si_pov_nahc ny_gdp_pcap_kd si_dst_10th_10, by(regionname countrycode countryname incomelevelname)
-l countrycode si_pov_nahc ny_gdp_pcap_kd si_dst_10th_10
+keep regionname countrycode countryname incomelevelname year si_pov_nahc ny_gdp_pcap_kd si_dst_10th_10 sl_uem_totl_zs fp_cpi_totl_zg
+collapse si_pov_nahc ny_gdp_pcap_kd si_dst_10th_10  sl_uem_totl_zs fp_cpi_totl_zg, by(regionname countrycode countryname incomelevelname)
+l countrycode si_pov_nahc ny_gdp_pcap_kd si_dst_10th_10  sl_uem_totl_zs fp_cpi_totl_zg
 
 la var si_pov_nahc "perc poor, natl poverty line"
 la var ny_gdp_pcap_kd "GDP per capita (constant 2015 usd)"
 la var si_dst_10th_10 "income share held by top 10perc"
+la var sl_uem_totl_zs "unemployment, perc of tot labor force"
+la var fp_cpi_totl_zg "perc inflation, consumer prices"
+
+/* TODO
+At some point would be useful some welfare measures
+and Can get data back in time like on GDP gro and inequality back in time--and see how past/growing up during difficult times affected free and preRed now!
+*/
 
 
 //LATER:
@@ -75,6 +82,7 @@ d
 note si_pov_nahc: ""
 */
 
+l in 1/3
 save /tmp/wdi.dta, replace //merge in python TODO also here for MLM/HLM etc
 
 
@@ -86,7 +94,6 @@ save /tmp/wdi.dta, replace //merge in python TODO also here for MLM/HLM etc
 
 
 use ~/data/wvs/wvs,clear  //first quick exploration on cumulative; then subset to wave7
-ren freedom free
 
 //freedom/autonomy
 //for the future awesome vars:  missing (or very few maybe) in wave 7
@@ -121,12 +128,39 @@ tabstat free if cc=="ECU",by(inc) //meh same as west
 codebook S002VS
 keep if S002VS==7
 
+gen countrycode=cc
+merge m:1 countrycode using /tmp/wdi.dta
+ta cc  if _merge==1 //oh we are good
+//l if _merge==1
+drop if _merge==2
+save /tmp/all, replace
+
+//---------
+
+
+tw(qfitci govRes ny_gdp_pcap_kd)
+
+collapse  govRes free si_pov_nahc ny_gdp_pcap_kd si_dst_10th_10 sl_uem_totl_zs fp_cpi_totl_zg, by(cc)
+
+//no rel
+tw(qfitci govRes ny_gdp_pcap_kd)(scatter govRes ny_gdp_pcap_kd,mlab(cc))
+tw(qfitci free ny_gdp_pcap_kd)(scatter free ny_gdp_pcap_kd, msymbol(none) mlabel(cc) mlabsize(tiny) mlabposition(0))
+
+
+tw(qfitci free si_dst)(scatter free si_dst, msymbol(none) mlabel(cc) mlabsize(tiny) mlabposition(0))
+gr export free_ine.pdf, replace
+
+tw(qfitci free si_pov)(scatter free si_pov, msymbol(none) mlabel(cc) mlabsize(tiny) mlabposition(0))
+gr export free_pov.pdf, replace
+
+
+
 
 
 //---------
 
 
-
+use save /tmp/all, clear
 //welfare/redistribution
 sum wrkLaz pooLaz subPoo escPov priPub trust  fair //fair not in wave7
 codebook wrkLaz pooLaz subPoo escPov priPub trust,ta(100) //use these later;
@@ -134,10 +168,6 @@ codebook wrkLaz pooLaz subPoo escPov priPub trust,ta(100) //use these later;
 sum weaAll incIne govRes comBad worSuc
 alpha weaAll incIne govRes comBad worSuc
 pwcorr weaAll incIne govRes comBad worSuc //very low!!
-
-
-
-
 
 
 
@@ -163,13 +193,18 @@ recode free (1 2 3=1)(4 5 6=2)(7 8 9 10=3)  ,gen(free3)
 recode satFin (1 2 3=1)(4 5 6=2)(7 8 9 10=3),gen(satFin3)
 reg govRes i.free3##c.satFin inc age age2 male class mar , robust 
 margins free3, at(satFin=(1(1)10)) 
+marginsplot, x(satFin)
 reg govRes i.satFin3##c.free inc age age2 male class mar , robust 
 margins satFin3, at(free=(1(1)10))
 marginsplot, x(free)
+gr export m-satFin3.pdf
 
 reg govRes i.satFin3##i.free3 inc age age2 male class mar , robust 
 margins satFin3, at(free3=(1(1)3))
 marginsplot, x(free3)
+
+//no sig interaction with class
+reg govRes c.free##c.class i.satFin inc age age2 male mar , robust 
 
 
 reg govRes c.free##c.satFin inc age age2 male class mar , robust 
