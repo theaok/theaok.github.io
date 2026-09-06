@@ -133,6 +133,8 @@ merge m:1 countrycode using /tmp/wdi.dta
 ta cc  if _merge==1 //oh we are good
 //l if _merge==1
 drop if _merge==2
+
+gen ccc=c
 save /tmp/all, replace
 
 //---------
@@ -166,21 +168,30 @@ gr export free_pov.pdf, replace
 //---------
 
 
+
+//----------------------------------------------city paper!
+//when writing follow my `Freedom From'and `Freedom To'Across Countries
 use  /tmp/all, clear
 
-
-//-------meh not that much here
+//-------actually yes!; not as strong as swb, but yes someting there !!
 tabstat free, by(town) stat(mean) format(%9.2f)
 ta town, gen(TT)
 //tabstat govRes, by(town) stat(mean) format(%9.2f)
-reg free i.town satFin inc age age2 male class mar i.c, robust
-reg free TT1-TT7 satFin inc age age2 male class mar i.c, robust  
- 
-
+reg free i.town  inc age age2 male class mar i.c, robust
+bys cc: reg free TT1-TT7  inc age age2 male class mar , robust  
+bys regionname: reg free TT1-TT7  inc age age2 male class mar , robust //yes!!! 
+bys regionname: reg ls TT1-TT7  inc age age2 male class mar , robust  
+/*
+"city air is free"
+stadt luft es frei; srch ebib for freedom!
+guess cities first or therwhise just ariq and spin freedom as qol
+*/
 //-------
 
 
 
+//--------------------------------------playing
+use  /tmp/all, clear
 
 //welfare/redistribution
 sum wrkLaz pooLaz subPoo escPov priPub trust  fair //fair not in wave7
@@ -191,11 +202,10 @@ alpha weaAll incIne govRes comBad worSuc
 pwcorr weaAll incIne govRes comBad worSuc //very low!!
 
 
-
 reg govRes free, robust 
 est sto a1
 
-reg govRes free i.c, robust //same
+reg govRes free i.ccc, robust //same
 est sto a1cc
 
 reg govRes free  satFin, robust 
@@ -210,8 +220,8 @@ est sto a3
 //skipping free#inc as only mariginally sig
 reg govRes i.free i.satFin inc age age2 male class mar , robust 
 reg govRes i.free##c.satFin inc age age2 male class mar , robust 
-recode free (1 2 3=1)(4 5 6=2)(7 8 9 10=3)  ,gen(free3)
-recode satFin (1 2 3=1)(4 5 6=2)(7 8 9 10=3),gen(satFin3)
+cap recode free (1 2 3=1)(4 5 6=2)(7 8 9 10=3)  ,gen(free3)
+cap recode satFin (1 2 3=1)(4 5 6=2)(7 8 9 10=3),gen(satFin3)
 reg govRes i.free3##c.satFin inc age age2 male class mar , robust 
 margins free3, at(satFin=(1(1)10)) 
 marginsplot, x(satFin)
@@ -227,22 +237,22 @@ marginsplot, x(free3)
 
 
 
-reg govRes c.free##c.satFin inc age age2 male class mar , robust 
-est sto a3
+
 
 reg govRes c.free##c.inc age age2 male class mar , robust 
 est sto a4
 
 //sig interaction with class
 reg govRes c.free##c.class satFin inc age age2 male mar , robust 
-reg govRes c.free##i.class        inc age age2 male mar , robust 
 //margins free, at(class=(1(1)5)) 
 //marginsplot, x(free)
 reg govRes c.free##c.class        inc age age2 male mar , robust 
 est sto a5
 
+reg govRes c.free##i.class        inc age age2 male mar , robust 
+est sto a5a
 
-estout a*  using regA.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) //drop(*c)
+estout a*  using regA.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) drop(*ccc)
 
 
 
@@ -314,16 +324,166 @@ reg govRes free inc age age2 male class mar  if cc=="LBN", robust //still
 reg govRes free inc age age2 male class mar  if cc=="CZE", robust //cut by half
 
 
+
+
 //------------------------paper regressions----------------------
 
-Control now in dofile health kids religiosity social connectedness
-self-employed married social class occupation or industry ; argue like in
-Bartram as per controls as i did in unhappiness unpredictability Lonnie paper
+
+// LATER can try other relig var, there are more
+// now did emp dummies but guess could just focus on une sel
+// ethGrp maybe later, also like 10k fewr obs than others and different for every cc
+// ed: dont have obs
+// social connectedness only few already controling in final model
+// occupation or industry none
+// maybe later sth with these: worSuc wrkLaz freEqu 
+
+//MAYBE/LATER: 
+can argue like Bartram as per controls (overcontrol bias etc) as i did in unhappiness unpredictability Lonnie paper; and the SCA curves
 
 
 
-from leonies slides:
-H2: This impact is stronger in more affluent, more unequal and less trusting societies.
-found oposite in unequal lat am impact lower
+use  /tmp/all, clear
+est drop *
 
-get coefs by ctry like in cities paper see dofile there
+reg govRes free, robust 
+est sto a1
+
+reg govRes free i.ccc, robust //same
+est sto a2
+//i.yr no need they drop out bc of collinearity
+
+reg govRes free satFin i.ccc, robust //inc class 
+reg govRes free age age2 male mar i.emp i.ccc, robust
+est sto a3
+
+reg govRes free age age2 male mar class i.ccc, robust
+reg govRes free age age2 male mar i.emp class inc i.ccc, robust
+est sto a4
+
+reg govRes free age age2 male mar i.emp class inc satFin i.ccc, robust
+est sto a5
+
+reg govRes c.free##c.class age age2 male mar i.emp inc satFin i.ccc, robust
+reg govRes c.free##i.class age age2 male mar i.emp inc satFin i.ccc, robust
+est sto a6
+margins, at(free=(1 3 5 7 10) class=(1 3 5)) 
+marginsplot //yeah not much despite reg coef sig
+
+reg govRes free age age2 male mar i.emp class inc satFin health kids rel_imp A066 A074 A098 i.ccc, robust
+est sto a7
+ 
+
+estout a*  using regA1.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) drop(*ccc)
+! sed -i '/^constant/i\country dummies&no&yes&yes&yes&yes&yes&yes\\\\' regA1.tex
+! sed -i '/^Lower class    /i\class dummies (base: lower):&&&&&&&\\\\' regA1.tex
+! sed -i '/Lower class/d' regA1.tex
+
+
+
+reg govRes i.free, robust 
+est sto b1
+
+reg govRes i.free i.ccc, robust //little diff
+est sto b2
+
+reg govRes i.free satFin i.ccc, robust //inc class 
+reg govRes i.free age age2 male mar i.emp i.ccc, robust
+est sto b3
+
+reg govRes i.free age age2 male mar i.emp class i.ccc, robust
+reg govRes i.free age age2 male mar i.emp class inc i.ccc, robust
+est sto b4
+
+reg govRes i.free age age2 male mar i.emp class inc satFin i.ccc, robust
+est sto b5
+margins free
+marginsplot
+gr export m-b5.pdf,replace
+
+reg govRes i.free age age2 male mar i.emp class inc satFin health kids rel_imp A066 A074 A098 i.ccc, robust
+est sto b6
+
+estout b*  using regB1.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) drop(*ccc)
+! sed -i '/^constant/i\country dummies&no&yes&yes&yes&yes&yes\\\\' regB1.tex
+! sed -i '/^None at all/i\freedom/autonomy dummies (base: 1 None at all):&&&&&&&\\\\' regB1.tex
+! sed -i '/None at all   /d' regB1.tex
+
+
+
+//and then by country like cities paper urb unhappiness is common: swbCityWorld.do
+//a see above under playing many interesting results!
+cap program drop rrr
+program define rrr
+syntax, m(string asis)f(string asis)
+cap est drop *
+levelsof cc,loc(__cc)
+foreach _cc in `__cc'{
+di "tis is `_cc':"
+cap noisily `m' if cc=="`_cc'", robust
+	if _rc != 0 {
+	continue
+        }
+	if _rc == 0 {
+	est sto `_cc'
+	}	
+}
+estout *  using /tmp/`f'.tab , keep(*free*) cells(b(star fmt(%9.1f))) replace style(tab)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05) 
+//! oocalc /tmp/a.tab
+//! sed -i '1s/^/country/' /tmp/a.txt
+//! cat /tmp/a.tab | datamash transpose | sed 's/\t/ \& /g' 
+! cat /tmp/`f'.tab | /tmp/datamash-1.9/datamash transpose | sed 's/\t/ \& /g' | sed  's/\$/\\\\/' >/home/aok/papers/leonieAgency/tex/`f'.tex
+end
+
+rrr, m(reg govRes free age age2 male mar i.emp class inc satFin)f(regT1)
+rrr, m(reg govRes i.free age age2 male mar i.emp class inc satFin)f(regT2)
+
+
+//mlm
+//from leonies slides:
+//H2: This impact is stronger in more affluent, more unequal and less trusting societies.
+//found oposite in unequal lat am impact lower
+mixed govRes free ||cc:
+
+mixed govRes c.free##c.ny_gdp_pcap_kd ||cc: free, mle
+est sto c1
+margins, at(free=(1(1)10) ny_gdp_pcap_kd=(2500 10000 50000)) 
+marginsplot, xdimension(free) recast(line) 
+
+mixed govRes c.free##c.ny_gdp_pcap_kd age age2 male mar i.emp class inc satFin ||cc: free, mle
+est sto c2
+margins, at(free=(1(1)10) ny_gdp_pcap_kd=(2500 10000 50000)) 
+marginsplot, xdimension(free) recast(line) 
+
+
+mixed govRes c.free##c.si_dst_10th_10 ||cc: free, mle
+est sto c3
+margins, at(free=(1(1)10) si_dst_10th_10=(25 27 30))
+marginsplot, xdimension(free) recast(line) 
+
+mixed govRes c.free##c.si_dst_10th_10 age age2 male mar i.emp class inc satFin ||cc: free, mle
+est sto c4
+margins, at(free=(1(1)10) si_dst_10th_10=(25 27 30)) 
+marginsplot, xdimension(free) recast(line) 
+
+
+cap bys cc: egen trustC=mean(trust)
+mixed govRes c.free##c.trustC ||cc: free, mle
+est sto c5
+margins, at(free=(1(1)10) trustC=(.1 .2 .5))
+marginsplot, xdimension(free) recast(line) 
+
+mixed govRes c.free##c.trustC age age2 male mar i.emp class inc satFin ||cc: free, mle
+est sto c6
+margins, at(free=(1(1)10) trustC=(.1 .2 .5))
+marginsplot, xdimension(free) recast(line) 
+
+
+estout c*  using regC1.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) order(free ny_gdp_pcap_kd si_dst_10th_10 trustC) //drop(*ccc)
+! sed -i 's/_/\\_/g' regC1.tex
+//! sed -i '/^constant/i\country dummies&yes&yes&yes&yes&yes&yes\\\\' regC1.tex
+//! sed -i '/^None at all/i\freedom/autonomy dummies (base: 1 None at all):&&&&&&&\\\\' regB1.tex
+//! sed -i '/None at all   /d' regB1.tex
+
+//MAYBE/LATER maybe another paper for now have a ton results already!
+finally growing up during financial crisis real quick
+and cp paste into leonies word doc!
