@@ -56,17 +56,18 @@ label variable valuep99p100 "Top 1% share"
 //https://data.worldbank.org/indicator/NY.GDP.PCAP.KD
 
 //avg10yr  bc 1yr lots missig, even 5 lots of missing, !! say in paper
-wbopendata, indicator(SI.POV.NAHC;NY.GDP.PCAP.KD;SI.DST.10TH.10;SL.UEM.TOTL.ZS;FP.CPI.TOTL.ZG)clear long 
+wbopendata, indicator(SI.POV.NAHC;NY.GDP.PCAP.KD;SI.DST.10TH.10;SL.UEM.TOTL.ZS;FP.CPI.TOTL.ZG;SP.URB.TOTL.IN.ZS)clear long 
 keep if year>=2015 & year<=2025
-keep regionname countrycode countryname incomelevelname year si_pov_nahc ny_gdp_pcap_kd si_dst_10th_10 sl_uem_totl_zs fp_cpi_totl_zg
-collapse si_pov_nahc ny_gdp_pcap_kd si_dst_10th_10  sl_uem_totl_zs fp_cpi_totl_zg, by(regionname countrycode countryname incomelevelname)
-l countrycode si_pov_nahc ny_gdp_pcap_kd si_dst_10th_10  sl_uem_totl_zs fp_cpi_totl_zg
+keep regionname countrycode countryname incomelevelname year si_pov_nahc ny_gdp_pcap_kd si_dst_10th_10 sl_uem_totl_zs fp_cpi_totl_zg sp_urb_totl_in_zs
+collapse si_pov_nahc ny_gdp_pcap_kd si_dst_10th_10  sl_uem_totl_zs fp_cpi_totl_zg sp_urb_totl_in_zs, by(regionname countrycode countryname incomelevelname)
+l countrycode si_pov_nahc ny_gdp_pcap_kd si_dst_10th_10  sl_uem_totl_zs fp_cpi_totl_zg sp_urb_totl_in_zs
 
 la var si_pov_nahc "perc poor, natl poverty line"
 la var ny_gdp_pcap_kd "GDP per capita (constant 2015 usd)"
 la var si_dst_10th_10 "income share held by top 10perc"
 la var sl_uem_totl_zs "unemployment, perc of tot labor force"
 la var fp_cpi_totl_zg "perc inflation, consumer prices"
+la var sp_urb_totl_in_zs "perc urban"
 
 /* TODO
 At some point would be useful some welfare measures
@@ -125,7 +126,7 @@ tabstat free if cc=="COL",by(inc) //meh same as west
 tabstat free if cc=="ECU",by(inc) //meh same as west
 
 //for now i guess just keep last wave
-codebook S002VS
+codebook S002VS 
 keep if S002VS==7
 
 gen countrycode=cc
@@ -165,28 +166,7 @@ gr export free_pov.pdf, replace
 
 
 
-//---------
 
-
-
-//----------------------------------------------city paper!
-//when writing follow my `Freedom From'and `Freedom To'Across Countries
-use  /tmp/all, clear
-
-//-------actually yes!; not as strong as swb, but yes someting there !!
-tabstat free, by(town) stat(mean) format(%9.2f)
-ta town, gen(TT)
-//tabstat govRes, by(town) stat(mean) format(%9.2f)
-reg free i.town  inc age age2 male class mar i.c, robust
-bys cc: reg free TT1-TT7  inc age age2 male class mar , robust  
-bys regionname: reg free TT1-TT7  inc age age2 male class mar , robust //yes!!! 
-bys regionname: reg ls TT1-TT7  inc age age2 male class mar , robust  
-/*
-"city air is free"
-stadt luft es frei; srch ebib for freedom!
-guess cities first or therwhise just ariq and spin freedom as qol
-*/
-//-------
 
 
 
@@ -409,6 +389,7 @@ estout b*  using regB1.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  coll
 ! sed -i '/None at all   /d' regB1.tex
 
 
+bys region: reg govRes i.free age age2 male mar i.emp class inc satFin health kids rel_imp A066 A074 A098, robust
 
 //and then by country like cities paper urb unhappiness is common: swbCityWorld.do
 //a see above under playing many interesting results!
@@ -478,7 +459,7 @@ margins, at(free=(1(1)10) trustC=(.1 .2 .5))
 marginsplot, xdimension(free) recast(line) 
 
 
-estout c*  using regC1.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) order(free ny_gdp_pcap_kd si_dst_10th_10 trustC) //drop(*ccc)
+estout c1 c2 c3 c4 c5 c6 using regC1.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) order(free* *ny_gdp_pcap_kd *si_dst_10th_10 *trustC) //drop(*ccc)
 ! sed -i 's/_/\\_/g' regC1.tex
 //! sed -i '/^constant/i\country dummies&yes&yes&yes&yes&yes&yes\\\\' regC1.tex
 //! sed -i '/^None at all/i\freedom/autonomy dummies (base: 1 None at all):&&&&&&&\\\\' regB1.tex
