@@ -62,8 +62,10 @@ keep regionname countrycode countryname incomelevelname year si_pov_nahc ny_gdp_
 collapse si_pov_nahc ny_gdp_pcap_kd si_dst_10th_10  sl_uem_totl_zs fp_cpi_totl_zg sp_urb_totl_in_zs, by(regionname countrycode countryname incomelevelname)
 l countrycode si_pov_nahc ny_gdp_pcap_kd si_dst_10th_10  sl_uem_totl_zs fp_cpi_totl_zg sp_urb_totl_in_zs
 
+replace ny_gdp_pcap_kd=ln(ny_gdp_pcap_kd)
+
 la var si_pov_nahc "perc poor, natl poverty line"
-la var ny_gdp_pcap_kd "GDP per capita (constant 2015 usd)"
+la var ny_gdp_pcap_kd "lnGDP per capita (constant 2015 usd)"
 la var si_dst_10th_10 "income share held by top 10perc"
 la var sl_uem_totl_zs "unemployment, perc of tot labor force"
 la var fp_cpi_totl_zg "perc inflation, consumer prices"
@@ -136,6 +138,14 @@ ta cc  if _merge==1 //oh we are good
 drop if _merge==2
 
 gen ccc=c
+
+lookfor class
+ta class, gen (CL)
+d CL*
+
+ta free, gen(FF)
+d FF*
+
 save /tmp/all, replace
 
 //---------
@@ -336,60 +346,62 @@ reg govRes free satFin i.ccc, robust //inc class
 reg govRes free age age2 male mar i.emp i.ccc, robust
 est sto a3
 
-reg govRes free age age2 male mar class i.ccc, robust
-reg govRes free age age2 male mar i.emp class inc i.ccc, robust
+reg govRes free age age2 male mar CL1 CL2 CL4 CL5 i.ccc, robust
+reg govRes free age age2 male mar i.emp CL1 CL2 CL4 CL5  i.ccc, robust
 est sto a4
 
-reg govRes free age age2 male mar i.emp class inc satFin i.ccc, robust
+reg govRes free age age2 male mar i.emp CL1 CL2 CL4 CL5  satFin i.ccc, robust
 est sto a5
 
-reg govRes c.free##c.class age age2 male mar i.emp inc satFin i.ccc, robust
-reg govRes c.free##i.class age age2 male mar i.emp inc satFin i.ccc, robust
+reg govRes c.free##c.class age age2 male mar i.emp  satFin i.ccc, robust
+reg govRes c.free##i.class age age2 male mar i.emp  satFin i.ccc, robust
 est sto a6
-margins, at(free=(1 3 5 7 10) class=(1 3 5)) 
+margins, at(free=(1 2 3 4 5 6 7 8 9 10) class=(1 3 5)) 
 marginsplot //yeah not much despite reg coef sig
+gr export m-a6.pdf, replace
 
-reg govRes free age age2 male mar i.emp class inc satFin health kids rel_imp A066 A074 A098 i.ccc, robust
+
+reg govRes free age age2 male mar i.emp CL1 CL2 CL4 CL5  satFin health kids bel_god rel_imp  i.ccc, robust
 est sto a7
  
 
-estout a*  using regA1.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) drop(*ccc)
-! sed -i '/^constant/i\country dummies&no&yes&yes&yes&yes&yes&yes\\\\' regA1.tex
-! sed -i '/^Lower class    /i\class dummies (base: lower):&&&&&&&\\\\' regA1.tex
-! sed -i '/Lower class/d' regA1.tex
+estout a*  using regA2.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) drop(*ccc)
+! sed -i '/^constant/i\country dummies&no&yes&yes&yes&yes&yes&yes\\\\' regA2.tex
+! sed -i '/^Lower class    /i\class dummies (base: lower):&&&&&&&\\\\' regA2.tex
+! sed -i '/Lower class/d' regA2.tex
 
 
 
-reg govRes i.free, robust 
+reg govRes FF1-FF4 FF6-FF10, robust 
 est sto b1
 
-reg govRes i.free i.ccc, robust //little diff
+reg govRes FF1-FF4 FF6-FF10 i.ccc, robust //little diff
 est sto b2
 
-reg govRes i.free satFin i.ccc, robust //inc class 
-reg govRes i.free age age2 male mar i.emp i.ccc, robust
+reg govRes FF1-FF4 FF6-FF10 satFin i.ccc, robust //inc class 
+reg govRes FF1-FF4 FF6-FF10 age age2 male mar i.emp i.ccc, robust
 est sto b3
 
-reg govRes i.free age age2 male mar i.emp class i.ccc, robust
-reg govRes i.free age age2 male mar i.emp class inc i.ccc, robust
+reg govRes FF1-FF4 FF6-FF10 age age2 male mar i.emp CL1 CL2 CL4 CL5 i.ccc, robust
+reg govRes FF1-FF4 FF6-FF10 age age2 male mar i.emp CL1 CL2 CL4 CL5  i.ccc, robust
 est sto b4
 
-reg govRes i.free age age2 male mar i.emp class inc satFin i.ccc, robust
+reg govRes FF1-FF4 FF6-FF10 age age2 male mar i.emp CL1 CL2 CL4 CL5  satFin i.ccc, robust
 est sto b5
-margins free
-marginsplot
-gr export m-b5.pdf,replace
+//margins free
+//marginsplot
+//gr export m-b5.pdf,replace
 
-reg govRes i.free age age2 male mar i.emp class inc satFin health kids rel_imp A066 A074 A098 i.ccc, robust
+reg govRes FF1-FF4 FF6-FF10 age age2 male mar i.emp CL1 CL2 CL4 CL5  satFin health kids bel_god rel_imp  i.ccc, robust
 est sto b6
 
-estout b*  using regB1.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) drop(*ccc)
-! sed -i '/^constant/i\country dummies&no&yes&yes&yes&yes&yes\\\\' regB1.tex
-! sed -i '/^None at all/i\freedom/autonomy dummies (base: 1 None at all):&&&&&&&\\\\' regB1.tex
-! sed -i '/None at all   /d' regB1.tex
+estout b*  using regB2.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) drop(*ccc)
+! sed -i '/^constant/i\country dummies&no&yes&yes&yes&yes&yes\\\\' regB2.tex
+! sed -i '/^None at all/i\freedom/autonomy dummies (base: 1 None at all):&&&&&&&\\\\' regB2.tex
+! sed -i '/None at all   /d' regB2.tex
 
 
-bys region: reg govRes i.free age age2 male mar i.emp class inc satFin health kids rel_imp A066 A074 A098, robust
+bys region: reg govRes FF1-FF4 FF6-FF10 age age2 male mar i.empCL1 CL2 CL4 CL5  satFin health kids bel_god rel_imp , robust
 
 //and then by country like cities paper urb unhappiness is common: swbCityWorld.do
 //a see above under playing many interesting results!
@@ -408,15 +420,15 @@ cap noisily `m' if cc=="`_cc'", robust
 	est sto `_cc'
 	}	
 }
-estout *  using /tmp/`f'.tab , keep(*free*) cells(b(star fmt(%9.1f))) replace style(tab)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05) 
+estout *  using /tmp/`f'.tab , keep(*FF*) cells(b(star fmt(%9.2f))) replace style(tab)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05) 
 //! oocalc /tmp/a.tab
 //! sed -i '1s/^/country/' /tmp/a.txt
 //! cat /tmp/a.tab | datamash transpose | sed 's/\t/ \& /g' 
 ! cat /tmp/`f'.tab | /tmp/datamash-1.9/datamash transpose | sed 's/\t/ \& /g' | sed  's/\$/\\\\/' >/home/aok/papers/leonieAgency/tex/`f'.tex
 end
 
-rrr, m(reg govRes free age age2 male mar i.emp class inc satFin)f(regT1)
-rrr, m(reg govRes i.free age age2 male mar i.emp class inc satFin)f(regT2)
+rrr, m(reg govRes free age age2 male mar i.emp CL1 CL2 CL4 CL5  satFin)f(regTT1)
+rrr, m(reg govRes FF1-FF4 FF6-FF10 age age2 male mar i.emp CL1 CL2 CL4 CL5  satFin)f(regTT2)
 
 
 //mlm
@@ -430,7 +442,7 @@ est sto c1
 margins, at(free=(1(1)10) ny_gdp_pcap_kd=(2500 10000 50000)) 
 marginsplot, xdimension(free) recast(line) 
 
-mixed govRes c.free##c.ny_gdp_pcap_kd age age2 male mar i.emp class inc satFin ||cc: free, mle
+mixed govRes c.free##c.ny_gdp_pcap_kd age age2 male mar i.emp CL1 CL2 CL4 CL5  satFin ||cc: free, mle
 est sto c2
 margins, at(free=(1(1)10) ny_gdp_pcap_kd=(2500 10000 50000)) 
 marginsplot, xdimension(free) recast(line) 
@@ -441,26 +453,48 @@ est sto c3
 margins, at(free=(1(1)10) si_dst_10th_10=(25 27 30))
 marginsplot, xdimension(free) recast(line) 
 
-mixed govRes c.free##c.si_dst_10th_10 age age2 male mar i.emp class inc satFin ||cc: free, mle
+mixed govRes c.free##c.si_dst_10th_10 age age2 male mar i.emp CL1 CL2 CL4 CL5  satFin ||cc: free, mle
 est sto c4
 margins, at(free=(1(1)10) si_dst_10th_10=(25 27 30)) 
 marginsplot, xdimension(free) recast(line) 
 
 
-cap bys cc: egen trustC=mean(trust)
-mixed govRes c.free##c.trustC ||cc: free, mle
+//cap bys cc: egen trustC=mean(trust)
+mixed govRes c.free##c.si_pov_nahc ||cc: free, mle
 est sto c5
-margins, at(free=(1(1)10) trustC=(.1 .2 .5))
-marginsplot, xdimension(free) recast(line) 
+//margins, at(free=(1(1)10) trustC=(.1 .2 .5))
+//marginsplot, xdimension(free) recast(line) 
 
-mixed govRes c.free##c.trustC age age2 male mar i.emp class inc satFin ||cc: free, mle
+mixed govRes c.free##c.si_pov_nahc age age2 male mar i.emp CL1 CL2 CL4 CL5  satFin ||cc: free, mle
 est sto c6
-margins, at(free=(1(1)10) trustC=(.1 .2 .5))
+//margins, at(free=(1(1)10) trustC=(.1 .2 .5))
+//marginsplot, xdimension(free) recast(line) 
+
+
+mixed govRes c.free##c.sl_uem_totl_zs ||cc: free, mle
+est sto c7
+margins, at(free=(1(1)10) sl_uem_totl_zs=(3 5 10))
+marginsplot, xdimension(free) recast(line) 
+
+mixed govRes c.free##c.sl_uem_totl_zs age age2 male mar i.emp CL1 CL2 CL4 CL5  satFin ||cc: free, mle
+est sto c8
+margins, at(free=(1(1)10) sl_uem_totl_zs=(3 5 10))
+marginsplot, xdimension(free) recast(line) 
+gr export m-c8.pdf
+
+mixed govRes c.free##c.fp_cpi_totl_zg ||cc: free, mle
+est sto c9
+margins, at(free=(1(1)10) fp_cpi_totl_zg=(2 4 7))
+marginsplot, xdimension(free) recast(line) 
+
+mixed govRes c.free##c.fp_cpi_totl_zg age age2 male mar i.emp CL1 CL2 CL4 CL5  satFin ||cc: free, mle
+est sto c10
+margins, at(free=(1(1)10) fp_cpi_totl_zg=(2 4 7))
 marginsplot, xdimension(free) recast(line) 
 
 
-estout c1 c2 c3 c4 c5 c6 using regC1.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) order(free* *ny_gdp_pcap_kd *si_dst_10th_10 *trustC) //drop(*ccc)
-! sed -i 's/_/\\_/g' regC1.tex
+estout c1 c2 c3 c4 c5 c6 c7 c8 c9 c10 using regC2.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) order(free* *ny_gdp_pcap_kd *si_dst_10th_10 *si_pov_nahc *sl_uem_totl_zs *fp_cpi_totl_zg) //drop(*ccc)
+! sed -i 's/_/\\_/g' regC2.tex
 //! sed -i '/^constant/i\country dummies&yes&yes&yes&yes&yes&yes\\\\' regC1.tex
 //! sed -i '/^None at all/i\freedom/autonomy dummies (base: 1 None at all):&&&&&&&\\\\' regB1.tex
 //! sed -i '/None at all   /d' regB1.tex
