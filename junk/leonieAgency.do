@@ -1,5 +1,6 @@
 stata
 
+run /home/aok/papers/root/do/aok_programs.do
 cd /home/aok/papers/leonieAgency/tex
 
 //-------------------wid crap dont use it
@@ -333,6 +334,12 @@ can argue like Bartram as per controls (overcontrol bias etc) as i did in unhapp
 
 
 use  /tmp/all, clear
+
+pwcorr govRes free age age2 male mar une sel class satFin health kids bel_god rel_imp
+
+aok_hist2,x(govRes free age age2 male mar une sel class satFin health kids bel_god rel_imp)d(./)f(hist)
+
+
 est drop *
 
 reg govRes free, robust 
@@ -444,19 +451,22 @@ marginsplot, xdimension(free) recast(line)
 
 mixed govRes c.free##c.ny_gdp_pcap_kd age age2 male mar i.emp CL1 CL2 CL4 CL5  satFin ||cc: free, mle
 est sto c2
-margins, at(free=(1(1)10) ny_gdp_pcap_kd=(2500 10000 50000)) 
+margins, at(free=(1(1)10) ny_gdp_pcap_kd=(7.5 9.2 10.8)) 
 marginsplot, xdimension(free) recast(line) 
+gr export m-c2.pdf
+
 
 
 mixed govRes c.free##c.si_dst_10th_10 ||cc: free, mle
 est sto c3
-margins, at(free=(1(1)10) si_dst_10th_10=(25 27 30))
+margins, at(free=(1(1)10) si_dst_10th_10=(23 27 35))
 marginsplot, xdimension(free) recast(line) 
 
 mixed govRes c.free##c.si_dst_10th_10 age age2 male mar i.emp CL1 CL2 CL4 CL5  satFin ||cc: free, mle
 est sto c4
-margins, at(free=(1(1)10) si_dst_10th_10=(25 27 30)) 
+margins, at(free=(1(1)10) si_dst_10th_10=(23 27 35)) 
 marginsplot, xdimension(free) recast(line) 
+gr export m-c4.pdf
 
 
 //cap bys cc: egen trustC=mean(trust)
