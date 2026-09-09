@@ -141,6 +141,7 @@ drop if _merge==2
 gen ccc=c
 
 lookfor class
+replace class=4 if class==5
 ta class, gen (CL)
 d CL*
 
@@ -317,7 +318,7 @@ reg govRes free inc age age2 male class mar  if cc=="CZE", robust //cut by half
 
 
 
-//------------------------paper regressions----------------------
+//------------------------paper regressions: first stab----------------------
 
 
 // LATER can try other relig var, there are more
@@ -462,7 +463,7 @@ mixed govRes c.free##c.ny_gdp_pcap_kd age age2 male mar i.emp CL1 CL2 CL4 CL5  s
 est sto c2
 margins, at(free=(1(1)10) ny_gdp_pcap_kd=(7.5 9.2 10.8)) 
 marginsplot, xdimension(free) recast(line) 
-gr export m-c2.pdf
+gr export m-c2.pdf,replace
 
 
 
@@ -475,7 +476,7 @@ mixed govRes c.free##c.si_dst_10th_10 age age2 male mar i.emp CL1 CL2 CL4 CL5  s
 est sto c4
 margins, at(free=(1(1)10) si_dst_10th_10=(23 27 35)) 
 marginsplot, xdimension(free) recast(line) 
-gr export m-c4.pdf
+gr export m-c4.pdf,replace
 
 
 //cap bys cc: egen trustC=mean(trust)
@@ -499,7 +500,7 @@ mixed govRes c.free##c.sl_uem_totl_zs age age2 male mar i.emp CL1 CL2 CL4 CL5  s
 est sto c8
 margins, at(free=(1(1)10) sl_uem_totl_zs=(3 5 10))
 marginsplot, xdimension(free) recast(line) 
-gr export m-c8.pdf
+gr export m-c8.pdf,replace
 
 mixed govRes c.free##c.fp_cpi_totl_zg ||cc: free, mle
 est sto c9
@@ -518,6 +519,65 @@ estout c1 c2 c3 c4 c5 c6 c7 c8 c9 c10 using regC2.tex ,  cells(b(star fmt(%9.2f)
 //! sed -i '/^None at all/i\freedom/autonomy dummies (base: 1 None at all):&&&&&&&\\\\' regB1.tex
 //! sed -i '/None at all   /d' regB1.tex
 
-//MAYBE/LATER maybe another paper for now have a ton results already!
-finally growing up during financial crisis real quick
-and cp paste into leonies word doc!
+
+
+
+
+//-----------paper regressions: second stab mlm-----------------
+
+
+
+
+
+use  /tmp/all, clear
+replace lr=11 if lr>=.
+ta lr, gen(LR)
+est drop *
+
+reg govRes free, robust 
+mixed govRes c.free ||cc: , mle
+est sto a1
+
+reg govRes free i.ccc, robust 
+mixed govRes c.free  ||cc: free, mle //i.ccc
+est sto a2
+
+reg govRes     free age age2 male mar i.emp i.ccc, robust
+mixed govRes c.free age age2 male mar i.emp ||cc: free, mle
+est sto a3
+
+reg   govRes   free age age2 male mar i.emp CL1 CL2 CL4   i.ccc, robust
+mixed govRes c.free age age2 male mar i.emp CL1 CL2 CL4||cc: free, mle
+est sto a4
+
+reg   govRes   free age age2 male mar i.emp CL1 CL2 CL4 satFin i.ccc, robust
+mixed govRes c.free age age2 male mar i.emp CL1 CL2 CL4 satFin||cc: free, mle
+est sto a5
+
+reg   govRes c.free##i.class age age2 male mar i.emp satFin i.ccc, robust
+mixed govRes c.free##i.class age age2 male mar i.emp satFin||cc: c.free##i.class, mle
+est sto a6
+
+margins, at(free=(1 2 3 4 5 6 7 8 9 10) class=(1 2 3 4)) 
+marginsplot //yeah not much despite reg coef sig
+gr export mm-a6.pdf, replace
+
+
+reg govRes     free age age2 male mar i.emp CL1 CL2 CL4 satFin health kids bel_god rel_imp  i.ccc, robust
+mixed govRes c.free age age2 male mar i.emp CL1 CL2 CL4 satFin health kids bel_god rel_imp||cc: free, mle
+est sto a7
+ 
+
+
+estout a*  using regA3.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) //drop(*ccc)
+! sed -i '/^constant/i\country dummies&no&yes&yes&yes&yes&yes&yes\\\\' regA3.tex
+! sed -i '/^Lower class    /i\class dummies (base: lower):&&&&&&&\\\\' regA3.tex
+! sed -i '/Lower class/d' regA3.tex
+
+
+
+at the end cp paste into leonies word doc!
+
+i guess after all do try with historic data start with gdp
+% diff when person 25 yo v now
+so yr-age+25 and like +-3 or 5yrs avg 
