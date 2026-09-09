@@ -335,9 +335,12 @@ can argue like Bartram as per controls (overcontrol bias etc) as i did in unhapp
 
 use  /tmp/all, clear
 
-pwcorr govRes free age age2 male mar une sel class satFin health kids bel_god rel_imp
+pwcorr govRes free age age2 male mar une sel class satFin health kids bel_god rel_imp lr
 
-aok_hist2,x(govRes free age age2 male mar une sel class satFin health kids bel_god rel_imp)d(./)f(hist)
+aok_hist2,x(govRes free age age2 male mar une sel class satFin health kids bel_god rel_imp lr)d(./)f(hist)
+
+replace lr=11 if lr>=.
+ta lr, gen(LR)
 
 
 est drop *
@@ -371,10 +374,13 @@ gr export m-a6.pdf, replace
 reg govRes free age age2 male mar i.emp CL1 CL2 CL4 CL5  satFin health kids bel_god rel_imp  i.ccc, robust
 est sto a7
  
+reg govRes free age age2 male mar i.emp CL1 CL2 CL4 CL5  satFin health kids bel_god rel_imp   LR1-LR4 LR6-LR11 i.ccc, robust //LR11 is missing
+est sto a8
+ 
 
 estout a*  using regA2.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) drop(*ccc)
-! sed -i '/^constant/i\country dummies&no&yes&yes&yes&yes&yes&yes\\\\' regA2.tex
-! sed -i '/^Lower class    /i\class dummies (base: lower):&&&&&&&\\\\' regA2.tex
+! sed -i '/^constant/i\country dummies&no&yes&yes&yes&yes&yes&yes&yes\\\\' regA2.tex
+! sed -i '/^Lower class    /i\class dummies (base: lower):&&&&&&&&\\\\' regA2.tex
 ! sed -i '/Lower class/d' regA2.tex
 
 
@@ -402,13 +408,16 @@ est sto b5
 reg govRes FF1-FF4 FF6-FF10 age age2 male mar i.emp CL1 CL2 CL4 CL5  satFin health kids bel_god rel_imp  i.ccc, robust
 est sto b6
 
+reg govRes FF1-FF4 FF6-FF10 age age2 male mar i.emp CL1 CL2 CL4 CL5  satFin health kids bel_god rel_imp  LR1-LR4 LR6-LR11 i.ccc, robust
+est sto b7
+
 estout b*  using regB2.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) drop(*ccc)
-! sed -i '/^constant/i\country dummies&no&yes&yes&yes&yes&yes\\\\' regB2.tex
-! sed -i '/^None at all/i\freedom/autonomy dummies (base: 1 None at all):&&&&&&&\\\\' regB2.tex
+! sed -i '/^constant/i\country dummies&no&yes&yes&yes&yes&yes&yes\\\\' regB2.tex
+! sed -i '/^None at all/i\freedom/autonomy dummies (base: 1 None at all):&&&&&&&&\\\\' regB2.tex
 ! sed -i '/None at all   /d' regB2.tex
 
 
-bys region: reg govRes FF1-FF4 FF6-FF10 age age2 male mar i.empCL1 CL2 CL4 CL5  satFin health kids bel_god rel_imp , robust
+bys region: reg govRes FF1-FF4 FF6-FF10 age age2 male mar i.emp CL1 CL2 CL4 CL5  satFin health kids bel_god rel_imp , robust
 
 //and then by country like cities paper urb unhappiness is common: swbCityWorld.do
 //a see above under playing many interesting results!
