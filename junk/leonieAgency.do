@@ -1,3 +1,5 @@
+//tried using the other wvs_EVS dofile but no class there so sticking with this one here
+
 stata
 
 run /home/aok/papers/root/do/aok_programs.do
@@ -72,6 +74,13 @@ la var sl_uem_totl_zs "unemployment, perc of tot labor force"
 la var fp_cpi_totl_zg "perc inflation, consumer prices"
 la var sp_urb_totl_in_zs "perc urban"
 
+sum
+//grand mean centering
+foreach v of varlist  si_pov_nahc ny_gdp_pcap_kd si_dst_10th_10 sl_uem_totl_zs fp_cpi_totl_zg sp_urb_totl_in_zs{
+sum `v', meanonly
+replace `v'=`v'-r(mean)
+}
+sum
 /* TODO
 At some point would be useful some welfare measures
 and Can get data back in time like on GDP gro and inequality back in time--and see how past/growing up during difficult times affected free and preRed now!
@@ -103,7 +112,7 @@ use ~/data/wvs/wvs,clear  //first quick exploration on cumulative; then subset t
 //for the future awesome vars:  missing (or very few maybe) in wave 7
 //!!autInd no, about kids how person perceives aut in others
 codebook aut* 
-codebook myself decMys freOrd freEqu
+codebook   freOrd freEqu //myself decMys
 
 
 //michael/erick: patterns by race, yes!
@@ -131,6 +140,10 @@ tabstat free if cc=="ECU",by(inc) //meh same as west
 //for now i guess just keep last wave
 codebook S002VS 
 keep if S002VS==7
+ta cc if S002VS==7
+di r(r)
+
+
 
 gen countrycode=cc
 merge m:1 countrycode using /tmp/wdi.dta
@@ -532,6 +545,10 @@ estout c1 c2 c3 c4 c5 c6 c7 c8 c9 c10 using regC2.tex ,  cells(b(star fmt(%9.2f)
 use  /tmp/all, clear
 replace lr=11 if lr>=.
 ta lr, gen(LR)
+//grand mean centering
+sum free, meanonly
+replace free=free-r(mean)
+
 est drop *
 
 reg govRes free, robust 
@@ -554,8 +571,8 @@ reg   govRes   free age age2 male mar i.emp CL1 CL2 CL4 satFin i.ccc, robust
 mixed govRes c.free age age2 male mar i.emp CL1 CL2 CL4 satFin||cc: free, mle
 est sto a5
 
-reg   govRes c.free##i.class age age2 male mar i.emp satFin i.ccc, robust
-mixed govRes c.free##i.class age age2 male mar i.emp satFin||cc: c.free##i.class, mle
+reg   govRes c.free##ib3.class age age2 male mar i.emp satFin i.ccc, robust
+mixed govRes c.free##ib3.class age age2 male mar i.emp satFin||cc: c.free##i.class, mle
 est sto a6
 
 margins, at(free=(1 2 3 4 5 6 7 8 9 10) class=(1 2 3 4)) 
@@ -569,10 +586,43 @@ est sto a7
  
 
 
-estout a*  using regA3.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) //drop(*ccc)
-! sed -i '/^constant/i\country dummies&no&yes&yes&yes&yes&yes&yes\\\\' regA3.tex
-! sed -i '/^Lower class    /i\class dummies (base: lower):&&&&&&&\\\\' regA3.tex
-! sed -i '/Lower class/d' regA3.tex
+estout a1 a2 a3 a4 a5 a6 a7  using regA3.tex ,  cells(b(star fmt(%9.2f))) replace style(tex)  collabels(, none) stats(N, labels("N")fmt(%9.0f))varlabels(_cons constant) label  starlevels(+ 0.10 * 0.05 ** 0.01 *** 0.001) //drop(*ccc)
+//! sed -i '/^constant/i\country dummies&no&yes&yes&yes&yes&yes&yes\\\\' regA3.tex
+//! sed -i '/^Lower class    /i\class dummies (base: lower):&&&&&&&\\\\' regA3.tex
+//! sed -i '/Lower class/d' regA3.tex
+
+//TODO other specs from earlier sec
+
+
+
+
+//-------another try having constant n from last spec
+//findit mvpattern
+//net install dm91 from http://www.stata.com/stb/stb61
+use  /tmp/all, clear
+drop if cc=="NIR" | cc=="GBR" | cc=="NLD" //all or many missing on class
+
+replace lr=11 if lr>=.
+ta lr, gen(LR)
+//grand mean centering
+sum free, meanonly
+replace free=free-r(mean)
+
+mvpatterns govRes free age age2 male mar emp CL1 CL2 CL4 satFin health kids bel_god
+
+count
+ta cc 
+di r(r)
+sum govRes c.free age age2 male mar i.emp CL1 CL2 CL4 satFin health kids bel_god 
+reg govRes c.free age age2 male mar i.emp CL1 CL2 CL4 satFin health kids bel_god
+
+reg govRes c.free CL1 CL2 CL4
+ta cc if e(sample)==1
+di r(r)
+
+ta cc class , mi
+
+and then e(sample)==1
 
 
 
