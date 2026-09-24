@@ -1,0 +1,730 @@
+%to have line numbers
+%\RequirePackage{lineno}
+\documentclass[10pt, letterpaper]{article}      
+\usepackage[margin=.1cm,font=small,labelfont=bf]{caption}[2007/03/09]
+%\usepackage{endnotes}
+%\let\footnote=\endnote
+\usepackage{setspace}
+\usepackage{longtable}                        
+\usepackage{anysize}                          
+\usepackage{natbib}                           
+%\bibpunct{(}{)}{,}{a}{,}{,}                   
+\bibpunct{(}{)}{,}{a}{}{,}                   
+\usepackage{amsmath}
+\usepackage[% draft,
+pdftex]{graphicx} %draft is a way to exclude figures                
+\usepackage{epstopdf}
+\usepackage{hyperref}                             % For creating hyperlinks in cross references
+\hypersetup{pdfborder={0 0 0.4}} %have nice light boxes on refs
+
+% \usepackage[margins]{trackchanges}
+
+% \note[editor]{The note}
+% \annote[editor]{Text to annotate}{The note}
+%    \add[editor]{Text to add}
+% \remove[editor]{Text to remove}
+% \change[editor]{Text to remove}{Text to add}
+
+%TODO make it more standard before submission: \marginsize{2cm}{2cm}{1cm}{1cm}
+\marginsize{1cm}{1cm}{.5cm}{.5cm}%{left}{right}{top}{bottom}   
+					          % Helps LaTeX put figures where YOU want
+ \renewcommand{\topfraction}{1}	                  % 90% of page top can be a float
+ \renewcommand{\bottomfraction}{1}	          % 90% of page bottom can be a float
+ \renewcommand{\textfraction}{0.0}	          % only 10% of page must to be text
+
+ \usepackage{float}                               %latex will not complain to include float after float
+
+\usepackage[table]{xcolor}                        %for table shading
+\definecolor{gray90}{gray}{0.90}
+\definecolor{orange}{RGB}{255,128,0}
+
+\renewcommand\arraystretch{.9}                    %for spacing of arrays like tabular
+
+%-------------------- my commands -----------------------------------------
+\newenvironment{ig}[1]{
+\begin{center}
+ %\includegraphics[height=5.0in]{#1} 
+ \includegraphics[height=3.3in]{#1} 
+\end{center}}
+
+ \newcommand{\cc}[1]{
+\hspace{-.13in}$\bullet$\marginpar{\begin{spacing}{.6}\begin{footnotesize}\color{blue}{#1}\end{footnotesize}\end{spacing}}
+\hspace{-.13in} }
+
+%-------------------- END my commands -----------------------------------------
+
+
+
+%-------------------- extra options -----------------------------------------
+
+%%%%%%%%%%%%%
+% footnotes %
+%%%%%%%%%%%%%
+
+%\long\def\symbolfootnote[#1]#2{\begingroup% %these can be used to make footnote  nonnumeric asterick, dagger etc
+%\def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup}	%see: http://help-csli.stanford.edu/tex/latex-footnotes.shtml
+
+%%%%%%%%%%%
+% spacing %
+%%%%%%%%%%%
+
+% \abovecaptionskip: space above caption
+% \belowcaptionskip: space below caption
+%\oddsidemargin 0cm
+%\evensidemargin 0cm
+
+%%%%%%%%%
+% style %
+%%%%%%%%%
+
+%\pagestyle{myheadings}         % Option to put page headers
+                               % Needed \documentclass[a4paper,twoside]{article}
+%\markboth{{\small\it Politics and Life Satisfaction }}
+%{{\small\it Adam Okulicz-Kozaryn} }
+
+%\headsep 1.5cm
+% \pagestyle{empty}			% no page numbers
+% \parindent  15.mm			% indent paragraph by this much
+% \parskip     2.mm			% space between paragraphs
+% \mathindent 20.mm			% indent math equations by this much
+
+%%%%%%%%%%%%%%%%%%
+% extra packages %
+%%%%%%%%%%%%%%%%%%
+
+\usepackage{datetime}
+
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,backgrounds}
+
+
+%\usepackage{color}					% For creating coloured text and background
+%\usepackage{float}
+\usepackage{subfig}                                     % for combined figures
+
+\renewcommand{\ss}[1]{{\colorbox{blue}{\bf \color{white}{#1}}}}
+\newcommand{\ee}[1]{\endnote{\vspace{-.10in}\begin{spacing}{1.0}{\normalsize #1}\end{spacing}\vspace{.20in}}}
+\newcommand{\emd}[1]{\ExecuteMetaData[/tmp/tex]{#1}} % grab numbers  from stata
+
+%TODO before submitting comment this out to get 'regular fornt'
+\usepackage{sectsty}
+\allsectionsfont{\normalfont\sffamily}
+\usepackage{sectsty}
+\allsectionsfont{\normalfont\sffamily}
+\renewcommand\familydefault{\sfdefault}
+
+%\usepackage[margins]{trackchanges}
+\usepackage{rotating}
+\usepackage{catchfilebetweentags}
+
+\usepackage{abstract}
+\renewcommand{\abstractname}{}    % clear the title
+\renewcommand{\absnamepos}{empty} % originally center
+%-------------------- END extra options -----------------------------------------
+\date{{}\today \hspace{.2in}\xxivtime}
+\title{  % remember to have Vistula University!!
+  Geographies of Wellbeing in Poland\\ (Urban-Rural, Regions, and Cities) 
+}
+\author{
+% Adam Okulicz-Kozaryn\thanks{EMAIL: adam.okulicz.kozaryn@gmail.com
+%   \hfill I thank XXX.  All mistakes are mine.} \\
+% {\small Rutgers - Camden  % and Vistula University
+% }
+}
+
+\begin{document}
+
+%%\setpagewiselinenumbers
+%\modulolinenumbers[1]
+%\linenumbers
+
+\bibliographystyle{/home/aok/papers/root/tex/ecta}
+\maketitle
+\vspace{-.4in}
+\begin{center}
+
+\end{center}
+
+
+\begin{abstract}
+\noindent
+\end{abstract}
+\vspace{.15in} 
+\noindent{\sc %XXX TODO add to ebib as keyword PAPER-CODE-NAME and tag with ebib keywords 
+}
+\vspace{.25in} 
+
+\vspace{-2.5in} 
+
+
+\begin{spacing}{1.4} %TODO MAYBE before submission can make it like 2.0
+\rowcolors{1}{white}{gray90}
+
+\section{Wellbeing}
+
+The proposed study's outcome of interest is multidimensional human
+wellbeing or flourishing. Two key dimensions are happiness or life
+satisfaction\footnote{We use the terms interchangeably as is the usual practice
+  in the social indicators literature, but specifically we mean global cognitive
+ evaluation of life as whole rather than momentary and fleeing affective
+ happiness.} and freedom (agency/autonomy).\footnote{Specifically we mean
+ so called \texttt{freedom to}, not \texttt{freedom from} \citep{aok_free_from_to}.
+Poles are \texttt{free from}: live in a free country, have no coercion,
+ and are free from restrictions and impediments. But are they \texttt{free to}? 
+ Are Poles actually able to choose, control and direct one's own life
+ \citep{ee_ls15}?
+% Not so much \citep{ee_ls15}.
+}
+
+Happiness is now recognized as a development goal in
+addition to GDP--the UN has passed resolution A/RES/65/309: ``Happiness: towards a holistic approach to
+development'' stating that ``the pursuit of happiness is a fundamental human
+goal'' and ``recognizing  that  the  gross  domestic  product  indicator [GDP]
+by  nature  was  not  designed to and does not adequately reflect the happiness
+and well-being of people.''\footnote{See
+  \url{https://docs.un.org/en/A/RES/65/309}. Also see report promoting
+  wellbeing as a human development measure by Nobel prize laureates Sen and Stiglitz \citep{stiglitz09al}.}
+
+Freedom (agency/autonomy) is a human right as stated by the  Universal
+Declaration of Human Rights (art. 26, 29): ``freedom for the realization of one's human potential.'' 
+Freedom  is an end-in-itself%\citep{aok_free_from_to}
+, as recognized by 
+\citet{fromm13,fromm12,fromm92,fromm64,fromm44,fromm94} and \citet{sen00}.
+
+% \textbf{do check if this needs to be blind, then need to rewrite}
+% I have coined the term ``urban-rural happiness gradient'' \citep{aok11a}
+% % and the new line of literature has started.
+% I am the leader of this field.\footnote{For instance see the discussion in framing essay IV in
+%   \citet{johansen22}.}
+There is a new geography of wellbeing field \citep[e.g.,][]{ballas2013geography}. 
+ The field has mostly international focus across
+countries, with only few recent studies focusing on specific
+countries.\footnote{See next section.} 
+ %
+
+Now the time is right for a geography of wellbeing study in Poland.
+In 2026 Poland is not very different
+from Western Europe anymore. Poland is a quite developed country now. Indeed, Polish PCGDP
+PPP\footnote{Per Capita Gross Domestic Product Purchasing Power Parity adjusted.} 
+is now about the same as in Japan, and Polish minimum wage of 31 PLN or 8.15 USD
+(as of 2026) is higher than the US minimum wage at 7.25 USD.  
+%https://en.wikipedia.org/wiki/List_of_countries_by_GDP_(PPP)_per_capita
+
+ It was not like that before, however.  
+ I remember about 10 years ago I gave a talk on happiness in Warsaw, 
+%vistula, maybe little more recently like 2019
+ and students didn't seem to see a need to care about happiness. Traditional
+topics like economic growth and personal income seemed more important. 
+
+Wellbeing is increasingly relevant as Poland has been transitioning from
+ developing country
+  into a developed country so quality of life and wellbeing
+increasingly matter over economic/survival basics such as income and
+unemployment in the past. 
+ When Poland was quite poor the focus rightly so was on survival
+  and economic growth.  As Poland has
+experienced economic miracle over past several years,\footnote{For instance Warszawski
+Index Gieldowy (WIG) has increased about 120\% over past 5 years.} now it's
+time to focus on wellbeing. 
+ %
+For visualization of the changing values from survival to wellbeing along with
+the economic growth see figure \ref{ingle}.
+
+\begin{figure}[H]
+ \includegraphics[height=2.3in]{/home/aok/papers/root/old/2025/swbColCitReg/tex/ingle.pdf}\centering
+\caption{\label{ingle} From survival to wellbeing as economic growth increases \citep{inglehart97}.}
+\end{figure}
+
+
+\section{Geographies: Urban-Rural, Regions, and Cities}
+
+%!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+%$>>>$guess cp here lit from my papers esp recent ones:\\
+%(make sure i caover everything i have in hypotheses!!!)
+%guess moree qol livability stuff and shrinking gorwing\\
+
+
+
+%https://en.wikipedia.org/wiki/List_of_European_countries_by_area
+%https://en.wikipedia.org/wiki/List_of_European_countries_by_population
+ Poland is a medium-large country, 9th both in terms of area and population in Europe,\footnote{
+ See \url{unstats.un.org} and \url{https://population.un.org}.}
+ and yet we know little about geographies of wellbeing in Poland and lack a
+dedicated comprehensive study. Hence, I propose this study to fill the gap.   
+ %
+Poland is a diverse country in terms of its urban-rural, regional, and city geographies. 
+
+%!!!!!!! MAYBE add there that diagram from Ott chapter
+Urban-rural is not a binary, but a gradient--we will use several steps to
+ capture this gradient. Urban-rural gradient matters a great deal, more than
+most scholars realize. Indeed, it is difficult to overestimate its importance--the key
+point is that urbanicity is not only a built environment, but a way of life \citep{wirth38}.%--details in the data section.
+ %
+
+%Several urban-rural happiness gradient studies are worth mentioning. 
+ \citet{weckroth21} is a closely related study to our proposed study--they analyze SWB by urban-rural
+using ESS in Europe--we will also use ESS among other datasets, 
+ but focus on Poland and add more recent waves and more wellbeing indicators. 
+ %
+\citet{knies26} is another close ESS study\footnote{And there are 2 more ESS
+  studies: \citet{ivanovic2022subjective} is an urban-rural study, but again
+only 2 waves and no focus on Poland. \citet{vaznoniene2019wellbeing} is
+interesting ESS study in a sense that it does focus on one country and discusses
+country specific intricacies like us, but it is Lithuania. \citet{aok21} is a major recent study using WVS, but as most research it focuses on cross-country
+ patterns, not Poland.} --it uses multiple indicators, but only one wave 6 and like other
+research does not focus on Poland. %We will use all 12 waves.
+ %
+There are no studies on urban-rural freedom gradient, not just in Poland but
+anywhere--ours is the first.\footnote{\citet{yamagishi12} studies urban-rural
+  freedom but in very different way from us--they show that urbanites are more
+  likely to chose extravagant pens than rural folks. We will study freedom for
+  urban-rural and regions (we do not have 
+freedom variable for cities).} Next we turn to regions.
+ 
+ Regions are an useful level of analysis as there are
+ great differences within countries and across regions, and Poland is no
+exception.  There are life satisfaction studies across regions, but no study focuses on Poland \citep[e.g.,][]{aok10_geo,ballas23,ziogas23,ziogas20}.
+Similarly, quality of life and wellbeing studies across regions and cities focus
+on cross-country patterns, not Poland, and tend to use older datasets \citep{aok-swbLivability18,aok13liavbility}.
+Poland has 16 voivodeships, so called NUTS2 level
+regions.\footnote{Voivodeships$=$NUTS2, except  Mazowieckie (the Warsaw
+  region)--1 single voivodeship, but 2 NUTS2: Warsaw Metropolitan and Mazovian
+  Region; so total of 17 NUTS2 regions.} %(in European statistical terms).
+ At NUTS2 level we will investigate geographic clustering and the relationship
+ between objective development measures such as income and subjective measures (SWB). 
+ %
+There are also interesting population dynamics at NUTS2 level, for
+instance,  Mazovia (where Warsaw is located) has been growing, but most  
+other regions have been stable or shrinking. We will investigate the effect of
+population change on wellbeing--we know that population dynamics are highly
+correlated with SWB \citep{growShrink25}, but again, we do not know the
+relationship in Poland. 
+%https://en.wikipedia.org/wiki/List_of_cities_and_towns_in_Poland
+
+Finally, we have data representative of 
+Bialystok, Gdansk, Cracow, and Warsaw with domain satisfactions (life, place,
+personal, and financial), and various quality of life indicators regarding
+amenities (e.g., public goods and services such as parks)  and
+disamenities (e.g., community problems such as crime). We will investigate 
+these across the cities.    
+ %
+ % For instance, Warsaw has been clearly growing, while other cities such as
+ % Poznan have been mostly flat, and yet others such as Lodz and Szczecin have
+ % been shrinking.
+ %
+ Specifically, large Warsaw (and perhaps Cracow) is likely to differ from small
+ Bialystok. 
+ Warsaw stands out as not only the largest city, but also possibly a primate
+ city, disproportionately larger and more influential than any other city.\footnote{At
+$>3m$ Warsaw metro is larger than Katowice metro at about 2.5m and third
+Karkow metro at 1.5m.
+ %
+While Katowice metro is not half or less of Warsaw metro as
+ ``the law of the primate city''
+ would indicate \citep[see discussion in][]{aok12zipf}, it is only due to the
+ location of Katowice in regional industrial cluster (Gornoslaski Okreg
+ Przemyslowy (GOP)), Katowice city itself is much smaller than  Warsaw at
+ 0.28m v 1.9m. 
+ %
+Maybe Warsaw is not such clear primate as Cairo  \citep{ebshoyEgypt24}, but it
+could be similar in its primate status to Bogota \citep{unhappyBog26}.
+}
+ 
+Last but not least, there are several related Polish studies in smaller local
+journals that are worth mentioning as they are mostly about Poland
+specifically--again, the international literature tends not to focus on Poland.
+ %The closest first.
+ \citet{sompolska2020quality} is quite close, but uses different data: Polish
+Social Diagnosis dataset and does not control for SWB predictors. 
+ %
+\citet{vaznoniene2021territorial} uses ESS and studies urban-rural SWB like us, but
+ focuses on Lithuania v Poland, and uses waves 4 and 9 only and 3 urbanicity
+ categories only, and does not control for SWB predictors. \citet{wojewodzka2023rural}
+ is the same, just uses waves 2 and 8. 
+  %
+\citet{tobiasz2017urban} does the analyses across the regions and urban-rural,
+ %and while social connection and loneliness are closely related to SWB,
+ but their sample is elderly and the study is about health only.
+ \citet{stangierska2022urban} studies quality of life across green v not green
+ urban areas, but only across Warsaw neighborhoods, and the sample size is small at 381 persons.
+ \citet{sompolska2021happier} uses Polish Social Diagnosis and studies urban-rural 
+ SWB--but separately: predictors of SWB in urban separately from predictors of
+ SWB in rural. %--it is different from our study.
+ Overall, while there are studies focusing on Poland, like our proposed study, they have
+ important limitations as summarized above.\footnote{ 
+ And there are several studies that differ from the
+ above. \citet{churski2022geographical} has very fine 
+ geographical resolution of 380 units across Poland, but they do not study SWB,
+  only the related objective indicators such as jobs. 
+ \citet{weziak2025understanding} is one of the very many of the studies
+ co-authored with VanderWeele, this time in Poland, but there is no geography in
+ the study.  
+ %
+ \citet{wkeziak16} uses the same flash barometer 366 that we will use, but does
+ not focus on Poland and instead on all European cities. 
+}
+ Hence,  we know little about wellbeing geographies in Poland--we
+ turn to our, yet un-answered, hypotheses.  
+
+\section{Hypotheses}
+
+% The research question: 
+% This research is about geography of wellbeing in Poland (urban-rural gradient, regions, and cities).
+
+% The hypotheses listed below are a primary set, we will be refining them and
+% adding other hypotheses at the literature review stage.
+
+\noindent %Hypotheses
+%(SWB$=$(multidimensional) Subjective Wellbeing)):\\
+$H_1$ Cities have lower multidimensional Subjective Wellbeing (SWB) than rural areas, with the largest
+drop occurring for the largest places. [WVS, ESS, FB539]\footnote{WVS$=$World Values
+  Survey; ESS$=$European Social Survey; FB539$=$Flash Barometer \#539--these and other datasets are described
+  in the next section.}\\ %ess
+$H_1a$ Certain social groups such as working-age adults and higher social classes
+have higher SWB in cities v rural areas. [WVS, ESS]\\
+$H_1b$ Over time, from 1989 to 2012, the SWB gap between cities and rural
+places has increased. [WVS]\\ 
+$H_2$ More remote, less populated, and lower density regions have higher SWB than
+more central, more populated and higher density regions. [ESS, FB539]\\ %flash b: just maps no regressions too few units
+$H_2a$ Regions that experienced population growth will have higher SWB than flat
+or shrinking regions. [ESS, FB539]\\ 
+$H_2b$ Across regions correlation between objective quality of life measures such as income with
+SWB measures will be moderate only at $<0.5$  thus revealing inadequacy of
+  traditional progress/development measures such as
+income. [ESS, FB539]\\
+$H_2c$ Urban-rural happiness gradient across regions will be relatively stable,
+i.e., larger places have higher SWB than smaller places. [ESS, FB539]\\ 
+$H_3$ The relationship between quality of life (local amenities and disamenities) and domain satisfactions (life, place, personal, and financial) will differ across                                  
+ Bialystok, Gdansk, Cracow, and Warsaw. [FB366,419] %\citep{aok-swbLivability18}
+
+ 
+ 
+\section{Data and Measurement}
+%maybe that diagnoza spoleczna--or may turn out its crap, maybe someone already said so
+
+%\subsection{Multidimensional Wellbeing}
+The goal is to do a comprehensive study of Polish geographies of wellbeing, hence
+we use multiple datasets, each having its own strengths: World Values Survey (WVS), European Social Survey
+(ESS), and Flash Barometers (FB) for regions (FB539) and cities (FB366,419).
+
+WVS has a usual SWB item:
+ ``All things considered, how satisfied are you with your life as a whole these days?''
+ on scale 1-10. 
+Such SWB measures tend to be reasonably valid and reliable
+%  \citep{myers00,ditella06m,layard05,bray06g,sandvik93ds,clark08al,diener09}.
+\citep[][ch. 5]{diener09}. 
+% 
+WVS allows us to examine the geographies of wellbeing over time, which is important
+  as Poland has evolved greatly, and WVS data goes back to 1989. We have 4k observations, about
+  1k per wave.\footnote{We use waves 1989, 1997, 2005, and 2012.
+ For the 1997, 2005, and 2012 waves we have 8
+rural-urban categories -2k, 2-5k, 5-10k, 10-20k, 20-50k, 50-100k, 100-500k, and
+500k-. In 1989 we only have information about 49 voivodeships, but
+ urbanicity can be inferred from this information indirectly,
+ and proximity to a major city directly.} 
+ Also, an important advantage of WVS is
+ that urbanicity is recorded by an interviewer.\footnote{It is more objective than subjective respondent self-reports. For
+   instance, respondents may not know well whether they live in a 20k or 30k place.}
+
+Freedom is measured in WVS,\footnote{"Some people feel they have completely free choice and control over their lives, while other
+      people feel that what they do has no real effect on what happens to them. Please use this scale
+      where 1 means 'none at all' and 10 means 'a great deal' to indicate how much freedom of choice
+      and control you feel you have over the way your life turns out." 
+    Validity and reliability of the measure seem fine and the variable has been used successfully
+ in the literature \citep[e.g.,][]{verme09,inglehart08,veenhoven00_b,aok_free_from_to}. }
+%if anything it could be interpreted slightly differently in different
+%languages/cultures but that is not a problem here for Poland only.}
+ and in some ESS waves 
+ %which has several waves %3,6,12
+ containing a whole battery of wellbeing items measuring functionings and vitality. 
+ %
+Preliminary analyses using ESS 1-6 cumulative file already had over 10k
+observations for Poland.\footnote{The data will be updated upto wave 12 that will be
+available in 2027.}
+  %
+ We will use ESS items such as those in wave 6 on functioning ``free to decide how to live my life,''
+  %``enthusiastic about what you are doing,''
+ and vitality ``had lot of energy.''\footnote{ESS urbanicity is measured with: a big city, suburbs or outskirts
+of big city, town or small city, country village, farm or home in
+countryside. Per wellbeing see overview at 
+  \url{https://www.europeansocialsurvey.org/findings/europeans-wellbeing/measuring-wellbeing}. Wave 
+6 wellbeing items:
+\url{https://europeansocialsurvey.org/sites/default/files/2026-01/ESS12-wellbeing-module-design-template.pdf}
+ see Table 1: Items from the wellbeing module grouped by the dimension of
+ wellbeing they relate to. We also will use new wave 12 that will be available in 2027 and will
+ contain a wellbeing module. See \url{https://europeansocialsurvey.org/sites/default/files/2026-01/ESS12-wellbeing-module-design-template.pdf}.}
+ 
+
+FB539 (2024) has 5.2k observations and is representative of
+ 17 NUTS2 regions, and has a usual SWB
+ question similar to WVS.\footnote{We may also use
+  the earlier flash barometers: \#497 (2021), \#472 (2018), \#427 (2015),  \#356 (2012)
+  depending on how strong and robust the latest wave results are.} 
+% \begin{figure}[H]
+%  \includegraphics[height=2in]{nuts2.png}\centering
+% \caption{\label{nuts2} 17 regions (voivodeships) so called NUTS2 regions}
+% \end{figure}
+ %
+FB366,419 (2012, 2015) are representative of 4 Polish cities:
+ Bialystok, Gdansk, Cracow, and Warsaw. The sample size is about 2000
+ observations per wave, and again we have a usual SWB question like in WVS.
+%later can also try Flash Eurobarometer 156 (Urban Audit Perception Survey 2004)
+
+ 
+\section{Models}
+
+
+We will mostly use ordinary least squares (OLS).\footnote{Although OLS assumes cardinality of the
+outcome variable, and SWB measures are technically ordinal, OLS is an appropriate estimation method.
+\citet{carbonell04} has shown that OLS results are substantially the same as
+those from discrete models, and  OLS has become the default method in happiness
+research \citep{blanchflower11}. Theoretically, while there is still debate
+about the cardinality of SWB, there are strong arguments to treat it as a
+cardinal variable \citep{ng96,ng97,ng11}.} For robustness/sensitivity
+checks for the key models we will use multinomial logit (as the ordinal logit
+tends to fail proportional odds assumption). As another robustness/sensitivity
+check we are considering machine learning models such as gradient boosting
+models \citep{oparina25}, specifically XGBoost
+ (\url{https://xgboost.readthedocs.io}). 
+
+%\section{controls}
+We will use a usual set of controls such as those in the literature: 
+for life satisfaction \citep[e.g.,][]{aokcities,aokrel}; and for freedom
+\citep[e.g.,][]{pitlik2016free,nikolaev2016give}. 
+ %
+ A key robustness/sensitivity check will be specification curve analysis (SCA)
+\citep{simonsohn20}. And %, related,
+ we will pay extra attention to the choice 
+ of control variables and avoid overcontrol bias.\footnote{
+%\begin{quote}
+``What we really need, to identify/estimate X$->$Y, is to control for other
+determinants of Y that are also antecedents of X (so, W$->$X). If we include
+controls where the relationship goes the other way (X$->$W), we will exacerbate
+bias in our estimate of X$->$Y. (The relevant term for that situation is
+'overcontrol bias')'' \citep[][p. 5]{bartram24}.
+%\end{quote}
+}
+
+To examine geographic patterns among regions we will use choropleth maps,
+Moran's I, and Local Indicators of Spatial Association (LISA) \citep{anselin1995local}.\footnote{ 
+We may do some multilevel modeling (MLM) at NUTS2 level as in
+\citet{weckroth21} but focusing on Poland. Yet MLM is problematic with only 17
+U/As at Level 2--if we use it, results will be postponed to appendix. 
+We may use Small Area Estimation \citep{moretti24}. 
+}
+
+
+
+\section{Significance, Policy, and Practice}
+
+%guess third of points is: Potencjalne znaczenie Projektu dla rozwoju nauki
+
+The proposed research will contribute to the literature and produce new
+knowledge.   
+ We will write several papers in this project, and through further research
+mentoring and leadership additional ones.
+%See for details in the application form under ``Dzialania mentoringowe.'' 
+%\textbf{see if thats where it fits}
+
+But the research also has policy and practical implications. First, as stated in the
+introduction, the time has come for Poles to focus on wellbeing as opposed to
+just survival. We have modernized infrastructure, higher incomes, and booming economy. The %past 
+focus on survival and economy
+ can now give a way to 
+ %now shift towards
+ wellbeing and flourishing.
+  With the proposed study we aim to aid in this pursuit of happiness. 
+ This is called evidence-based pursuit of happiness in the literature \citep{veenhoven12}.\footnote{There is a
+  psychological nuance here--one should not focus fully on the pursuit of
+  happiness and chase it or value it intensely
+  \citep{mauss11,gruber11}, neither be concerned about it and judge it
+  \citep{zerwas24}--it may backfire. Rather, one needs to know what is important
+for wellbeing from the academic literature, like the proposed study, and include
+this information in everyday decision-making. For instance, humans should
+ buy experience such as travel and time with others, not things such
+as conspicuous consumption items \citep{aok_ls_car15,veblen05a,veblen05b,thoreau95}.}
+ The proposed study will find out which parts of Poland enjoy high wellbeing and for
+ whom--which social groups, e.g., by age and social class, flourish where? 
+ Our findings should help Poles increase their wellbeing.
+
+ SWB can and should be used for public policy and administration \citep{diener09}.
+% provides a good discussion of why potential problems with happiness are not serious
+% enough to make it unusable for public policy--see especially  ch. 6.  
+% These potential problems include  genetic
+% determination of happiness \citep{lykken96t},  adaptation
+% \citep{brickman78cj},  and various comparisons \citep{michalos85}.}  
+% 
+ SWB can serve as a ``yardstick'' \citep{veenhoven88}--arguably the ultimate outcome of public
+ policy and administration is SWB.\footnote{While the idea of using wellbeing data for policy and
+    administration is new in Poland, it is not new in general
+    \citep{stiglitz09al,diener09}.} "If you can't measure it, you can't improve
+ it"--if governments don't measure wellbeing, they can't improve wellbeing.  
+  I will reach out to Polish government to implement the study findings in
+  practice.\footnote{One simple implementation is simply to educate policy
+    makes, public administrators, and citizenry about the wellbeing metrics and
+    study's findings so that we can make more informed decisions. Another
+    example is to use the wellbeing metrics to evaluate policy. For instance, if
+  there a major change in policy or investment in public goods, we can actually
+  measure whether it produced an increase in wellbeing by using before-after
+  comparative group research design (difference-in-difference).}
+  I plan to start locally with Wielkopolska voivodeship,
+  where I will be physically carrying out the study, and other regional
+  governments may be involved as well. %as I will be carrying out the study.
+  Likewise, some city
+  governments may be involved as the study will use data representative of 4
+  cities.
+  
+  
+
+
+
+
+  
+
+  
+
+%  instead \ExecuteMetaData[../out/tex]{ginipov} do \emd{ginipov}
+
+% \begin{figure}[H]
+%  \includegraphics[height=3in]{../out/gov_res_trust.pdf}\centering\label{gov_res_trust}
+% \caption{woo}
+% \end{figure}
+
+
+%TODO !!!! have input here aok_var_des
+
+
+
+% %table centered on decimal points:)
+% \begin{table}[H]\centering\footnotesize
+% \caption{\label{freq_im_god} importance of God}
+% \begin{tabular} {@{} lrrrr @{}}   \hline 
+% Item& Number & Per cent   \\ \hline
+% 1(not at all)&    9,285&  9\\
+% 2&    3,555&        3\\
+% 3&    3,937&        4\\
+% 4&    2,888&        3\\
+% 5&    7,519&        7\\
+% 6&    5,175&        5\\
+% 7&    6,050&        6\\
+% 8&    8,067&        8\\
+% 9&    8,463&        8\\
+% 10&   52,385&       49\\
+% Total&  107,324&      100\\ \hline
+% \end{tabular}\end{table}
+
+
+% % Define block styles
+% \tikzstyle{block} = [rectangle, draw, fill=black!20, 
+%     text width=10em, text centered, rounded corners, minimum height=4em]
+% \tikzstyle{b} = [rectangle, draw,  
+%     text width=6em, text centered, rounded corners, minimum height=4em]
+% \tikzstyle{line} = [draw, -latex']
+% \tikzstyle{cloud} = [draw, ellipse,fill=black!20, node distance = 5cm,
+%     minimum height=2em]
+    
+% \begin{tikzpicture}[node distance = 2cm, auto]
+%     % Place nodes
+%     \node [block] (lib) {liberalism, egalitarianism, welfare};
+%     \node [block, below of=lib] (con) {conservatism, competition, individualism};
+%     \node [cloud, right of=con] (ls) {well-being};
+%     \node [block, below of=ls] (cul) {genes, culture};
+%     \node [b, left of =lib, node distance = 4cm] (c) {country-level};
+%     \node [b, left of =con,  node distance = 4cm] (c) {person-level};
+%     % Draw edges
+%     \path [line] (lib) -- (ls);
+%     \path [line] (con) -- (ls);
+%     \path [line,dashed] (cul) -- (ls);
+% \end{tikzpicture}
+
+
+%PUT THIS NOTE, polish and put to /root/author_what_data --ALWAYS
+%stick here stuff as i run it!!! maybe comment out later...
+
+
+%!!!!!!!!!TODO: see cityAgency for cool setup :)))
+
+% \section*{\Huge ONLINE APPENDIX}
+% \textbf{[note: this section will NOT be a part of the final version of
+%   the manuscript, but will be available online instead]} %hence everything below
+%                                 %is organized byu section, not subsection
+% !!!
+% have most of the stuff outputted to online appendix:)--start with that and then
+% select stuff to paper--have brief narrative describng patterns in online app too
+% !!!
+
+% \section*{Variables' definitions, coding, and distributions}
+% \label{app_var_des}
+
+
+% %\input{/tmp/a.tex} %aok_var_des
+
+% % \begin{spacing}{.9}
+% %   \begin{table}[H]\centering \caption{Summary statistics.} \label{sumSta} \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5
+% %             in}p{.5in}p{.5 in}}\hline
+% %         \input{/tmp/aha2.tex}
+% %          \end{tabular}\end{scriptsize}\end{table}
+% % \end{spacing}
+
+% % \begin{spacing}{.9}
+% %   \begin{table}[H]\centering \caption{Correlation matrix.} \label{sumSta} \begin{scriptsize} \begin{tabular}{@{}
+% %           p{1.2in} rrrrrrrrrrrrr @{}}\hline
+% %         \input{/tmp/ahb2.tex}\hline
+% %          \end{tabular}\end{scriptsize}\end{table}
+% % \end{spacing}
+
+
+
+% Table XXX shows variable distributions. If a variable has more than
+% 10 categories it is classified into bins...
+
+% %\input .... %TODO !!!! have input here histograms
+
+% \section*{Additional Descriptive Statistics}
+% \label{app_des_sta}
+
+% %make sure i have [H] or h! ???
+% % \begin{table}[H]
+% % \caption{}
+% % \centering
+% % \label{}
+% % \begin{scriptsize}
+% % \input{../out/reg_c.tex}
+% % \end{scriptsize}
+% % \end{table}
+
+%\newpage
+%\theendnotes
+
+
+% \begin{scriptsize}
+% \begin{spacing}{.9} 
+% \begin{verbatim}
+% . tabstat ls, by(lwd7) stat(mean sd) format(%9.1f)
+
+% Summary for variables: ls
+% Group variable: lwd7 (RECODE of lwd (do what you like))
+
+%   lwd7 |      Mean        SD
+% -------+--------------------
+%    0-4 |       5.6       2.7
+%      2 |       7.6       2.3
+%      3 |       7.6       1.8
+%      4 |       8.0       1.5
+%      5 |       7.8       1.9
+%      6 |       8.2       1.5
+%      7 |       8.9       1.5
+% -------+--------------------
+%  Total |       8.3       1.9
+% ----------------------------
+% \end{verbatim}
+% \end{spacing}{.9}
+% \end{scriptsize}
+
+
+\bibliography{/home/aok/papers/root/tex/ebib.bib,powroty.bib,/home/aok/papers/cityAgency/tex/cityAgency.bib}
+
+\end{spacing}
+\end{document}
