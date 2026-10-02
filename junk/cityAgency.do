@@ -51,6 +51,57 @@ save /tmp/wdiC.dta, replace //merge in python TODO also here for MLM/HLM etc
 
 
 
+
+
+
+use ~/data/wvs/wvs,clear  //first quick exploration on cumulative; then subset to wave7
+
+//freedom/autonomy
+//for the future awesome vars:  missing (or very few maybe) in wave 7
+//!!autInd no, about kids how person perceives aut in others
+codebook aut* 
+//codebook myself decMys freOrd freEqu //guess mostly missing in new wvs 4.1
+
+//for now i guess just keep last wave
+codebook S002VS
+keep if S002VS==7
+
+gen countrycode=cc
+merge m:1 countrycode using /tmp/wdiC.dta
+ta cc  if _merge==1 //oh we are good
+//l if _merge==1
+drop if _merge==2
+
+gen ccc=c
+ta town, gen(TT)
+replace class=4 if class==5
+label define revclass 4 "Upp mid/upper",modify
+
+cap encode region, gen(rr)
+encode incomelevelname, gen(_iii)
+recode _iii  (1=3)(2 3=1)(4=2),gen(iii)
+
+recode town (1 2 3 4=1 "lt20k")(5 6 7=2 "20-500k")(8=3 "gt500k"),gen(t3)
+recode town (1 2 3=1 "lt10k")(4 5 6 =2 "10-100k")(7=3 "100-500k")(8=4 "gt500k"),gen(t4)
+ta town t4, mi
+recode satFin (1 2 3 4=1)(5 6 7 =2)(8 9 10=3),gen(sf3)
+recode inc (1 2 3 4=1)(5 6 7 =2)(8 9 10=3),gen(in3)
+recode inc (1 2=1)(3 4=2)(5 6=3)(7 8=4)(9 10=5),gen(in5)
+
+//findit twostep
+//st0745 from http://www.stata-journal.com/software/sj24-2
+//https://journals.sagepub.com/doi/pdf/10.1177/1536867X241257801
+//https://www.stata.com/meeting/switzerland25/slides/Switzerland25_Kohler.pdf
+//https://de.scribd.com/document/935199619/Germany21-Giesecke
+//net install st0745
+ssc install twostep, replace 
+ta t3, gen(TTT)
+
+save /tmp/allCC, replace
+
+
+
+
 use ~/data/wvs/wvs4_1,clear  //first quick exploration on cumulative; then subset to wave7
 
 
@@ -76,7 +127,9 @@ replace class=4 if class==5
 label define revclass 4 "Upp mid/upper",modify
 
 cap encode region, gen(rr)
-encode incomelevelname, gen(iii)
+encode incomelevelname, gen(_iii)
+recode _iii  (1=3)(2 3=1)(4=2),gen(iii)
+
 recode town (1 2 3 4=1 "lt20k")(5 6 7=2 "20-500k")(8=3 "gt500k"),gen(t3)
 recode town (1 2 3=1 "lt10k")(4 5 6 =2 "10-100k")(7=3 "100-500k")(8=4 "gt500k"),gen(t4)
 ta town t4, mi
@@ -453,6 +506,9 @@ twostep cc: reg free TTT1 TTT2  i.X025R mar i.emp satFin health kids rel_imp || 
 twostep cc: reg free TTT1 TTT2  i.X025R mar i.emp satFin health kids rel_imp || dot _b_TTT1  ,ylab(,labsize(tiny))  xline(0)  xlab(-1(0.5)1) xlabel(, labsize(small)) scopts(mcolor(black) ms(d)) ciopts(lcol(black)) xtitle("b-coefficients and 95%-CI of life autonomy per country on dummy for lt20k v gt500k (base case)", size(small))
 gr export fig-regCC1mod2ww.pdf, replace
 
+twostep cc: reg free TTT1 TTT2  i.X025R mar i.emp satFin health kids rel_imp if yr<2020 || edv _b_TTT1  
+twostep cc: reg free TTT1 TTT2  i.X025R mar i.emp satFin health kids rel_imp if yr<2020 || dot _b_TTT1  ,ylab(,labsize(tiny))  xline(0)  xlab(-1(0.5)1) xlabel(, labsize(small)) scopts(mcolor(black) ms(d)) ciopts(lcol(black)) xtitle("b-coefficients and 95%-CI of life autonomy per country on dummy for lt20k v gt500k (base case)", size(small))
+gr export fig-regCC1mod2ww20.pdf, replace
 
 mixed free ib4.t4##i.sf3    age age2 male mar i.emp health kids rel_imp  || cc:   ,mle
 est sto a                
@@ -538,3 +594,51 @@ twostep cc: reg free LL2 LL3  age age2 male mar i.emp satFin health kids rel_imp
 twostep cc: reg free LL2 LL3 age age2 male mar i.emp satFin health kids rel_imp  || dot _b_LL3  ,ylab(,labsize(tiny))  xline(0)  xlab(-1(0.5)1) xlabel(, labsize(small)) scopts(mcolor(black) ms(d)) ciopts(lcol(black)) xtitle("3rd tertile", size(small))
 gr export l3b.pdf,replace
 
+
+
+
+
+
+//------------------------------political freedom, influence over polititcs
+
+
+
+
+
+//yeah they should be in wave7 file only i already created dofile for that one
+d A168 fair fair10 E032 freOrd autInd aut E069_07 E069_11 E069_12  sts_dem
+sum A168 fair fair10 E032 freOrd autInd aut E069_07 E069_11 E069_12  sts_dem
+sum freEqu freOrd  E032
+
+//but for now just going with political say
+//use ~/data/wvs/wvs,clear
+//keep if S002VS==7
+use /tmp/allCC.dta
+
+
+tabstat free, by(t3) stat(mean) format(%9.2f)
+tabstat polSay, by(t3) stat(mean) format(%9.2f) //hmm weird
+
+
+tabstat polSay if cc=="USA", by(town) stat(mean) format(%9.2f)
+
+
+and central place capital etc var!
+
+reg free TTT2 TTT3  mar i.emp satFin health kids rel_imp i.ccc, robust
+//ha now sig just tiny effect siz
+
+reg polSay TTT2 TTT3  mar i.emp satFin health kids rel_imp i.ccc, robust
+
+reg polSay TTT2 TTT3  mar i.emp satFin health kids rel_imp i.ccc if iii==1, robust
+reg polSay TTT2 TTT3  mar i.emp satFin health kids rel_imp i.ccc if iii==3, robust
+//yes!!!
+
+reg polSay i.t3##i.iii  mar i.emp satFin health kids rel_imp  i.ccc, robust
+//margins t3,  at(iii=(1  3))
+margins,  at(t3=(1 2 3)  iii=(1 2 3))
+marginsplot,  //for some reason doesnt work
+
+mixed polSay i.t3##i.iii  mar i.emp satFin health kids rel_imp  || cc:   ,mle
+margins,  at(t3=(1 2 3)  iii=(1 2 3))
+marginsplot, 
