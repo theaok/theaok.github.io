@@ -646,12 +646,18 @@ reg polSay i.t3##i.iii  mar i.emp satFin health kids rel_imp  , robust cluster(c
 //margins t3,  at(iii=(1  3))
 margins,  at(t3=(1 2 3)  iii=(1 2 3))
 marginsplot, 
+gr export original.pdf,replace
+margins,  dydx(t3)  at(iii=(1 2 3))
+marginsplot, 
+gr export originalD.pdf,replace
 
 mixed polSay i.t3##i.iii  mar i.emp satFin health kids rel_imp  || cc: i.t3  ,mle
 margins,  at(t3=(1 2 3)  iii=(1 2 3))
 marginsplot,saving(a1,replace)ytitle("political say")scheme(s2mono)xsc(off)title("") text(2.98 1.4 "low and lower middle") //legend(off)
 gr export m-ps1.pdf,  replace
-
+margins,  dydx(t3)  at(iii=(1 2 3))
+marginsplot
+gr export m-ps1D.pdf,  replace
 
 reg free i.t3##i.iii  mar i.emp satFin health kids rel_imp  , robust cluster(cc) 
 //margins t3,  at(iii=(1  3))
@@ -664,6 +670,10 @@ mixed free i.t3##i.iii  mar i.emp satFin health kids rel_imp  || cc:  i.t3 ,mle
 margins,  at(t3=(1 2 3)  iii=(1 2 3))
 marginsplot,saving(a2,replace)ytitle("individual freedom")scheme(s2mono)
 gr export m-f1.pdf,      replace
+margins,  dydx(t3)  at(iii=(1 2 3))
+marginsplot
+gr export m-f1D.pdf,      replace
+
 
 graph combine a1.gph a2.gph, cols(1)  xsize(2) ysize(4) scale(1)
 gr export m-fps.pdf,replace
@@ -673,12 +683,12 @@ gr export m-fps.pdf,replace
 mixed polSay i.t4##i.sf3    age age2 male mar i.emp health kids rel_imp  || cc:    ,mle
 est sto a                
 margins,  at(t4=(1 4)  sf=(1 2 3))
-marginsplot
+marginsplot ,saving(aa1,replace)
 , xdimension(t4) xsize(2) ysize(2) saving(aa1,replace) text(8.25 4 "{bf:a}", size(large))legend(off)text(7.9 2 "top 3 cat")text(7 2 "middle 3 cat")text(6.3 2 "bottom 4 cat")title("financial satisfaction")ytitle("autonomy")xtitle("rural-urban")scheme(s2mono)
 mixed polSay ib4.t4##i.class    age age2 male mar i.emp health kids rel_imp  || cc:  ,mle
 est sto b
 margins,  at(t4=(1 4)  class=(1 2 3 4))
-marginsplot
+marginsplot,  saving(aa2,replace)
 , xdimension(t4) xsize(2) ysize(2) saving(aa2,replace) text(8.25 4 "{bf:b}", size(large))legend(off)text(7.5 2 "upper middle/upper")text(7.25 2 "lower middle")text(7.14 2 "working")text(6.82 2 "lower")title("class")ytitle("")xtitle("rural-urban")scheme(s2mono)
 mixed polSay ib4.t4##i.in5    age age2 male mar i.emp health kids rel_imp  || cc:  ,mle
 est sto c
