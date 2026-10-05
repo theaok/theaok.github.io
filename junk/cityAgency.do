@@ -618,6 +618,8 @@ use /tmp/allCC.dta
 
 tabstat free, by(t3) stat(mean) format(%9.2f)
 tabstat polSay, by(t3) stat(mean) format(%9.2f) //hmm weird
+graph hbar (mean) polSay, over(t3) over(iii)  //yea
+gr export psBar.pdf,replace
 
 
 tabstat polSay if cc=="USA", by(town) stat(mean) format(%9.2f)
@@ -639,6 +641,70 @@ reg polSay i.t3##i.iii  mar i.emp satFin health kids rel_imp  i.ccc, robust
 margins,  at(t3=(1 2 3)  iii=(1 2 3))
 marginsplot,  //for some reason doesnt work
 
-mixed polSay i.t3##i.iii  mar i.emp satFin health kids rel_imp  || cc:   ,mle
+reg polSay i.t3##i.iii  mar i.emp satFin health kids rel_imp  , robust //cluster(ccc)
+reg polSay i.t3##i.iii  mar i.emp satFin health kids rel_imp  , robust cluster(ccc)
+//margins t3,  at(iii=(1  3))
 margins,  at(t3=(1 2 3)  iii=(1 2 3))
 marginsplot, 
+
+mixed polSay i.t3##i.iii  mar i.emp satFin health kids rel_imp  || cc: i.t3  ,mle
+margins,  at(t3=(1 2 3)  iii=(1 2 3))
+marginsplot,saving(a1,replace)ytitle("political say")scheme(s2mono)xsc(off)title("") text(2.98 1.4 "low and lower middle") //legend(off)
+gr export m-ps1.pdf,  replace
+
+
+reg free i.t3##i.iii  mar i.emp satFin health kids rel_imp  , robust cluster(cc) 
+//margins t3,  at(iii=(1  3))
+margins,  at(t3=(1 2 3)  iii=(1 2 3))
+marginsplot, 
+
+//ok cool so opposite to polSay: free little higher in poorer places; but not in the richest ones
+//makes sense in backwards cc cities may be oasis of freedom; BUT insig!
+mixed free i.t3##i.iii  mar i.emp satFin health kids rel_imp  || cc:  i.t3 ,mle
+margins,  at(t3=(1 2 3)  iii=(1 2 3))
+marginsplot,saving(a2,replace)ytitle("individual freedom")scheme(s2mono)
+gr export m-f1.pdf,      replace
+
+graph combine a1.gph a2.gph, cols(1)  xsize(2) ysize(4) scale(1)
+gr export m-fps.pdf,replace
+
+
+//ok i guess sth here too, similar to free; but not with random slope: i.t4##i.sf3
+mixed polSay i.t4##i.sf3    age age2 male mar i.emp health kids rel_imp  || cc:    ,mle
+est sto a                
+margins,  at(t4=(1 4)  sf=(1 2 3))
+marginsplot
+, xdimension(t4) xsize(2) ysize(2) saving(aa1,replace) text(8.25 4 "{bf:a}", size(large))legend(off)text(7.9 2 "top 3 cat")text(7 2 "middle 3 cat")text(6.3 2 "bottom 4 cat")title("financial satisfaction")ytitle("autonomy")xtitle("rural-urban")scheme(s2mono)
+mixed polSay ib4.t4##i.class    age age2 male mar i.emp health kids rel_imp  || cc:  ,mle
+est sto b
+margins,  at(t4=(1 4)  class=(1 2 3 4))
+marginsplot
+, xdimension(t4) xsize(2) ysize(2) saving(aa2,replace) text(8.25 4 "{bf:b}", size(large))legend(off)text(7.5 2 "upper middle/upper")text(7.25 2 "lower middle")text(7.14 2 "working")text(6.82 2 "lower")title("class")ytitle("")xtitle("rural-urban")scheme(s2mono)
+mixed polSay ib4.t4##i.in5    age age2 male mar i.emp health kids rel_imp  || cc:  ,mle
+est sto c
+margins,  at(t4=(1 4)  in5=(1 2 3 4 5))
+marginsplot
+, xdimension(t4) xsize(2) ysize(2) saving(aa3,replace) text(8.1 4.4 "{bf:c}", size(large))
+
+gr combine aa1.gph aa2.gph , row(1) ycommon
+gr export m-polSay.pdf,replace
+
+
+
+
+ta cc t3 //whoa!!!
+di r(r)
+ta t3 if cc=="AND"
+levelsof cc,loc(__cc)
+foreach _cc in `__cc'{
+count if t3 == 3 & cc == "`_cc'"
+drop if `r(N)'<50 & cc == "`_cc'"
+di "`_cc'"  `r(N)'
+
+} 
+ta cc t3
+di r(r)
+twostep cc: reg free TTT2 TTT3 age age2 male mar i.emp satFin health kids rel_imp || edv _b_TTT3
+twostep cc: reg free TTT2 TTT3 age age2 male mar i.emp satFin health kids rel_imp || dot _b_TTT3  ,ylab(,labsize(tiny))  xline(0)  xlab(-1(0.5)1) xlabel(, labsize(small)) scopts(mcolor(black) ms(d)) ciopts(lcol(black)) xtitle("b-coefficients and 95%-CI of life autonomy per country on dummy for  gt500k v lt20k  (base case)", size(small))
+gr export ts-polSay.pdf, replace
+use /tmp/allCC.dta,clear
