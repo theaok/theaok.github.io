@@ -659,6 +659,12 @@ margins,  dydx(t3)  at(iii=(1 2 3))
 marginsplot
 gr export m-ps1D.pdf,  replace
 
+mixed polSay i.t3##c.ny_gdp_pcap_kd  mar i.emp satFin health kids rel_imp  || cc: i.t3  ,mle
+margins,  at(t3=(1 2 3)  ny_gdp_pcap_kd=(2000 10000 50000))
+marginsplot //,saving(a1,replace)ytitle("political say")scheme(s2mono)xsc(off)title("") text(2.98 1.4 "low and lower middle") //legend(off)
+gr export m-ps1.pdf,  replace
+
+
 reg free i.t3##i.iii  mar i.emp satFin health kids rel_imp  , robust cluster(cc) 
 //margins t3,  at(iii=(1  3))
 margins,  at(t3=(1 2 3)  iii=(1 2 3))
