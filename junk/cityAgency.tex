@@ -1,0 +1,2725 @@
+%to have line numbers
+%\RequirePackage{lineno}
+\documentclass[10pt, letterpaper]{article}      
+\usepackage[margin=.1cm,font=small,labelfont=bf]{caption}[2007/03/09]
+%\usepackage{endnotes}
+%\let\footnote=\endnote
+\usepackage{setspace}
+\usepackage{longtable}                        
+\usepackage{anysize}                          
+\usepackage{natbib}                           
+%\bibpunct{(}{)}{,}{a}{,}{,}                   
+\bibpunct{(}{)}{,}{a}{}{,}                   
+\usepackage{amsmath}
+\usepackage[% draft,
+pdftex]{graphicx} %draft is a way to exclude figures                
+\usepackage{epstopdf}
+\usepackage{hyperref}                             % For creating hyperlinks in cross references
+\hypersetup{pdfborder={0 0 0.4}} %have nice light boxes on refs
+ 
+% \usepackage[margins]{trackchanges}
+
+% \note[editor]{The note}
+% \annote[editor]{Text to annotate}{The note}
+%    \add[editor]{Text to add}
+% \remove[editor]{Text to remove}
+% \change[editor]{Text to remove}{Text to add}
+
+%TODO make it more standard before submission: \marginsize{2cm}{2cm}{1cm}{1cm}
+\marginsize{1cm}{1cm}{.5cm}{.5cm}%{left}{right}{top}{bottom}   
+					          % Helps LaTeX put figures where YOU want
+ \renewcommand{\topfraction}{1}	                  % 90% of page top can be a float
+ \renewcommand{\bottomfraction}{1}	          % 90% of page bottom can be a float
+ \renewcommand{\textfraction}{0.0}	          % only 10% of page must to be text
+
+ \usepackage{float}                               %latex will not complain to include float after float
+
+\usepackage[table]{xcolor}                        %for table shading
+\definecolor{gray90}{gray}{0.90}
+\definecolor{orange}{RGB}{255,128,0}
+
+\renewcommand\arraystretch{.9}                    %for spacing of arrays like tabular
+
+%-------------------- my commands -----------------------------------------
+\newenvironment{ig}[1]{
+\begin{center}
+ %\includegraphics[height=5.0in]{#1} 
+ \includegraphics[height=3.3in]{#1} 
+\end{center}}
+
+ \newcommand{\cc}[1]{
+\hspace{-.13in}$\bullet$\marginpar{\begin{spacing}{.6}\begin{footnotesize}\color{blue}{#1}\end{footnotesize}\end{spacing}}
+\hspace{-.13in} }
+
+%-------------------- END my commands -----------------------------------------
+
+
+
+%-------------------- extra options -----------------------------------------
+
+%%%%%%%%%%%%%
+% footnotes %
+%%%%%%%%%%%%%
+
+%\long\def\symbolfootnote[#1]#2{\begingroup% %these can be used to make footnote  nonnumeric asterick, dagger etc
+%\def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup}	%see: http://help-csli.stanford.edu/tex/latex-footnotes.shtml
+
+%%%%%%%%%%%
+% spacing %
+%%%%%%%%%%%
+
+% \abovecaptionskip: space above caption
+% \belowcaptionskip: space below caption
+%\oddsidemargin 0cm
+%\evensidemargin 0cm
+
+%%%%%%%%%
+% style %
+%%%%%%%%%
+
+%\pagestyle{myheadings}         % Option to put page headers
+                               % Needed \documentclass[a4paper,twoside]{article}
+%\markboth{{\small\it Politics and Life Satisfaction }}
+%{{\small\it Adam Okulicz-Kozaryn} }
+
+%\headsep 1.5cm
+% \pagestyle{empty}			% no page numbers
+% \parindent  15.mm			% indent paragraph by this much
+% \parskip     2.mm			% space between paragraphs
+% \mathindent 20.mm			% indent math equations by this much
+
+%%%%%%%%%%%%%%%%%%
+% extra packages %
+%%%%%%%%%%%%%%%%%%
+
+\usepackage{datetime}
+
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,backgrounds}
+
+
+%\usepackage{color}					% For creating coloured text and background
+%\usepackage{float}
+\usepackage{subfig}                                     % for combined figures
+
+\renewcommand{\ss}[1]{{\colorbox{blue}{\bf \color{white}{#1}}}}
+\newcommand{\ee}[1]{\endnote{\vspace{-.10in}\begin{spacing}{1.0}{\normalsize #1}\end{spacing}\vspace{.20in}}}
+\newcommand{\emd}[1]{\ExecuteMetaData[/tmp/tex]{#1}} % grab numbers  from stata
+
+%TODO before submitting comment this out to get 'regular fornt'
+\usepackage{sectsty}
+\allsectionsfont{\normalfont\sffamily}
+\usepackage{sectsty}
+\allsectionsfont{\normalfont\sffamily}
+\renewcommand\familydefault{\sfdefault}
+
+%\usepackage[margins]{trackchanges}
+\usepackage{rotating}
+\usepackage{catchfilebetweentags}
+
+\usepackage{abstract}
+\renewcommand{\abstractname}{}    % clear the title
+\renewcommand{\absnamepos}{empty} % originally center
+%-------------------- END extra options -----------------------------------------
+\date{{}\today \hspace{.2in}\xxivtime}
+\title{  % remember to have Vistula University!!
+  %City Air Makes You Free\\{\large(in some countries, or if you are upper class or financially satisfied)}
+  %Cities and Freedom/Agency
+  %Freedom and political say across urban-rural\\ 
+  %
+  %Pereceived
+  Personal Agency and Political Efficacy across Urban-Rural 
+}
+\author{
+% Adam Okulicz-Kozaryn\thanks{EMAIL: adam.okulicz.kozaryn@gmail.com
+%   \hfill I thank XXX.  All mistakes are mine.} \\
+% {\small Rutgers - Camden  % and Vistula University
+% }
+}
+
+\begin{document}
+
+%%\setpagewiselinenumbers
+%\modulolinenumbers[1]
+%\linenumbers
+
+\bibliographystyle{/home/aok/papers/root/tex/ecta}
+\maketitle
+\vspace{-.4in}
+\begin{center}
+
+\end{center}
+
+\noindent\textbf{target jou:}\\
+  cities if8.2,\\
+  ariq if3ish,\\
+  some soc j have soc lit: Toennies Simmel Durkheim maybe sth like j or urb soc or eur soc rev?\\
+
+\begin{abstract}
+  \noindent We use World Values Survey 7 (2017-2023) across about 50 countries
+  % depending on the model like 47-62
+  to test urban-rural differences in personal agency and political efficacy.  
+%
+%   cities are more free. Mostly we find the opposite: in
+%   ?? out ?? countries there is mostly no relationship or even in ?? cases
+%   positive relationship. Still, in ?? countries cities are indeed more
+%   free.
+% % none of this robust to country dummies:
+% % and we do not find support for it except in Middle East/North Africa. If anything, there is some 
+% %   support of the contrary--greater freedom/autonomy in smaller places. But
+% %   overall it is a mix and varies byt region and country. 
+% %  %
+% % East Asia/Pacific stands out with high effect sizes at about .4 or even .5, also
+% % controling for other predictors of freedom. South Asia stands out as having large positive effect .3-.4
+% % in the smallest category ($<2k$).  
+% %  %
+% % In particular in many regions or countries there is more freedom v large cities $>500k$ in large towns
+% % midsized cities of $100-500k$ and $50-100k$ but slightly less in the smallest
+% % places $<2k$.
+%
+  We find that there isn't more personal agency in urban v rural as
+  hypothetised--there is mostly no difference. But political
+  efficacy is significantly higher in urban v rural in rich countries as hypothetised in ``left
+  behind ruralities'' hypothesis. And as Toennies hypothetised 
+  those doing well financially are ``active and alive'' in cities or as we find here have
+  greater personal agency (but not political efficacy). Effect sizes are
+  considerable at about ??. As in any correlational research results may not be
+  causal. 
+    
+%  Within-country urban-rural freedom/autonomy differences are mostly
+%  insignificant, but some effect sizes tend to
+%  be substantial, about 0.3-0.6 % and as large as around 1
+%  on 1-10 freedom/autonomy scale. %fist results table by country
+%  %
+%  %
+%   %Toennies argued that ``city life and Gesellschaft down the common people to decay and death.''%  We have not measured
+%   % decay and death here, but
+%   %Likewise, we find that
+%   And lower class, financially dissatisfied, and the poor 
+%  are more free/autonomous outside of the cities.   
+
+%  % % i guess not, bc without country dummies: 
+% % The whole sample pooled effect sizes of financial satisfaction and class interactions with
+% %urbanicity are substantial of about 2 steps on 1-10 income scale.
+% %%.12 to .16 %interactions in app table underlying body marginsplot on finSat and class similar to .13 on 1st inc dummy v base so 2 steps
+\end{abstract}
+\vspace{.15in} 
+\noindent{\sc World Values Survey, freedom, agency, autonomy, political efficacy, urbanism, urban, rural,
+  urban-rural, cities%XXX TODO add to ebib as keyword PAPER-CODE-NAME and tag with ebib keywords 
+}
+\vspace{.25in} 
+
+\begin{spacing}{1.4} %TODO MAYBE before submission can make it like 2.0
+\rowcolors{1}{white}{gray90}
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-2}}
+
+
+\noindent City life and Gesellschaft down the common people to decay and death. Ferdinand Toennies\\
+%\citep[p. 231]{tonnies57}
+
+\noindent In the city and therefore, where general conditions characteristic of the
+Gesellschaft prevail, only the upper strata, the rich and the cultured, are
+really active and alive. Ferdinand Toennies\\ %\citep[p. 227]{tonnies57}.
+
+
+City air makes you free%(City air brings freedom) ``City air makes men free
+\footnote{(Stadt Luft macht frei) \citep[p. 12]{park84}}{--the saying originated in the Middle Ages, and it meant
+  freedom from feudalism in cities, non-feudal islands in a sea of feudalism
+  \citep{harvey12}.} 
+%The parallel is somewhat a stretch--and the title is somewhat a hook bait.
+%The original saying is from the Middle Ages and meant freedom from feudalism in cities.
+Feudalism has long been gone, but we may actually be living under feudalism
+again, so called techno-feudalism
+\citep{varoufakis24,morozov2022critique}. While %there is no reason to believe that
+modern cities aren't clearly more free from techno-feudalism,\footnote{Cloud
+  fiefdoms, rent, and digital serfdom through platforms like Google and Amazon
+  ``enslaves'' urbanites and ruralities, but still perhaps city may be more free
+in a sense that there is more choice and opportunity say with local
+traditional on the ground commerce.} as Middle Ages cities used to
+be more free from feudalism, cities are still often seen in the literature and
+popular culture as more free than ruralities.
+%leonie didnt like: 
+%especially for non-conformist types such as LGBTQ.
+%
+%
+%
+ Hence, it'd be already a finding worth reporting that people don't have more
+ freedom/agency in cities, because often the expectation is that they do.
+ %there are theories, reasons, and arguments that they do. 
+
+%guess could add on escape from freedom fromm
+Freedom/agency is an end-in-itself, a desirable outcome in just about any
+respect, except perhaps responsibility. In the Middle Ages there was little freedom, but
+also little responsibility--for instance the poor and the slaves were not
+responsible for their lot--their situation was God given. Now the poor have to worry about
+being poor and about it being their fault--everyone is free after all and their
+achievements and experiences are of their own making.\footnote{For instance,
+  people in the US feel relatively free and so they blame the poor for their
+  lot, while Poles feel less free and also blame the poor less. %in addition to
+                                %free var could add poor are lazy etc from wvs  
+%  Still, blaming the poor
+%for their lot is often more prevelent in less free countries such as the US than in
+%more free countries such as Mexico or Colombia.
+}
+
+%again not robust to country dummies
+ % We test hypothesis that cities are more free, and we do not find
+ %  support for it except in Middle East/North Africa. If anything, there is some 
+ %  support of the contrary--greater freedom/autonomy in smaller places.
+
+ We measure freedom as (perceived) personal agency, which we discuss first, and
+ then we turn to our other main variable of interest, (perceived) political
+ efficacy.  
+
+\section{Preceived personal agency %Freedom/autonomy defined
+}
+ 
+% Some authors use term ``freedom'' \citep{aok_free_from_to} and some ``autonomy''
+% \citep{steckermeier22}--we use the terms interchangeably, but prefer
+% ``freedom'' as it seems to sound and fit better in this context.
+ 
+What is freedom/agency?\footnote{Here we focus on personal as opposed to
+  societal freedom and follow \citet{aok_free_from_to} in this paragraph.} To be free is to be able to choose, to control and
+direct one's own life. Freedom is having control--a person is free is she is her
+own master. 
+ It could be labeled ``psychological freedom:'' ``Freedom means a degree of harmony
+between basic motives and overt behavior'' \citep[Bay 1970, p.83 cited in][]{aok_free_from_to}.
+ It is ``capability to choose,'' ``awareness of alternatives'' and ``courage to
+ choose'' \citep{veenhoven00_b}.\footnote{The degree of perceived control over choice is called ``locus of control'' in
+ psychology and \citet{verme09} argues that WVS item used here measures locus of
+ control in addition to freedom.}
+ Clearly, there are more choices in city v
+ruralites, so at least in a sense of choice there is more freedom. But then too much choice may
+ also backfire and even lead to a paralysis \citep{schwartz04}.
+
+Freedom/agency is a broad concept and could be sub-divided into dimensions--\citet{hitlin09} reviews the concept in sociology. 
+See also a recent scale \citep{agencyScale25}. Another useful review is
+\citet{kouba16} and also relevant here as it points to our WVS measure.
+
+
+There are theoretical reasons to expect more freedom in cities v ruralities. 
+In rurality there is mechanical solidarity--rural folks function like parts of a
+simple machine--groups are held together through homogeneity and similarity:
+similar lifestyles, roles, shared values and morality \citep{durkheim97}. Hence,
+ ruralities force social
+conformity not conducive for individual freedom. On the other hand, organic
+solidarity in cities allows for more differentiation and individualism. %and individuation. %(Jung)
+ Urbanites are also more tolerant \citep{tuch87}.
+ % 
+% 
+Simmel observed that as urbanism overloads a person it forces to
+distance oneself from the environment \citep{simmel03}, which also may be
+conducive for differentiation, individualism,  %and individuation.
+ and then perhaps freedom. On the other hand, urban hunkering down, withdrawal,
+ and blase attitude \citep{simmel03} are not agentic.  
+%
+% Likewise, there would be more Gemeinschaft in ruralities--more collective and
+% social that may restrict personal freedom; and more Gesellschaft in cities that
+% may promote individualism (but also hostility and aggression). 
+% 
+Cities provide freedom from traditional rural social constraints--Gesellschaft v
+Gemeinschaft--deviation from community norms is more likely to be reprimanded
+and ostracized in rural v urban.
+An urbanite may be more internally driven rather than
+externally constrained rural folk \citep{yamagishi12}. %rubia wa saying sth like that in one of our papers too: 
+ City provides more opportunities for alternative jobs and social relations, so
+ urbanite is more free by being less concerned about social exclusion as she has
+ plenty of alternatives \citep{yamagishi12}. Also see 
+ discussion in \citet{luca2023progressive}. %just srch for 'free' or 'freedom' 
+ 
+ One mechanism is higher social pressure for conformity in ruralities--cities
+ provide anonymity--indeed concern for moral reputation is greater in rural than urban areas
+ \citep[Danielson et al 2023 cited in][]{aokOttCh26}. The higher the population
+ density, the lower the frequency of social comparison measuring social
+ comparison with searches on Google \citep[][]{aokOttCh26}.   
+ 
+ But there is also theory suggesting less freedom in cities.
+ %
+ City %(and the US)
+ is stressed, hectic, anxious, materialistic, consumerist
+ \citep{aokCityBook15}, and overstimulating \citep{simmel03,lederbogen11}--in such conditions freedom/autonomy is
+difficult.
+ %
+  Steve Pile in his colorful writing  argues that old cities can be a weight on its inhabitants with their
+ history and past \citep{pile05,pile05B,pile99}, and  old cities carry
+ melancholia \citep{pile05B}. Weight of history and melancholia can inhibit how
+ free one feels.
+
+  
+Many studies approach freedom as a predictor of subjective wellbeing, but freedom
+is also an end-in-itself \citep{aok_free_from_to}, as recognized by 
+\citet{fromm13,fromm12,fromm92,fromm64,fromm44,fromm94} and \citet{sen00}.  The Universal
+ Declaration of Human Rights states that freedom is a human right: 
+ freedom for the realization of one's human potential (art. 26, 29). 
+
+There are studies on freedom using WVS variable that we use in our study  
+\citep[e.g.,][]{aok_free_from_to,pitlik2016free,nikolaev2016give}, but they do not examine
+urbanicity. 
+There are many studies on the effect of urban-rural on subjective wellbeing (SWB)
+\citep[e.g.,][]{sorensen24,sorensen14,knies26,aok21}, but the effect of
+urban-rural on freedom has not been studied much. 
+
+
+%leonie
+\citet{lolle2023differences} finds similar non-differences in agency across
+different sized communities in Denmark. 
+\citet{atherton2024rural} find that psychological well-being--which entails
+ agency as a subcomponent--is lower in the most rural places compared to the
+most urban places in the USA; however, these effects turn insignificant once
+socio-demographic factors are controlled for. 
+\citet{kusnali2025rural}  find that women in Indonesia have more decision making
+ agency in many (household expenditures, food expenditures, time allocation to
+social activities) but not all (contraceptive use) aspects of daily life in
+urban compared to rural areas.
+ Baage et al find no urban-rural difference in peoples
+perceived reproductive agency, i.e. how much freedom of choice and control they
+have over family planning, in Ethiopia, Kenya, and Zimbabwe
+\citep{baage2024attitudes}  and sub-Saharan Africa \citep{baage2026reproductive}.
+
+ 
+\section{Perceived political efficacy}
+
+We turn to political efficacy. %AI:
+It's a person's belief that she has a say in politics, a perception that
+goverment will respond to one's voice. 
+ 
+%\citet{lord2023autonomy} is a summary of their themed issue on ``Autonomy and
+%independence in urban environments.''  Rather suburban than rural contrasts for
+%urban, and more on culture and life cycle than space.
+ %
+As the world continues to urbanize, ruralities are disappearing 
+%, and so there is also  ``the perceived disappearance of rural childhood and the values
+%associated with it'' in Czech republic
+ \citep{pospvech2024loss}. Rurality in
+ the developed world is increasingly a periphery, loosing power and voice v
+ urban centrality, being abndoned and disrespected--there is rural disconent, resentment, and shame. See also
+ \citet{hansonCityJournalautumn15,fullerNYT17monD}. This would suggest that
+ ruralities in rich countries may have less autonomy--but that's rather
+ because ruralities have been abandoned and disrespected, not because they are
+ inherently less free or agentic. 
+ %!!!opposite to our iniitial country level hypothesis that "This difference is more pronounced in less developed countries"
+ %
+ %
+ %what makes one a real rural person: in a classical study, Bell (1994) identified
+ %localism (a history of life in rural areas), ruralism (an experience with a rural kind of job), countryism (knowledge of country life) and communalism (interest in things that express a ties to the
+ %community) as key elements of belonging to a place.
+ %Peripherality, in other words, is defined through long distances and poor infrastructures but
+ %does not have to be experienced through them.
+ %
+ %
+ %And ruralities became digitized--children do not play outside in natura that
+ %much anymore, but instead on screens just like their urban counterparts. And
+ %autonomy is lost to screens--kids are dependent or even addicted to them.
+ %
+ %
+ In general, while there has been a loss of power and respect in rural v urban, not
+ necessarily the autonomy has been lost, ruralities still have a good deal of agency. 
+
+ Like in Czech Republic, in the US there is rural resentment, too, e.g., that
+ policy is done to them, not with or for them \citep{diamond23}.  And in
+ addition there is racial resentment where rural Whites resent urban minorities
+ and immigrants getting better treatment than them \citep{diamond23}. %p505
+ % handouts and skip the line
+ %
+ %ruralities more place attachment and nature conservation
+ And while there is a reliance on comunity and tight connection, there is also
+ self-reliance, and desire for autonomy and freedom as a core value
+ \citep{diamond23}.
+
+
+%leonie 
+Rural areas have often been characterized as 'left-behind' \citep{ulrich2021people} or as 'places that
+don't matter' \citep{rodriguez2018revenge}, %cited like 4k!!
+ reflecting the notion that they are second-tier areas in which opportunities 
+ are limited or deteriorating. 
+  %
+When people's opportunities are constrained, their freedom to exercise agency is
+likewise restricted. Exercising agency requires access to real and substantively
+different opportunities from which individuals can choose in pursuing lives that
+are consistent with their own goals and values. Limited opportunities may
+therefore undermine both, people's perceived ability to shape their own lives in
+accordance with these goals and values and their perceived ability to shape the
+conditions in which their lives are embedded, such as institutions,
+infrastructure, and the built and natural environment.
+ %
+We therefore expect people living in 'left-behind' rural areas to perceive
+themselves as having less influence over the conditions in which they are
+embedded and that shape their lives, and consequently to perceive lower levels
+of political and personal agency.
+ 
+
+
+%leonie
+Only few studies have investigated urban-rural differences of political
+efficacy, suggesting people from rural areas and small towns show lower levels
+of political efficacy compared to urbanites, \citep[e.g.,][]{rowland2024political} for
+the US and \citet[e.g.,][]{luukkonen2022urbanisation} for Europe.
+ There is more political efficacy in urban areas and least in
+rural in Europe \citep{garcia2024they,luukkonen2022urbanisation}, and USA
+ \citep{rowland2024political}.  
+ %
+ And no one has investigated whether this relationship is universal across
+ different contexts (such as high/low GDP).
+ 
+ %leonie
+ \citet{margalit2025cultural} %looks like may be important study
+ examine political agency in relation to rurality,
+conceptualizing ``rural resentment'' as the perception among rural citizens that
+the political system gives people like them little or no say in what the
+government does. Across 10 European countries, they consistently find that rural
+resentment is associated with a higher likelihood of voting for populist
+parties, while in the United States it is associated with a higher likelihood of
+having voted for Trump.
+%
+Political efficacy has been shown to be positively linked to political
+engagement \citep{accetta23}.\footnote{Self-efficacy and political efficacy have
+  been shown to have opposing effects on the justification of terrorism and
+  political violence: people who perceive themselves as highly self-efficacious
+  and those who feel they have little political efficacy are less likely to
+  justify such actions \citep{julkif2022self}.}
+ 
+
+%glue somewhere
+Indian females have more autonomy in city v rural, both in personal and 
+ household decisions \citep{mishra2014relative}.
+ 
+
+
+
+
+
+\section{Hypotheses}
+
+These are in terms of both personal agency and political efficacy:
+
+$H_1:$ People in cities are freer than people in rural areas.\\
+
+$H_2:$ This difference is more pronounced in less developed countries\\
+%i guess bc diffs are larger as per my addis abeba disst argument\\
+%but yes with perc urban--more urban more c, more freedom in city: in fig \ref{t-urb}
+
+$H_3:$ The "more" of freedom in cities mostly stems from people satisfied with
+finances (following the Toennies quote)\\
+
+%Add on political efficacy: abondoned rural in the rich world theory is there
+
+
+\section{Data and model}
+
+ World Values Survey (WVS) is a fantastic and free dataset available from 
+ \url{https://www.worldvaluessurvey.org}. It is a great source of data as
+ compared to $\$30k+$ closed source Gallup data. It is helpful to use open
+ source public data amidst corporatization of research and academia
+ \citep{mills2012corporatization,cox2013corporatization,millsNYT12fa,CatropaNYT20feb8,schmidlinNYT15oct10}. 
+ %
+WVS is representative of each country. Countries in the sample and sample sizes are shown in appendix.
+
+
+
+Urban-rural is a gradient, not a dichotomy \citep{aok-ls_fisher16}, but here for
+simplicity we use 3 or 4 collapsed categories and focus on the endpoints of the spectrum: $>500k$ v small $<10k$ or $<20k$ (separately for each
+country). $>500k$ represents city--indeed it could even be bigger than 500k--urban
+unhappiness starts around several hundred thousand \citep{aok-ls_fisher16}.
+
+In appendix we do robustness checks droping countries with fewer than 50
+observations per category.
+%We dropped countries where there were fewer than 50 observations in cities $>100k$
+%And in appendix as a robustness/sensitivity check with fewer than 50 observations in cities $>500k$
+
+
+\subsection{Personal Agency}
+
+Autonomy/freedom variable reads:
+``Some people feel they have completely free
+choice and control over their lives, while other people feel that what they do
+has no real effect on what happens to them.  Please use this scale where 1 means
+'none at all' and 10 means 'a great deal' to indicate how much freedom of choice
+and control you feel you have over the way your life turns out.''
+
+% Validity and reliability of the measure seem fine and the variable has been used successfully
+% in the literature \citep[e.g.,][]{verme09,inglehart08,veenhoven00_b,aok_free_from_to} but still
+% the question may be interpreted slightly differently in different
+% languages/cultures, and some caution would be useful. This is also one reason for
+% within-country analyses that we start with in the next section. 
+
+All variables including controls are listed in appendix and there are
+also shown distributions of all the variables. 
+We are controlling for %age, age$^2$, male,
+married, employment type dummies (full/part time, self-employed, retired,
+housewife, student, unemployed, and other),
+financial satisfaction,\footnote{Financial satisfaction is the key--not everyone
+  needs the same amount of money to be financially satisfied and feel free.
+  It is measured as ``How satisfied are you with the financial situation of your household?''} health, kids,
+and importance of religion.
+
+Per controls we follow \citet{pitlik2016free,nikolaev2016give} except that we use financial
+satisfaction in most specifications instead of income as it arguably predicts
+ freedom more than income and indeed in our sample correlates higher, and also
+ we don't use their country level democracy index, and use PCGDP in appendix
+ only. Eventually we decided against age and and age$^2$, as it is
+ rather urbanicity predicting age composition than the other way round, hence we
+ would risk overcontrol bias. Neither we include gender as it likely differs
+ less than age across urban-rural, and again rather predicted by than predicting
+ urban-rural.  
+
+We were tempted to add trust, crime victimization and fear of crime, as these
+correlate with urbanicity and may predict freedom. 
+%and ineed inclusion of these yields larger coefficients.
+ %
+ % ``Have you been the victim of a crime during the past year?'' and
+ % ``In the last 12 months, how often have you or your family: Felt unsafe from
+ % crime in your own home''  
+ %
+% Yet we only include trust and crime victimization and fear of crime as last
+% oversaturated model,
+But eventually we do not include them because those are rather caused by urbanicity, not the
+other way round, and hence may lead to overcontrol bias:
+\begin{quote}
+What we really need, to identify/estimate X$->$Y, is to control for other
+determinants of Y that are also antecedents of X (so, W$->$X). If we include
+controls where the relationship goes the other way (X$->$W), we will exacerbate
+bias in our estimate of X$->$Y. (The relevant term for that situation is
+'overcontrol bias') \citep[][p. 5]{bartram24}.
+\end{quote}
+
+
+\subsection{Political Efficacy}
+
+ %leonie
+ The  political efficacy item reads ``how much would you
+ say the political system in your country allows people like you to have a say
+ in what the government does?''
+ % This was a 5-point scale with a higher number
+ % signaling less efficacy. This question was fielded from 2018 onward, so
+ % countries whose fieldwork was completed before the question was added (except
+ % Argentina where the question was fielded in 2017) were dropped from this
+ % analysis due to missing data.
+ There are quite a few countries where the question was not asked:
+ the United States, Germany, South Korea, Greece,
+ Turkey, Thailand, China, Chile, Ecuador, Serbia, Romania, Russia, and
+ Tunisia.\footnote{Although
+ Tunisian respondents were asked this question, the data for Tunisia were not
+ curated properly and so could not be analyzed in this
+ study. \url{https://onlinelibrary.wiley.com/doi/full/10.1111/ssqu.13120}} 
+ 
+% leonie
+Controls. Education: more educated people more efficacy
+\citep{emmenegger2015labour,garcia2024they,marx2016unemployed,rowland2024political}.
+Employment: compared to paid employment people in education \textbf{???}  more political efficacy,
+permanently sick/disabled less \citep{luukkonen2022urbanisation}, unemployment or
+precarious employment are negatively linked to political efficacy
+\citep{emmenegger2015labour,marx2016unemployed}. Financial situation: People who
+do well (making ends meet), have more political efficacy
+\citep{luukkonen2022urbanisation,marx2016unemployed}. Higher income $=$ more
+political efficacy \citep{emmenegger2015labour,rowland2024political}. 
+ Health: positive for political efficacy
+ \citep{garcia2024they,gidengil2024healthy,shore2019health}.
+ Religiosity: more religious people have less political efficacy \citep{marx2016unemployed,rowland2024political}.
+ %
+ Why these controls: There are indications for urban-rural divides
+ in education \citep{van2021urban,zahl2024spatial},
+ employment  \citep{e26,ananian2024employment},
+ financial situation
+ \citep{kpatcha2026unlocking,meloni2024rural,finnemann2024urban},
+ health \citep{mackinnon2023mapping,menashe2022shifting},
+ and religiosity 
+ \citep{balazka2020mapping,meulemann2020secularization}.
+
+
+
+\section{Results}
+
+Means of personal agency and political efficacy across urban-rural and level of
+development are in table \ref{m0}. It is worth highlighting that a finding of even no difference
+ in personal agency beteen urban and rural would be worth reporting as we have hypothetised a
+positive relationship.  
+
+Overall personal agency is the lowest in the largest places,
+including in less developed countries, and 
+the difference being especially large for high development countries.
+But  in upper middle it is actually highest in cities. But overall, the
+differences are not that large and go away when controlling for predictors of freedom.
+
+Political efficacy is also overall slightly lower in largest cities. But as opposed
+to freedom differences are large by level of development. In less developed
+countries cities have much less political say; in upper middle less, but in high
+almost the opposite of low/lower, and that last difference holds when controling
+for predictors of political say. Margins are plotted in figure \ref{m-fps}.
+
+While the confidence intervals are wide,
+the interaction between $>$500k and high development countries is significant v
+the base case of $<$20k and low/lower development countries. The results for
+personal agency are insignificant. 
+
+
+\begin{table}[H]\centering\footnotesize
+\caption{\label{m0} means}
+\begin{tabular} {@{} lrrrr|rrrrr @{}}   \hline 
+       & \multicolumn{4}{c}{free}          &\multicolumn{4}{c}{political say} \\
+place  &overall&low/lower middle&upper middle&high&overall&low/lower middle&upper middle&high\\ \hline
+$<$20k &7.20   &7.11     &7.26        &7.24&2.96   &3.03     &3.06            &2.67  \\
+20-500k&7.27   &7.21     &7.21        &7.36&2.88   &2.95     &2.83            &2.87  \\
+$>$500k&7.12   &6.96     &7.40        &6.98&2.89   &2.67     &2.86            &2.99   \\ \hline
+\end{tabular}\end{table}
+
+\begin{figure}[H]
+ \includegraphics[height=6.5in]{m-fps.pdf}\centering
+\caption{\label{m-fps} }
+\end{figure}
+
+
+\subsection{Interactions with financial satisfaction}
+
+% Again, the initial results with pooled sample for all the countries  (in appendix) turned out to be all insignificant when including country dummies, hence we started with results within each country in the previous
+% table. 
+
+% But there is one significant result for the pooled sample on urbanicity when
+% controlling for countries--when urbanicity is interacted with financial
+% satisfaction, class, and income. While earlier we just used OLS within each country,
+% here we use multilevel modeling (MLM) with random intercept at country level.
+
+ Results are visualized in figure \ref{m-body}.\footnote{We focus here on visual
+  interpretations using marginsplot, but underlying regressions are in appendix. %1.5 Main results from paper: Interactions with financial satisfaction, class, and income
+The relevant significant interactions are for smallest places $<10k$ (against
+the base case of $>500k$ with top category(ies) for financial satisfaction in
+first column a for middle financial satisfaction (v bottom base case) at -0.12
+and the top category at -0.13. % Likewise, in column b for class interactions,
+% there is significant interaction of $<10k * Upp mid/upper$ at -0.16. Thus, folks
+% of both  high financial satisfaction and class are less free in smallest areas v
+% the largest areas. In last column c with income, there are no significant
+% interactions except unexpected top income quintile, but other insignificant
+% patterns are in line with financial satisfaction and class: the two bottom
+% deciles are less free in the largest places.
+ For political efficacy in panel b results are insignificant. 
+}
+
+
+In panel a by financial satisfaction those in
+top and also middle 3 categories increase from $<20k$ to $>500k$.
+% 
+% 
+In other words, freedom differences are magnified in largest cities for
+financial satisfaction--the financially satisfied enjoy higher freedom premium
+over financially dissatisfied  in cities. The results for political efficacy are
+ insignificant. 
+
+
+
+\begin{figure}[H]
+ \includegraphics[height=6.5in]{zz.pdf}\centering
+\caption{\label{zz} }
+\end{figure}
+
+
+
+% We also separate these results by country, however we leave
+% it for the future research as sample sizes run small for interactions.
+
+We also separate results 
+ by region and income group for financial satisfaction and  postpone these results to appendix\footnote{Here just
+real quick: Financial satisfaction panel a results are stronger in East
+Asia/Pacific and Sub-Saharan Africa (due to sharp increase for the top tertile), and show similar pattern in Europe/Central Asia except that the
+middle tertile for financial satisfaction is stronger than the top. Latin
+America/Caribbean and North America shows the opposite pattern where  the bottom tertile has the
+steepest slope, and in Middle East/North Africa middle and top tertiles even reverse
+to negative. in South Asia the slopes are parallel--no differences there. By
+income group: High income is similar to the overall pattern.}
+
+\section{Discussion and Conclusion}
+
+% In the pooled sample without interactions there are no significant urban rural
+% differences when controlling for country dummies. But there are some significant
+% results separately
+% by country. The hypothesis that cities are more free does not find support
+% except in 16 countries out of 64.
+
+It is worth highlighting that finding no urban-rural effect for personal agency
+in most countries is a finding worth reporting--the expectation from theory and
+literature is that the bigger places have more freedom. %And in 6 countries we find a positive effect. 
+
+But political
+  efficacy is significantly higher in urban v rural in rich countries as hypothetised in ``left
+  behind ruralities'' hypothesis.
+
+We find support for Toennies' idea:
+ ``in the city and therefore, where general conditions characteristic of the
+Gesellschaft prevail, only the upper strata, the rich and the cultured, are
+really active and alive'' \citep[p. 227]{tonnies57}.
+ There are significant interactions in the pooled sample for financial
+ satisfaction. 
+
+  
+Like in \citet{aok24swls} urbanites probably actually have in a way fuller and
+more free life, but perhaps
+they realize more that they miss out relatively to other urbanites, and so they
+feel relatively less free. One mechanism could be that people tend to compare
+upwards \citep{frey02s} and there are more people to compare to in urban areas,
+inequality ladders are taller and the pond is bigger--small fish in big pond
+(city) seem to be less free than big fish in a small pond (rural area).
+
+In poorer/less economically
+developed countries there are more differences in freedom across rural-urban, mostly less freedom in smaller
+places\footnote{(but sometimes more)}--this makes sense--smaller places in
+developing countries can be very traditional and very poor--freedom is difficult
+in such places. In richer countries, on the other hand, one can already be free
+just about anywhere, no need for a large city. This is a similar finding as in 
+literature with respect to happiness \citep{aokCityBook15}--only in
+the very poorest places of all such as Sub-Saharan Africa, happiness is greater in
+larger cities as life is unbearable and lacking necessities such as shelter and
+clean water in ruralities. Everywhere else urbanites tend to be less happy \citep{aok21}.
+
+
+%  instead \ExecuteMetaData[../out/tex]{ginipov} do \emd{ginipov}
+
+% \begin{figure}[H]
+%  \includegraphics[height=3in]{../out/gov_res_trust.pdf}\centering\label{gov_res_trust}
+% \caption{woo}
+% \end{figure}
+
+
+%TODO !!!! have input here aok_var_des
+
+
+
+% %table centered on decimal points:)
+% \begin{table}[H]\centering\footnotesize
+% \caption{\label{freq_im_god} importance of God}
+% \begin{tabular} {@{} lrrrr @{}}   \hline 
+% Item& Number & Per cent   \\ \hline
+% 1(not at all)&    9,285&  9\\
+% 2&    3,555&        3\\
+% 3&    3,937&        4\\
+% 4&    2,888&        3\\
+% 5&    7,519&        7\\
+% 6&    5,175&        5\\
+% 7&    6,050&        6\\
+% 8&    8,067&        8\\
+% 9&    8,463&        8\\
+% 10&   52,385&       49\\
+% Total&  107,324&      100\\ \hline
+% \end{tabular}\end{table}
+
+
+% % Define block styles
+% \tikzstyle{block} = [rectangle, draw, fill=black!20, 
+%     text width=10em, text centered, rounded corners, minimum height=4em]
+% \tikzstyle{b} = [rectangle, draw,  
+%     text width=6em, text centered, rounded corners, minimum height=4em]
+% \tikzstyle{line} = [draw, -latex']
+% \tikzstyle{cloud} = [draw, ellipse,fill=black!20, node distance = 5cm,
+%     minimum height=2em]
+    
+% \begin{tikzpicture}[node distance = 2cm, auto]
+%     % Place nodes
+%     \node [block] (lib) {liberalism, egalitarianism, welfare};
+%     \node [block, below of=lib] (con) {conservatism, competition, individualism};
+%     \node [cloud, right of=con] (ls) {well-being};
+%     \node [block, below of=ls] (cul) {genes, culture};
+%     \node [b, left of =lib, node distance = 4cm] (c) {country-level};
+%     \node [b, left of =con,  node distance = 4cm] (c) {person-level};
+%     % Draw edges
+%     \path [line] (lib) -- (ls);
+%     \path [line] (con) -- (ls);
+%     \path [line,dashed] (cul) -- (ls);
+% \end{tikzpicture}
+
+
+%PUT THIS NOTE, polish and put to /root/author_what_data --ALWAYS
+%stick here stuff as i run it!!! maybe comment out later...
+
+
+%TODO: have separate som-r.tex as opposed to having it below; and in paper say
+%see online appendix!
+
+\setcounter{section}{0}
+ \part*{\Huge ONLINE APPENDIX (SOM)}
+ \textbf{[note: this section will NOT be a part of the final version of
+   the manuscript, but will be available online instead as SOM 'Supplementary Online
+   Material']} %hence everything below
+
+\tableofcontents
+\addtocontents{toc}{\protect\setcounter{tocdepth}{3}} 
+
+
+
+
+
+\section{More recent results}
+
+\subsection{Literature}
+
+\subsubsection{Freedom/personal agency}
+{While \citet{ester93} is not about urban-rural freedom specifically,  it is
+ indirectly related.  
+ \citet{ester93} uses similar dataset to ours, EVS/WVS, and tests yuppie value syndrome (yuppies are young urban
+ professionals), and finds that yuppies tend to hold liberal social and ethical
+ views, but are not: %as hypothetised:
+ economically conservative, absent from
+ politics, and don't have distinctive lifestyle emphasis. 
+}
+
+\citet{yamagishi12} claims to test
+ our ``city free air'' hypothesis, % : the social constraints prevalent in rural life are
+ % weaker in metropolitan areas, freeing metropolitan residents from pressure to
+ % suppress their pursuit of individual goals.
+ but \citet{yamagishi12} test is very different
+ from ours--they only show that urbanites are more likely to chose extravagant pens
+ than rural folks. Still, the study is useful in at least 2 ways. First they
+ show that indeed there is more freedom in city (using extravagant pens test),
+ and they provide theory and literature summarized in the next paragraph.   
+ 
+
+Perception of freedom can be counterintuitive and deceptive--a place may seem free, or indeed
+actively advertise itself as an oasis of freedom, but actually not be that free
+after all. 
+ %
+ %City, just as the US appears the land of the free, but it is not.
+ %Freedom/autonomy can be counterintuitive--for instance
+ The US advertises itself
+as ``the land of the free'' and yet people in the US feel less free at 7.7 than
+Mexicans and Colombians at above 8.1 (WVS Wave 7). Likewise, city may seem more free than
+ruralites, but as this paper finds, usually that's not the case.
+  %
+%But we also have the case why
+% There would be less freedom/autonomy in the city, just as
+% there would be less in the West (especially the US) v Latin America. Mexico,
+% Colombia and Venezuela are some of the most free countries in the World
+% \citep{aok_free_from_to,colQolSwb25}. 
+ %
+ %
+In a city v rural (or in the US v Latin America) there is often  
+ more social pressure \citep{colQolSwb25,unhappyBog26}\footnote{Also see a fantastic book by \citet{frank12} on
+   keeping up with the Joneses in the US.} and so an urbanite is more of
+ an ``automaton'' (to use Fromm's term)
+% Also, an American may be confused or even paralyzed because there is toomuch variety (as Schwartz (2004) suggested) and accordingly she does not feelfreedom to.  Yet another reason may be that a Mexican does not knowthat she is not free relative to an AmericanÃÂ¢ÃÂÃÂshe feels more free relative to other Mexicans than an American feels free relative to other Americans.
+ \citep{aok_free_from_to}.%footnote 7 
+
+
+
+Money is important for personal freedom/agency. Indeed as many financial gurus on YouTube would
+tell you freedom is the only or main reason to accumulate wealth. For instance, the FIRE movement (Financial Independence, Retire Early) is
+all about freedom/autonomy. Hence in our analyses we will focus on income, class
+and financial satisfaction.
+
+
+\subsection{Original (and before the final) results from the paper postponed here}
+ 
+A natural first approach would be to find overall pattern on pooled complete
+dataset across all countries to see if there are universal patterns or at least by income group or
+region. Indeed this is how we have started, but we postpone these results to the
+appendix as we have learned through our sensitivity/robustness checks that
+inclusion of country dummies yields all urban-rural results insignificant.
+Hence we simply start with the results by country.
+
+Financial satisfaction is the strongest correlate of freedom (0.33), 
+stronger  than health (0.21), class (0.14), and income (0.09).
+ Financial satisfaction is also related to class (0.26) and income (0.34). 
+
+
+
+{\bf By country}
+
+Results are in figure \ref{fig-regCC1mod}. 
+Is there less freedom in smaller areas as often argued? Are cities more free?
+No. Most countries show insignificant urban-rural differences at  $<0.05$ level
+of significance.  Again, it is already a finding worth reporting that people
+don't have more freedom/autonomy in cities, because there
+are theories, reasons, and arguments that they do.
+
+
+\begin{figure}[H]
+ \includegraphics[height=5in]{fig-regCC1mod2}\centering
+\caption{\label{fig-regCC1mod2} A more final version, where country count goes
+  down from 66 to 51
+   when dropped if gt500k missing; same pattern as
+  earlier: most insignificant, some positive but most negative.} 
+\end{figure}
+
+
+\begin{figure}[H]
+ \includegraphics[height=5in]{fig-regCC1mod}\centering
+\caption{\label{fig-regCC1mod} Original version. Using model controlling for age, age$^2$, male,
+married, employment type dummies(full/part time, self-employed, retired,
+housewife, student, unemployed, and other), financial satisfaction, health, kids,
+and religion important.  See appendix for results in table also including
+omitted here $20-500k$ category. 
+See appendix model for
+pooled sample in table \ref{regB} except that
+original 8 step urbanicity variable is now categorized into 3 bins as there are
+smaller cell sizes separately by country.
+%
+ Still note that few countries lack the estimates as even
+this simplified 3 step urbanicity spectrum is not available. 
+Overall the results are mostly insignificant,
+but more negative (11) than positive (6). So in general within countries for few
+significant relationships there is less freedom in
+smaller areas as theorized in the literature.}
+\end{figure}
+
+
+Only 16 out of 64 countries have more freedom in cities. 
+They have at least one coefficient on either $<20k$ or $20-500k$ (v
+$>500k$) negative and significant at $<0.05$. 6 countries, on the other hand,
+have more freedom in ruralities--they have positive effect coefficients on
+smaller areas dummies. Note that figure \ref{fig-regCC1mod} only shows $<20k$
+coefficients; for $20-500k$ coefficients see appendix.
+
+
+It is difficult to see any consistent country patterns in the table. Perhaps
+what stands out is that among the richer or more economically developed
+countries there are smaller differences.
+ %
+In poorer/less economically
+developed countries there are more differences: mostly less freedom in smaller
+places.\footnote{But sometimes more.} This makes sense--smaller places in
+developing countries can be very traditional and very poor--freedom is difficult
+in such places. In richer countries, on the other hand, one can already be free
+just about anywhere, no need for a large city. This is similar to what happiness
+literature have found with respect to happiness \citep{aokCityBook15}--only in
+the very poorest places of all such as Sub-Saharan Africa happiness is greater in
+larger cities as life is unbearable and lacking necessities such as shelter and
+clean water in ruralities.
+
+
+
+Countries could by classified by region (see appendix).
+About half of Latin countries in this sample have lower freedom in smaller areas: ARG, BOL, CHL, NIC, and
+PER; and about the other half are insignificant: BRA, COL, ECU, GTM, PRI, URY, and VEN.
+ 
+South Asia does not have a clear pattern: BGD is positive and PAK marginally positive, but IND highly
+negative, and MDV is insignificant.
+ 
+Europe/Central Asia: mostly insignificant: ARM, CZE, GRC, KGZ, NLD, RUS, SRB, SVK,
+and UKR. But otherwise mostly negative: AND marginally, CYP, KAZ, TJK marginally, and TUR;
+and positive: ROU, DEU marginally. Note that GBR has missing obs and does not
+appear in the table at all, and UZB has missing urbanicity data. 
+
+East Asia/Pacific is mostly insignificant: AUS, CHN, IDN, MMR, NZL, PHL.  
+%East Asia/Pacific stood out earlier as mostly positive, but here: negative
+And several countries in East Asia/Pacific are without respondents in smaller
+areas: HKG, KOR, MAC, SGP, and VNM.
+Positive: MNG, and highly positive THA; 
+and negative: JPN, MYS.
+
+Middle East/North Africa mostly insignificant: EGY, IRN, JOR, LBY,  and TUN.  
+ Two negative: IRQ, LBN; and one positive: MAR.
+
+ Sub-Saharan Africa: two  insignificant: KEN, NGA; ETH is negative, but ZWE positive.
+
+ Two countries missing the region classification by the World Bank: NIR and TWN.
+ NIR has a small sample size of less than 500 and missing observations on the variables
+ used in regression so it does not appear in the table. TWN is insignificant. 
+
+
+
+\subsection{Exploring political say}
+
+\begin{figure}[H]
+ \includegraphics[height=3in]{m-body.pdf}\centering
+\caption{\label{m-body} Multilevel country random intercept regressions of
+  freedom on rural-urban dummies interacted with: a) financial satisfaction, and b)
+  class. For underlying regressions see appendix. Controls are
+  the same as in the previous section.}
+\end{figure}
+
+ \begin{figure}[H]
+  \includegraphics[height=3in]{m-polSay.pdf}\centering
+  \caption{\label{m-polSay} mixed polSay $i.t4\#\#i.sf3$    age age2 male mar
+    i.emp health kids $rel\_imp$  $\|\|$ cc: and the second one same just
+    interacted with soc class}
+ \end{figure}
+
+
+GDP took avg for 2015-2025. And same results as for the World Bank income
+groups. \\
+
+Political say variable--the sample size drops quite a lot--overall there are
+about 94k observations. But this variable has 69k only; with freedom have more
+like 85k
+
+\begin{scriptsize}
+\begin{spacing}{.19} 
+\begin{verbatim}
+mixed polSay i.t3##c.ny_gdp_pcap_kd  mar i.emp satFin health kids rel_imp  || cc: i.t3  ,mle
+
+ ta cc t3 if e(sample)==1
+
+ISO 3166-1 |
+   alpha-3 |
+   country |   RECODE of town (place size)
+      code |     lt20k    20-500k     gt500k |     Total
+-----------+---------------------------------+----------
+       AND |       718        270          0 |       988 
+       ARG |       124        135        467 |       726 
+       ARM |       497        211        418 |     1,126 
+       AUS |       412        514        656 |     1,582 
+       BGD |       942        201          0 |     1,143 
+       BRA |       164        778        640 |     1,582 
+       CAN |     1,098      1,694      1,226 |     4,018 
+       COL |       304        722        494 |     1,520 
+       CYP |       528        358          0 |       886 
+       CZE |       668        360        148 |     1,176 
+       EGY |       336        388        261 |       985 
+       ETH |       812        371          9 |     1,192 
+       GTM |        67        450        590 |     1,107 
+       HKG |         0          0      2,040 |     2,040 
+       IDN |     2,631        331         89 |     3,051 
+       IRN |       388        571        472 |     1,431 
+       IRQ |       305        219        625 |     1,149 
+       JOR |       363        287        490 |     1,140 
+       JPN |        43        613        403 |     1,059 
+       KAZ |       367        373        316 |     1,056 
+       KEN |       479        413        116 |     1,008 
+       KGZ |       666        244        193 |     1,103 
+       LBN |       407        657        130 |     1,194 
+       LBY |       397        409        112 |       918 
+       MAC |         0          0        986 |       986 
+       MAR |       380        480        340 |     1,200 
+       MDV |       705        294          0 |       999 
+       MEX |       801        435        384 |     1,620 
+       MMR |     1,116         84          0 |     1,200 
+       MNG |       378        257      1,003 |     1,638 
+       MYS |       744        428        141 |     1,313 
+       NGA |       798        352         14 |     1,164 
+       NIC |       381        709        110 |     1,200 
+       NLD |        81      1,350        162 |     1,593 
+       NZL |       363        333        164 |       860 
+       PAK |     1,185        230        439 |     1,854 
+       PER |       336        928        100 |     1,364 
+       PHL |       908        290          0 |     1,198 
+       SGP |         0          0      1,940 |     1,940 
+       SVK |       723        435          0 |     1,158 
+       TJK |       880        210        110 |     1,200 
+       TUN |       433        529         77 |     1,039 
+       UKR |       535        301        250 |     1,086 
+       URY |       255        254        426 |       935 
+       VEN |       179        659        349 |     1,187 
+       VNM |         0      1,049        151 |     1,200 
+       ZWE |       915        265          0 |     1,180 
+-----------+---------------------------------+----------
+     Total |    24,812     20,441     17,041 |    62,294 
+\end{verbatim}
+\end{spacing}{.19}
+\end{scriptsize}
+
+\begin{scriptsize}
+\begin{spacing}{.19} 
+\begin{verbatim}
+
+
+mixed free i.t3##c.ny_gdp_pcap_kd  mar i.emp satFin health kids rel_imp  || cc:  i.t3 ,mle
+ta cc t3 if e(sample)==1
+
+ISO 3166-1 |
+   alpha-3 |
+   country |   RECODE of town (place size)
+      code |     lt20k    20-500k     gt500k |     Total
+-----------+---------------------------------+----------
+       AND |       725        272          0 |       997 
+       ARG |       145        158        546 |       849 
+       ARM |       532        226        434 |     1,192 
+       AUS |       411        515        658 |     1,584 
+       BGD |       988        209          0 |     1,197 
+       BOL |       590        711        689 |     1,990 
+       BRA |       169        826        693 |     1,688 
+       CAN |     1,098      1,694      1,226 |     4,018 
+       CHL |       141        436        326 |       903 
+       CHN |        48      2,727          0 |     2,775 
+       COL |       304        722        494 |     1,520 
+       CYP |       571        372          0 |       943 
+       CZE |       675        361        150 |     1,186 
+       DEU |       693        604        194 |     1,491 
+       ECU |       375        462        347 |     1,184 
+       EGY |       416        449        310 |     1,175 
+       ETH |       830        376          9 |     1,215 
+       GRC |       406        324        431 |     1,161 
+       GTM |        67        454        592 |     1,113 
+       HKG |         0          0      2,060 |     2,060 
+       IDN |     2,722        341         91 |     3,154 
+       IRN |       396        598        483 |     1,477 
+       IRQ |       311        228        638 |     1,177 
+       JOR |       375        305        522 |     1,202 
+       JPN |        45        654        431 |     1,130 
+       KAZ |       385        399        332 |     1,116 
+       KEN |       479        413        119 |     1,011 
+       KGZ |       678        258        195 |     1,131 
+       KOR |         0        364        881 |     1,245 
+       LBN |       410        660        130 |     1,200 
+       LBY |       403        412        115 |       930 
+       MAC |         0          0        984 |       984 
+       MAR |       380        480        340 |     1,200 
+       MDV |       710        300          0 |     1,010 
+       MEX |       802        435        384 |     1,621 
+       MMR |     1,116         84          0 |     1,200 
+       MNG |       378        257      1,003 |     1,638 
+       MYS |       744        428        141 |     1,313 
+       NGA |       829        369         14 |     1,212 
+       NIC |       381        709        110 |     1,200 
+       NLD |        86      1,416        173 |     1,675 
+       NZL |       361        329        166 |       856 
+       PAK |     1,261        243        471 |     1,975 
+       PER |       347        940        100 |     1,387 
+       PHL |       909        290          0 |     1,199 
+       PRI |        72        993          0 |     1,065 
+       ROU |       630        368        101 |     1,099 
+       RUS |       539        577        560 |     1,676 
+       SGP |         0          0      1,966 |     1,966 
+       SRB |       372        427        184 |       983 
+       SVK |       735        440          0 |     1,175 
+       THA |     1,064         96        107 |     1,267 
+       TJK |       880        210        110 |     1,200 
+       TUN |       448        548         77 |     1,073 
+       TUR |       232      1,724        402 |     2,358 
+       UKR |       553        309        254 |     1,116 
+       URY |       258        272        436 |       966 
+       USA |         0      1,395        363 |     1,758 
+       VEN |       179        659        349 |     1,187 
+       VNM |         0      1,049        151 |     1,200 
+       ZWE |       933        269          0 |     1,202 
+-----------+---------------------------------+----------
+     Total |    30,587     32,146     22,042 |    84,775 
+
+
+\end{verbatim}
+\end{spacing}{.19}
+\end{scriptsize}
+
+
+
+ \begin{figure}[H]
+  \includegraphics[height=3in]{original.pdf}\centering
+  \caption{\label{original} reg polSay $i.t3\#\#i.iii$ mar $i.emp$ satFin health kids $rel\_imp$ , $robust cluster(ccc)$}
+ \end{figure}
+ \begin{figure}[H]
+  \includegraphics[height=3in]{originalD.pdf}\centering
+  \caption{\label{originalD} reg polSay $i.t3\#\#i.iii$ mar $i.emp$ satFin health kids $rel\_imp$ , $robust cluster(ccc)$}
+ \end{figure}
+
+
+ \begin{figure}[H]
+  \includegraphics[height=3in]{m-ps1.pdf}\centering
+  \caption{\label{m-ps1} mixed polSay $i.t3\#\#i.iii$  mar i.emp satFin health kids rel\_imp $ \|\|$ cc: i.t3  ,mle}
+ \end{figure}
+ \begin{figure}[H]
+  \includegraphics[height=3in]{m-ps1D.pdf}\centering
+  \caption{\label{m-ps1D} mixed polSay $i.t3\#\#i.iii$  mar i.emp satFin health kids rel\_imp $ \|\|$ cc: i.t3  ,mle}
+ \end{figure}
+
+\begin{figure}[H]
+ \includegraphics[height=3in]{m-psGdp.pdf}\centering
+ \caption{\label{m-psGdp} }
+\end{figure}
+
+
+ 
+ \begin{figure}[H]
+  \includegraphics[height=3in]{m-f1.pdf}\centering
+  \caption{\label{m-f1} mixed free $i.t3\#\#i.iii$  mar i.emp satFin health kids rel\_imp  $\|\|$ cc:  i.t3 ,mle}
+ \end{figure}
+ \begin{figure}[H]
+  \includegraphics[height=3in]{m-f1D.pdf}\centering
+  \caption{\label{m-f1D} mixed free $i.t3\#\#i.iii$  mar i.emp satFin health kids rel\_imp  $\|\|$ cc:  i.t3 ,mle}
+ \end{figure}
+
+  \begin{figure}[H]
+  \includegraphics[height=3in]{m-fGdp.pdf}\centering
+  \caption{\label{m-fGdp} }
+ \end{figure}
+
+  \begin{figure}[H]
+  \includegraphics[height=3in]{m-fGdpB.pdf}\centering
+  \caption{\label{m-fGdpB} without controls freedom is not lowest for richest places}
+ \end{figure}
+ 
+ 
+ 
+ \begin{figure}[H]
+  \includegraphics[height=3in]{m-polSay.pdf}\centering
+  \caption{\label{m-polSay} mixed polSay $i.t4\#\#i.sf3$    age age2 male mar
+    i.emp health kids $rel\_imp$  $\|\|$ cc: and the second one same just
+    interacted with soc class}
+ \end{figure}
+ 
+
+
+ \begin{figure}[H]
+  \includegraphics[height=3in]{psBar.pdf}\centering
+  \caption{\label{psBar} }
+ \end{figure}
+
+
+
+\begin{scriptsize}
+\begin{spacing}{.19} 
+\begin{verbatim}
+. reg polSay TTT2 TTT3  mar i.emp satFin health kids rel_imp i.ccc if iii==1, robust
+
+Linear regression                               Number of obs     =     20,590
+                                                F(30, 20559)      =     114.51
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.1176
+                                                Root MSE          =     1.2078
+
+--------------------------------------------------------------------------------
+               |               Robust
+        polSay | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+          TTT2 |      -0.04       0.02    -1.92    0.05        -0.08        0.00
+          TTT3 |      -0.06       0.03    -2.24    0.02        -0.12       -0.01
+           mar |       0.07       0.02     3.25    0.00         0.03        0.12
+               |
+           emp |
+    Part time  |      -0.06       0.03    -1.70    0.09        -0.12        0.01
+Self employed  |      -0.04       0.03    -1.74    0.08        -0.09        0.01
+      Retired  |      -0.02       0.04    -0.58    0.56        -0.10        0.05
+    Housewife  |      -0.13       0.03    -4.80    0.00        -0.19       -0.08
+     Students  |      -0.01       0.04    -0.32    0.75        -0.09        0.06
+   Unemployed  |      -0.07       0.03    -2.25    0.02        -0.14       -0.01
+        Other  |       0.06       0.13     0.43    0.67        -0.21        0.32
+               |
+        satFin |       0.03       0.00     7.74    0.00         0.02        0.04
+        health |       0.08       0.01     7.95    0.00         0.06        0.10
+          kids |      -0.00       0.01    -0.27    0.79        -0.01        0.01
+       rel_imp |       0.03       0.01     2.10    0.04         0.00        0.06
+               |
+           ccc |
+          104  |      -0.72       0.05   -14.37    0.00        -0.82       -0.62
+          231  |      -0.11       0.05    -2.29    0.02        -0.21       -0.02
+          404  |      -0.54       0.05   -10.13    0.00        -0.64       -0.43
+          417  |      -0.58       0.05   -10.91    0.00        -0.68       -0.48
+          496  |      -0.88       0.05   -17.23    0.00        -0.98       -0.78
+          504  |      -1.11       0.04   -24.79    0.00        -1.20       -1.02
+          558  |      -0.51       0.06    -9.21    0.00        -0.62       -0.40
+          566  |      -0.82       0.06   -14.69    0.00        -0.93       -0.71
+          586  |      -0.42       0.05    -9.29    0.00        -0.51       -0.33
+          608  |       0.28       0.04     6.47    0.00         0.20        0.36
+          704  |      -0.09       0.05    -1.67    0.09        -0.20        0.02
+          716  |      -0.64       0.05   -11.99    0.00        -0.75       -0.54
+          762  |      -0.08       0.05    -1.76    0.08        -0.18        0.01
+          788  |      -0.48       0.05    -9.71    0.00        -0.58       -0.38
+          804  |      -1.17       0.05   -21.77    0.00        -1.28       -1.07
+          818  |      -0.97       0.05   -20.06    0.00        -1.06       -0.87
+               |
+         _cons |       2.91       0.08    36.31    0.00         2.76        3.07
+--------------------------------------------------------------------------------
+
+. 
+end of do-file
+
+. do "/tmp/SD18984.000000"
+
+. reg polSay TTT2 TTT3  mar i.emp satFin health kids rel_imp i.ccc if iii==3, robust
+
+Linear regression                               Number of obs     =     19,221
+                                                F(26, 19194)      =      82.06
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.1055
+                                                Root MSE          =     1.0325
+
+--------------------------------------------------------------------------------
+               |               Robust
+        polSay | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+          TTT2 |       0.13       0.02     5.93    0.00         0.09        0.18
+          TTT3 |       0.21       0.03     7.97    0.00         0.16        0.26
+           mar |       0.08       0.02     4.89    0.00         0.05        0.12
+               |
+           emp |
+    Part time  |      -0.03       0.03    -1.26    0.21        -0.09        0.02
+Self employed  |      -0.07       0.03    -2.11    0.03        -0.14       -0.01
+      Retired  |      -0.04       0.02    -1.96    0.05        -0.08       -0.00
+    Housewife  |      -0.13       0.03    -3.65    0.00        -0.19       -0.06
+     Students  |       0.11       0.03     3.25    0.00         0.05        0.18
+   Unemployed  |      -0.11       0.04    -2.63    0.01        -0.19       -0.03
+        Other  |      -0.13       0.06    -2.16    0.03        -0.26       -0.01
+               |
+        satFin |       0.06       0.00    14.19    0.00         0.05        0.07
+        health |       0.06       0.01     5.45    0.00         0.04        0.08
+          kids |      -0.01       0.01    -1.72    0.09        -0.03        0.00
+       rel_imp |       0.08       0.01    10.77    0.00         0.07        0.10
+               |
+           ccc |
+           36  |      -0.62       0.05   -12.64    0.00        -0.72       -0.52
+          124  |      -0.35       0.04    -7.73    0.00        -0.43       -0.26
+          196  |      -0.86       0.06   -15.29    0.00        -0.97       -0.75
+          203  |      -1.00       0.05   -19.61    0.00        -1.10       -0.90
+          344  |      -0.55       0.05   -10.76    0.00        -0.65       -0.45
+          392  |       0.09       0.06     1.50    0.13        -0.03        0.20
+          446  |      -0.35       0.05    -6.33    0.00        -0.46       -0.24
+          528  |      -0.61       0.05   -12.20    0.00        -0.71       -0.52
+          554  |      -0.49       0.05    -9.64    0.00        -0.59       -0.39
+          702  |      -0.52       0.05    -9.86    0.00        -0.63       -0.42
+          703  |      -1.06       0.05   -20.09    0.00        -1.16       -0.95
+          858  |      -0.50       0.06    -8.72    0.00        -0.61       -0.39
+               |
+         _cons |       2.46       0.06    40.03    0.00         2.34        2.58
+--------------------------------------------------------------------------------
+
+. 
+end of do-file
+
+
+. reg polSay i.t3##i.iii  mar i.emp satFin health kids rel_imp  i.ccc, robust
+note: 818.ccc omitted because of collinearity.
+note: 862.ccc omitted because of collinearity.
+
+Linear regression                               Number of obs     =     62,294
+                                                F(64, 62229)      =     125.62
+                                                Prob > F          =     0.0000
+                                                R-squared         =     0.1008
+                                                Root MSE          =     1.1565
+
+--------------------------------------------------------------------------------
+               |               Robust
+        polSay | Coefficient  std. err.      t    P>|t|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            t3 |
+      20-500k  |      -0.04       0.02    -1.83    0.07        -0.08        0.00
+       gt500k  |      -0.06       0.03    -2.14    0.03        -0.11       -0.01
+               |
+           iii |
+            2  |       0.24       0.05     4.60    0.00         0.14        0.35
+            3  |       0.79       0.06    14.20    0.00         0.68        0.90
+               |
+        t3#iii |
+    20-500k#2  |      -0.04       0.03    -1.32    0.19        -0.10        0.02
+    20-500k#3  |       0.18       0.03     5.67    0.00         0.11        0.24
+     gt500k#2  |      -0.04       0.04    -1.22    0.22        -0.12        0.03
+     gt500k#3  |       0.27       0.04     7.11    0.00         0.20        0.35
+               |
+           mar |       0.06       0.01     5.61    0.00         0.04        0.09
+               |
+           emp |
+    Part time  |      -0.00       0.02    -0.12    0.91        -0.04        0.03
+Self employed  |      -0.04       0.02    -2.33    0.02        -0.07       -0.01
+      Retired  |      -0.02       0.02    -0.93    0.35        -0.05        0.02
+    Housewife  |      -0.09       0.02    -5.51    0.00        -0.12       -0.06
+     Students  |       0.04       0.02     1.91    0.06        -0.00        0.08
+   Unemployed  |      -0.05       0.02    -2.61    0.01        -0.09       -0.01
+        Other  |      -0.04       0.05    -0.69    0.49        -0.14        0.07
+               |
+        satFin |       0.03       0.00    15.08    0.00         0.03        0.04
+        health |       0.07       0.01    11.71    0.00         0.06        0.08
+          kids |       0.00       0.00     0.13    0.90        -0.01        0.01
+       rel_imp |       0.06       0.01    11.16    0.00         0.05        0.08
+               |
+           ccc |
+           32  |       1.21       0.05    26.33    0.00         1.12        1.30
+           36  |      -0.63       0.05   -12.97    0.00        -0.73       -0.54
+           50  |       0.96       0.05    20.24    0.00         0.87        1.05
+           51  |       0.18       0.05     3.47    0.00         0.08        0.29
+           76  |      -0.30       0.05    -6.38    0.00        -0.39       -0.21
+          104  |       0.26       0.05     4.93    0.00         0.15        0.36
+          124  |      -0.35       0.04    -7.74    0.00        -0.43       -0.26
+          170  |       0.01       0.05     0.20    0.84        -0.09        0.11
+          196  |      -0.86       0.06   -15.39    0.00        -0.97       -0.75
+          203  |      -1.00       0.05   -19.83    0.00        -1.10       -0.91
+          231  |       0.87       0.05    17.58    0.00         0.77        0.97
+          320  |       0.13       0.05     2.51    0.01         0.03        0.23
+          344  |      -0.55       0.05   -10.75    0.00        -0.65       -0.45
+          360  |       0.60       0.04    13.81    0.00         0.52        0.69
+          364  |       0.22       0.05     4.65    0.00         0.13        0.32
+          368  |       0.09       0.05     1.69    0.09        -0.01        0.19
+          392  |       0.06       0.06     0.99    0.32        -0.05        0.17
+          398  |       0.65       0.05    13.65    0.00         0.56        0.75
+          400  |       0.48       0.05     9.43    0.00         0.38        0.58
+          404  |       0.45       0.05     8.56    0.00         0.34        0.55
+          417  |       0.41       0.05     7.87    0.00         0.30        0.51
+          422  |      -0.03       0.05    -0.61    0.54        -0.13        0.07
+          434  |       0.07       0.05     1.21    0.23        -0.04        0.17
+          446  |      -0.35       0.05    -6.34    0.00        -0.45       -0.24
+          458  |       0.46       0.05     9.66    0.00         0.37        0.56
+          462  |      -0.28       0.05    -5.29    0.00        -0.38       -0.18
+          484  |       0.02       0.04     0.53    0.59        -0.06        0.11
+          496  |       0.16       0.04     3.59    0.00         0.07        0.24
+          504  |      -0.14       0.04    -3.20    0.00        -0.23       -0.05
+          528  |      -0.61       0.05   -12.19    0.00        -0.71       -0.51
+          554  |      -0.50       0.05    -9.84    0.00        -0.60       -0.40
+          558  |       0.47       0.05     8.65    0.00         0.37        0.58
+          566  |       0.16       0.06     2.86    0.00         0.05        0.27
+          586  |       0.55       0.05    11.79    0.00         0.46        0.64
+          604  |       0.27       0.05     5.73    0.00         0.18        0.36
+          608  |       1.25       0.04    27.97    0.00         1.16        1.34
+          702  |      -0.52       0.05    -9.79    0.00        -0.62       -0.41
+          703  |      -1.07       0.05   -20.44    0.00        -1.17       -0.97
+          704  |       0.94       0.05    18.73    0.00         0.84        1.03
+          716  |       0.34       0.05     6.32    0.00         0.23        0.44
+          762  |       0.90       0.05    18.66    0.00         0.80        0.99
+          788  |       0.49       0.05    10.10    0.00         0.40        0.59
+          804  |      -0.15       0.05    -3.02    0.00        -0.25       -0.05
+          818  |       0.00  (omitted)
+          858  |      -0.51       0.06    -8.96    0.00        -0.62       -0.40
+          862  |       0.00  (omitted)
+               |
+         _cons |       1.80       0.05    36.71    0.00         1.71        1.90
+--------------------------------------------------------------------------------
+
+. 
+
+\end{verbatim}
+\end{spacing}{.19}
+\end{scriptsize}
+
+
+ \begin{figure}[H]
+  \includegraphics[height=3in]{m-ps1.pdf}\centering
+  \caption{\label{m-ps1} por some reason margins dont work for me with cc
+    dummies this is without cc dummies, but above in stata printout interactions
+  significant with cc dummies}
+ \end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Additional info}
+
+\subsection{AI literature review}
+Gemini query ``scholarly literature on individual autonomy or freedom across
+urban-rural''\footnote{\url{https://www.google.com/search?q=scholarly+literature+on+individual+autonomy+or+freedom+across+urban-rural&rlz=1CAHWSA_enUS1125US1125&oq=scholarly+literature+on+individual+autonomy+or+freedom+across+urban-rural&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBCTIyNDYyajBqN6gCCLACAfEFAI5zaHyURfbxBQCOc2h8lEX2&sourceid=chrome&source=chrome.ob&ie=UTF-8}}
+
+\begin{table}[!ht]
+  \centering\scriptsize
+
+  
+    \begin{tabular}{|l|l|l|l|l|l|l|l|l|l|}
+    \hline
+        Autonomy Dimension & Rural & Urban\\ \hline
+        Social Control & Strict; governed by kinship, mutual surveillance, and traditional norms. & Loose; regulated by formal systems (laws, courts) and shielded by anonymity.\\ \hline
+        Core Values & Interdependence, community solidarity, and generational stability. & Individualism, open-mindedness, and socioeconomic mobility.\\ \hline
+        Family Dynamics & High value placed on obedience and material/financial cooperation. & Focus on psychological independence and diverse career/lifestyle paths.\\ \hline
+        Physical Liberty & High geographic isolation; dependency on personal transit for survival. & High physical access via transit; restricted by crowd density and safety rules.\\ \hline
+    \end{tabular}
+\end{table}
+
+%suggested the following literature summarised in this section by us, the human authors:
+%put into body lord2023autonomy pospvech2024loss diamond2023 mishra2014relative
+
+
+\subsection{Country sample sizes; Regional country classification; Variables'
+  definitions (survey questions); Histograms}
+
+We use World Bank regions classification into several regions:
+ East Asia/Pacific, 
+ Europe/Central Asia, 
+ Latin America/Caribbean, 
+ Middle East/North Africa, 
+ North America, 
+ South Asia, and
+ Sub-Saharan Africa. Countries in each region and sample sizes are in appendix.
+
+
+\begin{scriptsize}
+\begin{spacing}{.19} 
+\begin{verbatim}
+. bys region: ta cc
+
+------------------------------------------------------------------------------
+-> regionname = 
+
+ ISO 3166-1 |
+    alpha-3 |
+    country |
+       code |      Freq.     Percent        Cum.
+------------+-----------------------------------
+        NIR |        447       26.77       26.77
+        TWN |      1,223       73.23      100.00
+------------+-----------------------------------
+      Total |      1,670      100.00
+
+------------------------------------------------------------------------------
+-> regionname = East Asia/Pacific
+
+ ISO 3166-1 |
+    alpha-3 |
+    country |
+       code |      Freq.     Percent        Cum.
+------------+-----------------------------------
+        AUS |      1,813        7.29        7.29
+        CHN |      3,036       12.21       19.50
+        HKG |      2,075        8.35       27.85
+        IDN |      3,200       12.87       40.72
+        JPN |      1,353        5.44       46.16
+        KOR |      1,245        5.01       51.16
+        MAC |      1,023        4.11       55.28
+        MMR |      1,200        4.83       60.10
+        MNG |      1,638        6.59       66.69
+        MYS |      1,313        5.28       71.97
+        NZL |      1,057        4.25       76.22
+        PHL |      1,200        4.83       81.05
+        SGP |      2,012        8.09       89.14
+        THA |      1,500        6.03       95.17
+        VNM |      1,200        4.83      100.00
+------------+-----------------------------------
+      Total |     24,865      100.00
+
+------------------------------------------------------------------------------
+-> regionname = Europe/Central Asia
+
+ ISO 3166-1 |
+    alpha-3 |
+    country |
+       code |      Freq.     Percent        Cum.
+------------+-----------------------------------
+        AND |      1,004        3.88        3.88
+        ARM |      1,223        4.73        8.61
+        CYP |      1,000        3.87       12.48
+        CZE |      1,200        4.64       17.12
+        DEU |      1,528        5.91       23.03
+        GBR |      2,609       10.09       33.13
+        GRC |      1,200        4.64       37.77
+        KAZ |      1,276        4.94       42.70
+        KGZ |      1,200        4.64       47.35
+        NLD |      2,145        8.30       55.64
+        ROU |      1,257        4.86       60.51
+        RUS |      1,810        7.00       67.51
+        SRB |      1,046        4.05       71.55
+        SVK |      1,200        4.64       76.20
+        TJK |      1,200        4.64       80.84
+        TUR |      2,415        9.34       90.18
+        UKR |      1,289        4.99       95.16
+        UZB |      1,250        4.84      100.00
+------------+-----------------------------------
+      Total |     25,852      100.00
+
+------------------------------------------------------------------------------
+-> regionname = Latin America/Caribbean
+
+ ISO 3166-1 |
+    alpha-3 |
+    country |
+       code |      Freq.     Percent        Cum.
+------------+-----------------------------------
+        ARG |      1,003        5.75        5.75
+        BOL |      2,067       11.85       17.60
+        BRA |      1,762       10.10       27.71
+        CHL |      1,000        5.73       33.44
+        COL |      1,520        8.72       42.16
+        ECU |      1,200        6.88       49.04
+        GTM |      1,229        7.05       56.09
+        MEX |      1,741        9.98       66.07
+        NIC |      1,200        6.88       72.95
+        PER |      1,400        8.03       80.98
+        PRI |      1,127        6.46       87.44
+        URY |      1,000        5.73       93.18
+        VEN |      1,190        6.82      100.00
+------------+-----------------------------------
+      Total |     17,439      100.00
+
+------------------------------------------------------------------------------
+-> regionname = Middle East/North Africa
+
+ ISO 3166-1 |
+    alpha-3 |
+    country |
+       code |      Freq.     Percent        Cum.
+------------+-----------------------------------
+        EGY |      1,200       12.11       12.11
+        IRN |      1,499       15.13       27.25
+        IRQ |      1,200       12.11       39.36
+        JOR |      1,203       12.14       51.50
+        LBN |      1,200       12.11       63.62
+        LBY |      1,196       12.07       75.69
+        MAR |      1,200       12.11       87.81
+        TUN |      1,208       12.19      100.00
+------------+-----------------------------------
+      Total |      9,906      100.00
+
+------------------------------------------------------------------------------
+-> regionname = North America
+
+ ISO 3166-1 |
+    alpha-3 |
+    country |
+       code |      Freq.     Percent        Cum.
+------------+-----------------------------------
+        CAN |      4,018       60.75       60.75
+        USA |      2,596       39.25      100.00
+------------+-----------------------------------
+      Total |      6,614      100.00
+
+------------------------------------------------------------------------------
+-> regionname = South Asia
+
+ ISO 3166-1 |
+    alpha-3 |
+    country |
+       code |      Freq.     Percent        Cum.
+------------+-----------------------------------
+        BGD |      1,200       20.25       20.25
+        IND |      1,692       28.55       48.80
+        MDV |      1,039       17.53       66.33
+        PAK |      1,995       33.67      100.00
+------------+-----------------------------------
+      Total |      5,926      100.00
+
+------------------------------------------------------------------------------
+-> regionname = Sub-Saharan Africa
+
+ ISO 3166-1 |
+    alpha-3 |
+    country |
+       code |      Freq.     Percent        Cum.
+------------+-----------------------------------
+        ETH |      1,230       24.86       24.86
+        KEN |      1,266       25.59       50.44
+        NGA |      1,237       25.00       75.44
+        ZWE |      1,215       24.56      100.00
+------------+-----------------------------------
+      Total |      4,948      100.00
+
+\end{verbatim}
+\end{spacing}{.19}
+\end{scriptsize}
+
+
+\input{varDes.tex}
+
+Per distributions it is worth noting left-skewed distribution on freedom,
+unexpectedly most people feel maximally free at 10 out of 1-10, likewise but as expected with
+urbanism--most people are in the top category $>500k$, and again left-skewed on
+religion, probably not unexpected--religiosity is declining, but still
+strong. 
+
+\input{hist.tex}
+
+\subsection{First/initial results}
+\subsubsection{by region}
+
+These were our first/initial results but they do not hold when including country
+dummies and so we postpone them to appendix. 
+
+First for all regions in general there is more freedom in smaller areas v top
+bin, the base case ($>500k$) in table \ref{regA} but controlling for other
+predictors in table \ref{regB} it is just the 2nd (2-5k) and 3rd (5-10k)
+smallest categories, and smaller values in 6th and 7th categories.
+But the very smallest areas ($<2k$) are not more free.  
+% indeed negative -.07 for the smallest areas ($<2k$).
+ Next we separate by region.
+
+East Asia/Pacific stands out with high effect sizes at about .4 or even .5, also
+controlling for other predictors of freedom. Europe is mostly less free in
+smaller areas. Latin America/Caribbean
+stands out with negative effect in the very smallest areas. Middle East/North
+Africa has mostly negative effects. North America is positive in 2nd largest
+category (100-500k). South Asia and Sub-Saharan Africa mostly do not show significant
+differences.\footnote{Except .3 for South Asia for the smallest places ($<$2k). %-0.43 for Sub-Saharan Africa in 7th bin
+  % (100-500k).
+} 
+
+\begin{spacing}{.9} \begin{table}[H]\centering\begin{scriptsize}
+\begin{tabular}{p{.8in}p{.55in}p{.55in}p{.55in}p{.55in}p{.55in}p{.55in}p{.55in}p{.55in}p{.55in}}\hline
+\input{regA.tex}\hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err
+\end{tabular}\end{scriptsize}\caption{\label{regA}OLS regressions of freedom/agency}
+\end{table}\end{spacing}
+
+\begin{spacing}{.9} \begin{table}[H]\centering\begin{scriptsize}
+\begin{tabular}{p{.8in}p{.55in}p{.55in}p{.55in}p{.55in}p{.55in}p{.55in}p{.55in}p{.55in}p{.55in}}\hline
+\input{regB.tex}\hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err
+\end{tabular}\end{scriptsize}\caption{\label{regB}OLS regressions of freedom/agency}
+\end{table}\end{spacing}
+
+\subsubsection{Insignificant results with country dummies}
+
+Country dummies render cross-country patters insignificant. 
+
+Here we conduct important sensitivity/robustness checks. First in a1 just
+urbanicity dummies. Then a1a adds region dummies like earlier in the first table
+\ref{regA} little change. A1b has income level dummies TODO spell out; again
+little change; but addition of country dummies in a1c kills the significance and
+turns many categories negative notably the first smallest one, similar with
+controls in models a2* and country dummies make categories even more negative
+in a2c than in a1c. And then a1c2 and a2c2 add clustered standard errors on
+country (stata: robust cluster(country))--all significance disappears except in
+a2c2 on the smallest areas--hence only the very smallest ares $<2k$ are less free
+than the largest ones $>500k$.
+
+
+
+in table \ref{regAA}  we conduct additional robustness checks, a1 and a2 are
+repeated from the body; a1a and a2a include region dummies: in a1a  $100-500k$ results are
+attenuated, but others are stronger; and in a2a the top three categories
+spanning $20-500k$ are weaker but other categories are stronger and the smaller
+category $<2k$ positive effect goes away. But then in a1c and a2c addition of
+country dummies kills the effects unfortunately. And having clustered standard
+errors yields all results insignificant
+
+
+\begin{spacing}{.9} \begin{table}[H]\centering\begin{scriptsize}
+\begin{tabular}{p{.8in}p{.55in}p{.55in}p{.55in}p{.55in}p{.55in}p{.55in}p{.55in}p{.55in}p{.55in}p{.55in}p{.55in}}\hline
+\input{regAA.tex}\hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err
+\end{tabular}\end{scriptsize}\caption{\label{regAA}OLS regressions of freedom/agency}
+\end{table}\end{spacing}
+
+
+
+
+
+
+\subsection{Freedom main results from paper}
+\subsubsection{By country}
+
+First let's start with sample sizes by country by 3 urbanicity categories--in
+general they are sizable $>100$, and in cases where they are not CI is wider on
+the estimates such as with ETH at -1.12 on lt20k that is insignificant
+
+\begin{scriptsize}
+\begin{spacing}{.19} 
+\begin{verbatim}
+
+ISO 3166-1 |
+   alpha-3 |
+   country |   RECODE of town (place size)
+      code |     lt20k    20-500k     gt500k |     Total
+-----------+---------------------------------+----------
+       AND |       730        274          0 |     1,004 
+       ARG |       200        180        623 |     1,003 
+       ARM |       545        232        446 |     1,223 
+       AUS |       453        567        705 |     1,725 
+       BGD |       991        209          0 |     1,200 
+       BOL |       625        741        701 |     2,067 
+       BRA |       185        864        713 |     1,762 
+       CAN |     1,098      1,694      1,226 |     4,018 
+       CHL |       152        487        361 |     1,000 
+       CHN |        50      2,986          0 |     3,036 
+       COL |       304        722        494 |     1,520 
+       CYP |       615        385          0 |     1,000 
+       CZE |       680        370        150 |     1,200 
+       DEU |       712        616        200 |     1,528 
+       ECU |       384        466        350 |     1,200 
+       EGY |       424        456        320 |     1,200 
+       ETH |       841        380          9 |     1,230 
+       GBR |       495      1,713        397 |     2,605 
+       GRC |       420        340        440 |     1,200 
+       GTM |        71        505        653 |     1,229 
+       HKG |         0          0      2,075 |     2,075 
+       IDN |     2,761        346         93 |     3,200 
+       IND |     1,415        235         42 |     1,692 
+       IRN |       400        609        490 |     1,499 
+       IRQ |       320        232        648 |     1,200 
+       JOR |       375        306        522 |     1,203 
+       JPN |        51        786        516 |     1,353 
+       KAZ |       457        456        363 |     1,276 
+       KEN |       499        421        122 |     1,042 
+       KGZ |       710        290        200 |     1,200 
+       KOR |         0        364        881 |     1,245 
+       LBN |       410        660        130 |     1,200 
+       LBY |       480        544        172 |     1,196 
+       MAC |         0          0      1,023 |     1,023 
+       MAR |       380        480        340 |     1,200 
+       MDV |       738        301          0 |     1,039 
+       MEX |       858        463        403 |     1,724 
+       MMR |     1,116         84          0 |     1,200 
+       MNG |       378        257      1,003 |     1,638 
+       MYS |       744        428        141 |     1,313 
+       NGA |       848        375         14 |     1,237 
+       NIC |       381        709        110 |     1,200 
+       NIR |        39        407          0 |       446 
+       NLD |       104      1,710        217 |     2,031 
+       NZL |       420        387        187 |       994 
+       PAK |     1,272        249        474 |     1,995 
+       PER |       355        945        100 |     1,400 
+       PHL |       910        290          0 |     1,200 
+       PRI |        73      1,054          0 |     1,127 
+       ROU |       703        435        119 |     1,257 
+       RUS |       594        626        590 |     1,810 
+       SGP |         0          0      2,012 |     2,012 
+       SRB |       403        447        196 |     1,046 
+       SVK |       750        450          0 |     1,200 
+       THA |     1,244        116        140 |     1,500 
+       TJK |       880        210        110 |     1,200 
+       TUN |       514        614         80 |     1,208 
+       TUR |       240      1,767        408 |     2,415 
+       TWN |        40      1,165         18 |     1,223 
+       UKR |       638        355        296 |     1,289 
+       URY |       270        290        440 |     1,000 
+       USA |         0      1,443        385 |     1,828 
+       UZB |         0          0      1,250 |     1,250 
+       VEN |       180        661        349 |     1,190 
+       VNM |         0      1,049        151 |     1,200 
+       ZWE |       945        270          0 |     1,215 
+-----------+---------------------------------+----------
+     Total |    33,870     37,473     24,598 |    95,941 
+\end{verbatim}
+\end{spacing}{.19}
+\end{scriptsize}
+
+
+
+
+
+\begin{spacing}{.9} \begin{table}[H]\centering   \begin{scriptsize}
+\begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}}\hline
+\input{regCC1mod.tex}
+\hline +0.10 *0.05 **0.01 ***0.001; robust std err
+\end{tabular}\end{scriptsize}\caption{\label{regCC1mod}
+OLS regressions of freedom/autonomy on urbanicity dummies (base: $>500k$) using model controlling for age, age$^2$, male,
+married, employment type dummies(full/part time, self-employed, retired,
+housewife, student, unemployed, and other), financial satisfaction, health, kids,
+and religion important.  See model for pooled sample in table \ref{regB} except that
+original 8 step urbanicity variable is now categorized into 3 bins as there are
+smaller cell sizes separately by country.
+%
+ Still note that few countries lack the estimates as even
+this simplified 3 step urbanicity spectrum is not available. 
+Overall the results are mostly insignificant,
+but more negative (11) than positive (6). So in general within countries for few
+significant relationships there is less freedom in
+smaller areas as theorized in the literature. }
+\end{table} \end{spacing}
+%regCC1mod: dropped >500k col
+
+Then we split by tertile within a country--the idea is that we will have
+retained more observations as oppose to forcing $>500k$ only to be a city, and
+we do within country urbanicity where local conditions may be different and
+already a place of $100-500k$ may be large. For instance earlier AND had 0
+observations in $>500k$ category, but here we have 274 obs in 3rd tertile. 
+
+We were thinking about median split, %leonie: wants to split on median urb-rur
+ but we went with tertiles as there are theoretical reasons to contrast rural
+ places with large cities \citep{aok-ls_fisher16,aokCityBook15}.
+
+We start below with counts by tertile and country.
+
+\begin{scriptsize}
+\begin{spacing}{.19} 
+\begin{verbatim}
+ ta cc tertile
+
+ISO 3166-1 |
+   alpha-3 |
+   country |             tertile
+      code |         1          2          3 |     Total
+-----------+---------------------------------+----------
+       AND |       501        229        274 |     1,004 
+       ARG |       380        623          0 |     1,003 
+       ARM |       448        775          0 |     1,223 
+       AUS |       625      1,100          0 |     1,725 
+       BGD |       501        335        364 |     1,200 
+       BOL |       879      1,188          0 |     2,067 
+       BRA |     1,049        713          0 |     1,762 
+       CAN |     1,471      1,321      1,226 |     4,018 
+       CHL |       639        361          0 |     1,000 
+       CHN |     1,980      1,056          0 |     3,036 
+       COL |       690        336        494 |     1,520 
+       CYP |       367        333        300 |     1,000 
+       CZE |       460        400        340 |     1,200 
+       DEU |       712        359        457 |     1,528 
+       ECU |       509        341        350 |     1,200 
+       EGY |       424        456        320 |     1,200 
+       ETH |       554        287        389 |     1,230 
+       GBR |       989      1,219        397 |     2,605 
+       GRC |       420        780          0 |     1,200 
+       GTM |       576        653          0 |     1,229 
+       HKG |     2,075          0          0 |     2,075 
+       IDN |     1,442        791        967 |     3,200 
+       IND |       799        389        504 |     1,692 
+       IRN |       599        410        490 |     1,499 
+       IRQ |       552        648          0 |     1,200 
+       JOR |       487        716          0 |     1,203 
+       JPN |       837        516          0 |     1,353 
+       KAZ |       457        456        363 |     1,276 
+       KEN |       395        329        318 |     1,042 
+       KGZ |       450        380        370 |     1,200 
+       KOR |     1,245          0          0 |     1,245 
+       LBN |       410        559        231 |     1,200 
+       LBY |       480        349        367 |     1,196 
+       MAC |     1,023          0          0 |     1,023 
+       MAR |       520        340        340 |     1,200 
+       MDV |       494        200        345 |     1,039 
+       MEX |       707        614        403 |     1,724 
+       MMR |       648        240        312 |     1,200 
+       MNG |       575      1,063          0 |     1,638 
+       MYS |       580        321        412 |     1,313 
+       NGA |       455        393        389 |     1,237 
+       NIC |       720        220        260 |     1,200 
+       NIR |       161        143        142 |       446 
+       NLD |       751      1,063        217 |     2,031 
+       NZL |       420        387        187 |       994 
+       PAK |       896        438        661 |     1,995 
+       PER |       475        825        100 |     1,400 
+       PHL |       610        210        380 |     1,200 
+       PRI |       726        262        139 |     1,127 
+       ROU |       567        343        347 |     1,257 
+       RUS |       756        464        590 |     1,810 
+       SGP |     2,012          0          0 |     2,012 
+       SRB |       365        485        196 |     1,046 
+       SVK |       540        390        270 |     1,200 
+       THA |       923        138        439 |     1,500 
+       TJK |       730         80        390 |     1,200 
+       TUN |       442        495        271 |     1,208 
+       TUR |     2,007          0        408 |     2,415 
+       TWN |       604        601         18 |     1,223 
+       UKR |       517        476        296 |     1,289 
+       URY |       410        590          0 |     1,000 
+       USA |       635        808        385 |     1,828 
+       UZB |     1,250          0          0 |     1,250 
+       VEN |       401        440        349 |     1,190 
+       VNM |     1,049          0        151 |     1,200 
+       ZWE |       768        152        295 |     1,215 
+-----------+---------------------------------+----------
+     Total |    48,139     30,589     17,213 |    95,941 
+\end{verbatim}
+\end{spacing}{.19}
+\end{scriptsize}
+
+Then we repeat twostep graph from the body just withe 1st category as a base in
+figure \ref{fff2} and \ref{fff3} so
+we can easier compare it to our tertile estimates.
+
+Overall without controls more freedom in cities as hypothesized, but still most
+effects are insignificant, and with controls
+results are even less significant.
+
+\begin{figure}[H]
+ \includegraphics[height=5in]{fff2.pdf}\centering
+\caption{\label{fff2} fff2} 
+\end{figure}
+\begin{figure}[H]
+ \includegraphics[height=5in]{fff3.pdf}\centering
+\caption{\label{fff3} fff3} 
+\end{figure}
+ 
+
+\begin{figure}[H]
+ \includegraphics[height=5in]{l2a.pdf}\centering
+\caption{\label{l2a} 2nd tertile: just 2 tertile dummies on rhs, 1st tertile base} 
+\end{figure}
+\begin{figure}[H]
+ \includegraphics[height=5in]{l3a.pdf}\centering
+\caption{\label{l3a} 3rd tertile: just 2 tertile dummies on rhs, 1st tertile base} 
+\end{figure}
+
+\begin{figure}[H]
+ \includegraphics[height=5in]{l2b.pdf}\centering
+\caption{\label{l2b} 2nd tertile: all controls} 
+\end{figure}
+\begin{figure}[H]
+ \includegraphics[height=5in]{l3b.pdf}\centering
+\caption{\label{l3b} 3rd tertile: all controls} 
+\end{figure}
+
+
+
+
+
+We explore further by interacting region dummies with urban-rural in figure
+\ref{t-rr7}. We find significant interactions for Latin America and South Asia
+(v East Asia/Pacific)--it is difficult to see patters in figure with all
+regions--we plot only the significant interactions in figure \ref{t-rr3}. 
+
+\begin{figure}[H]
+ \includegraphics[height=3in]{t-rr7.pdf}\centering
+\caption{\label{t-rr7} Interactions of region dummies with urban-rural.}
+\end{figure}
+
+\begin{figure}[H]
+ \includegraphics[height=3in]{t-rr3.pdf}\centering
+\caption{\label{t-rr3} Interactions of region dummies with urban-rural.}
+\end{figure}
+
+Last, we interacted urban-rural at person level with \% urban at country level
+and the interaction is marginally significant at 0.1 level of significance and
+we plot results in figure \ref{t-urb}. Marginsplot shows that in countries that
+are less urban, there is more freedom in smaller places, but in more urban
+countries there is more freedom in large cities. It is an intriguing finding and
+we do not have a good explanation for it. Perhaps in heavily urbanized countries
+rural barely exists and it does not help much with freedom, while in more rural
+countries there is more meaningful distinction between urban and rural and there
+is more freedom in rural areas. 
+ 
+
+\begin{figure}[H]
+ \includegraphics[height=3in]{t-urb.pdf}\centering
+\caption{\label{t-urb} Interaction of urban-rural at person level with \% urban
+  at country level. X-axis  values are chosen based on the variable's
+  distribution: 31.2 is 5th percentile, median is 75, and 90 is 92nd percentile.}
+\end{figure}
+
+We have used above just the usual World Bank definition, which uses each
+country's statistical office definition--for discussion
+see especially \citet{ebshoyEgypt24} and also \citet{deb23}.
+
+
+We have also tries similar cross-level interactions with PCGDP and income
+inequality, but didn't find significant interactions. 
+
+
+
+Last we check alternative specification if we are not overcontrolling
+\citep{bartram24}--in the body of the paper we used a set of control variables
+from the literature, however, we think that we may drop gender, age and age2--as
+they may not be predictive of urbanicity. First, we repeat graph from the body
+for ease of comparison in figure \ref{dd1}. And below it figure without the
+above mentioned controls \ref{dd2}. Results are substantively the same.  And in
+\ref{dd3} adding education, eg more educated persons may move to a city--again,
+ very similar results. And in \ref{dd4} fewer countries but still most
+ insignificant. 
+
+
+\begin{figure}[H]
+ \includegraphics[height=5in]{fig-regCC1mod2}\centering
+\caption{\label{dd1}} 
+\end{figure}
+\begin{figure}[H]
+ \includegraphics[height=5in]{fig-regCC1mod2w}\centering
+\caption{\label{dd2} Dropping age age2 and gender} 
+\end{figure}
+\begin{figure}[H]
+ \includegraphics[height=5in]{fig-regCC1mod2ww}\centering
+\caption{\label{dd3} Adding education--again,
+very similar results} 
+\end{figure}
+\begin{figure}[H]
+ \includegraphics[height=5in]{fig-regCC1mod2ww20}\centering
+\caption{\label{dd4} only $<$2020--fewer countries but still most insignificant.} 
+\end{figure}
+
+
+\subsubsection{Interactions with financial satisfaction, class, and income}
+
+\begin{figure}[H]
+ \includegraphics[height=3in]{m-app.pdf}\centering
+\caption{\label{m-app} Multilevel country random intercept regressions of
+  freedom on rural-urban dummies interacted with: a) financial satisfaction, b)
+  class, c) income. For underlying regressions see appendix. Controls are
+  the same as in the previous section.}
+\end{figure}
+
+
+\begin{spacing}{.9} \begin{table}[H]\centering\begin{scriptsize}
+\begin{tabular}{p{2.8in}p{.55in}p{.55in}p{.55in}p{.55in}p{.55in}p{.55in}p{.55in}p{.55in}p{.55in}}\hline
+\input{regABC.tex}\hline + 0.10 * 0.05 ** 0.01 *** 0.001; robust std err
+\end{tabular}\end{scriptsize}\caption{\label{regABC}OLS regressions of freedom/agency}
+\end{table}\end{spacing}
+
+We could have explored more fully here using usual sequential elaboration of the
+models, but for now just sticking with the final full model as there are already
+plenty of robustness/sensitivity checks and one could easily get lost in this
+sea of extra results. 
+
+\begin{figure}[H]
+ \includegraphics[height=5in]{m-body2}\centering
+\caption{\label{m-body2} Robustness/sensitivity check: on the sample after drooping countries where top
+  gt500k cat missing. Results are mostly similar to those reported in the body
+  of the paper.} 
+\end{figure}
+
+Last we check alternative specification if we are not overcontrolling
+\citep{bartram24}--in the body of the paper we used a set of control variables
+from the literature, however, we think that we may drop gender, age and age2--as
+they may not be predictive of urbanicity. Results are in figure \ref{m-body2q} and are
+substantively the same, and so when adding education in figure
+\ref{m-body2qv}. The very final check is dropping pandemic years 2020 and
+later--pandemic might have made city life less free, but our results remain
+similar, if anything stronger in figure \ref{m-body2qv20}  
+
+\begin{figure}[H]
+ \includegraphics[height=5in]{m-body2q}\centering
+\caption{\label{m-body2q} Dropping age age2 and gender.} 
+\end{figure}
+\begin{figure}[H]
+ \includegraphics[height=5in]{m-body2qv}\centering
+\caption{\label{m-body2qv} Adding education.} 
+\end{figure}
+\begin{figure}[H]
+ \includegraphics[height=5in]{m-body2qv20}\centering
+\caption{\label{m-body2qv20} Only $<$2020.} 
+\end{figure}
+
+
+
+
+{\bf Initial interactions and alternative specifications}
+
+
+\begin{scriptsize}
+\begin{spacing}{.19} 
+\begin{verbatim}
+. mixed free c.town##c.satFin  trust famUns criVic  age age2 male mar i.emp he
+> alth kids rel_imp  || cc:   ,mle
+
+Performing EM optimization ...
+
+Performing gradient-based optimization: 
+Iteration 0:  Log likelihood =  -184956.1  
+Iteration 1:  Log likelihood =  -184956.1  
+
+Computing standard errors ...
+
+Mixed-effects ML regression                        Number of obs    =   86,280
+Group variable: cc                                 Number of groups =       64
+                                                   Obs per group:
+                                                                min =      747
+                                                                avg =  1,348.1
+                                                                max =    4,018
+                                                   Wald chi2(20)    = 11068.66
+Log likelihood =  -184956.1                        Prob > chi2      =   0.0000
+
+------------------------------------------------------------------------------
+        free | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        town |      -0.03       0.01    -3.99    0.00        -0.05       -0.02
+      satFin |       0.22       0.01    31.95    0.00         0.20        0.23
+             |
+      c.town#|
+    c.satFin |       0.01       0.00     5.90    0.00         0.00        0.01
+             |
+       trust |       0.02       0.02     1.34    0.18        -0.01        0.06
+      famUns |      -0.11       0.01   -12.26    0.00        -0.13       -0.09
+      criVic |      -0.11       0.03    -4.22    0.00        -0.16       -0.06
+         age |       0.02       0.00     5.99    0.00         0.01        0.02
+        age2 |      -0.00       0.00    -5.37    0.00        -0.00       -0.00
+        male |       0.01       0.02     0.67    0.50        -0.02        0.04
+         mar |       0.00       0.02     0.03    0.98        -0.03        0.03
+             |
+         emp |
+  Part time  |      -0.08       0.03    -2.82    0.00        -0.13       -0.02
+Self empl..  |      -0.01       0.02    -0.56    0.57        -0.06        0.03
+    Retired  |      -0.04       0.03    -1.32    0.19        -0.10        0.02
+  Housewife  |      -0.20       0.03    -8.00    0.00        -0.25       -0.15
+   Students  |      -0.14       0.04    -3.79    0.00        -0.21       -0.07
+ Unemployed  |      -0.10       0.03    -3.29    0.00        -0.15       -0.04
+      Other  |      -0.22       0.07    -3.28    0.00        -0.36       -0.09
+             |
+      health |       0.33       0.01    37.13    0.00         0.31        0.35
+        kids |       0.02       0.01     2.67    0.01         0.00        0.03
+     rel_imp |       0.04       0.01     4.11    0.00         0.02        0.05
+       _cons |       4.26       0.11    38.13    0.00         4.04        4.48
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects parameters  |   Estimate   Std. err.     [95% conf. interval]
+-----------------------------+------------------------------------------------
+cc: Identity                 |
+                  var(_cons) |       0.28       0.05          0.19        0.39
+-----------------------------+------------------------------------------------
+               var(Residual) |       4.25       0.02          4.21        4.29
+------------------------------------------------------------------------------
+LR test vs. linear model: chibar2(01) = 4378.78       Prob >= chibar2 = 0.0000
+\end{verbatim}
+\end{spacing}{.19}
+\end{scriptsize}
+ \begin{figure}[H]
+  \includegraphics[height=3in]{ini1.pdf}\centering
+ \caption{\label{ini1}ini1}
+ \end{figure}
+few things to note in the above--we have trust, famUns and criVic--which are
+rather predicted by urbanicity, not predictors, hence we may have overcontrol
+bias. Also here both town and satFin are forced to be linear, a tenuous
+assumption. 
+
+\begin{scriptsize}
+\begin{spacing}{.19} 
+\begin{verbatim}
+ mixed free i.t4##i.sf3  trust famUns criVic  age age2 male mar i.emp health 
+> kids rel_imp  || cc:   ,mle
+
+Performing EM optimization ...
+
+Performing gradient-based optimization: 
+Iteration 0:  Log likelihood = -185241.39  
+Iteration 1:  Log likelihood = -185241.39  (backed up)
+
+Computing standard errors ...
+
+Mixed-effects ML regression                        Number of obs    =   86,280
+Group variable: cc                                 Number of groups =       64
+                                                   Obs per group:
+                                                                min =      747
+                                                                avg =  1,348.1
+                                                                max =    4,018
+                                                   Wald chi2(28)    = 10427.08
+Log likelihood = -185241.39                        Prob > chi2      =   0.0000
+
+------------------------------------------------------------------------------
+        free | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+          t4 |
+    10-100k  |      -0.14       0.04    -3.39    0.00        -0.21       -0.06
+   100-500k  |      -0.04       0.05    -0.78    0.43        -0.13        0.06
+     gt500k  |      -0.03       0.04    -0.74    0.46        -0.12        0.05
+             |
+         sf3 |
+          2  |       0.65       0.03    18.99    0.00         0.59        0.72
+          3  |       1.50       0.04    40.61    0.00         1.42        1.57
+             |
+      t4#sf3 |
+  10-100k#2  |       0.21       0.05     4.38    0.00         0.12        0.31
+  10-100k#3  |       0.12       0.05     2.38    0.02         0.02        0.22
+ 100-500k#2  |       0.09       0.06     1.62    0.11        -0.02        0.20
+ 100-500k#3  |       0.07       0.06     1.17    0.24        -0.05        0.19
+   gt500k#2  |       0.12       0.05     2.43    0.01         0.02        0.22
+   gt500k#3  |       0.12       0.05     2.26    0.02         0.02        0.23
+             |
+       trust |       0.03       0.02     1.80    0.07        -0.00        0.07
+      famUns |      -0.12       0.01   -13.44    0.00        -0.14       -0.10
+      criVic |      -0.12       0.03    -4.75    0.00        -0.17       -0.07
+         age |       0.02       0.00     5.32    0.00         0.01        0.02
+        age2 |      -0.00       0.00    -4.66    0.00        -0.00       -0.00
+        male |       0.01       0.02     0.70    0.48        -0.02        0.04
+         mar |       0.01       0.02     0.34    0.73        -0.03        0.04
+             |
+         emp |
+  Part time  |      -0.08       0.03    -3.06    0.00        -0.14       -0.03
+Self empl..  |      -0.02       0.02    -0.70    0.48        -0.06        0.03
+    Retired  |      -0.05       0.03    -1.66    0.10        -0.11        0.01
+  Housewife  |      -0.22       0.03    -8.41    0.00        -0.27       -0.17
+   Students  |      -0.14       0.04    -3.88    0.00        -0.21       -0.07
+ Unemployed  |      -0.13       0.03    -4.41    0.00        -0.19       -0.07
+      Other  |      -0.25       0.07    -3.65    0.00        -0.39       -0.12
+             |
+      health |       0.35       0.01    39.72    0.00         0.34        0.37
+        kids |       0.01       0.01     2.26    0.02         0.00        0.03
+     rel_imp |       0.04       0.01     4.41    0.00         0.02        0.06
+       _cons |       4.82       0.11    45.42    0.00         4.61        5.03
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects parameters  |   Estimate   Std. err.     [95% conf. interval]
+-----------------------------+------------------------------------------------
+cc: Identity                 |
+                  var(_cons) |       0.27       0.05          0.19        0.39
+-----------------------------+------------------------------------------------
+               var(Residual) |       4.28       0.02          4.23        4.32
+------------------------------------------------------------------------------
+LR test vs. linear model: chibar2(01) = 4250.93       Prob >= chibar2 = 0.0000
+\end{verbatim}
+\end{spacing}{.19}
+\end{scriptsize}
+ \begin{figure}[H]
+  \includegraphics[height=3in]{ini2.pdf}\centering
+ \caption{\label{ini2}ini2}
+ \end{figure}
+In the above a different take--financial satisfaction tertiles--for the 1st
+tertile the biggest drop is actually in the middle category at 10-100k.
+ 
+\begin{scriptsize}
+\begin{spacing}{.19} 
+\begin{verbatim}
+ mixed free c.town##c.inc  trust famUns criVic  age age2 male mar i.emp healt
+> h kids rel_imp  || cc:   ,mle
+
+Performing EM optimization ...
+
+Performing gradient-based optimization: 
+Iteration 0:  Log likelihood = -184725.92  
+Iteration 1:  Log likelihood = -184725.92  (backed up)
+
+Computing standard errors ...
+
+Mixed-effects ML regression                         Number of obs    =  84,979
+Group variable: cc                                  Number of groups =      64
+                                                    Obs per group:
+                                                                 min =     749
+                                                                 avg = 1,327.8
+                                                                 max =   4,018
+                                                    Wald chi2(20)    = 5460.49
+Log likelihood = -184725.92                         Prob > chi2      =  0.0000
+
+------------------------------------------------------------------------------
+        free | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        town |      -0.00       0.01    -0.43    0.67        -0.02        0.01
+         inc |       0.11       0.01    13.01    0.00         0.09        0.12
+             |
+c.town#c.inc |       0.00       0.00     1.21    0.23        -0.00        0.00
+             |
+       trust |       0.07       0.02     3.91    0.00         0.04        0.11
+      famUns |      -0.17       0.01   -18.82    0.00        -0.19       -0.16
+      criVic |      -0.16       0.03    -6.05    0.00        -0.21       -0.11
+         age |       0.01       0.00     2.60    0.01         0.00        0.01
+        age2 |      -0.00       0.00    -1.15    0.25        -0.00        0.00
+        male |      -0.00       0.02    -0.17    0.87        -0.03        0.03
+         mar |       0.04       0.02     1.97    0.05         0.00        0.07
+             |
+         emp |
+  Part time  |      -0.08       0.03    -2.83    0.00        -0.14       -0.02
+Self empl..  |      -0.01       0.02    -0.46    0.65        -0.06        0.04
+    Retired  |       0.01       0.03     0.33    0.74        -0.05        0.07
+  Housewife  |      -0.18       0.03    -6.65    0.00        -0.23       -0.12
+   Students  |      -0.11       0.04    -2.99    0.00        -0.18       -0.04
+ Unemployed  |      -0.15       0.03    -5.04    0.00        -0.21       -0.09
+      Other  |      -0.25       0.07    -3.54    0.00        -0.39       -0.11
+             |
+      health |       0.46       0.01    51.21    0.00         0.45        0.48
+        kids |       0.01       0.01     1.93    0.05        -0.00        0.03
+     rel_imp |       0.05       0.01     5.88    0.00         0.04        0.07
+       _cons |       4.75       0.12    39.88    0.00         4.51        4.98
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects parameters  |   Estimate   Std. err.     [95% conf. interval]
+-----------------------------+------------------------------------------------
+cc: Identity                 |
+                  var(_cons) |       0.35       0.06          0.25        0.50
+-----------------------------+------------------------------------------------
+               var(Residual) |       4.51       0.02          4.47        4.55
+------------------------------------------------------------------------------
+LR test vs. linear model: chibar2(01) = 5398.66       Prob >= chibar2 = 0.0000
+\end{verbatim}
+\end{spacing}{.19}
+\end{scriptsize}
+ \begin{figure}[H]
+  \includegraphics[height=3in]{ini3.pdf}\centering
+ \caption{\label{ini3}ini3}
+ \end{figure}
+ Here what is easy to see is that along the income spectrum
+ the largest places $>500k$ change most; and
+smallest places $<2k$ change the least
+ 
+
+ 
+\begin{scriptsize}
+\begin{spacing}{.19} 
+\begin{verbatim}
+ mixed free c.town##c.class  trust famUns criVic  age age2 male mar i.emp hea
+> lth kids rel_imp  || cc:   ,mle
+
+Performing EM optimization ...
+
+Performing gradient-based optimization: 
+Iteration 0:  Log likelihood = -184877.86  
+Iteration 1:  Log likelihood = -184877.86  
+
+Computing standard errors ...
+
+Mixed-effects ML regression                         Number of obs    =  84,931
+Group variable: cc                                  Number of groups =      64
+                                                    Obs per group:
+                                                                 min =     686
+                                                                 avg = 1,327.0
+                                                                 max =   4,018
+                                                    Wald chi2(20)    = 4850.01
+Log likelihood = -184877.86                         Prob > chi2      =  0.0000
+
+------------------------------------------------------------------------------
+        free | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        town |      -0.00       0.01    -0.52    0.60        -0.02        0.01
+       class |       0.14       0.02     7.62    0.00         0.10        0.18
+             |
+      c.town#|
+     c.class |       0.01       0.00     1.56    0.12        -0.00        0.01
+             |
+       trust |       0.09       0.02     4.79    0.00         0.05        0.13
+      famUns |      -0.18       0.01   -19.22    0.00        -0.20       -0.16
+      criVic |      -0.17       0.03    -6.34    0.00        -0.22       -0.11
+         age |       0.01       0.00     2.45    0.01         0.00        0.01
+        age2 |      -0.00       0.00    -1.24    0.22        -0.00        0.00
+        male |       0.01       0.02     0.41    0.68        -0.02        0.04
+         mar |       0.05       0.02     2.96    0.00         0.02        0.09
+             |
+         emp |
+  Part time  |      -0.10       0.03    -3.45    0.00        -0.16       -0.04
+Self empl..  |      -0.03       0.02    -1.22    0.22        -0.08        0.02
+    Retired  |      -0.02       0.03    -0.64    0.52        -0.08        0.04
+  Housewife  |      -0.21       0.03    -7.84    0.00        -0.26       -0.16
+   Students  |      -0.13       0.04    -3.46    0.00        -0.20       -0.06
+ Unemployed  |      -0.21       0.03    -6.93    0.00        -0.27       -0.15
+      Other  |      -0.30       0.07    -4.13    0.00        -0.44       -0.16
+             |
+      health |       0.48       0.01    52.29    0.00         0.46        0.49
+        kids |       0.01       0.01     1.81    0.07        -0.00        0.02
+     rel_imp |       0.05       0.01     5.88    0.00         0.04        0.07
+       _cons |       4.86       0.12    39.41    0.00         4.61        5.10
+------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects parameters  |   Estimate   Std. err.     [95% conf. interval]
+-----------------------------+------------------------------------------------
+cc: Identity                 |
+                  var(_cons) |       0.36       0.06          0.25        0.51
+-----------------------------+------------------------------------------------
+               var(Residual) |       4.54       0.02          4.49        4.58
+------------------------------------------------------------------------------
+LR test vs. linear model: chibar2(01) = 5460.71       Prob >= chibar2 = 0.0000
+\end{verbatim}
+\end{spacing}{.19}
+\end{scriptsize}
+ \begin{figure}[H]
+  \includegraphics[height=3in]{ini4.pdf}\centering
+ \caption{\label{ini4}ini4}
+ \end{figure}
+The above is a version of the main graph from the body of the paper, again here
+we are over-controlling with trust and the 2 crime variables, but it is not that
+different after all, similar patters, just the main difference being that here
+the lower class is flat and in the body downward sloping and here the top class
+is quite steep and while in paper it is upward sloping it's little less so in
+the body of the paper
+
+ \begin{figure}[H]
+  \includegraphics[height=3in]{ini5.pdf}\centering
+ \caption{\label{ini5}ini5}
+ \end{figure}
+ini5 is from the same model, nicely shows that the higher the class the more
+difference between the smallest and the largest places
+
+
+\begin{scriptsize}
+\begin{spacing}{.19} 
+\begin{verbatim}
+ mixed free c.town##i.class  trust famUns criVic  age age2 male mar i.emp hea
+> lth kids rel_imp  || cc:   ,mle
+
+Performing EM optimization ...
+
+Performing gradient-based optimization: 
+Iteration 0:  Log likelihood = -184853.93  
+Iteration 1:  Log likelihood = -184853.93  (backed up)
+
+Computing standard errors ...
+
+Mixed-effects ML regression                         Number of obs    =  84,931
+Group variable: cc                                  Number of groups =      64
+                                                    Obs per group:
+                                                                 min =     686
+                                                                 avg = 1,327.0
+                                                                 max =   4,018
+                                                    Wald chi2(24)    = 4900.64
+Log likelihood = -184853.93                         Prob > chi2      =  0.0000
+
+------------------------------------------------------------------------------
+        free | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+        town |      -0.00       0.01    -0.54    0.59        -0.02        0.01
+             |
+       class |
+Working c..  |       0.22       0.06     3.86    0.00         0.11        0.34
+Lower mid..  |       0.28       0.06     5.10    0.00         0.17        0.39
+Upp mid/u..  |       0.48       0.06     7.75    0.00         0.36        0.60
+             |
+class#c.town |
+Working c..  |       0.01       0.01     1.34    0.18        -0.01        0.03
+Lower mid..  |       0.01       0.01     1.28    0.20        -0.01        0.03
+Upp mid/u..  |       0.02       0.01     1.95    0.05        -0.00        0.04
+             |
+       trust |       0.09       0.02     4.82    0.00         0.05        0.13
+      famUns |      -0.18       0.01   -19.18    0.00        -0.20       -0.16
+      criVic |      -0.16       0.03    -6.30    0.00        -0.22       -0.11
+         age |       0.01       0.00     2.50    0.01         0.00        0.01
+        age2 |      -0.00       0.00    -1.29    0.20        -0.00        0.00
+        male |       0.01       0.02     0.35    0.72        -0.03        0.04
+         mar |       0.05       0.02     2.87    0.00         0.02        0.09
+             |
+         emp |
+  Part time  |      -0.10       0.03    -3.39    0.00        -0.15       -0.04
+Self empl..  |      -0.03       0.02    -1.10    0.27        -0.07        0.02
+    Retired  |      -0.02       0.03    -0.52    0.60        -0.08        0.05
+  Housewife  |      -0.20       0.03    -7.60    0.00        -0.25       -0.15
+   Students  |      -0.13       0.04    -3.34    0.00        -0.20       -0.05
+ Unemployed  |      -0.20       0.03    -6.63    0.00        -0.26       -0.14
+      Other  |      -0.29       0.07    -4.01    0.00        -0.43       -0.15
+             |
+      health |       0.47       0.01    52.12    0.00         0.46        0.49
+        kids |       0.01       0.01     1.85    0.06        -0.00        0.03
+     rel_imp |       0.05       0.01     5.85    0.00         0.04        0.07
+       _cons |       4.96       0.12    40.78    0.00         4.72        5.20
+------------------------------------------------------------------------------
+\end{verbatim}
+\end{spacing}{.19}
+\end{scriptsize}
+ \begin{figure}[H]
+  \includegraphics[height=3in]{ini6.pdf}\centering
+ \caption{\label{ini6}ini6}
+ \end{figure}
+ And then ini6: couple interesting things: first things flip from lower to
+ working class, then 
+ working and lower middle class quite similar, and the differences get larger
+ for upper middle and upper classes. 
+ 
+ 
+% \begin{scriptsize}
+% \begin{spacing}{.19} 
+% \begin{verbatim}
+
+% \end{verbatim}
+% \end{spacing}{.19}
+% \end{scriptsize}
+%  \begin{figure}[H]
+%   \includegraphics[height=3in]{??.pdf}\centering
+%  \caption{\label{??}??}
+%  \end{figure}
+
+
+
+
+ 
+\subsubsection{By region and country income group: Interactions with financial
+  satisfaction} %class income
+
+Here we repeat urbanicity interactions with financial satisfaction from the body
+of the paper but by region and income group; the first panel in each graph is
+repeated from the body of the paper.  
+
+In figure \ref{zzz} we see that the pattern is much stronger for East
+Asia/Pacific, and opposite especially in Middle East/North Africa, but also in
+North America. 
+
+ \begin{figure}[H]
+  \includegraphics[height=3in]{zzz.pdf}\centering
+ \caption{\label{zzz} Urbanicity interactions with financial satisfaction by region.}
+ \end{figure}
+
+ In figure \ref{xxx} high income has a similar pattern,
+ and lower middle income panel has a strong pattern, and quite the
+opposite pattern for upper middle income.  
+
+ \begin{figure}[H]
+  \includegraphics[height=3in]{xxx.pdf}\centering
+  \caption{\label{xxx} Urbanicity interactions with financial satisfaction by
+    income group. Note just 2 countries for low income group: ETH TJK.}
+ \end{figure}
+
+
+ 
+
+
+
+\section{Auxiliary results and sidenote} 
+
+\subsection{Some graphs}
+%/home/aok/papers/leonieAgency/tex/ 
+fig \ref{free_ine} and \ref{free_pov} 
+
+weird to think that more  ineq and pov  would produce more freedom/autonomy;
+rather i guess lax capitalist friendly regulation would produce more 
+ineq and pov, but should also produce less autonomy/freedom on avg, but it
+doesn't, there is positive relationship\\
+
+or maybe the other way round: more freedom/autonomy more ineq and pov
+
+
+
+
+ \begin{figure}[H]
+  \includegraphics[height=3in]{/home/aok/papers/leonieAgency/tex/free_ine.pdf}\centering
+ \caption{\label{free_ine}more ineq (inc share held by top 10perc, more autonomy--conservatives
+   would like it!! and pretty strong corr .4}
+ \end{figure}
+
+  \begin{figure}[H]
+  \includegraphics[height=3in]{/home/aok/papers/leonieAgency/tex/free_pov.pdf}\centering
+ \caption{\label{free_pov}likewise with poverty, but here corr just .2}
+ \end{figure}
+
+
+
+\subsection{Literature}
+
+\citet{newmanMisc20oct27} makes some useful points that may be worth citing in full:
+ \begin{quote}
+   Social theory typically conceives of urban growth as associated with
+   political freedom. [...]  But not even in the most likely of cases did the
+   city makes urban peasants free. Focusing on Mexico City, I argue that
+   because rural-to-urban migrants became urban denizens by establishing
+   squatter settlements, they entered into dependent relations with political
+   elites, which reinforced a system of political dependency, or clientelist
+   politics. [...] Mexico is, perhaps, the most iconic case. A large cross
+   section of the peasantry rose in arms against landowning oligarchs in the
+   insurrectionary phase of the Mexican Revolution (1910-1917), ultimately
+   precipitating the wholesale reconstruction of the political order.
+   Thereafter, peasants continued to mobilize for radical change, constituting a
+   major obstacle to postrevolutionary governing elites who sought to
+   consolidate control. [...] When a large and growing portion of rural-to-urban
+   migrants live in squatter settlements, and therefore have little recourse to
+   legal protection in residential matters, they almost inevitably grow
+   dependent on political elites--in an arrangement known as ``clientelism.'' Urban
+   concentration gives rise to clientelism.  
+ \end{quote}
+
+
+
+ 
+% is organized byu section, not subsection
+% !!!
+% have most of the stuff outputted to online appendix:)--start with that and then
+% select stuff to paper--have brief narrative describng patterns in online app too
+% !!!
+
+% \section*{Variables' definitions, coding, and distributions}
+% \label{app_var_des}
+
+
+% %\input{/tmp/a.tex} %aok_var_des
+
+% % \begin{spacing}{.9}
+% %   \begin{table}[H]\centering \caption{Summary statistics.} \label{sumSta} \begin{scriptsize} \begin{tabular}{p{1.8in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5in}p{.5
+% %             in}p{.5in}p{.5 in}}\hline
+% %         \input{/tmp/aha2.tex}
+% %          \end{tabular}\end{scriptsize}\end{table}
+% % \end{spacing}
+
+% % \begin{spacing}{.9}
+% %   \begin{table}[H]\centering \caption{Correlation matrix.} \label{sumSta} \begin{scriptsize} \begin{tabular}{@{}
+% %           p{1.2in} rrrrrrrrrrrrr @{}}\hline
+% %         \input{/tmp/ahb2.tex}\hline
+% %          \end{tabular}\end{scriptsize}\end{table}
+% % \end{spacing}
+
+
+
+% Table XXX shows variable distributions. If a variable has more than
+% 10 categories it is classified into bins...
+
+% %\input .... %TODO !!!! have input here histograms
+
+% \section*{Additional Descriptive Statistics}
+% \label{app_des_sta}
+
+% %make sure i have [H] or h! ???
+% % \begin{table}[H]
+% % \caption{}
+% % \centering
+% % \label{}
+% % \begin{scriptsize}
+% % \input{../out/reg_c.tex}
+% % \end{scriptsize}
+% % \end{table}
+
+%\newpage
+%\theendnotes
+
+
+\begin{scriptsize}
+\begin{spacing}{.9} 
+\begin{verbatim}
+. tabstat ls, by(lwd7) stat(mean sd) format(%9.1f)
+
+Summary for variables: ls
+Group variable: lwd7 (RECODE of lwd (do what you like))
+
+  lwd7 |      Mean        SD
+-------+--------------------
+   0-4 |       5.6       2.7
+     2 |       7.6       2.3
+     3 |       7.6       1.8
+     4 |       8.0       1.5
+     5 |       7.8       1.9
+     6 |       8.2       1.5
+     7 |       8.9       1.5
+-------+--------------------
+ Total |       8.3       1.9
+----------------------------
+\end{verbatim}
+\end{spacing}{.9}
+\end{scriptsize}
+
+
+\bibliography{/home/aok/papers/root/tex/ebib.bib,cityAgency.bib,/home/aok/papers/root/old/2021/swbCityWorld/tex/swbCityWorld.bib}
+
+\end{spacing}
+\end{document}
