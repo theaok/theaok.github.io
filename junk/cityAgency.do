@@ -763,7 +763,7 @@ margins,  at(settlement=(1 2 3 4 5)  sf3=(1 2 3))
 marginsplot
 
 
-
+use /tmp/allCC.dta,clear
 ta cc t3 //whoa!!!
 di r(r)
 ta t3 if cc=="AND"
@@ -771,11 +771,40 @@ levelsof cc,loc(__cc)
 foreach _cc in `__cc'{
 count if t3 == 3 & cc == "`_cc'"
 drop if `r(N)'<50 & cc == "`_cc'"
+count if t3 == 1 & cc == "`_cc'" 
+drop if `r(N)'<50 & cc == "`_cc'" //extra robustness check 
 di "`_cc'"  `r(N)'
-
 } 
 ta cc t3
 di r(r)
+
+
+//redoing m-fps.pdf
+mixed polSay i.t3##i.iii  i.X025R i.emp satFin health  rel_imp  || cc: i.t3  ,mle 
+margins,  at(t3=(1 2 3)  iii=(1 2 3))
+marginsplot,saving(a1,replace)ytitle("political say")scheme(s2mono)title("") text(2.98 1.4 "low and lower middle")text(2.9 1.4 "uper middle")text(2.78 1.4 "high")recast(line) legend(off)xtitle("size of a place") //xsc(off)
+
+mixed free i.t3##i.iii  mar i.emp satFin health kids rel_imp  || cc:  i.t3 ,mle
+margins,  at(t3=(1 2 3)  iii=(1 2 3))
+marginsplot,saving(a2,replace)ytitle("freedom")scheme(s2mono)title("") text(7.25 2.7 "low and lower middle")text(7.33 1.4 "uper middle")text(7.1 2.7 "high")recast(line) legend(off)xtitle("size of a place") xsc(off)
+graph combine a2.gph a1.gph, cols(1)  xsize(2) ysize(4) scale(1.1)
+
+
+//redoing zz.pdf not robust if drop if <50 in t3==1
+mixed free i.t3##i.sf3    mar i.emp health kids rel_imp  || cc:   ,mle
+est sto a                
+margins,  at(t3=(1 2 3)  sf=(1 2 3))
+marginsplot, xdimension(t3) xsize(2) ysize(2) saving(z1,replace) text(8.25 4 "{bf:a}", size(large))legend(off)text(7.87 1.32 "top 3 cat")text(7 1.32 "middle 3 cat")text(6.3 1.32 "bottom 4 cat")title("")ytitle("personal agency")scheme(s2mono)xsc(off)recast(line) //xtitle("rural-urban")
+mixed polSay i.t3##i.sf3   i.X025R  i.emp health  rel_imp  || cc:    ,mle //final! ditched mar and kids and added educ
+est sto a                
+margins,  at(t3=(1 2 3)  sf=(1 2 3))
+marginsplot ,xdimension(t3) xsize(2) ysize(2) saving(z2,replace) text(3.12 4 "{bf:b}", size(large))legend(off)text(2.98 1.42 "top 3 cat")text(2.88 1.42 "middle 3 cat")text(2.77 1.42 "bottom 4 cat")title("")ytitle("political efficacy")xtitle("rural-urban")scheme(s2mono)recast(line)
+graph combine z1.gph z2.gph, cols(1) scheme(s2mono) xsize(2) ysize(4) scale(1)
+
+
+
+
+
 twostep cc: reg free TTT2 TTT3 age age2 male mar i.emp satFin health kids rel_imp || edv _b_TTT3
 twostep cc: reg free TTT2 TTT3 age age2 male mar i.emp satFin health kids rel_imp || dot _b_TTT3  ,ylab(,labsize(tiny))  xline(0)  xlab(-1(0.5)1) xlabel(, labsize(small)) scopts(mcolor(black) ms(d)) ciopts(lcol(black)) xtitle("b-coefficients and 95%-CI of life autonomy per country on dummy for  gt500k v lt20k  (base case)", size(small))
 gr export ts-polSay.pdf, replace
