@@ -98,6 +98,8 @@ pdftex]{graphicx} %draft is a way to exclude figures
 \usepackage[latin1]{inputenc}
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows,backgrounds}
+\usetikzlibrary{trees}
+
 
 
 %\usepackage{color}					% For creating coloured text and background
@@ -163,12 +165,13 @@ pdftex]{graphicx} %draft is a way to exclude figures
 
 \vspace{-1in} 
 
-
 \begin{spacing}{1.4} %TODO MAYBE before submission can make it like 2.0
 \rowcolors{1}{white}{gray90}
 
 
-\section{changelog [proposal after this]}
+{\huge[proposal after this]}
+
+\section{changelog}
 \subsection{oct17 met with piotr and incorporating his comments} {\large \color{red}srch 'TODO' in this sec}\\
 
 
@@ -184,7 +187,7 @@ big/broad items
 
 comments/notes responses
 \begin{scriptsize}
-\begin{spacing}{.19} 
+\begin{spacing}{.89} 
 \begin{verbatim}
 Geographies of Wellbeing in Poland (Urban-Rural, Regions, and Cities)--bad title
 geog, not soc
@@ -364,12 +367,9 @@ literature.
 
 \section{Background, Problem Description, and Objectives}
 
-The proposed project fits under the UN Sustainable Development Goals (SDGs): \#3  "Ensure
-healthy lives and promote well-being for all at all ages," and \#11 "Make cities
-and human settlements inclusive, safe, resilient and sustainable." 
 
 The proposed study's outcome of interest is multidimensional human
-wellbeing or flourishing. Two key dimensions are happiness or life
+subjective wellbeing (SWB) or flourishing. Two key dimensions are happiness or life
 satisfaction\footnote{We use the terms interchangeably as is the usual practice
   in the social indicators literature, but specifically we mean global cognitive
  evaluation of life as whole rather than momentary and fleeing affective
@@ -381,8 +381,14 @@ Poles are \texttt{free from}: live in a free country, have no coercion,
  \citep{ee_ls15}?
 % Not so much \citep{ee_ls15}.
 }
-Both measures are defined and described in data section.
+ The measures are defined and described in data section. Wellbeing is
+ an increasingly recognized and relevant metric in academic research, world
+ development, policy and practice.   
 
+The proposed project fits under the UN Sustainable Development Goals (SDGs): \#3  "Ensure
+healthy lives and promote well-being for all at all ages." % and \#11 "Make cities
+% and human settlements inclusive, safe, resilient and sustainable." %not really
+% this one!
 Happiness is now recognized as a development goal in
 addition to GDP--the UN has passed resolution A/RES/65/309: ``Happiness: towards a holistic approach to
 development'' stating that ``the pursuit of happiness is a fundamental human
@@ -463,9 +469,9 @@ instance, Seligman \citep{seligman04,diener04s} led change in psychology that
 traditionally used to focus on the negative side of human condition such as
  loneliness, anxiety, and depression--where psychologists have been trying to
  bring people from failure to normal. He pointed out that we should now focus on
- how to go from normal to flourishing. Amartya Sen is another example \citep{stiglitz09al,sen00}. Being an
+ how to go from normal to flourishing. Amartya Sen is another example. Being an
  economist, he pointed out the limits of economic measures such as income and
- production, and proposed that the time has come to focus on wellbeing.
+ production, and proposed that the time has come to focus on wellbeing \citep{stiglitz09al,sen00}.
  %
  Poland still lacks a dedicated wellbeing study across its geographies and social
  groups. The proposed study aims to fill this gap.
@@ -696,8 +702,9 @@ improvement over usual binary or ternary urban-rural measurement in the literatu
     %Source: \url{https://commons.wikimedia.org/wiki/File:Humanwildlife_conflict_labeled.png}
     %\includegraphics[width=5in]{aok.png}\centering
     \includegraphics[width=5in]{transect.png}\centering
-    \caption{\label{urbRur} Urban-rural gradient visualization from right to
-      left with transect diagrams sumbolizing urban-rural environments and corresponding frownie to
+    \caption{\label{urbRur} From right to left:
+      Urban-rural gradient visualization with transect diagrams symbolizing
+      urban-rural environments and corresponding frownie to
       smiley emojis symbolizing wellbeing gradient.
     From urban to rural there is increasing nature, biodiversity and
     hypothetiszed wellbeing. Source: Authors. The transect
@@ -955,8 +962,58 @@ There are many avenues for specific policy and practice collaborations.
   Another avenue is to use the wellbeing metrics to evaluate policy. For instance, if
   there a major change in policy or investment in public goods, we can actually
   measure whether it produced an increase in wellbeing by using before-after
-  comparative group research design (difference-in-difference).}
- %
+  comparative group research design (difference-in-difference).} We could use a
+SWB yardstick to measure policy effectivness in terms of SWB. For instance,
+we identify a problem, say income inequality--see figure \ref{fOL}. We can
+ take action with progressive taxation to achieve redistribution that would
+ produce outcome of interest, income inequality. And we usually stop there, but
+ we should probe further--have we improved human lot, did we improve quality of
+ life, has wellbeing increased? Usually\footnote{There are few
+  exceptions to this rule, and SWB is not the only outcome
+ of interest especially in the short run, indeed, we may often 
+ need to sacrifice SWB in the short run in order to achieve it in
+ the long run--for instance save, invest, postpone consumption, and work
+ hard in order to increase SWB later.} the outcome of interest is only
+worthwhile if it leads to the ultimate outcome of interst, SWB \citep{aok_lsPol16}.
+
+% Define block styles
+\tikzstyle{s} = [rectangle, draw, fill=black!10
+     % text centered
+    , rounded corners,  text width=2.8cm]  %node distance=2cm, minimum height=0em,  minimum width=2cm,
+%\tikzstyle{s} = [draw, thin, fill=blue!20] 
+\tikzstyle{e} = [rectangle, draw,  fill=black!10,   text width=2.8cm, , rounded corners  %, minimum height=2.5em
+% , text width=5em
+]
+\tikzstyle{block} = [rectangle, draw, fill=black!20, 
+    text width=10em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{b} = [rectangle, draw,  
+    text width=6em, text centered, rounded corners, minimum height=4em]
+\tikzstyle{line} = [draw, -latex']
+\tikzstyle{cloud} = [draw, ellipse,fill=black!20, node distance = 5cm,
+    minimum height=2em]
+   
+    \begin{figure}[H]
+      \centering
+      \begin{tikzpicture}[thick, node distance=3.7cm, text centered
+        ,font=\small]
+        % Place nodes
+        \path[->] node[e,] (prob) {problem \\ (income inequality)};
+        \path[->] node[s, right of=prob] (act) {activity \\
+          (progressive taxes)} (prob) edge node {}(act);
+        \path[->] node[s, right of=act] (sub) {action/subobjective \\
+          (redistribution)} (act) edge node {}(sub); \path[->] node[s,
+        right of=sub] (out) {outcome of interest \\(income
+          equality)} (sub) edge node {}(out); \path[->] node[s, right
+        of=out] (hap) {ultimate outcome \\ (\textbf{SWB})} (out)
+        edge [dashed] node {}(hap);
+      \end{tikzpicture}
+
+    \caption{An outcome line. Usually we stop at {outcome of
+        interest}. Yet the  {outcome of
+      interest} is only of value (with few exceptions) if it results in SWB.}
+\label{fOL}
+\end{figure}
+
 One avenue would be to engage with energy policy. While in general energy use
 has been found to be unrelated to SWB earlier \citep{okulicz19}, this claim 
 needs to be re-examined amidst current energy crisis and skyrocketing
@@ -1007,7 +1064,7 @@ order indicates workload from high to low
   \item T2 months 0-2 setup project: complete necessary paperwork, notably employ team members at the
     university [all]; note: IRB approval is not necessary as we are using
     secondary data only
-  \item T3 months 0-48: in-person (whenever possible) or zoom (if necessary) weekly or at very
+  \item T3 months 0-48 meetings: in-person (whenever possible) or zoom (if necessary) weekly or at very
     least every two weeks meetings of team members currently involved in project
     tasks with PI [aok, team members currently working on tasks]
   \item T4 months 45-48 report and finalize: write final report and finalize the project [aok,lm,em]
@@ -1017,31 +1074,32 @@ order indicates workload from high to low
 %\begin{itemize}
 \item WP1 monthts 2-12: literature review
   \begin{itemize}
-  \item T1: assign literature domains to 2 AMU students, and have students
+  \item T1 literature review: assign literature domains to 2 AMU students, and have students
     perform the review [2students]
-  \item T2: have more senior team members 
+  \item T2 literature review supervision: have more senior team members 
     supervise the students and
-    hold periodic meetings at least every few weeks or as necessary [em,aok]
+    hold periodic meetings at least every 2 weeks or as necessary [em,aok]
     % !!use AI to check if we missed any literature
-  \item draft and revise literature reviews for subsequent 4-5 journal articles [2students,em,aok]
+  \item T3 finalize literature reviews: draft and revise literature reviews for
+    subsequent 4-5 journal articles [2students,em,aok] 
   \end{itemize}
 \item \colorbox{black}{\textcolor{white}{KM1 month12: literature review done}}
-\item WP2 months 2-18 H1 paper: data management, analysis, and paper drafting for hypothesis H1
+\item WP2 months 2-18 H1 papers: data management, analysis, and 2-3 papers drafting for hypothesis H1
   \begin{itemize}
   \item T1 data management: clean, organize, document, recode [em,1student,aok] 
   \item T2 exploratory data analysis: descriptive statistics and visualizations [em,1student,aok] 
   \item T3 main analyses: mostly regressions and robustness checks (see for
     details methods section) [em,aok,1student]
-  \item T4 review and revisions of the analyses by the senior team members [aok,pc,mb,pj]
-  \item T5 drafting of the paper and revisions [aok,lm,em,2students] 
+  \item T4 analysis review and revisions: review and revisions of the analyses by the senior team members [aok,pc,mb,pj]
+  \item T5 paper drafting and revisions: drafting of the papers and revisions [aok,lm,em,2students] 
   \end{itemize}
-\item \colorbox{black}{\textcolor{white}{KM2 month18: data analyzed and papers drafted for H1}}
-\item WP3 months 18-30 H2 paper: data management, analysis, and paper drafting for
+\item \colorbox{black}{\textcolor{white}{KM2 month18: data analyzed and 2-3 papers drafted for H1}}
+\item WP3 months 18-30 H2 paper: data management, analysis, and 1 paper drafting for
   hypothesis H2; Tasks are the same as in WP2
-\item \colorbox{black}{\textcolor{white}{KM3 month30: data analyzed and papers drafted for H2}}
-\item WP4 months 30-38 H3 paper: data management, analysis, and paper drafting for
+\item \colorbox{black}{\textcolor{white}{KM3 month30: data analyzed and 1 paper drafted for H2}}
+\item WP4 months 30-38 H3 paper: data management, analysis, and 1 paper drafting for
   hypothesis H3; Tasks are the same as in WP2 
-\item \colorbox{black}{\textcolor{white}{KM4 month38: data analyzed and papers drafted for H3}}
+\item \colorbox{black}{\textcolor{white}{KM4 month38: data analyzed and 1 paper drafted for H3}}
 \item WP5 months 18-48 dissemination: academic dissemination, real-world popularization, and policy engagement
   \begin{itemize}
   \item T1 articles:  $>=$ 3 submissions to journals with $IF>3$ such as
@@ -1050,11 +1108,11 @@ order indicates workload from high to low
   \item T2 conferences: 3 conference presentations such as  \texttt{International Society for
       Quality-of-Life Studies (ISQOLS)} or \texttt{European Regional Science
       Association (ERSA)} [aok,lm,em]
-  \item T3 popularization via popular media (e.g., Glos Wielkopolski) and or social
-    media (e.g., YouTube) [aok,lm,em,1student]
-  \item $>=$4 public lectures and or seminars at AMU and or other Polish universities
-  \item T4 engage with local public policy and administration starting in Poznan
+  \item T3 lectures:  $>=$4 public lectures and or seminars at AMU and or other Polish universities
+  \item T4 policy engagement: engage with local public policy and administration starting in Poznan
     and Wielkopolska [aok,1student]
+  \item T5 popularization: popularization via popular media (e.g., Glos Wielkopolski) and or social
+    media (e.g., YouTube) [aok,lm,em,1student]
   \end{itemize}
 \item \colorbox{black}{\textcolor{white}{KM5 month48: dissemination and popularization done}}
 \end{itemize}
