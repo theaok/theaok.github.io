@@ -1,0 +1,1825 @@
+%to have line numbers
+%\RequirePackage{lineno}
+\documentclass[10pt, letterpaper]{article}      
+\usepackage[margin=.1cm,font=small,labelfont=bf]{caption}[2007/03/09]
+%\usepackage{endnotes}
+%\let\footnote=\endnote
+\usepackage{setspace}
+\usepackage{longtable}                        
+\usepackage{anysize}                          
+\usepackage{natbib}                           
+%\bibpunct{(}{)}{,}{a}{,}{,}                   
+\bibpunct{(}{)}{,}{a}{}{,}                   
+\usepackage{amsmath}
+\usepackage[% draft,
+pdftex]{graphicx} %draft is a way to exclude figures                
+\usepackage{epstopdf}
+\usepackage{hyperref}                             % For creating hyperlinks in cross references
+\hypersetup{pdfborder={0 0 0.4}} %have nice light boxes on refs
+ 
+% \usepackage[margins]{trackchanges}
+
+% \note[editor]{The note}
+% \annote[editor]{Text to annotate}{The note}
+%    \add[editor]{Text to add}
+% \remove[editor]{Text to remove}
+% \change[editor]{Text to remove}{Text to add}
+
+%TODO make it more standard before submission: \marginsize{2cm}{2cm}{1cm}{1cm}
+\marginsize{1cm}{1cm}{.5cm}{.5cm}%{left}{right}{top}{bottom}   
+					          % Helps LaTeX put figures where YOU want
+ \renewcommand{\topfraction}{1}	                  % 90% of page top can be a float
+ \renewcommand{\bottomfraction}{1}	          % 90% of page bottom can be a float
+ \renewcommand{\textfraction}{0.0}	          % only 10% of page must to be text
+
+ \usepackage{float}                               %latex will not complain to include float after float
+
+\usepackage[table]{xcolor}                        %for table shading
+\definecolor{gray90}{gray}{0.90}
+\definecolor{orange}{RGB}{255,128,0}
+
+\renewcommand\arraystretch{.9}                    %for spacing of arrays like tabular
+
+%-------------------- my commands -----------------------------------------
+\newenvironment{ig}[1]{
+\begin{center}
+ %\includegraphics[height=5.0in]{#1} 
+ \includegraphics[height=3.3in]{#1} 
+\end{center}}
+
+ \newcommand{\cc}[1]{
+\hspace{-.13in}$\bullet$\marginpar{\begin{spacing}{.6}\begin{footnotesize}\color{blue}{#1}\end{footnotesize}\end{spacing}}
+\hspace{-.13in} }
+
+%-------------------- END my commands -----------------------------------------
+
+
+
+%-------------------- extra options -----------------------------------------
+
+%%%%%%%%%%%%%
+% footnotes %
+%%%%%%%%%%%%%
+
+%\long\def\symbolfootnote[#1]#2{\begingroup% %these can be used to make footnote  nonnumeric asterick, dagger etc
+%\def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup}	%see: http://help-csli.stanford.edu/tex/latex-footnotes.shtml
+
+%%%%%%%%%%%
+% spacing %
+%%%%%%%%%%%
+
+% \abovecaptionskip: space above caption
+% \belowcaptionskip: space below caption
+%\oddsidemargin 0cm
+%\evensidemargin 0cm
+
+%%%%%%%%%
+% style %
+%%%%%%%%%
+
+%\pagestyle{myheadings}         % Option to put page headers
+                               % Needed \documentclass[a4paper,twoside]{article}
+%\markboth{{\small\it Politics and Life Satisfaction }}
+%{{\small\it Adam Okulicz-Kozaryn} }
+
+%\headsep 1.5cm
+% \pagestyle{empty}			% no page numbers
+% \parindent  15.mm			% indent paragraph by this much
+% \parskip     2.mm			% space between paragraphs
+% \mathindent 20.mm			% indent math equations by this much
+
+%%%%%%%%%%%%%%%%%%
+% extra packages %
+%%%%%%%%%%%%%%%%%%
+
+\usepackage{datetime}
+
+
+\usepackage[latin1]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,backgrounds}
+
+
+%\usepackage{color}					% For creating coloured text and background
+%\usepackage{float}
+\usepackage{subfig}                                     % for combined figures
+
+\renewcommand{\ss}[1]{{\colorbox{blue}{\bf \color{white}{#1}}}}
+\newcommand{\ee}[1]{\endnote{\vspace{-.10in}\begin{spacing}{1.0}{\normalsize #1}\end{spacing}\vspace{.20in}}}
+\newcommand{\emd}[1]{\ExecuteMetaData[/tmp/tex]{#1}} % grab numbers  from stata
+
+%TODO before submitting comment this out to get 'regular fornt'
+\usepackage{sectsty}
+\allsectionsfont{\normalfont\sffamily}
+\usepackage{sectsty}
+\allsectionsfont{\normalfont\sffamily}
+\renewcommand\familydefault{\sfdefault}
+
+%\usepackage[margins]{trackchanges}
+\usepackage{rotating}
+\usepackage{catchfilebetweentags}
+
+\usepackage{abstract}
+\renewcommand{\abstractname}{}    % clear the title
+\renewcommand{\absnamepos}{empty} % originally center
+%-------------------- END extra options -----------------------------------------
+\date{{}\today \hspace{.2in}\xxivtime}
+\title{  
+  Personal and Political Agency Across the Urban-Rural Gradient  
+}
+\author{
+}
+
+\begin{document}
+
+\bibliographystyle{/home/aok/papers/root/tex/ecta}
+\maketitle
+\vspace{-.4in}
+\begin{center}
+
+\end{center}
+
+%\noindent\textbf{target jou:}\\
+ % cities if8.2,\\
+  %ariq if3ish,\\
+  %some soc j have soc lit: Toennies Simmel Durkheim maybe sth like j or urb soc or eur soc rev?\\
+  %rubia: we'll need to add more lit for soc journals, maybe try cities first and then move down the list? we could also try urban studies? then if no luck we can add more lit and try soc journals.
+
+\begin{abstract}
+  \noindent This study uses World Values Survey 7 (2017-2023) across 48-61 countries to test urban-rural differences in personal agency and political agency. Our findings indicate that personal agency is generally not higher in
+  urban than in rural areas, contrary to the expectation of the ``city air makes you free'' hypothesis--in most specifications, we find little to no difference. However, political agency is significantly higher in urban than in rural areas in high-income countries, consistent with the ``left behind ruralities''
+  hypothesis. Furthermore, as Toennies hypothesized, those doing well
+  financially are ``active and alive'' in cities or, as we find here, have
+  greater personal agency (but not political agency). Effect sizes are
+  small for personal agency, but considerable for political agency--in high income countries
+  adjusted for its predictors it  increases  from $<$20k to $>$500k by about .2 on 1-5 scale.
+  As in any correlational study, these findings do not establish causality. 
+\end{abstract}
+\vspace{.15in} 
+\noindent{\sc World Values Survey, freedom, agency, autonomy, political agency, urbanism, urban, rural,
+  urban-rural, cities
+}
+\vspace{.25in} 
+%rubia: abstract looks fine for Cities, do we need the "effect size" line? 
+
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-2}}
+
+
+\begin{spacing}{1.4} 
+\rowcolors{1}{white}{gray90}
+
+\noindent ``City life and Gesellschaft down the common people to decay and death.'' Ferdinand Toennies\\
+%\citep[p. 231]{tonnies57}
+
+
+\section{Introduction}
+``City air makes you free'' expresses a longstanding belief that cities offer freedom from the social constraints of rural life \citep{yamagishi12}. 
+%Hence, city residents are expected to be `freer' than those in rural areas. 
+Originally, the saying referred to freedom from feudal obligations \citep{harvey12,park84,yamagishi12}.\footnote{``Stadt Luft macht frei'' \citep[p. 12]{park84}. This saying originated in the Middle Ages, and it meant freedom from feudalism in cities; cities were non-feudal islands in a sea of feudalism \citep{harvey12}.}%Feudalism has long been gone, but we may be living under feudalism again, in the so called techno-feudalism \citep{varoufakis24,morozov2022critique}.
+%{Cloud  fiefdoms, rent, and digital serfdom through platforms like Google and Amazon ``enslave'' both urbanites and ruralities, but it's still perhaps possible that cities may be freer in the sense that there is more choice and opportunity with local traditional on the ground commerce, for example.}
+%While modern cities aren't clearly more free from techno-feudalism, as Middle Ages cities used to be from feudalism, cities are still often seen in the literature and popular culture as being more free than rural areas.}
+%rubia: see if you agree to reduce this footnote, not sure the discussion adds anything to the paper.
+ The saying also evokes the expectation that cities provide greater opportunities for individuals to shape their own lives. 
+In the social sciences, and sociology in particular, urbanization has long been viewed as one of the major drivers of human progress and empowerment. Classical sociologists described how the concentration of people in cities facilitates and necessitates a finer division of labor and greater specialization to satisfy existing and newly emerging, increasingly diverse needs \citep{durkheim2016,simmel1995}. 
+%rubia:can just cite them in-text
+Urbanization is accompanied by and interwoven with other large-scale processes such as economic development, industrialization, and social mobility, which increase the number of social interactions and interdependencies while diversifying society and weakening collective control over the individual \citep{durkheim2016,simmel1995}. Cities are a breeding ground for individual freedom--there individuals more often interact with and depend more strongly on people with different occupations, lifestyles, and values, while also enjoying greater freedom themselves to pursue different life paths in domains such as work, relationships, family, and leisure. 
+
+At the same time, the classical sociologists already warned against the relentless expansion of needs, whereby the city evokes wants and needs stimulated by ever--new products, services, and experiences, while people simultaneously become increasingly indifferent to these stimuli and to the novelty they offer \citep{durkheim2016,simmel1995}. Urban life may thus expand individuals' personal agency, i.e., their freedom to shape their lives in accordance with their own goals and values, but it may also constrain it by drawing them ever deeper into an endless cycle of expanding needs. 
+%
+% Yet the availability of opportunities does not necessarily translate into
+% greater perceived freedom and control over one's life.
+ Cities may offer more choices in employment, relationships, and lifestyles, but whether these possibilities translate into greater personal agency remains an empirical question. To date, surprisingly little is known about the urban-rural divide in personal agency, and existing research has yielded mixed results  \citep[e.g.,][]{atherton2024,kusnali2025,lolle2023differences}.
+%
+%rubia: we can comment this out or edit it, I was trying to make a connection between personal and political agency which we discuss next. so that it doesn't seem like political agency came out of nowhere. See if the edited is better, if not, we can remove it, maybe we don't need a bridge(?):
+%Importantly, perceived agency in one's personal life does not necessarily extend to the political sphere. Individuals may feel capable of shaping their personal circumstances (personal agency) while simultaneously feeling unable to influence political decisions affecting their communities (political agency).  agency.%rubia: humm, let;s just comment out, leave the intro as Leonie had it originally.
+
+Urbanization may also shape political agency, that is, individuals' confidence in their ability to influence political decisions and thereby shape their country and its future. In their classic account of the origins of modern party systems, \citet{lipsetrokkan1967} identify the urban-rural cleavage as one of four fundamental social cleavages, rooted in the conflict between agrarian interests in the countryside and emerging industrial and commercial interests in the cities. Historically, this conflict found expression in the formation of parties representing rural and agrarian interests, on the one hand, and urban and industrial interests, on the other. Although the political significance of this cleavage has changed over time, the urban-rural divide remains visible in contemporary electoral politics, for instance in differences in support for Green and far-right parties  \citep[e.g.,][]{crulli2024,marksetal2020,rickardsson2021}. 
+
+Although such political divides are often attributed to rural resentment, feelings of powerlessness, and political inefficacy, few studies directly quantify the urban-rural gap in perceived political agency. The few that do, however, find that urban residents perceive greater political agency than their rural counterparts  \citep[e.g.,][]{garcia2024they,luukkonen2022urbanisation,rowland2024political}.
+
+Both personal and political agency are substantially shaped by prevailing economic conditions and individual material resources. At the societal level, economic progress can expand people's opportunities by improving infrastructure, services, and welfare provision. At the individual level, it can reduce the most existential constraints on human choice by increasing access to, and the availability of, resources that provide the objective means to exercise choice \citep{welzelinglehart2001,welzeletal2003}. 
+
+Although economic progress is ultimately expected to expand human choice and opportunities for all, urban-rural disparities in these resources and opportunities tend to be substantially wider in developing than in developed countries, as has been documented, for instance for employment and wages \citep{ananian2024employment}, health care \citep{marthiasetal2025}, and life satisfaction \citep{easterlinetal2011}. Further, urban-rural differences in outcomes are partly attributable to inequalities in individual resources such as income, as studies of right-wing voting \citep{rickardsson2021} and life satisfaction \citep{easterlinetal2011} demonstrate. 
+%
+
+The greater range of choices available in cities does not guarantee that residents possess the means to exercise them. Thus, urbanization may expand the possibilities for personal agency without generating the same perceived freedom for everyone.
+
+This suggests that the opportunities associated with urban life are not equally accessible to all, echoing T\"{o}nnies's observation that ``[...] in the city and therefore where general conditions characteristic of the Gesellschaft prevail, only the upper strata, the rich and the cultured, are really active and alive'' \citep[p. 227]{tonnies57}. 
+
+%Taken together, the ``city air makes you free'' and the ``left behind ruralities'' hypotheses raise the questions: do people in cities feel both greater control over their own lives and a greater say in government decisions, or do urban-rural differences depend on which aspect we consider?
+These arguments raise three related questions: Do urban residents perceive greater personal agency and political agency than rural residents? Do these differences vary with countries' levels of economic development? And does individual material well-being shape whether urban opportunities translate into greater perceived agency? 
+
+To date, only a few studies have investigated urban-rural divides in personal and political agency, and they have predominantly focused on Western contexts and often focus on only one country. Those covering multiple countries have generally not examined cross-national variation or differences between social groups. Our paper thus makes three main contributions to the literature. First, we examine urban-rural divides in personal and political agency across a more heterogeneous set of countries than previous studies and explore how these divides vary between countries. Second, we investigate whether urban-rural divides in personal agency and political agency vary systematically with countries' levels of economic development. Third, we examine whether these divides vary according to individuals' satisfaction with material resources.
+
+
+%Its contemporary appeal rests on the idea that cities provide more opportunities and choices associated with different life domains (i.e., how and where to work/study/shop/worship/live, whom to form relationships with). The question is whether these opportunities and choices also translate into greater perceived freedom and control over one's life. Finding little or no difference in personal agency between urban and rural residents would therefore challenge this expectation and be worth reporting.
+
+%To examine this question, we focus on personal agency, which refers to perceived freedom of choice and control over one's life. Many studies approach freedom as a predictor of subjective wellbeing, but freedom
+%is also an end-in-itself \citep{aok_free_from_to}, as recognized by 
+%\citet{fromm13,fromm12,fromm92,fromm64,fromm44,fromm94} and \citet{sen00}. It is
+%a desirable outcome in just about any respect, except perhaps for the
+%responsibility that comes with it. In the Middle Ages there was little freedom,
+%but also little responsibility--for instance, the poor and slaves were not
+%considered responsible for their lot--their plight was God-given. These days,
+%the poor worry about being poor and about it being their fault--everyone is
+%free, after all, and their experiences and achievements, or lack thereof, are
+%seen as being of their own making.\footnote{
+% For instance,
+% people in the U.S. feel relatively free and so they blame the poor for their
+% lot, while people in Poland feel less free \citep{ee_ls15} and also blame the poor less
+% (anecdotal evidence).} 
+%in addition to
+%free var could add poor are lazy etc from wvs  
+% This distinction bring us to our second variable, political efficacy.
+%Political efficacy refers to the belief that one has a say in government
+%decisions. The ``left behind ruralities'' hypothesis suggests that people in
+%rural areas may feel neglected by institutions and excluded from decisions
+%affecting their communities and day to day
+%life\citep{ulrich2021people,rodriguez2018revenge}. This suggests that rural
+%areas residents may also feel that they have less say in government decisions
+%than residents in cities. This may explain the growing rural discontent in
+%developed countries like the United States \citep{aok-swbGenYcity18}. 
+
+In what follows, we first review the theoretical expectations concerning urban-rural differences in personal agency and political agency. We then describe the data and analytical approach, present our results, and consider their implications and limitations.  
+
+\section{Literature}
+\subsection{Perceived Personal Agency: ``City Air Makes You Free'' Hypothesis  %Freedom/autonomy defined
+}
+%rubia: smart moving the hypothesis here, love it. 
+% Some authors use term ``freedom'' \citep{aok_free_from_to} and some ``autonomy''
+% \citep{steckermeier22}--we use the terms interchangeably, but prefer
+% ``freedom'' as it seems to sound and fit better in this context.
+ 
+What is ``perceived personal agency'' or ``freedom'' for short?\footnote{Here we focus on personal as opposed to
+  agency/societal freedom and follow \citet{aok_free_from_to} in this paragraph.} To be free is to be able to choose, and to control and direct one's own life. Freedom is having control--a person is free if she is her own master. It could be labeled `psychological freedom': ``Freedom means a degree of harmony between basic motives and overt behavior'' \citep[Bay 1970, p. 83 cited in][]{aok_free_from_to}.
+ It is the ``capability to choose,'' having ``awareness of alternatives'' and ``courage to choose'' \citep{veenhoven00_b}.\footnote{The degree of perceived control over choice is called ``locus of control'' in psychology and \citet{verme09} argues that the WVS item used here measures locus of control in addition to freedom.}
+ Cities offer more choices than rural areas and, in this sense, more freedom. Yet, it is important to underscore that too much choice may also backfire and make it difficult to act or to choose, possibly leading to paralysis \citep{schwartz04}.
+%rubia: i agree with (2), so see suggestion here:
+Freedom is a broad concept encompassing multiple dimensions of individuals' ability to make choices and shape their lives. In this study, we focus specifically on perceived personal agency. While closely related to freedom, personal agency captures one particular dimension rather than the concept in its entirety. 
+%Personal agency is a broad concept% and could be sub-divided into dimensions
+\citet{hitlin09} review the concept in sociology (see also \citep{agencyScale25}). % \citet{kouba16} provide another useful review, which is relevant here as it points to our WVS measure.
+ Beyond its different dimensions, freedom also has value in its own right. The Universal Declaration of Human Rights recognizes freedom as a human right essential for the realization of one's human potential (arts. 26, 29).
+
+There are theoretical reasons to expect more personal agency in cities than in rural areas. In rural areas, mechanical solidarity prevails--rural residents function like parts of a simple machine--groups are held together through homogeneity and similarity:
+similar lifestyles, roles, shared values, and morality
+\citep{durkheim97}. Hence, rural areas enforce social conformity that is not conducive to individual freedom.
+ Cities provide freedom from traditional rural social constraints--Gesellschaft versus Gemeinschaft--deviation from community norms is more likely to be reprimanded and ostracized in rural than urban areas.
+On the other hand, organic solidarity in cities allows for more differentiation and individualism. %and individuation. %(Jung)
+%
+An urbanite may be more internally driven than rural residents, who are more externally constrained \citep{yamagishi12}.
+%
+While urbanites are more tolerant of others \citep{tuch87},  they are also more reserved.
+ % 
+ % 
+ \citet{simmel03} observed that urbanism forces individual differentiation: in an environment characterized by diversity and constant stimulation, individuals must distinguish themselves from others through increasingly extreme means, including extravagance and exaggeration. To some extent, this pressure to stand out may foster differentiation, individualism, and personal freedom. At the same
+time, the overload of stimuli overwhelms individuals, prompting them to distance themselves from their environment and adopt a blas\'{e} attitude toward others
+ \citep{simmel03}. Such responses may protect individuals' psyches, but emotional detachment and social withdrawal are not expressions of agency.
+% Likewise, there would be more Gemeinschaft in ruralities--more collective and
+% social that may restrict personal freedom; and more Gesellschaft in cities that
+% may promote individualism (but also hostility and aggression). 
+% 
+%rubia was saying sth like that in one of our papers too: 
+
+Cities provide more employment and social opportunities, so an urbanite is freer by being less concerned about social exclusion as she has plenty of alternatives \citep{yamagishi12}.\footnote{Also see discussion in \citet{luca2023progressive}.} %just srch for 'free' or 'freedom' 
+ %rubia: i added as footnote, but we can go back and add more from the paper discussion and then more that to the body of the paper.
+ One mechanism is higher social pressure to conform in rural areas--cities provide anonymity--indeed, concern for moral reputation is greater in rural than urban areas
+ \citep[][]{aokOttCh26}. %Danielson et al 2023 cited in
+ The higher the population density, the lower the frequency of social comparison \citep[][]{aokOttCh26}. %, as measured by Google searches 
+ 
+Conversely, theoretical arguments also suggest that people may feel less free in cities. City life is stressful, hectic, anxiety-provoking, materialistic, consumerist \citep{aokCityBook15}, and overstimulating \citep{simmel03,lederbogen11}--under such conditions, feeling free can be difficult.
+Steve Pile in his colorful writing argues that the history and past of old cities can be a weight on their inhabitants \citep{pile05,pile05B,pile99}, and old cities carry melancholia \citep{pile05B}. Based on Pile's argument, we hypothesize that the weight of history and melancholia can inhibit how free one feels.
+
+A multitude of studies have examined individual predictors of personal agency% using the same WVS measure as our study
+  \citep[e.g.,][]{aok_free_from_to,pitlik2016free,nikolaev2016give}, but none of them examine urbanicity. % There are also many studies on the effect of urban-rural on subjective wellbeing (SWB)
+% \citep[e.g.,][]{sorensen24,sorensen14,knies26,aok21}, but
+ The differences in freedom across the urban-rural gradient have been examined in only a handful of studies covering very few countries. These studies offer a
+ mixed picture, examining both general perceptions of agency and control over specific aspects of daily life. \citet{lolle2023differences} finds no differences in agency across communities of different sizes in Denmark. %, consistent with our results. 
+\citet{atherton2024rural} find that psychological well-being--which entails agency as a subcomponent--is lower in the most rural places compared to the most urban places in the USA; however, these effects become statistically insignificant once socio-demographic factors are controlled for. \citet{kusnali2025rural} find that women in Indonesia have more decision-making agency in many (i.e., household expenditures, food expenditures, time allocation to social activities) but not all (e.g., contraceptive use) aspects of daily life in urban compared to rural areas. Indian women have more autonomy in cities than in rural areas, both in personal and household decisions \citep{mishra2014relative}. 
+B\r{a}ge et al. find no urban-rural difference in people's
+perceived reproductive agency, i.e. how much freedom of choice and control they have over family planning, in Ethiopia, Kenya, and Zimbabwe \citep{baage2024attitudes} and sub-Saharan Africa \citep{baage2026reproductive}.
+Taken together, these findings leave open the question of whether urban-rural differences in perceived personal agency follow a universal pattern across countries. 
+
+\subsection{Perceived Political Agency: ``Left Behind Ruralities'' Hypothesis}
+
+%rubia: move this down into section
+%We turn next to political efficacy: the belief that one has a say in politics and that government will respond to one's voice. 
+%AI: It's a person's belief that she has a say in politics, a perception that goverment will respond to one's voice. 
+ 
+%\citet{lord2023autonomy} is a summary of their themed issue on ``Autonomy and
+%independence in urban environments.''  Rather suburban than rural contrasts for
+%urban, and more on culture and life cycle than space.
+ %
+As the world continues to urbanize, rural areas are disappearing 
+%, and so there is also  ``the perceived disappearance of rural childhood and the values
+%associated with it'' in Czech republic
+ \citep{pospvech2024loss}. Rurality in the developed world is increasingly peripheral, with declining political power and voice relative to urban centers and being abandoned and disrespected--thereby fueling rural discontent, resentment, and shame (see accounts in 
+ \citet{hansonCityJournalautumn15,fullerNYT17monD}). % This would suggest that
+ % rural areas in rich countries may have lower political efficacy--the belief
+ % that one has a say in politics and that government will respond to one's voice.
+  It is therefore hardly surprising that the more urbanized affluent democracies are increasingly witnessing a growing political divide between urban and rural areas, evident in voting patterns
+  \citep{huijsmans2025great,mettler2022growing}, political trust \citep{mitsch2021faith}, and perceptions of individual and community recognition \citep{hyland2024feeling}. 
+  %
+  % This may reflect their sense of being abandoned and disrespected, rather than inherently lower freedom or personal agency. 
+ %!!!opposite to our iniitial country level hypothesis that "This difference is more pronounced in less developed countries"
+ %
+ %what makes one a real rural person: in a classical study, Bell (1994) identified
+ %localism (a history of life in rural areas), ruralism (an experience with a rural kind of job), countryism (knowledge of country life) and communalism (interest in things that express a ties to the
+ %community) as key elements of belonging to a place.
+ %Peripherality, in other words, is defined through long distances and poor infrastructures but
+ %does not have to be experienced through them.
+ %
+ %And ruralities became digitized--children do not play outside in natura that
+ %much anymore, but instead on screens just like their urban counterparts. And
+ %autonomy is lost to screens--kids are dependent or even addicted to them.
+ %
+ %
+ % In general, a loss of power and respect does not necessarily mean a loss of personal autonomy; rural residents still have a good deal of agency. 
+
+ % As in the Czech Republic, in the U.S.
+ Rural resentment can emerge when people feel that policy is imposed on them, rather than developed with or for them; and there is racial resentment where rural Whites resent urban minorities and immigrants getting better treatment than them \citep{diamond23}. %p505
+ % handouts and skip the line
+ %
+ %ruralities more place attachment and nature conservation
+ Although rural life involves reliance on community and tight connections, self-reliance, autonomy, and freedom also remain core values \citep{diamond23}.
+
+Rural areas are 'left-behind' \citep{ulrich2021people} and 'places that don't matter' \citep{rodriguez2018revenge}%cited like 4k!!
+---they are second-tier areas with limited or deteriorating opportunities. 
+  %
+When people's opportunities are constrained, their freedom to exercise agency is likewise restricted \citep{ryan2004autonomy,welzel13}. Exercising agency
+requires access to meaningful and substantively different opportunities from which individuals can choose in pursuing lives that are consistent with their own
+goals and values \citep{sen1993markets,sen1999commodities,sen2005human}. Limited opportunities may therefore undermine both people's perceived ability to shape their own lives in accordance with these goals and values, and their perceived ability to shape the conditions in which their lives are embedded, such as institutions, infrastructure, and the built and natural environment.
+ %
+We therefore expect people living in 'left-behind' rural areas to perceive themselves as having less influence over the conditions in which they are embedded and that shape their lives, and consequently to perceive lower levels
+of political agency. %and personal agency.
+ 
+%leonie
+Only a few studies have investigated urban-rural differences in political agency. 
+% , suggesting that people from rural areas and small towns show lower levels of political efficacy compared to urbanites, \citep[e.g.,][]{rowland2024political} for the U.S. and \citet[e.g.,][]{luukkonen2022urbanisation} for Europe.
+ %
+ Studies investigating the urban-rural divide in political agency consistently find that people in urban areas perceive themselves as more politically efficacious than those in rural areas, both in Europe \citep{garcia2024they,luukkonen2022urbanisation} and the United States \citep{rowland2024political}.
+
+
+%\citet{margalit2025cultural} %looks like may be important study 
+Exploring rural resentment in Europe and the United States,
+\citet{margalit2025cultural} find that rural residents who feel they have little or no say in what  the government does are more likely to vote for populist parties in Europe and for Trump in the United States.
+%
+Political agency has been shown to be positively linked to political engagement \citep{accetta23}.\footnote{Self-efficacy and political agency have been shown to have opposing effects on the justification of terrorism and political violence: people who perceive themselves as highly self-efficacious and those who feel they have little political agency are less likely to justify such actions \citep{julkif2022self}.}
+
+Overall, these studies suggest that rural residents may feel less political agency than urban residents. %, even when they regain a sense of personal agency or freedom.
+ %
+However, to our knowledge, no study has investigated whether this relationship is universal across different contexts (such as countries with high or low GDP).
+ %
+Whether these urban-rural differences are universal across countries with different levels of economic development remains an open question.
+% Hence, there is a literature gap and a need to test the urban-rural personal agency and political efficacy gradient across countries using an appropriate dataset. Our study is the first to report the this urban-rural gradient across countries showing the personal agency and political efficacy gradient for each country separately. We use a suitable and accurate dataset and control for relevant predictors as described next.
+
+\section{Hypotheses}
+
+Against this backdrop, we investigate the following hypothesis:\\
+
+\begin{itemize}
+    \item[] \texttt{H1: Respondents residing in urban areas report significantly higher levels of personal and political agency than those residing in rural areas.}
+
+Given that economic and social progress unfolds unevenly across urban and rural areas depending on a country's level of development, we further hypothesize that the urban-rural divide is more pronounced in less developed countries:
+
+\item[] \texttt{H2: The urban-rural divide in personal and political agency is significantly larger in low- and middle-income countries than in high-income countries.}
+
+Finally, as differences in individual material resources may account for part of the urban-rural divide, we examine whether its magnitude varies across levels of individual material resources:
+
+\item[] \texttt{H3: The urban-rural divide in personal and political agency is smaller at higher levels of individual material resources.}
+
+A variation on this hypothesis, following Toennies' quote, is that the greater agency observed in cities mostly stems from well-to-do urbanites. 
+%rubia:do we need hypothesis H3a, does it make sense to just do this instead? ``more'' agency sounded weird
+
+\end{itemize}
+
+
+\section{Data and analytical strategy}
+
+
+To test these hypotheses, we use data from Wave 7 of the World Values Survey \citep{haerpfer2022}. The WVS is a repeated cross-sectional survey conducted approximately every five years since 1981 to study social, political, economic, religious, and cultural values, beliefs, and norms worldwide \citep{WVS2026a,WVS2026b}. It draws representative samples of each country's adult population using simple or multistage random sampling, depending on the country \citep{WVS2026c}. Data for Wave 7 were collected between 2017 and 2023, primarily
+through face-to-face interviews, although other modes of data collection, such as telephone interviews and self-completion, were also used in some countries \citep{WVS2026c}.
+
+% To test these hypotheses, we use the World Values Survey (WVS) Wave 7 from  
+%  \url{https://www.worldvaluessurvey.org}. The WVS is an outstanding free dataset that is comparable, if not better suited for our study, than the $\$30k+$ closed source Gallup dataset. It is helpful to use open source public data amidst the corporatization of research and academia \citep{mills2012corporatization,cox2013corporatization,millsNYT12fa,CatropaNYT20feb8,schmidlinNYT15oct10}. 
+%  %
+% WVS is representative of each country. Countries in the sample and sample sizes are shown in the appendix.
+
+
+\subsection{Operationalization}
+
+\textbf{Urban-Rural.} Although strictly speaking, urban-rural is a gradient rather than a dichotomy \citep{aok-ls_fisher16}, we employ a categorical operationalization of the degree of urbanization. This approach is consistent with the theoretical
+assumptions outlined above, which commonly postulate a rift between the rural countryside on the one hand and the metropolis on the other. Additionally, as survey respondents are often unevenly distributed across the community-size categories captured in surveys, collapsing these categories is common practice in empirical comparative urban-rural research \citep{aok21}. The original town-size variable, coded by interviewers into eight categories ranging from fewer than
+2,000 to 500,000 or more inhabitants, was thus collapsed into three categories:
+(1) rural areas, comprising communities with fewer than 20,000 inhabitants; (2) towns, comprising communities with 20,000 to fewer than 500,000 inhabitants; and (3) cities, comprising communities with 500,000 or more inhabitants.
+
+% In [Number]
+% countries, all respondents fell into a single category; we removed these
+% countries from the sample.
+In the appendix we do several robustness checks, including dropping countries with fewer than 50 observations per category extreme category.
+Results are similar except for interactions with financial satisfactuoin where we drop if $<$20k $<$50obs (results are robust when droping countries  where $>$500k $<$50obs).
+
+\textbf{Personal agency.} We operationalize personal agency using respondents' self-assessed freedom of choice and control, measured with the following item:
+``Some people feel they have completely free choice and control over their lives, while other people feel that what they do has no real effect on what happens to them. Please use this scale where 1 means `no choice at all' and 10 means `a
+great deal of choice' to indicate how much freedom of choice and control you feel you have over the way your life turns out.'' Higher values indicate stronger perceived personal agency. This item is commonly used to capture individuals' perceived agency
+\citep[e.g.,][]{verme09,inglehart08,veenhoven00_b,aok_free_from_to}
+and related concepts such as autonomy, locus of control,
+and fatalism  \citep[see][]{kouba16} for a conceptual discussion and \citep{steckermeier2022} for a review of empirical research based on this item). %rubia:Leonie's dissertation, correct?
+
+All variables including controls are listed in the appendix and distribution of all variables are also shown there. 
+We control for %age, age$^2$, male,
+married, employment type dummies (full/part time, self-employed, retired, housewife, student, unemployed, and other),
+financial satisfaction,\footnote{Financial satisfaction is key--not everyone needs the same amount of money to be financially satisfied and feel free. This is measured as ``How satisfied are you with the financial situation of your household?''} health, kids, and importance of religion.
+
+
+
+% Per controls we follow \citet{pitlik2016free,nikolaev2016give} except that we use financial satisfaction in most specifications instead of income as it arguably predicts freedom more than income. We found that it actually correlates higher in our sample, and also
+%  we don't use their country level democracy index, and use PCGDP \footnote{PCGDP is a macro-level contextual variable representing per capita Gross Domestic Product (often adjusted or paired with Purchasing Power Parity)} in the appendix only. 
+%  For the main models, we decided against controlling for age and and age$^2$, as it is rather urbanicity predicting age composition than the other way round, hence we would risk overcontrol bias. Likewise, we do not include gender as it likely differs less than age across urban-rural, and again rather predicted by than predicting
+%  urban-rural. Robustness tests controlling for these variables are presented in the Appendix and show that results are robust.     
+
+% We were tempted to add trust, crime victimization and fear of crime, as these correlate with urbanicity and may predict freedom. 
+% %and ineed inclusion of these yields larger coefficients.
+%  %
+%  % ``Have you been the victim of a crime during the past year?'' and
+%  % ``In the last 12 months, how often have you or your family: Felt unsafe from
+%  % crime in your own home''  
+%  %
+% % Yet we only include trust and crime victimization and fear of crime as last
+% % oversaturated model,
+% But eventually we do not include them because those are rather caused by urbanicity, not the other way round, and hence may lead to overcontrol bias:
+% \begin{quote}
+% What we really need, to identify/estimate X$->$Y, is to control for other
+% determinants of Y that are also antecedents of X (so, W$->$X). If we include
+% controls where the relationship goes the other way (X$->$W), we will exacerbate
+% bias in our estimate of X$->$Y. (The relevant term for that situation is 'overcontrol bias') \citep[][p. 5]{bartram24}.
+% \end{quote}
+Additional robustness tests were conducted resulting in oversaturated models; the addition of these controls yields larger coefficients, although overall substantive conclusions remain the same. Refer to the Appendix for more detail.
+
+\textbf{Political agency.} We operationalize political agency via respondents' answers to the question: ``How much would you say the political system in your country allows people like you to have a say in what the government does?'' Responses
+range from 1 (``A great deal'') to 5 (``Not at all''). We reverse the response categories so that higher values indicate stronger perceived political agency. The item is regularly used to capture external political agency \citep[e.g.,][]{sumino2025,bienstman2024}
+%rubia:i found bienstaman et al 2024, not 2023
+%Sumino, 2025; Bienstman et al., 2023) 
+and related concepts such as having a political voice \citep{pratsetal2023} and perceptions of political unfairness
+ \citep{in2024}. Unfortunately, this item was not fielded in Bolivia, Chile, China, Germany, Ecuador, Greece, South Korea, Puerto Rico, Romania, Russia, Serbia, Thailand, Turkey, and the United States. The sample for this part of the analysis is thus reduced to 48 countries (from 61 for analyses with personal agency).
+%rubia: number of countries needed
+% Tunisia.\footnote{Although Tunisian respondents were asked this question, the data for Tunisia were not curated properly and therefore could not be analyzed in this study. \url{https://onlinelibrary.wiley.com/doi/full/10.1111/ssqu.13120}} 
+% This question was fielded from 2018 onward, so  % countries whose fieldwork was completed before the question was added (except % Argentina where the question was fielded in 2017) were dropped from this
+ % analysis due to missing data.
+
+
+
+\textbf{Control variables. }
+In all analyses pertaining to political agency we control for the following factors which have been shown to be associated with political agency as well as to differ between urban and rural areas: education (political agency:
+\citep{emmenegger2015labour,garcia2024they,marx2016unemployed,rowland2024political}
+urban-rural: \citep{van2021urban,zahl2024spatial}, employment (political agency:
+\citet{emmenegger2015labour,luukkonen2022urbanisation,marx2016unemployed}
+urban-rural: \citet{e26,ananian2024employment}, material resources (political agency: 
+\citet{emmenegger2015labour,luukkonen2022urbanisation,marx2016unemployed,rowland2024political}
+; urban-rural:
+ \citet{finnemann2024urban,kpatcha2026unlocking,meloni2024rural}, health
+ (political agency: \citet{garcia2024they,gidengil2024healthy,shore2019health};
+ urban-rural: \citet{mackinnon2023mapping,menashe2022shifting}, and religiosity
+ (political agency: \citet{marx2016unemployed,rowland2024political} ;
+ urban-rural: \citet{balazka2020mapping,meulemann2020secularization}. 
+In all analyses pertaining to personal agency we additionally control for having a family because living with a partner and/or children has been shown to be associated with personal agency (e.g., \citet{nikolaev2016give,steckermeier2024,symoensetal2014}) as well as to differ between urban and rural areas
+(e.g., \citet{gautieretal2010}; \citet{stockdale2014life}.
+%
+It is worth emphasizing that a lot of studies that investigate antecedents of
+personal agency--and none of them look at urban/rural. 
+%
+% leonie
+% We control for education, as studies show that more educated people report greater political efficacy
+% \citep{emmenegger2015labour,garcia2024they,marx2016unemployed,rowland2024political}. We
+% also control for employment status. Compared with those in paid employment,
+% people in the education field report greater political efficacy,
+% whereas those who are permanently sick or disabled report lower political efficacy\citep{luukkonen2022urbanisation}. Unemployment and/or precarious employment are also negatively associated with political efficacy
+% \citep{emmenegger2015labour,marx2016unemployed}. 
+
+% We control for respondents' financial situation, as those who can make ends meet report greater political efficacy\citep{luukkonen2022urbanisation,marx2016unemployed}. Similarly, higher income is positively associated with political efficacy \citep{emmenegger2015labour,rowland2024political}. We also control for health and religiosity: better health is associated with greater political efficacy \citep{garcia2024they,gidengil2024healthy,shore2019health}, whereas more religious people report lower political efficacy\citep{marx2016unemployed,rowland2024political}.
+%  %
+% These variables also differ across urban and rural areas. Studies document urban-rural differences in education \citep{van2021urban,zahl2024spatial}, employment  \citep{e26,ananian2024employment}, financial situation
+%  \citep{kpatcha2026unlocking,meloni2024rural,finnemann2024urban},
+%  health \citep{mackinnon2023mapping,menashe2022shifting},
+%  and religiosity \citep{balazka2020mapping,meulemann2020secularization}. Controlling for these variables therefore allow us to examine whether urban-rural differences in political efficacy remain after accounting for these variables. 
+
+\section{Results}
+\subsection{Interactions with Level of Development}
+
+We begin by reporting in table \ref{m0} mean personal agency and political agency by settlement size and level of development. 
+
+\begin{table}[H]\centering\footnotesize
+\caption{\label{m0} Means by level of development. Categorization of development
+  according to World Bank income groups. LIC/LMIC= Lower income countries and
+  lower middle income countries. UMIC = Upper middle income countries. HIC =
+  High income countries.}
+\begin{tabular} {lrrrr|rrrr}   \hline 
+       & \multicolumn{4}{c|}{\bf personal agency}          &\multicolumn{4}{c}{\bf political agency}\\
+       & \multicolumn{4}{c}{country development}          &\multicolumn{4}{c}{country development}\\ 
+place  &overall&LIC/LMIC&UMIC&HIC&overall&LIC/LMIC&UMIC&HIC\\ \hline
+$<$20k &7.20   &7.11            &7.26        &7.24&2.96   &3.03            &3.06        &2.67\\
+20-500k&7.27   &7.21            &7.21        &7.36&2.88   &2.95            &2.83        &2.87\\
+$>$500k&7.12   &6.96            &7.40        &6.98&2.89   &2.67            &2.86        &2.99\\ \hline
+\end{tabular}\end{table}
+
+
+Table \ref{m0} shows the average reported levels of personal and political agency across rural, town, and city areas, by societal level of development and individual-level material resources.
+
+Overall, personal agency is lowest in cities and highest in
+towns, with rural areas in between. This pattern is also observed in less developed countries and especially high-income countries, but not in upper-middle-income countries, where the ranking is reversed--levels are highest in cities. Overall, however, these differences are small and disappear after controlling for predictors of freedom.
+
+Political agency, by contrast, is highest in rural areas, followed by cities and towns, which show practically identical levels. However, patterns of political agency differ
+considerably by a country's level of development. In  less developed countries, average perceived political agency is highest in rural areas and lowest in cities. In high-income countries, this pattern is reversed: people in cities report higher political agency than those in towns, who in turn report higher agency than those in rural areas. In upper middle, the pattern largely mirrors the overall results, with political agency highest in rural areas, followed by cities and then towns,
+where levels are relatively similar.
+
+This difference holds even when controlling for predictors of political agency. Margins are plotted in figure \ref{m-fps}. While the confidence intervals are
+wide, the interaction between $>$500k and high developed countries is significant versus the base case of $<$20k and low/lower development countries. The corresponding effects for personal agency are not statistically significant.
+
+\begin{figure}[H]
+ \includegraphics[height=5in]{m-fps.pdf}\centering
+\caption{\label{m-fps} m-fps these results are robust when droping countries
+  where $>$500k $<$50obs and $<$20k $<$50obs} 
+\end{figure}
+
+%fancy leonies margins
+%margins urbanrural, at(incgrp=(1 2 3)) pwcompare(effects) 
+
+In a nutshell, nothing significant for perosnal agency except one mariginally
+significant, but several significant for political agency. Margins with
+\texttt{pwcompare} are in appendix.
+\texttt{Personal Agency:}
+With one exception, there are no significant differences in the level of
+perceived agency between rural, town, and city areas irrespective of the level
+of development: In UMIC, people in city areas report significantly more personal
+agency than in rural areas (b=0.12*). 
+\texttt{Political Agency:}
+In LIC/LMIC there is no significant difference in political agency between
+rural, town and city areas. In UMIC rural residents report significantly
+stronger perceived political agency than town (b=0.09*) and city (b=0.13**)
+residents - whereas political agency does not differ significantly between town
+and city areas. In HIC people in rural areas report significantly less political
+agency than people in town (b=-0.13**) and city (-0.20***) areas; there is no
+significant difference in the level of perceived political agency between town
+and city areas.
+
+
+
+  
+\subsection{Interactions with Financial Satisfaction}
+
+In table \ref{m1} \texttt{personal agency} for {bottom 4} categories of \texttt{financial satisfaction}: highest in  $<$20k, and lowest in $>$500k. \texttt{Personal agency} for {middle 3} categories of \texttt{financial satisfaction}: highest in 20-500k; and likewise for {top 3}.
+
+\texttt{Political agency} for \texttt{bottom 4} categories of
+\texttt{financial satisfaction}: lowest in the middle 20-500k. 
+\texttt{Political agency} for \texttt{middle 3} categories of
+\texttt{financial satisfaction}: highest in the smallest places $<$20k; and likewise for the \texttt{top 3}.
+
+\begin{table}[H]\centering\footnotesize
+\caption{\label{m1} Means by level of financial satisfaction.}
+\begin{tabular} {lrrrr|rrrr}   \hline 
+       & \multicolumn{4}{c|}{\bf personal agency}          &\multicolumn{4}{c}{\bf political agency}\\
+       & \multicolumn{4}{c}{financial satisfaction:}          &\multicolumn{4}{c}{financial satisfaction:}\\ 
+place  &overall&bottom 4    &middle 3   &top 3&overall&bottom 4        &middle 3 &top 3\\ \hline
+$<$20k &7.20   & 6.25       &7.04        &8.09&2.96   & 2.78           & 2.96        &3.11\\
+20-500k&7.27   & 6.15       &7.15        &8.12&2.88   & 2.66           & 2.87        &3.01\\
+$>$500k&7.12   & 6.10       &6.99        &8.06&2.89   & 2.72           & 2.89        &3.02\\ \hline
+\end{tabular}\end{table}
+
+The results of the interactions with financial satisfaction  for both personal and political agency are visualized in figure \ref{zz}. We focus here on the visual interpretations using marginsplot, but all underlying regressions are in
+the appendix.
+ %
+The personal agency interaction results shown in panel (a) are significant. The relevant significant interactions we report are for the smallest places $<20k$ (against the base case of $>500k$) among respondents in the highest financial-satisfaction category(ies). 
+
+In panel (a), personal agency increases with size among respondents in the top three and also middle three financial-satisfaction categories from $<20k$ to $>500k$, but decreases for the bottom four categories. 
+% 
+In other words, personal agency differences are magnified in the largest cities between financial-satisfaction groups--financially satisfied respondents report a larger advantage in freedom over financially dissatisfied respondents in cities. The corresponding interaction results for political agency in panel (b) are insignificant. 
+
+\begin{figure}[H]
+ \includegraphics[height=5in]{zz.pdf}\centering
+\caption{\label{zz} zz these results are robust when droping countries
+  where $>$500k $<$50obs; but not where  $<$20k $<$50obs}
+\end{figure}
+
+%fancy leonies in app\\
+%margins urbanrural, at(incgrp=(1 2 3)) pwcompare(effects)
+In a nutshell, perosnal agency is  quite significant, and many significant for
+political agency--see for details appendix using marigins with \texttt{pwcompare}.
+\texttt{Personal Agency:}
+People with limited material resources report significantly more personal agency
+in rural areas than in town areas (b=0.10**); no other significant differences
+emerge.
+  %
+People with moderate material resources report more personal agency when
+residing in town areas (b=0.10***) and city areas (b=0.09***) as compared to
+rural areas, yet similar levels when comparing town and city areas.
+%
+People with substantial material resources report significantly higher levels of
+personal agency in city areas than rural areas (b=0.10**); no other significant
+differences emerge.
+%
+\texttt{Political Agency:}
+With one exception, no significant urban-rural differences remain, once
+investigated seperately by individuls level of material resources--suggesting
+that much of the urban-rural-divide in political agency is due to differences in
+material resources.
+The only small difference that emerges indicates that people with limited
+resources in rural areas report slightly more political agency (b=0.04*) than in
+town areas.
+
+
+
+\subsubsection{By Both: By Country Income Group Interactions with Financial
+  Satisfaction} %class income
+
+in figure \ref{kkk-free} pattern holds for LIC/LMIC and HIC, and quite opposite
+in UMIC
+
+ \begin{figure}[H]
+  \includegraphics[height=3in]{kkk-free.pdf}\centering
+ \caption{\label{kkk-free} kkk-free}
+ \end{figure}
+
+ in figure \ref{kkk-pol} whats interetsing is that in LIC/LMIC moist decrease
+ from rural to urban happens for most satisfied financially; and in HIC its all financial
+satisfaction groups that haev more political agency in cities
+ 
+  \begin{figure}[H]
+  \includegraphics[height=3in]{kkk-pol.pdf}\centering
+ \caption{\label{kkk-pol} kkk-pol}
+ \end{figure}
+
+
+We also present results separately by country in appendix. 
+
+
+\section{Discussion and Conclusion}
+
+\noindent ``In the city and therefore, where general conditions characteristic of the Gesellschaft prevail, only the upper strata, the rich and the cultured, are really active and alive.'' Ferdinand Toennies\\ %\citep[p. 227]{tonnies57}.
+
+The expectation that cities provide greater freedom is plausible, but in pooled models without interactions, we found no significant differences when controlling for country dummies.
+%
+It is a novel study. One of us is an expert in agency research and literature
+and it is worth emphasizing that really a lot of studies  investigate antecedents of
+personal agency--and *none* of them look at urban/rural. 
+%
+It is important to underscore that even finding no difference in personal agency
+level between urban and rural areas would be worth reporting, given our
+expectation of an urban advantage and  a positive relationship. 
+%
+Contrary to the longstanding expectation from theory and literature that cities
+offer greater freedom and opportunities, we find little evidence of an urban
+advantage over rural areas in personal agency. This particular finding is
+important to highlight as it suggests that the greater choices and opportunities
+found in cities do not seem to translate into a stronger sense of control over
+one's life.
+
+
+For political agency, however, we find it to be significantly higher in urban than in rural areas in high-income countries as hypothesized in the ``left behind ruralities'' hypothesis.
+We find support for Toennies' observation that ``in the city and therefore, where general conditions characteristic of the Gesellschaft prevail, only the upper strata, the rich and the cultured, are really active and alive'' \citep[p. 227]{tonnies57}.
+There are significant interactions in the pooled sample for financial satisfaction. 
+  
+Consistent with the findings of \citet{aok24swls}, urbanites probably have, in some ways, fuller and freer lives, but perhaps
+they realize more what they are missing relative to other urban residents, and feel relatively less free. It's possible that the availability of opportunities does not necessarily translate into the ability to use them. Costs, stress, and unequal resources may limit one's choices even when possibilities are endless.   
+
+Another mechanism could be that people tend to compare themselves with those who are better off\citep{frey02s} and there are a lot more people to compare to in urban areas. The inequality ladder is taller and the pond is bigger--a small fish in a big pond (city) seems to be less free than a big fish in a small pond (rural area). 
+
+In poorer and less economically developed countries, urban-rural differences in perceived freedom are greater across the rural-urban gradient, mostly less freedom in smaller places\footnote{(But sometimes more, refer to appendix)}--this makes sense--smaller places in developing countries can be very traditional and very poor--freedom is difficult in such places. In richer countries, on the other hand, one can already be free just about anywhere, residence in a large city may be less consequential. This is similar to findings in the literature with respect to happiness \citep{aokCityBook15}--only in the very poorest places, such as sub-Saharan Africa, is happiness greater in larger cities as material deprivation can limit access to necessities such as shelter and clean water in rural areas, making life unbearable. Everywhere else urbanites tend to be less happy \citep{aok21}.
+
+Overall, our findings suggest that the freedom associated with urban areas depends on which aspect we consider. Cities offer more opportunities and choices, but these do not necessarily translate into greater perceived freedom and control over one's life. Yet, for political agency, we find an urban advantage in rich countries, consistent with the ``left behind ruralities'' hypothesis. In rich countries, rural residents report lower political agency, even though personal agency generally shows little urban-rural difference. Hence, they may feel that they have control over their own lives while feeling that they have less say in government decisions. Future research could shed light on our findings by investigating whether rural residents perceptions of having less political voice reflect differences in institutional responsiveness, political representation, or access to decision making.
+
+
+
+%rubia:bib
+%\nocite{*}
+%\bibliographystyle{apalike}
+%\bibliography{cityAgency}
+
+%rubia: adam, uncomment the below comment, and comment out the above to run your bib
+\bibliography{/home/aok/papers/root/tex/ebib.bib,cityAgency.bib,/home/aok/papers/root/old/2021/swbCityWorld/tex/swbCityWorld.bib}
+
+\clearpage
+\setcounter{section}{0}
+ \part*{\Huge ONLINE APPENDIX (SOM)} %!!!!!!!!!NOTE: way more in original cityAgency.tex
+ \textbf{[note: this section will NOT be a part of the final version of
+   the manuscript, but will be available online instead as SOM 'Supplementary Online
+   Material']} %hence everything below
+
+\tableofcontents
+\addtocontents{toc}{\protect\setcounter{tocdepth}{3}} 
+
+\section{Variables' Definitions and  Descriptive Statistics}
+
+\input{varDes.tex}
+
+Per distributions it is worth noting left-skewed distribution on personal agency,
+unexpectedly most people feel maximally free at 10 out of 1-10, likewise but as expected with
+urbanism--most people are in the top category $>500k$, and again left-skewed on
+religion, probably not unexpected--religiosity is declining, but still
+strong. 
+
+\input{hist.tex}
+
+
+\section{Regressions underlying body results}
+
+\subsection{Interactions with level of development}
+
+\begin{scriptsize}
+\begin{spacing}{.19} 
+\begin{verbatim}
+ mixed polSay i.t3##i.iii  i.X025R i.emp satFin health  rel_imp  || cc: i.t3  ,mle //final! yes educ; no mar no kids
+
+Performing EM optimization ...
+
+Performing gradient-based optimization: 
+Iteration 0:  Log likelihood = -101253.19  
+Iteration 1:  Log likelihood = -101253.19  
+
+Computing standard errors ...
+
+Mixed-effects ML regression                         Number of obs    =  64,862
+Group variable: cc                                  Number of groups =      48
+                                                    Obs per group:
+                                                                 min =     726
+                                                                 avg = 1,351.3
+                                                                 max =   3,997
+                                                    Wald chi2(20)    =  890.11
+Log likelihood = -101253.19                         Prob > chi2      =  0.0000
+
+--------------------------------------------------------------------------------
+        polSay | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            t3 |
+      20-500k  |      -0.04       0.04    -0.96    0.34        -0.11        0.04
+       gt500k  |      -0.06       0.06    -1.07    0.28        -0.18        0.05
+               |
+           iii |
+            2  |      -0.01       0.13    -0.09    0.93        -0.26        0.24
+            3  |      -0.20       0.14    -1.49    0.14        -0.47        0.06
+               |
+        t3#iii |
+    20-500k#2  |      -0.05       0.05    -1.02    0.31        -0.16        0.05
+    20-500k#3  |       0.16       0.06     2.73    0.01         0.05        0.28
+     gt500k#2  |      -0.07       0.08    -0.87    0.39        -0.22        0.09
+     gt500k#3  |       0.26       0.09     2.87    0.00         0.08        0.44
+               |
+         X025R |
+       Middle  |       0.01       0.01     0.50    0.62        -0.02        0.03
+        Upper  |       0.05       0.01     3.78    0.00         0.02        0.07
+               |
+           emp |
+    Part time  |       0.00       0.02     0.04    0.97        -0.03        0.03
+Self employed  |      -0.02       0.01    -1.58    0.11        -0.05        0.01
+      Retired  |       0.01       0.02     0.37    0.71        -0.03        0.04
+    Housewife  |      -0.07       0.02    -4.40    0.00        -0.10       -0.04
+     Students  |       0.00       0.02     0.19    0.85        -0.04        0.04
+   Unemployed  |      -0.06       0.02    -3.09    0.00        -0.10       -0.02
+        Other  |      -0.03       0.05    -0.72    0.47        -0.13        0.06
+               |
+        satFin |       0.03       0.00    17.07    0.00         0.03        0.04
+        health |       0.07       0.01    12.53    0.00         0.06        0.08
+       rel_imp |       0.07       0.01    12.29    0.00         0.06        0.08
+         _cons |       2.27       0.09    23.94    0.00         2.09        2.46
+--------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects parameters  |   Estimate   Std. err.     [95% conf. interval]
+-----------------------------+------------------------------------------------
+cc: Independent              |
+                   var(2.t3) |       0.02       0.00          0.01        0.03
+                   var(3.t3) |       0.03       0.01          0.02        0.06
+                  var(_cons) |       0.13       0.03          0.09        0.20
+-----------------------------+------------------------------------------------
+               var(Residual) |       1.32       0.01          1.31        1.34
+------------------------------------------------------------------------------
+LR test vs. linear model: chi2(3) = 4821.97               Prob > chi2 = 0.0000
+
+Note: LR test is conservative and provided only for reference.
+
+. 
+. margins,  at(t3=(1 2 3)  iii=(1 2 3))
+
+Predictive margins                                      Number of obs = 64,862
+
+Expression: Linear prediction, fixed portion, predict()
+1._at: t3  = 1
+       iii = 1
+2._at: t3  = 1
+       iii = 2
+3._at: t3  = 1
+       iii = 3
+4._at: t3  = 2
+       iii = 1
+5._at: t3  = 2
+       iii = 2
+6._at: t3  = 2
+       iii = 3
+7._at: t3  = 3
+       iii = 1
+8._at: t3  = 3
+       iii = 2
+9._at: t3  = 3
+       iii = 3
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |     Margin   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         _at |
+          1  |       2.97       0.09    33.11    0.00         2.79        3.14
+          2  |       2.96       0.09    32.86    0.00         2.78        3.13
+          3  |       2.77       0.10    26.97    0.00         2.56        2.97
+          4  |       2.93       0.10    30.80    0.00         2.75        3.12
+          5  |       2.87       0.09    30.20    0.00         2.68        3.05
+          6  |       2.89       0.11    26.58    0.00         2.68        3.11
+          7  |       2.90       0.11    27.41    0.00         2.70        3.11
+          8  |       2.82       0.10    28.10    0.00         2.63        3.02
+          9  |       2.96       0.11    26.19    0.00         2.74        3.19
+------------------------------------------------------------------------------
+
+. marginsplot,saving(a1,replace)ytitle("political say")scheme(s2mono)title("") text(2.98 1.4 "low and lower middle")text(2.9 1.4 "uper middle")
+> text(2.78 1.4 "high")recast(line) legend(off)xtitle("size of a place") //xsc(off)
+
+Variables that uniquely identify margins: t3 iii
+file a1.gph saved
+
+
+. mixed free i.t3##i.iii  mar i.emp satFin health kids rel_imp  || cc:  i.t3 ,mle
+
+Performing EM optimization ...
+
+Performing gradient-based optimization: 
+Iteration 0:  Log likelihood = -181550.65  
+Iteration 1:  Log likelihood = -181550.65  
+
+Computing standard errors ...
+
+Mixed-effects ML regression                        Number of obs    =   84,775
+Group variable: cc                                 Number of groups =       61
+                                                   Obs per group:
+                                                                min =      849
+                                                                avg =  1,389.8
+                                                                max =    4,018
+                                                   Wald chi2(20)    = 10564.59
+Log likelihood = -181550.65                        Prob > chi2      =   0.0000
+
+--------------------------------------------------------------------------------
+          free | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            t3 |
+      20-500k  |       0.01       0.06     0.17    0.86        -0.10        0.12
+       gt500k  |       0.09       0.08     1.04    0.30        -0.08        0.25
+               |
+           iii |
+            2  |       0.12       0.17     0.74    0.46        -0.20        0.45
+            3  |      -0.03       0.18    -0.16    0.87        -0.37        0.32
+               |
+        t3#iii |
+    20-500k#2  |       0.03       0.07     0.40    0.69        -0.12        0.18
+    20-500k#3  |       0.05       0.08     0.67    0.50        -0.10        0.21
+     gt500k#2  |       0.04       0.11     0.36    0.72        -0.17        0.24
+     gt500k#3  |      -0.12       0.12    -1.00    0.32        -0.35        0.11
+               |
+           mar |       0.02       0.02     1.38    0.17        -0.01        0.06
+               |
+           emp |
+    Part time  |      -0.09       0.03    -3.31    0.00        -0.15       -0.04
+Self employed  |      -0.01       0.02    -0.44    0.66        -0.06        0.04
+      Retired  |      -0.06       0.02    -2.33    0.02        -0.11       -0.01
+    Housewife  |      -0.20       0.02    -8.49    0.00        -0.25       -0.16
+     Students  |      -0.21       0.03    -6.12    0.00        -0.27       -0.14
+   Unemployed  |      -0.11       0.03    -3.71    0.00        -0.17       -0.05
+        Other  |      -0.17       0.07    -2.49    0.01        -0.31       -0.04
+               |
+        satFin |       0.26       0.00    79.88    0.00         0.25        0.26
+        health |       0.34       0.01    38.79    0.00         0.33        0.36
+          kids |       0.03       0.01     4.58    0.00         0.01        0.04
+       rel_imp |       0.03       0.01     3.81    0.00         0.02        0.05
+         _cons |       4.16       0.13    30.94    0.00         3.90        4.42
+--------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects parameters  |   Estimate   Std. err.     [95% conf. interval]
+-----------------------------+------------------------------------------------
+cc: Independent              |
+                   var(2.t3) |       0.03       0.01          0.02        0.06
+                   var(3.t3) |       0.06       0.02          0.03        0.11
+                  var(_cons) |       0.27       0.05          0.19        0.39
+-----------------------------+------------------------------------------------
+               var(Residual) |       4.22       0.02          4.18        4.26
+------------------------------------------------------------------------------
+LR test vs. linear model: chi2(3) = 4153.75               Prob > chi2 = 0.0000
+
+Note: LR test is conservative and provided only for reference.
+
+. margins,  at(t3=(1 2 3)  iii=(1 2 3))
+
+Predictive margins                                      Number of obs = 84,775
+
+Expression: Linear prediction, fixed portion, predict()
+1._at: t3  = 1
+       iii = 1
+2._at: t3  = 1
+       iii = 2
+3._at: t3  = 1
+       iii = 3
+4._at: t3  = 2
+       iii = 1
+5._at: t3  = 2
+       iii = 2
+6._at: t3  = 2
+       iii = 3
+7._at: t3  = 3
+       iii = 1
+8._at: t3  = 3
+       iii = 2
+9._at: t3  = 3
+       iii = 3
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |     Margin   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         _at |
+          1  |       7.15       0.13    57.16    0.00         6.90        7.40
+          2  |       7.27       0.11    65.26    0.00         7.06        7.49
+          3  |       7.12       0.12    57.64    0.00         6.88        7.36
+          4  |       7.16       0.13    53.85    0.00         6.90        7.42
+          5  |       7.31       0.12    62.48    0.00         7.08        7.54
+          6  |       7.19       0.13    55.87    0.00         6.93        7.44
+          7  |       7.24       0.15    49.35    0.00         6.95        7.52
+          8  |       7.40       0.12    59.72    0.00         7.16        7.64
+          9  |       7.09       0.13    52.58    0.00         6.83        7.35
+------------------------------------------------------------------------------
+
+. marginsplot,saving(a2,replace)ytitle("freedom")scheme(s2mono)title("") text(7.25 2.7 "low and lower middle")text(7.33 1.4 "uper middle")text(
+> 7.1 2.7 "high")recast(line) legend(off)xtitle("size of a place") xsc(off)
+
+Variables that uniquely identify margins: t3 iii
+file a2.gph saved
+
+graph combine a2.gph a1.gph, cols(1)  xsize(2) ysize(4) scale(1.1)
+gr export m-fps.pdf,replace
+\end{verbatim}
+\end{spacing}{.19}
+\end{scriptsize}
+
+\subsubsection{which differences are significant at what level}
+
+\texttt{Personal Agency:}
+With one exception, there are no significant differences in the level of
+perceived agency between rural, town, and city areas irrespective of the level
+of development: In UMIC, people in city areas report significantly more personal
+agency than in rural areas (b=0.12*). 
+
+\texttt{Political Agency:}
+In LIC/LMIC there is no significant difference in political agency between
+rural, town and city areas. In UMIC rural residents report significantly
+stronger perceived political agency than town (b=0.09*) and city (b=0.13**)
+residents - whereas political agency does not differ significantly between town
+and city areas. In HIC people in rural areas report significantly less political agency than people in town (b=-0.13**) and city (-0.20***) areas; there is no significant difference in the level of perceived political agency between town and city areas.
+
+\begin{scriptsize}
+\begin{spacing}{.19} 
+\begin{verbatim}
+//this is for free
+FIRST JUST ONLY RELEVANT ONES, and below that all
+---------------------------------------------------------------------------------------------
+                            |            Delta-method    Unadjusted           Unadjusted
+                            |   Contrast   std. err.      z    P>|z|     [95% conf. interval]
+----------------------------+----------------------------------------------------------------
+                     _at#t3 |
+  (1#20-500k) vs (1#lt20k)  |       0.01       0.06     0.17    0.86        -0.10        0.12
+   (1#gt500k) vs (1#lt20k)  |       0.09       0.08     1.04    0.30        -0.08        0.25
+ (1#gt500k) vs (1#20-500k)  |       0.08       0.09     0.82    0.41        -0.11        0.26
+  (2#20-500k) vs (2#lt20k)  |       0.04       0.05     0.80    0.42        -0.06        0.14
+   (2#gt500k) vs (2#lt20k)  |       0.12       0.06     1.96    0.05        -0.00        0.25
+ (2#gt500k) vs (2#20-500k)  |       0.08       0.07     1.16    0.25        -0.06        0.23
+  (3#20-500k) vs (3#lt20k)  |       0.06       0.06     1.08    0.28        -0.05        0.18
+   (3#gt500k) vs (3#lt20k)  |      -0.03       0.08    -0.38    0.71        -0.19        0.13
+ (3#gt500k) vs (3#20-500k)  |      -0.10       0.09    -1.08    0.28        -0.27        0.08
+---------------------------------------------------------------------------------------------
+
+
+
+ //this is for free
+. margins t3, at(iii=(1 2 3)) pwcompare(effects)
+
+Pairwise comparisons of predictive margins              Number of obs = 84,775
+
+Expression: Linear prediction, fixed portion, predict()
+1._at: iii = 1
+2._at: iii = 2
+3._at: iii = 3
+
+---------------------------------------------------------------------------------------------
+                            |            Delta-method    Unadjusted           Unadjusted
+                            |   Contrast   std. err.      z    P>|z|     [95% conf. interval]
+----------------------------+----------------------------------------------------------------
+                     _at#t3 |
+  (1#20-500k) vs (1#lt20k)  |       0.01       0.06     0.17    0.86        -0.10        0.12
+   (1#gt500k) vs (1#lt20k)  |       0.09       0.08     1.04    0.30        -0.08        0.25
+    (2#lt20k) vs (1#lt20k)  |       0.12       0.17     0.74    0.46        -0.20        0.45
+  (2#20-500k) vs (1#lt20k)  |       0.16       0.17     0.96    0.34        -0.17        0.50
+   (2#gt500k) vs (1#lt20k)  |       0.25       0.18     1.41    0.16        -0.10        0.59
+    (3#lt20k) vs (1#lt20k)  |      -0.03       0.18    -0.16    0.87        -0.37        0.32
+  (3#20-500k) vs (1#lt20k)  |       0.04       0.18     0.20    0.84        -0.32        0.39
+   (3#gt500k) vs (1#lt20k)  |      -0.06       0.18    -0.33    0.75        -0.42        0.30
+ (1#gt500k) vs (1#20-500k)  |       0.08       0.09     0.82    0.41        -0.11        0.26
+  (2#lt20k) vs (1#20-500k)  |       0.11       0.17     0.66    0.51        -0.23        0.45
+(2#20-500k) vs (1#20-500k)  |       0.15       0.18     0.87    0.38        -0.19        0.50
+ (2#gt500k) vs (1#20-500k)  |       0.24       0.18     1.32    0.19        -0.12        0.60
+  (3#lt20k) vs (1#20-500k)  |      -0.04       0.18    -0.21    0.83        -0.39        0.32
+(3#20-500k) vs (1#20-500k)  |       0.03       0.19     0.14    0.89        -0.34        0.39
+ (3#gt500k) vs (1#20-500k)  |      -0.07       0.19    -0.37    0.71        -0.44        0.30
+   (2#lt20k) vs (1#gt500k)  |       0.04       0.18     0.20    0.84        -0.32        0.40
+ (2#20-500k) vs (1#gt500k)  |       0.08       0.19     0.41    0.68        -0.29        0.44
+  (2#gt500k) vs (1#gt500k)  |       0.16       0.19     0.84    0.40        -0.21        0.54
+   (3#lt20k) vs (1#gt500k)  |      -0.12       0.19    -0.60    0.55        -0.49        0.26
+ (3#20-500k) vs (1#gt500k)  |      -0.05       0.20    -0.26    0.79        -0.43        0.33
+  (3#gt500k) vs (1#gt500k)  |      -0.15       0.20    -0.74    0.46        -0.54        0.24
+  (2#20-500k) vs (2#lt20k)  |       0.04       0.05     0.80    0.42        -0.06        0.14
+   (2#gt500k) vs (2#lt20k)  |       0.12       0.06     1.96    0.05        -0.00        0.25
+    (3#lt20k) vs (2#lt20k)  |      -0.15       0.17    -0.92    0.36        -0.48        0.17
+  (3#20-500k) vs (2#lt20k)  |      -0.09       0.17    -0.52    0.60        -0.42        0.25
+   (3#gt500k) vs (2#lt20k)  |      -0.18       0.18    -1.05    0.29        -0.53        0.16
+ (2#gt500k) vs (2#20-500k)  |       0.08       0.07     1.16    0.25        -0.06        0.23
+  (3#lt20k) vs (2#20-500k)  |      -0.19       0.17    -1.13    0.26        -0.53        0.14
+(3#20-500k) vs (2#20-500k)  |      -0.13       0.17    -0.74    0.46        -0.47        0.21
+ (3#gt500k) vs (2#20-500k)  |      -0.22       0.18    -1.25    0.21        -0.57        0.13
+   (3#lt20k) vs (2#gt500k)  |      -0.28       0.18    -1.59    0.11        -0.62        0.07
+ (3#20-500k) vs (2#gt500k)  |      -0.21       0.18    -1.19    0.23        -0.56        0.14
+  (3#gt500k) vs (2#gt500k)  |      -0.31       0.18    -1.68    0.09        -0.67        0.05
+  (3#20-500k) vs (3#lt20k)  |       0.06       0.06     1.08    0.28        -0.05        0.18
+   (3#gt500k) vs (3#lt20k)  |      -0.03       0.08    -0.38    0.71        -0.19        0.13
+ (3#gt500k) vs (3#20-500k)  |      -0.10       0.09    -1.08    0.28        -0.27        0.08
+---------------------------------------------------------------------------------------------
+
+
+
+
+
+//this is for PolSay
+FIRST JUST ONLY RELEVANT ONES, and below that all
+---------------------------------------------------------------------------------------------
+                            |            Delta-method    Unadjusted           Unadjusted
+                            |   Contrast   std. err.      z    P>|z|     [95% conf. interval]
+----------------------------+----------------------------------------------------------------
+                     _at#t3 |
+  (1#20-500k) vs (1#lt20k)  |      -0.04       0.04    -0.96    0.34        -0.11        0.04
+   (1#gt500k) vs (1#lt20k)  |      -0.06       0.06    -1.07    0.28        -0.18        0.05
+ (1#gt500k) vs (1#20-500k)  |      -0.03       0.07    -0.42    0.67        -0.16        0.10
+  (2#20-500k) vs (2#lt20k)  |      -0.09       0.04    -2.41    0.02        -0.16       -0.02
+   (2#gt500k) vs (2#lt20k)  |      -0.13       0.05    -2.63    0.01        -0.23       -0.03
+ (2#gt500k) vs (2#20-500k)  |      -0.04       0.06    -0.72    0.47        -0.16        0.07
+  (3#20-500k) vs (3#lt20k)  |       0.13       0.05     2.74    0.01         0.04        0.22
+   (3#gt500k) vs (3#lt20k)  |       0.20       0.07     2.88    0.00         0.06        0.33
+ (3#gt500k) vs (3#20-500k)  |       0.07       0.08     0.93    0.35        -0.08        0.22
+---------------------------------------------------------------------------------------------
+
+
+
+//this is for PolSay
+ margins t3, at(iii=(1 2 3)) pwcompare(effects) 
+
+Pairwise comparisons of predictive margins              Number of obs = 64,862
+
+Expression: Linear prediction, fixed portion, predict()
+1._at: iii = 1
+2._at: iii = 2
+3._at: iii = 3
+
+---------------------------------------------------------------------------------------------
+                            |            Delta-method    Unadjusted           Unadjusted
+                            |   Contrast   std. err.      z    P>|z|     [95% conf. interval]
+----------------------------+----------------------------------------------------------------
+                     _at#t3 |
+  (1#20-500k) vs (1#lt20k)  |      -0.04       0.04    -0.96    0.34        -0.11        0.04
+   (1#gt500k) vs (1#lt20k)  |      -0.06       0.06    -1.07    0.28        -0.18        0.05
+    (2#lt20k) vs (1#lt20k)  |      -0.01       0.13    -0.09    0.93        -0.26        0.24
+  (2#20-500k) vs (1#lt20k)  |      -0.10       0.13    -0.78    0.43        -0.36        0.15
+   (2#gt500k) vs (1#lt20k)  |      -0.14       0.13    -1.07    0.28        -0.41        0.12
+    (3#lt20k) vs (1#lt20k)  |      -0.20       0.14    -1.49    0.14        -0.47        0.06
+  (3#20-500k) vs (1#lt20k)  |      -0.08       0.14    -0.55    0.59        -0.35        0.20
+   (3#gt500k) vs (1#lt20k)  |      -0.01       0.14    -0.03    0.97        -0.29        0.28
+ (1#gt500k) vs (1#20-500k)  |      -0.03       0.07    -0.42    0.67        -0.16        0.10
+  (2#lt20k) vs (1#20-500k)  |       0.02       0.13     0.19    0.85        -0.23        0.28
+(2#20-500k) vs (1#20-500k)  |      -0.07       0.13    -0.49    0.62        -0.33        0.20
+ (2#gt500k) vs (1#20-500k)  |      -0.11       0.14    -0.78    0.43        -0.38        0.16
+  (3#lt20k) vs (1#20-500k)  |      -0.17       0.14    -1.19    0.23        -0.44        0.11
+(3#20-500k) vs (1#20-500k)  |      -0.04       0.14    -0.28    0.78        -0.32        0.24
+ (3#gt500k) vs (1#20-500k)  |       0.03       0.15     0.21    0.83        -0.26        0.32
+   (2#lt20k) vs (1#gt500k)  |       0.05       0.14     0.38    0.70        -0.22        0.33
+ (2#20-500k) vs (1#gt500k)  |      -0.04       0.14    -0.26    0.79        -0.32        0.24
+  (2#gt500k) vs (1#gt500k)  |      -0.08       0.15    -0.55    0.58        -0.37        0.21
+   (3#lt20k) vs (1#gt500k)  |      -0.14       0.15    -0.94    0.35        -0.43        0.15
+ (3#20-500k) vs (1#gt500k)  |      -0.01       0.15    -0.08    0.93        -0.31        0.29
+  (3#gt500k) vs (1#gt500k)  |       0.06       0.16     0.38    0.70        -0.24        0.36
+  (2#20-500k) vs (2#lt20k)  |      -0.09       0.04    -2.41    0.02        -0.16       -0.02
+   (2#gt500k) vs (2#lt20k)  |      -0.13       0.05    -2.63    0.01        -0.23       -0.03
+    (3#lt20k) vs (2#lt20k)  |      -0.19       0.14    -1.40    0.16        -0.46        0.08
+  (3#20-500k) vs (2#lt20k)  |      -0.07       0.14    -0.46    0.64        -0.34        0.21
+   (3#gt500k) vs (2#lt20k)  |       0.01       0.14     0.05    0.96        -0.28        0.29
+ (2#gt500k) vs (2#20-500k)  |      -0.04       0.06    -0.72    0.47        -0.16        0.07
+  (3#lt20k) vs (2#20-500k)  |      -0.10       0.14    -0.73    0.47        -0.38        0.17
+(3#20-500k) vs (2#20-500k)  |       0.02       0.14     0.17    0.86        -0.26        0.31
+ (3#gt500k) vs (2#20-500k)  |       0.10       0.15     0.66    0.51        -0.19        0.39
+   (3#lt20k) vs (2#gt500k)  |      -0.06       0.14    -0.41    0.68        -0.34        0.22
+ (3#20-500k) vs (2#gt500k)  |       0.07       0.15     0.45    0.65        -0.22        0.36
+  (3#gt500k) vs (2#gt500k)  |       0.14       0.15     0.92    0.36        -0.16        0.44
+  (3#20-500k) vs (3#lt20k)  |       0.13       0.05     2.74    0.01         0.04        0.22
+   (3#gt500k) vs (3#lt20k)  |       0.20       0.07     2.88    0.00         0.06        0.33
+ (3#gt500k) vs (3#20-500k)  |       0.07       0.08     0.93    0.35        -0.08        0.22
+---------------------------------------------------------------------------------------------
+\end{verbatim}
+\end{spacing}{.19}
+\end{scriptsize}
+
+
+\subsection{Interactions with Financial Satisfaction}
+
+
+
+\begin{scriptsize}
+\begin{spacing}{.19} 
+\begin{verbatim}
+. mixed free i.t3##i.sf3    mar i.emp health kids rel_imp  || cc:   ,mle
+
+Performing EM optimization ...
+
+Performing gradient-based optimization: 
+Iteration 0:  Log likelihood = -184338.27  
+Iteration 1:  Log likelihood = -184338.27  
+
+Computing standard errors ...
+
+Mixed-effects ML regression                        Number of obs    =   85,997
+Group variable: cc                                 Number of groups =       62
+                                                   Obs per group:
+                                                                min =      849
+                                                                avg =  1,387.0
+                                                                max =    4,018
+                                                   Wald chi2(19)    = 10247.87
+Log likelihood = -184338.27                        Prob > chi2      =   0.0000
+
+--------------------------------------------------------------------------------
+          free | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            t3 |
+      20-500k  |      -0.10       0.04    -2.80    0.01        -0.17       -0.03
+       gt500k  |      -0.06       0.04    -1.56    0.12        -0.14        0.02
+               |
+           sf3 |
+            2  |       0.67       0.03    21.86    0.00         0.61        0.73
+            3  |       1.51       0.03    45.85    0.00         1.45        1.58
+               |
+        t3#sf3 |
+    20-500k#2  |       0.20       0.04     4.69    0.00         0.12        0.28
+    20-500k#3  |       0.14       0.05     3.08    0.00         0.05        0.23
+     gt500k#2  |       0.15       0.05     3.15    0.00         0.06        0.24
+     gt500k#3  |       0.16       0.05     3.16    0.00         0.06        0.26
+               |
+           mar |       0.02       0.02     1.24    0.21        -0.01        0.05
+               |
+           emp |
+    Part time  |      -0.09       0.03    -3.38    0.00        -0.15       -0.04
+Self employed  |      -0.01       0.02    -0.50    0.62        -0.06        0.03
+      Retired  |      -0.05       0.02    -2.17    0.03        -0.10       -0.01
+    Housewife  |      -0.21       0.02    -8.89    0.00        -0.26       -0.16
+     Students  |      -0.21       0.03    -6.10    0.00        -0.27       -0.14
+   Unemployed  |      -0.14       0.03    -4.83    0.00        -0.20       -0.08
+        Other  |      -0.21       0.07    -3.06    0.00        -0.35       -0.08
+               |
+        health |       0.37       0.01    42.11    0.00         0.35        0.39
+          kids |       0.03       0.01     4.45    0.00         0.01        0.04
+       rel_imp |       0.04       0.01     4.11    0.00         0.02        0.05
+         _cons |       4.89       0.08    59.41    0.00         4.73        5.05
+--------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects parameters  |   Estimate   Std. err.     [95% conf. interval]
+-----------------------------+------------------------------------------------
+cc: Identity                 |
+                  var(_cons) |       0.26       0.05          0.18        0.37
+-----------------------------+------------------------------------------------
+               var(Residual) |       4.25       0.02          4.21        4.29
+------------------------------------------------------------------------------
+LR test vs. linear model: chibar2(01) = 4212.60       Prob >= chibar2 = 0.0000
+
+. est sto a                
+
+. margins,  at(t3=(1 2 3)  sf=(1 2 3))
+
+Predictive margins                                      Number of obs = 85,997
+
+Expression: Linear prediction, fixed portion, predict()
+1._at: t3  = 1
+       sf3 = 1
+2._at: t3  = 1
+       sf3 = 2
+3._at: t3  = 1
+       sf3 = 3
+4._at: t3  = 2
+       sf3 = 1
+5._at: t3  = 2
+       sf3 = 2
+6._at: t3  = 2
+       sf3 = 3
+7._at: t3  = 3
+       sf3 = 1
+8._at: t3  = 3
+       sf3 = 2
+9._at: t3  = 3
+       sf3 = 3
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |     Margin   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         _at |
+          1  |       6.39       0.07    92.12    0.00         6.26        6.53
+          2  |       7.06       0.07   104.88    0.00         6.93        7.19
+          3  |       7.91       0.07   115.69    0.00         7.77        8.04
+          4  |       6.29       0.07    90.53    0.00         6.16        6.43
+          5  |       7.16       0.07   106.88    0.00         7.03        7.29
+          6  |       7.95       0.07   116.96    0.00         7.81        8.08
+          7  |       6.33       0.07    87.90    0.00         6.19        6.47
+          8  |       7.15       0.07   104.65    0.00         7.01        7.28
+          9  |       8.00       0.07   114.23    0.00         7.87        8.14
+------------------------------------------------------------------------------
+
+. marginsplot, xdimension(t3) xsize(2) ysize(2) saving(z1,replace) text(8.25 4 "{bf:a}", size(large))legend(off)text(7.87 1.32 "top 3 cat")text
+> (7 1.32 "middle 3 cat")text(6.3 1.32 "bottom 4 cat")title("")ytitle("personal agency")scheme(s2mono)xsc(off)recast(line) //xtitle("rural-urba
+> n")
+
+Variables that uniquely identify margins: t3 sf3
+file z1.gph saved
+
+. mixed polSay i.t3##i.sf3   i.X025R  i.emp health  rel_imp  || cc:    ,mle //final! ditched mar and kids and added educ
+
+Performing EM optimization ...
+
+Performing gradient-based optimization: 
+Iteration 0:  Log likelihood = -103869.52  
+Iteration 1:  Log likelihood = -103869.52  (backed up)
+
+Computing standard errors ...
+
+Mixed-effects ML regression                         Number of obs    =  66,483
+Group variable: cc                                  Number of groups =      50
+                                                    Obs per group:
+                                                                 min =     416
+                                                                 avg = 1,329.7
+                                                                 max =   3,997
+                                                    Wald chi2(19)    =  862.78
+Log likelihood = -103869.52                         Prob > chi2      =  0.0000
+
+--------------------------------------------------------------------------------
+        polSay | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            t3 |
+      20-500k  |      -0.04       0.02    -1.99    0.05        -0.09       -0.00
+       gt500k  |      -0.03       0.03    -1.17    0.24        -0.08        0.02
+               |
+           sf3 |
+            2  |       0.10       0.02     5.22    0.00         0.06        0.14
+            3  |       0.19       0.02     9.56    0.00         0.15        0.23
+               |
+        t3#sf3 |
+    20-500k#2  |       0.04       0.03     1.35    0.18        -0.02        0.09
+    20-500k#3  |       0.04       0.03     1.50    0.13        -0.01        0.10
+     gt500k#2  |       0.02       0.03     0.80    0.42        -0.03        0.08
+     gt500k#3  |       0.03       0.03     0.81    0.42        -0.04        0.09
+               |
+         X025R |
+       Middle  |       0.00       0.01     0.03    0.98        -0.02        0.02
+        Upper  |       0.04       0.01     3.42    0.00         0.02        0.07
+               |
+           emp |
+    Part time  |      -0.00       0.02    -0.18    0.86        -0.04        0.03
+Self employed  |      -0.02       0.01    -1.38    0.17        -0.05        0.01
+      Retired  |       0.00       0.02     0.17    0.86        -0.03        0.03
+    Housewife  |      -0.07       0.02    -4.36    0.00        -0.10       -0.04
+     Students  |       0.00       0.02     0.24    0.81        -0.04        0.05
+   Unemployed  |      -0.06       0.02    -3.22    0.00        -0.10       -0.02
+        Other  |      -0.02       0.05    -0.49    0.62        -0.11        0.07
+               |
+        health |       0.08       0.01    13.80    0.00         0.06        0.09
+       rel_imp |       0.07       0.01    12.79    0.00         0.06        0.08
+         _cons |       2.30       0.06    38.08    0.00         2.18        2.42
+--------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects parameters  |   Estimate   Std. err.     [95% conf. interval]
+-----------------------------+------------------------------------------------
+cc: Identity                 |
+                  var(_cons) |       0.13       0.03          0.09        0.20
+-----------------------------+------------------------------------------------
+               var(Residual) |       1.33       0.01          1.31        1.34
+------------------------------------------------------------------------------
+LR test vs. linear model: chibar2(01) = 5171.45       Prob >= chibar2 = 0.0000
+
+. est sto a                
+
+. margins,  at(t3=(1 2 3)  sf=(1 2 3))
+
+Predictive margins                                      Number of obs = 66,483
+
+Expression: Linear prediction, fixed portion, predict()
+1._at: t3  = 1
+       sf3 = 1
+2._at: t3  = 1
+       sf3 = 2
+3._at: t3  = 1
+       sf3 = 3
+4._at: t3  = 2
+       sf3 = 1
+5._at: t3  = 2
+       sf3 = 2
+6._at: t3  = 2
+       sf3 = 3
+7._at: t3  = 3
+       sf3 = 1
+8._at: t3  = 3
+       sf3 = 2
+9._at: t3  = 3
+       sf3 = 3
+
+------------------------------------------------------------------------------
+             |            Delta-method
+             |     Margin   std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         _at |
+          1  |       2.80       0.05    52.26    0.00         2.70        2.91
+          2  |       2.90       0.05    55.09    0.00         2.80        3.01
+          3  |       3.00       0.05    56.44    0.00         2.89        3.10
+          4  |       2.76       0.05    51.09    0.00         2.65        2.87
+          5  |       2.89       0.05    54.94    0.00         2.79        3.00
+          6  |       3.00       0.05    56.43    0.00         2.89        3.10
+          7  |       2.77       0.06    50.20    0.00         2.67        2.88
+          8  |       2.90       0.05    54.34    0.00         2.79        3.00
+          9  |       2.99       0.05    55.34    0.00         2.89        3.10
+------------------------------------------------------------------------------
+
+. marginsplot ,xdimension(t3) xsize(2) ysize(2) saving(z2,replace) text(3.12 4 "{bf:b}", size(large))legend(off)text(2.98 1.42 "top 3 cat")text
+> (2.88 1.42 "middle 3 cat")text(2.77 1.42 "bottom 4 cat")title("")ytitle("political efficacy")xtitle("rural-urban")scheme(s2mono)recast(line)
+
+Variables that uniquely identify margins: t3 sf3
+file z2.gph saved
+
+. graph combine z1.gph z2.gph, cols(1) scheme(s2mono) xsize(2) ysize(4) scale(1)
+
+. gr export zz.pdf,replace
+file zz.pdf saved as PDF format
+\end{verbatim}
+\end{spacing}{.19}
+\end{scriptsize}
+
+\subsubsection{which differences are significant at what level}
+\texttt{Personal Agency:}
+People with limited material resources report significantly more personal agency
+in rural areas than in town areas (b=0.10**); no other significant differences
+emerge.
+  %
+People with moderate material resources report more personal agency when
+residing in town areas (b=0.10***) and city areas (b=0.09***) as compared to
+rural areas, yet similar levels when comparing town and city areas.
+%
+People with substantial material resources report significantly higher levels of
+personal agency in city areas than rural areas (b=0.10**); no other significant
+differences emerge.
+
+\texttt{Political Agency:}
+With one exception, no significant urban-rural differences remain, once investigated seperately by individuls level of material resources - suggesting that much of the urban-rural-divide in political agency is due to differences in material resources.
+The only small difference that emerges indicates that people with limited
+resources in rural areas report slightly more political agency (b=0.04*) than in
+town areas
+
+
+
+\begin{scriptsize}
+\begin{spacing}{.19} 
+\begin{verbatim}
+. //this is for free
+FIRST JUST ONLY RELEVANT ONES, and below that all
+---------------------------------------------------------------------------------------------
+                            |            Delta-method    Unadjusted           Unadjusted
+                            |   Contrast   std. err.      z    P>|z|     [95% conf. interval]
+----------------------------+----------------------------------------------------------------
+                     _at#t3 |
+  (1#20-500k) vs (1#lt20k)  |      -0.10       0.04    -2.80    0.01        -0.17       -0.03
+   (1#gt500k) vs (1#lt20k)  |      -0.06       0.04    -1.56    0.12        -0.14        0.02
+ (1#gt500k) vs (1#20-500k)  |       0.04       0.04     0.88    0.38        -0.04        0.12
+  (2#20-500k) vs (2#lt20k)  |       0.10       0.03     3.77    0.00         0.05        0.15
+   (2#gt500k) vs (2#lt20k)  |       0.09       0.03     2.85    0.00         0.03        0.15
+ (2#gt500k) vs (2#20-500k)  |      -0.01       0.03    -0.47    0.64        -0.07        0.04
+  (3#20-500k) vs (3#lt20k)  |       0.04       0.03     1.29    0.20        -0.02        0.10
+   (3#gt500k) vs (3#lt20k)  |       0.10       0.04     2.77    0.01         0.03        0.17
+ (3#gt500k) vs (3#20-500k)  |       0.06       0.03     1.71    0.09        -0.01        0.13
+---------------------------------------------------------------------------------------------
+
+
+. //this is for free
+. margins t3, at(sf3=(1 2 3)) pwcompare(effects)
+
+Pairwise comparisons of predictive margins              Number of obs = 85,997
+
+Expression: Linear prediction, fixed portion, predict()
+1._at: sf3 = 1
+2._at: sf3 = 2
+3._at: sf3 = 3
+
+---------------------------------------------------------------------------------------------
+                            |            Delta-method    Unadjusted           Unadjusted
+                            |   Contrast   std. err.      z    P>|z|     [95% conf. interval]
+----------------------------+----------------------------------------------------------------
+                     _at#t3 |
+  (1#20-500k) vs (1#lt20k)  |      -0.10       0.04    -2.80    0.01        -0.17       -0.03
+   (1#gt500k) vs (1#lt20k)  |      -0.06       0.04    -1.56    0.12        -0.14        0.02
+    (2#lt20k) vs (1#lt20k)  |       0.67       0.03    21.86    0.00         0.61        0.73
+  (2#20-500k) vs (1#lt20k)  |       0.77       0.03    24.51    0.00         0.71        0.83
+   (2#gt500k) vs (1#lt20k)  |       0.76       0.03    21.82    0.00         0.69        0.82
+    (3#lt20k) vs (1#lt20k)  |       1.51       0.03    45.85    0.00         1.45        1.58
+  (3#20-500k) vs (1#lt20k)  |       1.55       0.03    46.14    0.00         1.49        1.62
+   (3#gt500k) vs (1#lt20k)  |       1.61       0.04    42.28    0.00         1.54        1.69
+ (1#gt500k) vs (1#20-500k)  |       0.04       0.04     0.88    0.38        -0.04        0.12
+  (2#lt20k) vs (1#20-500k)  |       0.77       0.03    23.92    0.00         0.71        0.83
+(2#20-500k) vs (1#20-500k)  |       0.87       0.03    28.57    0.00         0.81        0.93
+ (2#gt500k) vs (1#20-500k)  |       0.86       0.03    24.99    0.00         0.79        0.92
+  (3#lt20k) vs (1#20-500k)  |       1.61       0.03    46.59    0.00         1.55        1.68
+(3#20-500k) vs (1#20-500k)  |       1.65       0.03    50.32    0.00         1.59        1.72
+ (3#gt500k) vs (1#20-500k)  |       1.71       0.04    45.24    0.00         1.64        1.79
+   (2#lt20k) vs (1#gt500k)  |       0.73       0.04    19.50    0.00         0.66        0.81
+ (2#20-500k) vs (1#gt500k)  |       0.83       0.04    22.78    0.00         0.76        0.91
+  (2#gt500k) vs (1#gt500k)  |       0.82       0.04    22.23    0.00         0.75        0.89
+   (3#lt20k) vs (1#gt500k)  |       1.58       0.04    39.69    0.00         1.50        1.66
+ (3#20-500k) vs (1#gt500k)  |       1.62       0.04    41.79    0.00         1.54        1.69
+  (3#gt500k) vs (1#gt500k)  |       1.68       0.04    41.27    0.00         1.60        1.76
+  (2#20-500k) vs (2#lt20k)  |       0.10       0.03     3.77    0.00         0.05        0.15
+   (2#gt500k) vs (2#lt20k)  |       0.09       0.03     2.85    0.00         0.03        0.15
+    (3#lt20k) vs (2#lt20k)  |       0.84       0.03    30.44    0.00         0.79        0.90
+  (3#20-500k) vs (2#lt20k)  |       0.88       0.03    30.71    0.00         0.83        0.94
+   (3#gt500k) vs (2#lt20k)  |       0.94       0.03    27.85    0.00         0.88        1.01
+ (2#gt500k) vs (2#20-500k)  |      -0.01       0.03    -0.47    0.64        -0.07        0.04
+  (3#lt20k) vs (2#20-500k)  |       0.74       0.03    25.59    0.00         0.69        0.80
+(3#20-500k) vs (2#20-500k)  |       0.78       0.03    29.99    0.00         0.73        0.84
+ (3#gt500k) vs (2#20-500k)  |       0.84       0.03    25.80    0.00         0.78        0.91
+   (3#lt20k) vs (2#gt500k)  |       0.76       0.03    23.33    0.00         0.69        0.82
+ (3#20-500k) vs (2#gt500k)  |       0.80       0.03    25.70    0.00         0.74        0.86
+  (3#gt500k) vs (2#gt500k)  |       0.86       0.03    26.32    0.00         0.79        0.92
+  (3#20-500k) vs (3#lt20k)  |       0.04       0.03     1.29    0.20        -0.02        0.10
+   (3#gt500k) vs (3#lt20k)  |       0.10       0.04     2.77    0.01         0.03        0.17
+ (3#gt500k) vs (3#20-500k)  |       0.06       0.03     1.71    0.09        -0.01        0.13
+---------------------------------------------------------------------------------------------
+
+
+
+//this is for polSay
+FIRST JUST ONLY RELEVANT ONES, and below that all
+---------------------------------------------------------------------------------------------
+                            |            Delta-method    Unadjusted           Unadjusted
+                            |   Contrast   std. err.      z    P>|z|     [95% conf. interval]
+----------------------------+----------------------------------------------------------------
+                     _at#t3 |
+  (1#20-500k) vs (1#lt20k)  |      -0.04       0.02    -1.99    0.05        -0.09       -0.00
+   (1#gt500k) vs (1#lt20k)  |      -0.03       0.03    -1.17    0.24        -0.08        0.02
+ (1#gt500k) vs (1#20-500k)  |       0.01       0.03     0.54    0.59        -0.04        0.07
+  (2#20-500k) vs (2#lt20k)  |      -0.01       0.02    -0.45    0.65        -0.04        0.03
+   (2#gt500k) vs (2#lt20k)  |      -0.01       0.02    -0.33    0.74        -0.04        0.03
+ (2#gt500k) vs (2#20-500k)  |       0.00       0.02     0.07    0.94        -0.04        0.04
+  (3#20-500k) vs (3#lt20k)  |      -0.00       0.02    -0.09    0.93        -0.04        0.04
+   (3#gt500k) vs (3#lt20k)  |      -0.00       0.02    -0.20    0.84        -0.05        0.04
+ (3#gt500k) vs (3#20-500k)  |      -0.00       0.02    -0.12    0.90        -0.05        0.04
+---------------------------------------------------------------------------------------------
+
+
+
+. //this is for polSay
+. margins t3, at(sf3=(1 2 3)) pwcompare(effects)
+
+Pairwise comparisons of predictive margins              Number of obs = 66,483
+
+Expression: Linear prediction, fixed portion, predict()
+1._at: sf3 = 1
+2._at: sf3 = 2
+3._at: sf3 = 3
+
+---------------------------------------------------------------------------------------------
+                            |            Delta-method    Unadjusted           Unadjusted
+                            |   Contrast   std. err.      z    P>|z|     [95% conf. interval]
+----------------------------+----------------------------------------------------------------
+                     _at#t3 |
+  (1#20-500k) vs (1#lt20k)  |      -0.04       0.02    -1.99    0.05        -0.09       -0.00
+   (1#gt500k) vs (1#lt20k)  |      -0.03       0.03    -1.17    0.24        -0.08        0.02
+    (2#lt20k) vs (1#lt20k)  |       0.10       0.02     5.22    0.00         0.06        0.14
+  (2#20-500k) vs (1#lt20k)  |       0.09       0.02     4.60    0.00         0.05        0.13
+   (2#gt500k) vs (1#lt20k)  |       0.09       0.02     4.22    0.00         0.05        0.14
+    (3#lt20k) vs (1#lt20k)  |       0.19       0.02     9.56    0.00         0.15        0.23
+  (3#20-500k) vs (1#lt20k)  |       0.19       0.02     9.09    0.00         0.15        0.23
+   (3#gt500k) vs (1#lt20k)  |       0.19       0.02     7.93    0.00         0.14        0.24
+ (1#gt500k) vs (1#20-500k)  |       0.01       0.03     0.54    0.59        -0.04        0.07
+  (2#lt20k) vs (1#20-500k)  |       0.14       0.02     6.96    0.00         0.10        0.18
+(2#20-500k) vs (1#20-500k)  |       0.14       0.02     6.70    0.00         0.10        0.18
+ (2#gt500k) vs (1#20-500k)  |       0.14       0.02     6.14    0.00         0.09        0.18
+  (3#lt20k) vs (1#20-500k)  |       0.24       0.02    10.86    0.00         0.19        0.28
+(3#20-500k) vs (1#20-500k)  |       0.24       0.02    10.97    0.00         0.19        0.28
+ (3#gt500k) vs (1#20-500k)  |       0.23       0.02     9.62    0.00         0.19        0.28
+   (2#lt20k) vs (1#gt500k)  |       0.13       0.02     5.37    0.00         0.08        0.18
+ (2#20-500k) vs (1#gt500k)  |       0.12       0.02     5.10    0.00         0.07        0.17
+  (2#gt500k) vs (1#gt500k)  |       0.12       0.02     5.22    0.00         0.08        0.17
+   (3#lt20k) vs (1#gt500k)  |       0.22       0.03     8.91    0.00         0.17        0.27
+ (3#20-500k) vs (1#gt500k)  |       0.22       0.02     8.93    0.00         0.17        0.27
+  (3#gt500k) vs (1#gt500k)  |       0.22       0.03     8.56    0.00         0.17        0.27
+  (2#20-500k) vs (2#lt20k)  |      -0.01       0.02    -0.45    0.65        -0.04        0.03
+   (2#gt500k) vs (2#lt20k)  |      -0.01       0.02    -0.33    0.74        -0.04        0.03
+    (3#lt20k) vs (2#lt20k)  |       0.09       0.02     5.55    0.00         0.06        0.13
+  (3#20-500k) vs (2#lt20k)  |       0.09       0.02     5.10    0.00         0.06        0.13
+   (3#gt500k) vs (2#lt20k)  |       0.09       0.02     4.24    0.00         0.05        0.13
+ (2#gt500k) vs (2#20-500k)  |       0.00       0.02     0.07    0.94        -0.04        0.04
+  (3#lt20k) vs (2#20-500k)  |       0.10       0.02     5.59    0.00         0.07        0.14
+(3#20-500k) vs (2#20-500k)  |       0.10       0.02     5.82    0.00         0.07        0.13
+ (3#gt500k) vs (2#20-500k)  |       0.10       0.02     4.67    0.00         0.06        0.14
+   (3#lt20k) vs (2#gt500k)  |       0.10       0.02     4.94    0.00         0.06        0.14
+ (3#20-500k) vs (2#gt500k)  |       0.10       0.02     4.97    0.00         0.06        0.14
+  (3#gt500k) vs (2#gt500k)  |       0.10       0.02     4.76    0.00         0.06        0.14
+  (3#20-500k) vs (3#lt20k)  |      -0.00       0.02    -0.09    0.93        -0.04        0.04
+   (3#gt500k) vs (3#lt20k)  |      -0.00       0.02    -0.20    0.84        -0.05        0.04
+ (3#gt500k) vs (3#20-500k)  |      -0.00       0.02    -0.12    0.90        -0.05        0.04
+---------------------------------------------------------------------------------------------
+
+. 
+
+
+\end{verbatim}
+\end{spacing}{.19}
+\end{scriptsize}
+
+\section{Dropping Countries with Few obs in urban-rural extremes, and Results by Country}
+
+Stata apparently estimates coefficients even if there are no observations in a
+cell, and there are quite a few countries like that where there are very few or
+no observations in $<$20k or $>$500k, for instance Hong Kong is 100\% $>$500k,
+and there are also countries 0\% $>$500k. Here for robustness/sensitivity check
+we drop countries if there are fewer than 50obs on $<$20k or $>$500k and
+reestimate body results and then also provide results by country. 
+
+\begin{scriptsize}
+\begin{spacing}{.19} 
+\begin{verbatim}
+use /tmp/allCC.dta,clear
+ta cc t3 //whoa!!!
+di r(r)
+
+ISO 3166-1 |
+   alpha-3 |
+   country |   RECODE of town (place size)
+      code |     lt20k    20-500k     gt500k |     Total
+-----------+---------------------------------+----------
+       AND |       730        274          0 |     1,004 
+       ARG |       200        180        623 |     1,003 
+       ARM |       545        232        446 |     1,223 
+       AUS |       453        567        705 |     1,725 
+       BGD |       991        209          0 |     1,200 
+       BOL |       625        741        701 |     2,067 
+       BRA |       185        864        713 |     1,762 
+       CAN |     1,098      1,694      1,226 |     4,018 
+       CHL |       152        487        361 |     1,000 
+       CHN |        50      2,986          0 |     3,036 
+       COL |       304        722        494 |     1,520 
+       CYP |       615        385          0 |     1,000 
+       CZE |       680        370        150 |     1,200 
+       DEU |       712        616        200 |     1,528 
+       ECU |       384        466        350 |     1,200 
+       EGY |       424        456        320 |     1,200 
+       ETH |       841        380          9 |     1,230 
+       GBR |       495      1,713        397 |     2,605 
+       GRC |       420        340        440 |     1,200 
+       GTM |        71        505        653 |     1,229 
+       HKG |         0          0      2,075 |     2,075 
+       IDN |     2,761        346         93 |     3,200 
+       IRN |       400        609        490 |     1,499 
+       IRQ |       320        232        648 |     1,200 
+       JOR |       375        306        522 |     1,203 
+       JPN |        51        786        516 |     1,353 
+       KAZ |       457        456        363 |     1,276 
+       KEN |       499        421        122 |     1,042 
+       KGZ |       710        290        200 |     1,200 
+       KOR |         0        364        881 |     1,245 
+       LBN |       410        660        130 |     1,200 
+       LBY |       480        544        172 |     1,196 
+       MAC |         0          0      1,023 |     1,023 
+       MAR |       380        480        340 |     1,200 
+       MDV |       738        301          0 |     1,039 
+       MEX |       858        463        403 |     1,724 
+       MMR |     1,116         84          0 |     1,200 
+       MNG |       378        257      1,003 |     1,638 
+       MYS |       744        428        141 |     1,313 
+       NGA |       848        375         14 |     1,237 
+       NIC |       381        709        110 |     1,200 
+       NIR |        39        407          0 |       446 
+       NLD |       104      1,710        217 |     2,031 
+       NZL |       420        387        187 |       994 
+       PAK |     1,272        249        474 |     1,995 
+       PER |       355        945        100 |     1,400 
+       PHL |       910        290          0 |     1,200 
+       PRI |        73      1,054          0 |     1,127 
+       ROU |       703        435        119 |     1,257 
+       RUS |       594        626        590 |     1,810 
+       SGP |         0          0      2,012 |     2,012 
+       SRB |       403        447        196 |     1,046 
+       SVK |       750        450          0 |     1,200 
+       THA |     1,244        116        140 |     1,500 
+       TJK |       880        210        110 |     1,200 
+       TUN |       514        614         80 |     1,208 
+       TUR |       240      1,767        408 |     2,415 
+       TWN |        40      1,165         18 |     1,223 
+       UKR |       638        355        296 |     1,289 
+       URY |       270        290        440 |     1,000 
+       USA |         0      1,443        385 |     1,828 
+       VEN |       180        661        349 |     1,190 
+       VNM |         0      1,049        151 |     1,200 
+       ZWE |       945        270          0 |     1,215 
+-----------+---------------------------------+----------
+     Total |    32,455     37,238     23,306 |    92,999 
+
+levelsof cc,loc(__cc)
+foreach _cc in `__cc'{
+count if t3 == 3 & cc == "`_cc'"
+drop if `r(N)'<50 & cc == "`_cc'"
+count if t3 == 1 & cc == "`_cc'" 
+drop if `r(N)'<50 & cc == "`_cc'" //extra robustness check 
+di "`_cc'"  `r(N)'
+} 
+
+
+ta cc t3
+di r(r)
+
+
+. ta cc t3
+
+ISO 3166-1 |
+   alpha-3 |
+   country |   RECODE of town (place size)
+      code |     lt20k    20-500k     gt500k |     Total
+-----------+---------------------------------+----------
+       ARG |       200        180        623 |     1,003 
+       ARM |       545        232        446 |     1,223 
+       AUS |       453        567        705 |     1,725 
+       BOL |       625        741        701 |     2,067 
+       BRA |       185        864        713 |     1,762 
+       CAN |     1,098      1,694      1,226 |     4,018 
+       CHL |       152        487        361 |     1,000 
+       COL |       304        722        494 |     1,520 
+       CZE |       680        370        150 |     1,200 
+       DEU |       712        616        200 |     1,528 
+       ECU |       384        466        350 |     1,200 
+       EGY |       424        456        320 |     1,200 
+       GBR |       495      1,713        397 |     2,605 
+       GRC |       420        340        440 |     1,200 
+       GTM |        71        505        653 |     1,229 
+       IDN |     2,761        346         93 |     3,200 
+       IRN |       400        609        490 |     1,499 
+       IRQ |       320        232        648 |     1,200 
+       JOR |       375        306        522 |     1,203 
+       JPN |        51        786        516 |     1,353 
+       KAZ |       457        456        363 |     1,276 
+       KEN |       499        421        122 |     1,042 
+       KGZ |       710        290        200 |     1,200 
+       LBN |       410        660        130 |     1,200 
+       LBY |       480        544        172 |     1,196 
+       MAR |       380        480        340 |     1,200 
+       MEX |       858        463        403 |     1,724 
+       MNG |       378        257      1,003 |     1,638 
+       MYS |       744        428        141 |     1,313 
+       NIC |       381        709        110 |     1,200 
+       NLD |       104      1,710        217 |     2,031 
+       NZL |       420        387        187 |       994 
+       PAK |     1,272        249        474 |     1,995 
+       PER |       355        945        100 |     1,400 
+       ROU |       703        435        119 |     1,257 
+       RUS |       594        626        590 |     1,810 
+       SRB |       403        447        196 |     1,046 
+       THA |     1,244        116        140 |     1,500 
+       TJK |       880        210        110 |     1,200 
+       TUN |       514        614         80 |     1,208 
+       TUR |       240      1,767        408 |     2,415 
+       UKR |       638        355        296 |     1,289 
+       URY |       270        290        440 |     1,000 
+       VEN |       180        661        349 |     1,190 
+-----------+---------------------------------+----------
+     Total |    23,769     25,752     16,738 |    66,259 
+
+
+
+. di r(r)
+44
+
+
+\end{verbatim}
+\end{spacing}{.19}
+\end{scriptsize}
+
+\subsection{Robustness/Sensitivity Check Dropping Countries With Fewer Than 50obs in $<$20k or
+  $>$500k}
+
+
+\begin{figure}[H]
+ \includegraphics[height=6.5in]{m-fpsR.pdf}\centering
+\caption{\label{m-fpsR} As stated in the body, nothing changes substantively
+  here, the results from the body are robust when droping countries
+  where $>$500k $<$50obs and $<$20k $<$50obs.}
+\end{figure}
+
+
+\begin{figure}[H]
+ \includegraphics[height=6.5in]{zzR.pdf}\centering
+\caption{\label{zzR} zzR As stated in the body, these results are robust when droping countries
+  where $>$500k $<$50obs only (next figure); but not here, when dropping when droping countries
+  where $>$500k $<$50obs and $<$20k $<$50obs.}
+\end{figure}
+
+\begin{figure}[H]
+ \includegraphics[height=6.5in]{zzR2.pdf}\centering
+\caption{\label{zzR2} zzR2 As stated in the body, these results are robust when droping countries
+  where $>$500k $<$50obs only (this figure); but not in previous figure, when dropping when droping countries
+  where $>$500k $<$50obs and $<$20k $<$50obs.}
+\end{figure}
+
+
+\subsection{Results by Country}
+%MAYBE could add here by region, like had earlier in oringnal appendix, BUT ALREADY HAVE A TON!
+% Here we repeat urbanicity interactions with financial satisfaction from the body
+% of the paper but by region and income group; the first panel in each graph is
+% repeated from the body of the paper.  
+
+% In figure \ref{zzz} we see that the pattern is much stronger for East
+% Asia/Pacific, and opposite especially in Middle East/North Africa, but also in
+% North America. 
+
+%  \begin{figure}[H]
+%   \includegraphics[height=3in]{zzz.pdf}\centering
+%  \caption{\label{zzz} Urbanicity interactions with financial satisfaction by region.}
+%  \end{figure}
+
+
+%  -------------------MAYBE uncomment/edit some of this-------------------------
+%these are from earlier, would have to adjust it so it fits current results below
+
+% MAYBE edit/  comment out so it fits app results by country
+ % We also separate results by region and income group for financial
+ % satisfaction.% and  postpone these results to appendix \footnote
+ % {We find that the results for financial satisfaction in panel a are stronger in
+ %   East Asia/Pacific and Sub-Saharan Africa (due to sharp increase for the top
+ %   tertile), and show similar pattern in Europe/Central Asia except that the
+ %   middle tertile for financial satisfaction is stronger than the top. The Latin
+ %   America/Caribbean and North America results show the opposite pattern where
+ %   the bottom tertile has the steepest slope, and in the Middle East/North
+ %   Africa the middle and top tertiles even reverse and become negative. In South
+ %   Asia, the slopes are parallel---we find no differences there. Taken together,
+ %   by income group we find that high income is similar to the overall pattern.}
+
+%MAYBE uncomment most and edit 
+%rubia: i would incorporate all that was written under "1. more recent results" to manuscript. what do you think? maybe not all tables/figures, but a significant amount. 
+%aok: i dont know most are insig, and no clear pattern among sig ones; marginsplots
+%by satFin or sf3 we already have the main ones in paper; and others are
+%variations on those
+% 
+% We also separate these results by country, however we leave
+% it for the future research as sample sizes run small for interactions.
+%rubia: i suggested moving it here, is this the reason why it wasnt? would it
+%perhaps be worth reporting here with disclaimer?
+%aok: i dont know, lets polish the paper a bit more and decide later; i guess to
+%app maybe to compromise :)
+%
+%When analyzing countries individually, the ``city air makes you free'' hypothesis is only supported in 16 out of 64 countries.
+%rubia: i would add the results from countries to the previous section, so
+%readers can refer to this easily. thoughts? 
+% In the pooled sample without interactions there are no significant urban rural differences when controlling for country dummies. But there are some significant results separately by country. The hypothesis that cities are more free does not find support
+% except in 16 countries out of 64.
+%rubia: we already make that point here! we can maybe expand on this point? see my suggestion edit.
+%It is worth highlighting that finding no urban-rural effect for personal agency in most countries is a finding worth reporting--the expectation from theory and from the literature is that the bigger places have more freedom. %And in 6 countries we find a positive effect.
+%  -------------------END MAYBE uncomment/edit some of this-------------------------
+
+
+
+\begin{figure}[H]
+ \includegraphics[width=6.5in]{ts-freeR.pdf}\centering
+\caption{\label{ts-freeR}ts-freeR }
+\end{figure}
+
+In figure \ref{ts-freeR} it is difficult to see any pattern, except perhaps
+Latin countries such as PER, ARG, and mariginally BRA tend to have more personal
+agency in cities; most countries are insignificant. 
+
+\begin{figure}[H]
+ \includegraphics[width=6.5in]{ts-polSayR.pdf}\centering
+\caption{\label{ts-polSayR}ts-polSayR }
+\end{figure}
+
+in Figure \ref{ts-polSayR} there is some pattern as expected--rich countries
+such as JPN, CZE, and CAN have higher political agency in cities, and poor
+countries such as LBN, KEN, and LBY have lower. Still most countrie are
+insignificant.  
+
+\end{spacing}
+\end{document}
