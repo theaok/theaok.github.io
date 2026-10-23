@@ -819,6 +819,133 @@ strong.
 
 
 \section{Regressions underlying body results}
+\begin{scriptsize}
+\begin{spacing}{.19} 
+\begin{verbatim}
+
+. mixed free i.t3 i.sf3    mar i.emp health kids rel_imp   || cc:   ,mle
+
+Performing EM optimization ...
+
+Performing gradient-based optimization: 
+Iteration 0:  Log likelihood = -184351.37  
+Iteration 1:  Log likelihood = -184351.37  (backed up)
+
+Computing standard errors ...
+
+Mixed-effects ML regression                        Number of obs    =   85,997
+Group variable: cc                                 Number of groups =       62
+                                                   Obs per group:
+                                                                min =      849
+                                                                avg =  1,387.0
+                                                                max =    4,018
+                                                   Wald chi2(15)    = 10218.54
+Log likelihood = -184351.37                        Prob > chi2      =   0.0000
+
+--------------------------------------------------------------------------------
+          free | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            t3 |
+      20-500k  |       0.03       0.02     1.69    0.09        -0.01        0.07
+       gt500k  |       0.05       0.02     2.34    0.02         0.01        0.10
+               |
+           sf3 |
+            2  |       0.78       0.02    41.11    0.00         0.75        0.82
+            3  |       1.61       0.02    76.03    0.00         1.56        1.65
+               |
+           mar |       0.02       0.02     1.28    0.20        -0.01        0.06
+               |
+           emp |
+    Part time  |      -0.09       0.03    -3.40    0.00        -0.15       -0.04
+Self employed  |      -0.01       0.02    -0.50    0.61        -0.06        0.03
+      Retired  |      -0.05       0.02    -2.17    0.03        -0.10       -0.01
+    Housewife  |      -0.21       0.02    -8.93    0.00        -0.26       -0.16
+     Students  |      -0.21       0.03    -6.09    0.00        -0.27       -0.14
+   Unemployed  |      -0.14       0.03    -4.89    0.00        -0.20       -0.09
+        Other  |      -0.21       0.07    -3.10    0.00        -0.35       -0.08
+               |
+        health |       0.37       0.01    42.13    0.00         0.35        0.39
+          kids |       0.03       0.01     4.47    0.00         0.01        0.04
+       rel_imp |       0.04       0.01     4.09    0.00         0.02        0.05
+         _cons |       4.81       0.08    59.68    0.00         4.65        4.97
+--------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects parameters  |   Estimate   Std. err.     [95% conf. interval]
+-----------------------------+------------------------------------------------
+cc: Identity                 |
+                  var(_cons) |       0.26       0.05          0.18        0.37
+-----------------------------+------------------------------------------------
+               var(Residual) |       4.25       0.02          4.21        4.29
+------------------------------------------------------------------------------
+LR test vs. linear model: chibar2(01) = 4215.72       Prob >= chibar2 = 0.0000
+
+
+
+
+. mixed polSay i.t3 i.sf3     i.X025R  i.emp health  rel_imp   || cc:   ,mle
+
+Performing EM optimization ...
+
+Performing gradient-based optimization: 
+Iteration 0:  Log likelihood = -103870.82  
+Iteration 1:  Log likelihood = -103870.82  
+
+Computing standard errors ...
+
+Mixed-effects ML regression                         Number of obs    =  66,483
+Group variable: cc                                  Number of groups =      50
+                                                    Obs per group:
+                                                                 min =     416
+                                                                 avg = 1,329.7
+                                                                 max =   3,997
+                                                    Wald chi2(15)    =  860.15
+Log likelihood = -103870.82                         Prob > chi2      =  0.0000
+
+--------------------------------------------------------------------------------
+        polSay | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+---------------+----------------------------------------------------------------
+            t3 |
+      20-500k  |      -0.01       0.01    -1.24    0.21        -0.04        0.01
+       gt500k  |      -0.01       0.01    -0.81    0.42        -0.04        0.02
+               |
+           sf3 |
+            2  |       0.12       0.01     9.64    0.00         0.09        0.14
+            3  |       0.21       0.01    16.03    0.00         0.19        0.24
+               |
+         X025R |
+       Middle  |       0.00       0.01     0.02    0.99        -0.02        0.02
+        Upper  |       0.04       0.01     3.43    0.00         0.02        0.07
+               |
+           emp |
+    Part time  |      -0.00       0.02    -0.18    0.86        -0.04        0.03
+Self employed  |      -0.02       0.01    -1.38    0.17        -0.05        0.01
+      Retired  |       0.00       0.02     0.19    0.85        -0.03        0.03
+    Housewife  |      -0.07       0.02    -4.37    0.00        -0.10       -0.04
+     Students  |       0.00       0.02     0.24    0.81        -0.04        0.05
+   Unemployed  |      -0.06       0.02    -3.24    0.00        -0.10       -0.02
+        Other  |      -0.02       0.05    -0.50    0.62        -0.11        0.07
+               |
+        health |       0.08       0.01    13.80    0.00         0.06        0.09
+       rel_imp |       0.07       0.01    12.79    0.00         0.06        0.08
+         _cons |       2.28       0.06    38.35    0.00         2.17        2.40
+--------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+  Random-effects parameters  |   Estimate   Std. err.     [95% conf. interval]
+-----------------------------+------------------------------------------------
+cc: Identity                 |
+                  var(_cons) |       0.13       0.03          0.09        0.20
+-----------------------------+------------------------------------------------
+               var(Residual) |       1.33       0.01          1.31        1.34
+------------------------------------------------------------------------------
+LR test vs. linear model: chibar2(01) = 5173.88       Prob >= chibar2 = 0.0000
+
+. 
+\end{verbatim}
+\end{spacing}{.19}
+\end{scriptsize}
+
 
 \subsection{Interactions with level of development}
 
