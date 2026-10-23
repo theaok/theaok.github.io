@@ -612,8 +612,10 @@ sum freEqu freOrd  E032
 //keep if S002VS==7
 use /tmp/allCC.dta,clear
 
-
-
+note X025R:  Lower, Middle, Upper
+la var free "personal agency"
+la var polSay "political agency"
+note polSay: "How much would you say the political system in your country allows people like you to have a say in what the government does?" Responses range from 1 (``A great deal'') to 5 (``Not at all''). We reverse the response categories so that higher values indicate stronger perceived political agency.
 note satFin: "How satisfied are you with the financial situation of your household?"
 note incomelevelname: World Bank income level classification 
 aok_var_des, ff(free polSay town incomelevelname satFin mar kids emp health rel_imp X025R)fname(varDes.tex)
@@ -784,23 +786,29 @@ marginsplot
 
 mixed free i.t3##i.sf3    mar i.emp health kids rel_imp  if iii==1 || cc:   ,mle
 margins,  at(t3=(1 2 3)  sf=(1 2 3))
+margins t3, at(sf=(1 2 3)) pwcompare(effects) 
 marginsplot, saving(x1,replace) title("LIC/LMIC") legend(off)text(8.1 1.32 "top 3")text(7.2 1.32 "middle 3")text(6.3 1.32 "bottom 4")ytitle("personal agency")scheme(s2mono)xtitle("")recast(line) //xtitle("rural-urban")
 mixed free i.t3##i.sf3    mar i.emp health kids rel_imp  if iii==2 || cc:   ,mle
+margins t3, at(sf=(1 2 3)) pwcompare(effects) 
 margins,  at(t3=(1 2 3)  sf=(1 2 3))
 marginsplot, saving(x2,replace) title("UMIC")  legend(off)text(8.1 1.32 "top 3")text(7 1.32 "middle 3")text(6.3 1.32 "bottom 4")ytitle("")scheme(s2mono)xtitle("")recast(line)
 mixed free i.t3##i.sf3    mar i.emp health kids rel_imp  if iii==3 || cc:   ,mle
+margins t3, at(sf=(1 2 3)) pwcompare(effects) 
 margins,  at(t3=(1 2 3)  sf=(1 2 3))
 marginsplot, saving(x3,replace) title("HIC")  legend(off)text(8.1 1.32 "top 3")text(7 1.32 "middle 3")text(6.3 1.32 "bottom 4")ytitle("")scheme(s2mono)xtitle("")recast(line)
 gr combine x1.gph x2.gph x3.gph, row(1) ycommon
 gr export kkk-free.pdf, replace
 
 mixed polSay i.t3##i.sf3     i.X025R  i.emp health  rel_imp  if iii==1 || cc:   ,mle
+margins t3, at(sf=(1 2 3)) pwcompare(effects) 
 margins,  at(t3=(1 2 3)  sf=(1 2 3))
 marginsplot, saving(x1,replace) title("LIC/LMIC") legend(off)text(3.1 1.32 "top 3")text(2.94 1.32 "middle 3")text(2.8 1.32 "bottom 4")ytitle("political agency")scheme(s2mono)xtitle("")recast(line) //xtitle("rural-urban")
 mixed polSay i.t3##i.sf3     i.X025R  i.emp health  rel_imp  if iii==2 || cc:   ,mle
+margins t3, at(sf=(1 2 3)) pwcompare(effects) 
 margins,  at(t3=(1 2 3)  sf=(1 2 3))
 marginsplot, saving(x2,replace) title("UMIC")  legend(off)text(3.1 1.32 "top 3")text(2.93 1.32 "middle 3")text(2.8 1.32 "bottom 4")ytitle("")scheme(s2mono)xtitle("")recast(line)
 mixed polSay i.t3##i.sf3     i.X025R  i.emp health  rel_imp  if iii==3 || cc:   ,mle
+margins t3, at(sf=(1 2 3)) pwcompare(effects) 
 margins,  at(t3=(1 2 3)  sf=(1 2 3))
 marginsplot, saving(x3,replace) title("HIC")  legend(off)text(2.9 1.32 "top 3")text(2.7 1.32 "middle 3")text(2.5 1.32 "bottom 4")ytitle("")scheme(s2mono)xtitle("")recast(line)
 gr combine x1.gph x2.gph x3.gph, row(1) ycommon
