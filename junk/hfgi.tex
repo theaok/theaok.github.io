@@ -163,7 +163,7 @@ pdftex]{graphicx} %draft is a way to exclude figures
 %\modulolinenumbers[1]
 %\linenumbers
 
-\bibliographystyle{/home/aok/papers/root/tex/ecta}
+\bibliographystyle{ecta}
 \maketitle
 \vspace{-.4in}
 \begin{center}
@@ -371,9 +371,14 @@ we use file \texttt{flourishingCountyYear.csv}. Description of the data is at
   aligned with Harvard's Global Flourishing Study[...]\citep[][p. 1]{iacus25b}
 \end{quote}
 
-Note that while data description says 2013-2023, in the
-actual dataset we also found observations for 2010-2012, but it was
-only 7.9\% of the whole dataset, out of which minuscule $<$1\% before 2012. 
+HFGI indictors are about expressed wellbeing,
+not a survey-like measurement of well-being. These indicators capture
+expressions on Twitter/X.
+
+%DROPPED<=2012
+% Note that while data description says 2013-2023, in the
+% actual dataset we also found observations for 2010-2012, but it was
+% only 7.9\% of the whole dataset, out of which minuscule $<$1\% before 2012. 
  %
 We cut out 2020-2023 due to Covid19 pandemic, but that still leaves us with over
 1b tweets. Pandemic affected US geographies very differently and thus would be
@@ -384,6 +389,9 @@ We also dropped county-year-variable cells with $<$5 valid tweets. If
 there were very few tweets in a cell, the county-year-variable average could be
 often more extreme than average from larger and more representative sample and
 thus bias disproportionately the results.
+
+We averaged annual scores equally to one score per county over 2013-2019. %https://colab.research.google.com/github/theaok/hfgi/blob/main/hfgi.ipynb#scrollTo=VrNDQv-bul84&line=6&uniqifier=1
+For sample description see Appendix.
 
 One could frown upon Twitter data, but here there are actually reasons
 to be optimistic. There are 9 wellbeing measures, and data covers
@@ -422,6 +430,16 @@ We don't get here into twitter data processing and technicalities of natural
 language processing--it is not our area and we didn't do this--again, we just
 downloaded pre-processed data and the documentation is in \citet{iacus25b}.
 We want to focus here on the meaning of the variables instead. 
+
+\subsection{From Twitter data to HFGI indicators}
+
+The HFGI was obtained by applying a fine-tuned large language model to
+geolocated tweets from the Harvard CGA Geotweet Archive. The model was trained
+to answer questions such as ``Does this tweet express vitality?'' or ``Does this
+tweet express depression?'' For each dimension, its presence and level ``low,
+medium, or high'' were identified. These classifications were then converted into numerical scores and aggregated into county-year indicators, each ranging from -1 to 1. The resulting measures capture expressions of specific dimensions of wellbeing in geographically located tweets. Further methodological details and validation experiments are reported in the HFGI data descriptor \citep{iacus25b}. 
+
+\subsection{Construction of composite indicators}
 
 It is important to note a caveat: in the choice of variables we mostly just used our
 judgment, there little literature or agreed upon set of metrics
@@ -524,7 +542,7 @@ very high (excellent) Cronbach's alpha of 0.92.
 
 It is hard to believe for us urban America, that there exists rural America
 \citep{hansonCityJournalautumn15}, and that in fact there are about 300 counties
-(yes whole counties not just villages) with pop $<$ 5k.
+(yes whole counties not just villages) with population $<$ 5k.
 
 
 %  instead \ExecuteMetaData[../out/tex]{ginipov} do \emd{ginipov}
@@ -533,9 +551,9 @@ We start with urban-rural happiness gradient \citep{aok11a} in table \ref{a}
 looking at energy/vitality. There is a remarkable consistency: the urban rural
 happiness gradient is
 raising from its lowest levels in largest counties (color coded with red) to
-highest levels in smallest counties (green). The only one exception is in the
-cell in column 
-\texttt{energy} row ``25.6k-36.7k.''
+highest levels in smallest counties (green). The only one exception is the
+\texttt{energy} column that only varies across urban-rural at small 0.02 at
+shows highest level in mid sized counties.
  An important pattern is that it is not only the very largest counties in the
  top 10th decile in last row that have lowest energy/vitality, but also other
  large counties in 7th-9th deciles (36.7k-204.9k). So lowest energy/vitality is
@@ -549,10 +567,11 @@ cell in column
 \begin{figure}[htbp]
   \centering
   \includegraphics[height=2in]{a.png}
-  \caption{\label{a}Note we stick to \texttt{lifesat} tag (life satisfaction) as in the
+  \caption{\label{a}Energy/vitality index and its dimensions.
+    Note we stick to \texttt{lifesat} tag (life satisfaction) as in the
     original dataset, but again it is rather momentary affective happiness than
     global cognitive evaluation of one's life as a whole, life satisfaction
-    term used in SWB literature.}
+    term used in SWB literature. Estimates with 95\% CI are in Appendix.}
 \end{figure}
 %old way couldnt get size
 % \begin{figure}[H]
@@ -580,24 +599,32 @@ Table \ref{b} repeats the exercise but for happiness index  \texttt{swbI} and in
  colored column \texttt{lifesat}, life satisfaction raises from its lowest level
  for largest counties in last decile of population to its highest level for the
  smallest counties in first decile of population. But this pattern is only
- observed for this one column. Overall, in all other columns the pattern tends to
- be of lowest wellbeing in 10th decile as expected, but also in the 1st
- decile. Still, the urban-rural happiness gradient hypothesis \citep{aok11a}
- holds as the counties with highest wellbeing scores are the smallest counties
- in 2nd, 3rd, and 4th population size deciles (5.1k-18.5k), and some of the
- lowest wellbeing scores are also in the second highest 9th population
- decile. Overall, we find lowest happiness in 1st and 10th population deciles
- and highest in 2nd-4th population deciles. While as expected smaller 2nd-4th
+ observed for this one column.
+
+ Overall, in all other columns the pattern tends to
+ be of lowest wellbeing in 1st decile, opposite to what expected from
+ ``urban-rural happiness gradient hypothesis'' \citep{aok11a}, but probably as
+ expected based on the ``left behind ruralities hypothesis.''
+
+ Still, the urban-rural happiness gradient hypothesis \citep{aok11a}
+ somewhat holds, 
+ as the counties with highest wellbeing scores are still relatively small counties
+ in 2nd-6th population size deciles (5k-37k), and some of the
+ lowest wellbeing scores are also in the second highest 9th and 10th population
+ deciles.
+ 
+ Overall, we find lowest happiness in especially 1st, but also in 10th population deciles
+ and highest in 2nd-6th population deciles. While as expected smaller 2nd-6th
  deciles counties tends to be happier and largest 9th-10th deciles counties tend
- to be less happy, it is also the very smallest counties in 1st deciles that are
- unhappy.
+ to be less happy, it is especially the very smallest counties in 1st deciles that are
+ the least happy.
 
 % %!!!first time need to run pdflatex --shell-escape hfgi.tex
 \downloadimage{https://raw.githubusercontent.com/theaok/hfgi/refs/heads/main/b.png}{b.png}
 \begin{figure}[htbp]
   \centering
   \includegraphics[height=2in]{b.png}
-  \caption{\label{b}This figure was pulled directly from a web URL.}
+  \caption{\label{b} Happiness index and its dimensions. Estimates with 95\% CI are in Appendix.}
 \end{figure}
 
 
@@ -640,33 +667,34 @@ We turn to mapping\footnote{Here as maps show, it is only contiguous US, but in 
 
 South does not surprise. As expected, the energy/vitality is low in South:
 especially in  Mississippi and Louisiana, but also in most parts of Texas and
-Alabama. Second comes Midwest, no surprise there either. Ohio is the lowest
-almost all low energy/vitality, and then most of Pennsylvania and and about half
-of West Virginia and Michigan (South Michigan is low, North Michigan is high). 
-
-Also about half of  Oklahoma and Kansas are low on energy/vitality. On West coast, perhaps
- surprisingly about half or Oregon is low on energy/vitality.
- And in Georgia and Arkansas about third.
-
+many in Alabama and Georgia. Second comes Midwest\footnote{And Northeast in next
+paragraph.}, no surprise there. Most of Ohio is
+low on energy/vitality, and then much of Pennsylvania and West Virginia
+and South Michigan (North Michigan is high). 
+ %
+Also much of  Oklahoma and Kansas are low on energy/vitality. On West coast, perhaps
+ surprisingly much of Oregon is low on energy/vitality.
+ 
 As opposed to dull South and Midwest, there is definitely more energy/vitality
 in North East, for instance in New Jersey--one would think. But our results
-disagree--there is not much difference, if any. Dull and low energy South does contrast
+disagree--both Midwest and North East are low on energy/vitality, second only to
+South. Dull and low energy South does contrast
 with upbeat and high energy North East--it is just that the energy may not be
-that good after all--stressed and neurotic. This concludes our general
+that good in North East after all--stressed and neurotic. This concludes our general
 list of low energy/vitality states, but do note many red spots throughout the US
 and in other states. In appendix we have a top and bottom 100 ranking tables
 with all variables. Also in appendix are more detailed maps with more color bins. Overall
 they are very similar, so we stick with simplified exposition presented here. The extremes remain the same: dark red and dark green
 but there is much more gradation for mid-levels from light green through yellow
-to light red.
+to light red. 
 
 
-Turning now to high energy/vitality: in general West and North but not coastal/Pacific West: not Oregon, neither
+Turning now to high energy/vitality: in general West and North but not
+coastal/Pacific West: not Oregon, neither 
 California. Colorado seems the highest energy/vitality, but also Utah, Wyoming, Montana, and Idaho.
 
 % and many interesting negative spatial corr outliers
 % (later lisa clustering)
-
 
 
 The happiness map in figure \ref{swbI} broadly agrees with energy/vitality map
@@ -702,8 +730,8 @@ It looks like their sample of 1.5b is close to ours. But the results are
 different possibly due to their ``interpolation of missing counties provided through a Gaussian process model using demographic and socioeconomic similarity between counties''
 \citep[][fig. 5.1C caption]{kjell2023towards}: 
 Alabama, Louisiana, and Mississippi are not unhappy, neither is North East, but
-Midwest is least happy (we find it unhappy but not as unhappy as Alabama,
-Louisiana, and Mississippi).
+Midwest is least happy (we find it unhappy but not as unhappy as 
+Louisiana and Mississippi).
 
 But maybe the most striking difference is that urban
 counties marked in their figure 5.1C with city names all appear to be the
@@ -735,22 +763,23 @@ Ft Lauderdale. Also happy are cold but coastal Seattle and Manhattan (New York
 County).
 
 
-Detroit and Houston are the least happy. In addition to Houston, there are 2
-other unhappy Texas cities, Dallas and Forth Worth. NYC Queens and Brooklyn are
-not too happy either in sharp contrast to very happy Manhattan.
+Detroit, Queens, and Houston are the least happy. In addition to Houston, there are 2
+other unhappy Texas cities, Dallas and Forth Worth. NYC has all happiness
+levels:  Queens is very unhappy, Brooklyn average, and Manhattan very happy (it
+may be happy tourists tweeting happy tweets).
 
 
 Then few interesting nuances. For instance 3 Texas cities Dallas, Forth Worth
 (neighbors), and San Antonio score poorly on energy/vitality (first 4 numeric
-columns) but quite well on happiness (subsequent 6 numeric columns).
+columns) but quite well on hope. Queens and Brooklyn are lowest on hope.  
 
 
 At the bottom of the table is comparison to deciles from earlier figures (note that comparison
 colors in the table differ as they are scaled to current table). Decile 1 tends
-to be higher than mean of deciles 2-4. Of the largest metropolises some score
-better or worse than decile averages. 
+to be higher on first three indicators and lifesat, but lower on others.
+%Of the largest metropolises some score better or worse than decile averages. 
 
-Highest and lowest both energy/vitality and happiness
+Highest and lowest both energy/vitality and happiness indices 
     tends to be in small counties, below median population size (see appendix).
 In appendix we also provide a full list of top and bottom counties on
 energy/vitality index \texttt{eneI}. 
@@ -791,6 +820,10 @@ find a very clear urban-rural gradient with energy/vitality raising from its
 lowest levels for large counties to highest level in small
 counties. Energy/vitality may be actually more important than happiness and at
 least as important, and it is striking that we know nothing about its geography.  
+
+It is important to  clarify that HFGI indictors are about expressed wellbeing,
+not a survey-like measurement of well-being. These indicators capture
+expressions on Twitter/X.
 
 
 %TODO !!!! have input here aok_var_des
@@ -848,7 +881,340 @@ least as important, and it is striking that we know nothing about its geography.
 %see online appendix!
 
 \newpage
-\bibliography{/home/aok/papers/root/tex/ebib.bib,hfgi.bib}
+%\bibliography{/home/aok/papers/root/tex/ebib.bib,hfgi.bib}
+\begin{thebibliography}{56}
+\newcommand{\enquote}[1]{``#1''}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[\protect\citeauthoryear{Ballas}{Ballas}{2013}]{ballas13}
+\textsc{Ballas, D.} (2013): \enquote{What makes a 'happy city'?} \emph{Cities},
+  32, S39--S50.
+
+\bibitem[\protect\citeauthoryear{Ballas and Rijnks}{Ballas and
+  Rijnks}{2023}]{ballas23}
+\textsc{Ballas, D. and R.~Rijnks} (2023): \enquote{Does Living on an Island
+  Make You Happier?} in \emph{International Conference on Computational Science
+  and Its Applications}, 343--350.
+
+\bibitem[\protect\citeauthoryear{Berry and Okulicz-Kozaryn}{Berry and
+  Okulicz-Kozaryn}{2011}]{aok11a}
+\textsc{Berry, B.~J. and A.~Okulicz-Kozaryn} (2011): \enquote{An Urban-Rural
+  Happiness Gradient,} \emph{Urban Geography}, 32, 871--883.
+
+\bibitem[\protect\citeauthoryear{Cao, MacNaughton, Deng, Yin, Zhang, and
+  Allen}{Cao et~al.}{2018}]{cao2018using}
+\textsc{Cao, X., P.~MacNaughton, Z.~Deng, J.~Yin, X.~Zhang, and J.~G. Allen}
+  (2018): \enquote{Using twitter to better understand the spatiotemporal
+  patterns of public sentiment: A case study in Massachusetts, USA,}
+  \emph{International journal of environmental research and public health}, 15,
+  250.
+
+\bibitem[\protect\citeauthoryear{Carreno, Eisenbeck, P{\'e}rez-Escobar, and
+  Garc{\'\i}a-Montes}{Carreno et~al.}{2021}]{carreno2021inner}
+\textsc{Carreno, D.~F., N.~Eisenbeck, J.~A. P{\'e}rez-Escobar, and J.~M.
+  Garc{\'\i}a-Montes} (2021): \enquote{Inner harmony as an essential facet of
+  well-being: A multinational study during the COVID-19 pandemic,}
+  \emph{Frontiers in psychology}, 12, 648280.
+
+\bibitem[\protect\citeauthoryear{Chai, Kakkar, Palacios, and Zheng}{Chai
+  et~al.}{2023}]{chai2023twitter}
+\textsc{Chai, Y., D.~Kakkar, J.~Palacios, and S.~Zheng} (2023):
+  \enquote{Twitter sentiment geographical index dataset,} \emph{Scientific
+  Data}, 10, 684.
+
+\bibitem[\protect\citeauthoryear{Curini, Iacus, and Canova}{Curini
+  et~al.}{2014}]{curini14}
+\textsc{Curini, L., S.~Iacus, and L.~Canova} (2014): \enquote{Measuring
+  Idiosyncratic Happiness Through the Analysis of Twitter: An Application to
+  the Italian Case,} \emph{Social Indicators Research}, 1--18.
+
+\bibitem[\protect\citeauthoryear{DePaulo}{DePaulo}{2021}]{depauloPT21aug28}
+\textsc{DePaulo, B.} (2021): \enquote{Beyond Happiness: A Psychologically Rich
+  Life Is a Good Life. What we get from psychological richness that happiness
+  does not provide.} \emph{Psychology Today}.
+
+\bibitem[\protect\citeauthoryear{Gupta}{Gupta}{2018}]{gupta2018exploring}
+\textsc{Gupta, N.} (2018): \enquote{Exploring happiness indicators in cities
+  and industrial sectors using Twitter and Urban GIS data,} Ph.D. thesis,
+  University of Warwick.
+
+\bibitem[\protect\citeauthoryear{Hanson}{Hanson}{2015}]{hansonCityJournalautumn15}
+\textsc{Hanson, V.~D.} (2015): \enquote{The Oldest Divide. With roots dating
+  back to our Founding, America's urban-rural split is wider than ever.}
+  \emph{City Journal}, Autumn 2015.
+
+\bibitem[\protect\citeauthoryear{Hollander and Renski}{Hollander and
+  Renski}{2022}]{hollander2022measuring}
+\textsc{Hollander, J.~B. and H.~Renski} (2022): \emph{Measuring urban attitudes
+  using Twitter: An exploratory study}, Lincoln Institute of Land Policy.
+
+\bibitem[\protect\citeauthoryear{Hu, She, Duan, Yue, and Clunis}{Hu
+  et~al.}{2019}]{hu2019systematic}
+\textsc{Hu, T., B.~She, L.~Duan, H.~Yue, and J.~Clunis} (2019): \enquote{A
+  systematic spatial and temporal sentiment analysis on geo-tweets,} \emph{Ieee
+  Access}, 8, 8658--8667.
+
+\bibitem[\protect\citeauthoryear{Iacus, Jain, Nasuto, Porro, Carammia, and
+  Vezzulli}{Iacus et~al.}{2025}]{iacus25b}
+\textsc{Iacus, S.~M., D.~Jain, A.~Nasuto, G.~Porro, M.~Carammia, and
+  A.~Vezzulli} (2025): \enquote{The Human Flourishing Geographic Index: A
+  County-Level Dataset for the United States, 2013--2023,} \emph{arXiv preprint
+  arXiv:2511.03915}.
+
+\bibitem[\protect\citeauthoryear{Iacus and Porro}{Iacus and
+  Porro}{2025}]{iacus25}
+\textsc{Iacus, S.~M. and G.~Porro} (2025): \enquote{Two Americas of Well-Being:
+  Divergent Rural-Urban Patterns of Life Satisfaction and Happiness from 2.6 B
+  Social Media Posts,} .
+
+\bibitem[\protect\citeauthoryear{Iacus, Porro, Salini, and Siletti}{Iacus
+  et~al.}{2015}]{iacus15}
+\textsc{Iacus, S.~M., G.~Porro, S.~Salini, and E.~Siletti} (2015):
+  \enquote{Social networks, happiness and health: from sentiment analysis to a
+  multidimensional indicator of subjective well-being,} \emph{arXiv preprint
+  arXiv:1512.01569}.
+
+\bibitem[\protect\citeauthoryear{Jaidka, Giorgi, Schwartz, Kern, Ungar, and
+  Eichstaedt}{Jaidka et~al.}{2020}]{jaidka2020estimating}
+\textsc{Jaidka, K., S.~Giorgi, H.~A. Schwartz, M.~L. Kern, L.~H. Ungar, and
+  J.~C. Eichstaedt} (2020): \enquote{Estimating geographic subjective
+  well-being from Twitter: A comparison of dictionary and data-driven language
+  methods,} \emph{Proceedings of the national academy of sciences}, 117,
+  10165--10171.
+
+\bibitem[\protect\citeauthoryear{Jaidka, Guntuku, Lee, Luo, Buffone, and
+  Ungar}{Jaidka et~al.}{2021}]{jaidka2021rural}
+\textsc{Jaidka, K., S.~C. Guntuku, J.~H. Lee, Z.~Luo, A.~Buffone, and L.~H.
+  Ungar} (2021): \enquote{The rural--urban stress divide: Obtaining
+  geographical insights through Twitter,} \emph{Computers in Human Behavior},
+  114, 106544.
+
+\bibitem[\protect\citeauthoryear{Jensen}{Jensen}{2017}]{jensen2017putting}
+\textsc{Jensen, E.~A.} (2017): \enquote{Putting the methodological brakes on
+  claims to measure national happiness through Twitter: Methodological
+  limitations in social media analytics,} \emph{PloS one}, 12, e0180080.
+
+\bibitem[\protect\citeauthoryear{Kalaidis}{Kalaidis}{2014}]{smith_ac_aug_1_13}
+\textsc{Kalaidis, J.} (2014): \enquote{Why I Miss the Suburbs,} \emph{Atlantic
+  Cities}.
+
+\bibitem[\protect\citeauthoryear{Karamouzas, Mademlis, and Pitas}{Karamouzas
+  et~al.}{2022}]{karamouzas2022public}
+\textsc{Karamouzas, D., I.~Mademlis, and I.~Pitas} (2022): \enquote{Public
+  opinion monitoring through collective semantic analysis of tweets,}
+  \emph{Social Network Analysis and Mining}, 12, 91.
+
+\bibitem[\protect\citeauthoryear{Kjell, Giorgi, Schwartz, and Eichstaedt}{Kjell
+  et~al.}{2023}]{kjell2023towards}
+\textsc{Kjell, O., S.~Giorgi, H.~A. Schwartz, and J.~C. Eichstaedt} (2023):
+  \enquote{Towards well-being measurement with social media across space, time
+  and cultures: Three generations of progress,} \emph{World happiness report
+  2023}, 131--162.
+
+\bibitem[\protect\citeauthoryear{Knies}{Knies}{2026}]{knies26}
+\textsc{Knies, G.} (2026): \enquote{Beyond the Rural Happiness Paradox: Welfare
+  Regimes, Settlement Types, and Multidimensional Subjective Wellbeing in
+  Europe,} \emph{Social Indicators Research}, 183, 33.
+
+\bibitem[\protect\citeauthoryear{Leetaru, Wang, Cao, Padmanabhan, and
+  Shook}{Leetaru et~al.}{2013}]{leetaru2013mapping}
+\textsc{Leetaru, K., S.~Wang, G.~Cao, A.~Padmanabhan, and E.~Shook} (2013):
+  \enquote{Mapping the global Twitter heartbeat: The geography of Twitter,}
+  \emph{First Monday}.
+
+\bibitem[\protect\citeauthoryear{Lenzi and Perucca}{Lenzi and
+  Perucca}{2016{\natexlab{a}}}]{lenzi16B}
+\textsc{Lenzi, C. and G.~Perucca} (2016{\natexlab{a}}): \enquote{Are urbanized
+  areas source of life satisfaction? Evidence from EU regions,} \emph{Papers in
+  Regional Science}.
+
+\bibitem[\protect\citeauthoryear{Lenzi and Perucca}{Lenzi and
+  Perucca}{2016{\natexlab{b}}}]{lenzi16D}
+---\hspace{-.1pt}---\hspace{-.1pt}--- (2016{\natexlab{b}}): \enquote{The
+  Easterlin paradox and the urban-rural divide in life satisfaction: Evidence
+  from Romania,} \emph{Unpublished;
+  \url{http://www.grupposervizioambiente.it}}.
+
+\bibitem[\protect\citeauthoryear{Lenzi and Perucca}{Lenzi and
+  Perucca}{2016{\natexlab{c}}}]{lenzi16}
+---\hspace{-.1pt}---\hspace{-.1pt}--- (2016{\natexlab{c}}): \enquote{Life
+  Satisfaction across Cities: Evidence from Romania,} \emph{The Journal of
+  Development Studies}, 1--16.
+
+\bibitem[\protect\citeauthoryear{Lenzi and Perucca}{Lenzi and
+  Perucca}{2020}]{lenzi20}
+---\hspace{-.1pt}---\hspace{-.1pt}--- (2020): \enquote{Not too close, not too
+  far: Urbanisation and life satisfaction along the urban hierarchy,}
+  \emph{Urban Studies}, 0042098020962397.
+
+\bibitem[\protect\citeauthoryear{Lenzi and Perucca}{Lenzi and
+  Perucca}{2022}]{lenzi22}
+---\hspace{-.1pt}---\hspace{-.1pt}--- (2022): \enquote{No Place for Poor Men:
+  On the Asymmetric Effect of Urbanization on Life Satisfaction,} \emph{Social
+  Indicators Research}, 1--23.
+
+\bibitem[\protect\citeauthoryear{Malik, Lamba, Nakos, and Pfeffer}{Malik
+  et~al.}{2015}]{malik2015population}
+\textsc{Malik, M., H.~Lamba, C.~Nakos, and J.~Pfeffer} (2015):
+  \enquote{Population bias in geotagged tweets,} in \emph{proceedings of the
+  international AAAI conference on web and social media}, vol.~9, 18--27.
+
+\bibitem[\protect\citeauthoryear{Manson}{Manson}{2015}]{manson15}
+\textsc{Manson, M.} (2015): \emph{The subtle art of not giving a fuck}, Harper
+  One.
+
+\bibitem[\protect\citeauthoryear{Manson}{Manson}{2019}]{manson19}
+---\hspace{-.1pt}---\hspace{-.1pt}--- (2019): \emph{Everything Is F*cked: A
+  Book About Hope}.
+
+\bibitem[\protect\citeauthoryear{Michalos}{Michalos}{1980}]{michalos1980satisfaction}
+\textsc{Michalos, A.~C.} (1980): \enquote{Satisfaction and happiness,}
+  \emph{Social indicators research}, 8, 385--422.
+
+\bibitem[\protect\citeauthoryear{Mitchell, Frank, Harris, Dodds, and
+  Danforth}{Mitchell et~al.}{2013}]{mitchell13}
+\textsc{Mitchell, L., M.~R. Frank, K.~D. Harris, P.~S. Dodds, and C.~M.
+  Danforth} (2013): \enquote{The geography of happiness: Connecting twitter
+  sentiment and expression, demographics, and objective characteristics of
+  place,} \emph{PloS one}, 8, e64417.
+
+\bibitem[\protect\citeauthoryear{Nguyen, Kath, Meng, Li, Smith, VanDerslice,
+  Wen, and Li}{Nguyen et~al.}{2016}]{nguyen2016leveraging}
+\textsc{Nguyen, Q.~C., S.~Kath, H.-W. Meng, D.~Li, K.~R. Smith, J.~A.
+  VanDerslice, M.~Wen, and F.~Li} (2016): \enquote{Leveraging geotagged Twitter
+  data to examine neighborhood happiness, diet, and physical activity,}
+  \emph{Applied Geography}, 73, 77--88.
+
+\bibitem[\protect\citeauthoryear{Okulicz-Kozaryn}{Okulicz-Kozaryn}{2023}]{swbUrbRurPsid21}
+\textsc{Okulicz-Kozaryn, A.} (2023): \enquote{Unhappy metros: Panel evidence,}
+  \emph{Applied Research in Quality of Life}, 18, 753--763.
+
+\bibitem[\protect\citeauthoryear{Okulicz-Kozaryn}{Okulicz-Kozaryn}{2024}]{aok24swls}
+---\hspace{-.1pt}---\hspace{-.1pt}--- (2024): \enquote{Urban regrets (Unhappy
+  metros: Satisfaction with life scale (SWLS)),} \emph{Heliyon}, 10.
+
+\bibitem[\protect\citeauthoryear{Okulicz-Kozaryn, Everett, and
+  Mikhaeil}{Okulicz-Kozaryn et~al.}{2024}]{growShrink25}
+\textsc{Okulicz-Kozaryn, A., B.~K. Everett, and E.~Mikhaeil} (2024):
+  \enquote{Happiness is In The air if it grows growing places are happier than
+  shrinking ones,} \emph{Urban Affairs Review}, 60, 1594--1613.
+
+\bibitem[\protect\citeauthoryear{Okulicz-Kozaryn and Mazelis}{Okulicz-Kozaryn
+  and Mazelis}{2018}]{aok_brfss_city_cize16}
+\textsc{Okulicz-Kozaryn, A. and J.~M. Mazelis} (2018): \enquote{Urbanism and
+  Happiness: A Test of Wirth's Theory on Urban Life,} \emph{Urban Studies}, 55,
+  349--364.
+
+\bibitem[\protect\citeauthoryear{Okulicz-Kozaryn and Valente}{Okulicz-Kozaryn
+  and Valente}{2020}]{aok20}
+\textsc{Okulicz-Kozaryn, A. and R.~Valente} (2020): \enquote{The perennial
+  dissatisfaction of urban upbringing,} \emph{Cities}, 104, 102751.
+
+\bibitem[\protect\citeauthoryear{Okulicz-Kozaryn and Valente}{Okulicz-Kozaryn
+  and Valente}{2021}]{aok21}
+\textsc{Okulicz-Kozaryn, A. and R.~R. Valente} (2021): \enquote{Urban
+  unhappiness is common,} \emph{Cities}, 118, 103368.
+
+\bibitem[\protect\citeauthoryear{Park, Kim, and Seong}{Park
+  et~al.}{2021}]{park2021happy}
+\textsc{Park, Y., M.~Kim, and K.~Seong} (2021): \enquote{Happy neighborhoods:
+  Investigating neighborhood conditions and sentiments of a shrinking city with
+  Twitter data,} \emph{Growth and change}, 52, 539--566.
+
+\bibitem[\protect\citeauthoryear{Pleeging, Burger, and van Exel}{Pleeging
+  et~al.}{2021}]{pleeging21}
+\textsc{Pleeging, E., M.~Burger, and J.~van Exel} (2021): \enquote{The
+  relations between hope and subjective well-being: A literature overview and
+  empirical analysis,} \emph{Applied Research in Quality of Life}, 16,
+  1019--1041.
+
+\bibitem[\protect\citeauthoryear{Plunz, Zhou, Vintimilla, Mckeown, Yu,
+  Uguccioni, and Sutto}{Plunz et~al.}{2019}]{plunz2019twitter}
+\textsc{Plunz, R.~A., Y.~Zhou, M.~I.~C. Vintimilla, K.~Mckeown, T.~Yu,
+  L.~Uguccioni, and M.~P. Sutto} (2019): \enquote{Twitter sentiment in New York
+  City parks as measure of well-being,} \emph{Landscape and urban planning},
+  189, 235--246.
+
+\bibitem[\protect\citeauthoryear{Ryff}{Ryff}{1989}]{ryff89}
+\textsc{Ryff, C.~D.} (1989): \enquote{Happiness is everything, or is it?
+  Explorations on the meaning of psychological well-being.} \emph{Journal of
+  personality and social psychology}, 57, 1069.
+
+\bibitem[\protect\citeauthoryear{Ryff}{Ryff}{2014}]{ryff14}
+---\hspace{-.1pt}---\hspace{-.1pt}--- (2014): \enquote{Psychological well-being
+  revisited: Advances in the science and practice of eudaimonia,}
+  \emph{Psychotherapy and psychosomatics}, 83, 10--28.
+
+\bibitem[\protect\citeauthoryear{Ryff and Singer}{Ryff and
+  Singer}{2008}]{ryff08}
+\textsc{Ryff, C.~D. and B.~H. Singer} (2008): \enquote{Know thyself and become
+  what you are: A eudaimonic approach to psychological well-being,}
+  \emph{Journal of Happiness Studies}, 9, 13--39.
+
+\bibitem[\protect\citeauthoryear{Shah, Javed, Iqbal, and Bibi}{Shah
+  et~al.}{2026}]{shah2026impact}
+\textsc{Shah, M., J.~Javed, W.~Iqbal, and S.~A. Bibi} (2026): \enquote{The
+  Impact of Optimism on Life Satisfaction, Psychological Well-being, and
+  Happiness: The Mediating Role of Resilience,} \emph{Policy Journal of Social
+  Science Review}, 4, 857--871.
+
+\bibitem[\protect\citeauthoryear{Song and Zhao}{Song and
+  Zhao}{2023}]{song2023predicting}
+\textsc{Song, M. and N.~Zhao} (2023): \enquote{Predicting life satisfaction
+  based on the emotion words in self-statement texts,} \emph{Frontiers in
+  psychiatry}, 14, 1121915.
+
+\bibitem[\protect\citeauthoryear{S{\o}rensen}{S{\o}rensen}{2014}]{sorensen14}
+\textsc{S{\o}rensen, J.~F.} (2014): \enquote{Rural--urban differences in life
+  satisfaction: Evidence from the European Union,} \emph{Regional Studies}, 48,
+  1451--1466.
+
+\bibitem[\protect\citeauthoryear{S{\o}rensen}{S{\o}rensen}{2024}]{sorensen24}
+\textsc{S{\o}rensen, J. F.~L.} (2024): \enquote{Why are City Residents Less
+  Happy than the Rest of the Population in Developed Countries? Studying the
+  Urban-Rural Happiness Gap in Denmark Using Blinder-Oaxaca Decomposition,}
+  \emph{Applied Research in Quality of Life}, 1--20.
+
+\bibitem[\protect\citeauthoryear{Tan and Guan}{Tan and
+  Guan}{2021}]{tan2021people}
+\textsc{Tan, M.~J. and C.~Guan} (2021): \enquote{Are people happier in
+  locations of high property value? Spatial temporal analytics of activity
+  frequency, public sentiment and housing price using twitter data,}
+  \emph{Applied Geography}, 132, 102474.
+
+\bibitem[\protect\citeauthoryear{Weckroth, Ala-Mantila, Ballas, Ziogas, and
+  Ikonen}{Weckroth et~al.}{2022}]{weckroth22}
+\textsc{Weckroth, M., S.~Ala-Mantila, D.~Ballas, T.~Ziogas, and J.~Ikonen}
+  (2022): \enquote{Urbanity, Neighbourhood Characteristics and Perceived
+  Quality of Life (QoL): Analysis of Individual and Contextual Determinants for
+  Perceived QoL in 3300 Postal Code Areas in Finland,} \emph{Social Indicators
+  Research}, 1--26.
+
+\bibitem[\protect\citeauthoryear{Winters, Li et~al.}{Winters
+  et~al.}{2015}]{winters15}
+\textsc{Winters, J.~V., Y.~Li, et~al.} (2015): \enquote{Urbanization, Natural
+  Amenities, and Subjective Well-Being: Evidence from US Counties,} Tech. rep.,
+  Institute for the Study of Labor (IZA).
+
+\bibitem[\protect\citeauthoryear{Zika and Chamberlain}{Zika and
+  Chamberlain}{1992}]{zika92}
+\textsc{Zika, S. and K.~Chamberlain} (1992): \enquote{On the relation between
+  meaning in life and psychological well-being,} \emph{British Journal of
+  Psychology}, 83, 133--145.
+
+\bibitem[\protect\citeauthoryear{Ziogas, Ballas, Koster, and Edzes}{Ziogas
+  et~al.}{2020}]{ziogas20}
+\textsc{Ziogas, T., D.~Ballas, S.~Koster, and A.~Edzes} (2020): \enquote{How
+  happy are my neighbours? Modelling spatial spillover effects of well-being,}
+  \emph{arXiv preprint arXiv:2007.11580}.
+
+\bibitem[\protect\citeauthoryear{Ziogas, Ballas, Koster, and Edzes}{Ziogas
+  et~al.}{2023}]{ziogas23}
+---\hspace{-.1pt}---\hspace{-.1pt}--- (2023): \enquote{Happiness, Space and
+  Place: Community Area Clustering and Spillovers of Life Satisfaction in
+  Canada,} \emph{Applied Research in Quality of Life}, 1--44.
+
+\end{thebibliography}
 
 \newpage
 
@@ -861,7 +1227,40 @@ least as important, and it is striking that we know nothing about its geography.
 % select stuff to paper--have brief narrative describng patterns in online app too
 % !!!
 
+\subsection{Descriptive Statistics}
+
+Full descriptive statistics including each indicator's value, standar error,
+salience, number of tweets, and number of valid tweets by county and state is 
+\url{https://raw.githubusercontent.com/theaok/hfgi/refs/heads/main/desSta.csv}.  
+
+\downloadimage{https://raw.githubusercontent.com/theaok/hfgi/refs/heads/main/d.png}{d.png}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[height=2.5in]{d.png}
+  \caption{\label{d} Short descriptive statistics.}
+\end{figure}
+
 \subsection{Additional results}
+
+\downloadimage{https://raw.githubusercontent.com/theaok/hfgi/refs/heads/main/aB.png}{aB.png}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[height=2in]{aB.png}
+  \caption{\label{aB} Energy/vitality index and its dimensions.}
+\end{figure}
+
+
+\downloadimage{https://raw.githubusercontent.com/theaok/hfgi/refs/heads/main/bB.png}{bB.png}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[height=2in]{bB.png}
+  \caption{\label{bB} Happiness index and its dimensions. }
+\end{figure}
+
+
+\newpage
+\subsection{Additional results (without dropping $<=$2012)} %original results
+                                %before smi rec dropping
 
 % %!!!first time need to run pdflatex --shell-escape hfgi.tex
 \downloadimage{https://raw.githubusercontent.com/theaok/hfgi/refs/heads/main/eneIf.pdf}{eneIf.pdf}
